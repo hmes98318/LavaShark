@@ -2,12 +2,13 @@ import { IncomingMessage } from 'http';
 import WebSocket, { CloseEvent, ErrorEvent, MessageEvent } from 'ws';
 
 import { LavaShark } from './LavaShark';
-import Player, { ConnectionState }  from './Player';
+import Player, { ConnectionState } from './Player';
 import { RESTManager } from './rest/RESTManager';
 import { LAVALINK_API_VERSION } from './rest/Endpoints';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 
 import type {
+    Info,
     NodeOptions,
     NodeStats,
     PlayerEventPayload,
@@ -17,8 +18,8 @@ import type {
     TrackExceptionEvent,
     TrackStartEvent,
     TrackStuckEvent,
-    Versions,
-    WebSocketClosedEvent
+    WebSocketClosedEvent,
+    version
 } from '../@types';
 import { VERSION } from "../index";
 
@@ -45,26 +46,51 @@ export default class Node {
     public state: NodeState;
     public stats: NodeStats;
 
-    /** Version object for the node (undefined if lavalink does not support) */
-    declare public versions?: Versions;
+    declare public version?: version;
 
     static checkOptions(options: NodeOptions) {
-        if (typeof options !== 'object') throw new TypeError('NodeOptions must be an object');
+        if (typeof options !== 'object') {
+            throw new TypeError('NodeOptions must be an object');
+        }
 
-        if (!options.hostname) throw new TypeError('NodeOptions.hostname is required');
-        if (!options.port) throw new TypeError('NodeOptions.port is required');
+        if (!options.hostname) {
+            throw new TypeError('NodeOptions.hostname is required');
+        }
+        if (!options.port) {
+            throw new TypeError('NodeOptions.port is required');
+        }
 
-        if (typeof options.hostname !== 'string') throw new TypeError('NodeOptions.hostname must be a string');
-        if (typeof options.port !== 'number') throw new TypeError('NodeOptions.port must be a number');
+        if (typeof options.hostname !== 'string') {
+            throw new TypeError('NodeOptions.hostname must be a string');
+        }
+        if (typeof options.port !== 'number') {
+            throw new TypeError('NodeOptions.port must be a number');
+        }
 
-        if (options.id && typeof options.id !== 'string') throw new TypeError('NodeOptions.id must be a string');
-        if (options.password && typeof options.password !== 'string') throw new TypeError('NodeOptions.password must be a string');
-        if (options.resumeKey && typeof options.resumeKey !== 'string') throw new TypeError('NodeOptions.resumeKey must be a string');
-        if (options.resumeTimeout && typeof options.resumeTimeout !== 'number') throw new TypeError('NodeOptions.resumeTimeout must be a number');
-        if (options.secure && typeof options.secure !== 'boolean') throw new TypeError('NodeOptions.secure must be a boolean');
-        if (options.followRedirects && typeof options.followRedirects !== 'boolean') throw new TypeError('NodeOptions.followRedirects must be a boolean');
-        if (options.maxRetryAttempts && typeof options.maxRetryAttempts !== 'number') throw new TypeError('NodeOptions.maxRetryAttempts must be a number');
-        if (options.retryAttemptsInterval && typeof options.retryAttemptsInterval !== 'number') throw new TypeError('NodeOptions.retryAttemptsInterval must be a number');
+        if (options.id && typeof options.id !== 'string') {
+            throw new TypeError('NodeOptions.id must be a string');
+        }
+        if (options.password && typeof options.password !== 'string') {
+            throw new TypeError('NodeOptions.password must be a string');
+        }
+        if (options.resumeKey && typeof options.resumeKey !== 'string') {
+            throw new TypeError('NodeOptions.resumeKey must be a string');
+        }
+        if (options.resumeTimeout && typeof options.resumeTimeout !== 'number') {
+            throw new TypeError('NodeOptions.resumeTimeout must be a number');
+        }
+        if (options.secure && typeof options.secure !== 'boolean') {
+            throw new TypeError('NodeOptions.secure must be a boolean');
+        }
+        if (options.followRedirects && typeof options.followRedirects !== 'boolean') {
+            throw new TypeError('NodeOptions.followRedirects must be a boolean');
+        }
+        if (options.maxRetryAttempts && typeof options.maxRetryAttempts !== 'number') {
+            throw new TypeError('NodeOptions.maxRetryAttempts must be a number');
+        }
+        if (options.retryAttemptsInterval && typeof options.retryAttemptsInterval !== 'number') {
+            throw new TypeError('NodeOptions.retryAttemptsInterval must be a number');
+        }
     }
 
     /**
@@ -182,18 +208,21 @@ export default class Node {
         this.ws.close(1000, 'LavaShark: disconnect');
     }
 
-    /** Fetches versions from lavalink Node */
-    private async fetchVersions(): Promise<void> {
-        const versions = await this.rest.versions();
-
-        if (versions.BUILD) this.versions = versions;
-    }
-
-    public async getVersion(): Promise<any> {
-        const version = await this.rest.version();
+    /**
+     * Get the Lavalink Node version
+     * @returns {Promise<version>}
+     */
+    public async getVersion(): Promise<version> {
+        const version = (await this.rest.version()).toString();
+        this.version = version;
         return version;
     }
-    public async getInfo(): Promise<any> {
+
+    /**
+     * Get the Lavalink Node information
+     * @returns {Promise<Info>}
+     */
+    public async getInfo(): Promise<Info> {
         const info = await this.rest.info();
         return info;
     }
@@ -219,47 +248,6 @@ export default class Node {
      */
     public unmarkAllFailedAddress() {
         return this.rest.freeAllRoutePlannerAddresses();
-    }
-
-    /**
-     * Gets the node ws connection latency or the latency between discord gateway & lavalink if guildId param provided.
-     * @param {String} [guildId]
-     * @returns {Promise<Number>}
-     */
-    // Use this lavalink .jar in order to use this function https://github.com/davidffa/lavalink/releases
-    public ping(guildId?: string): Promise<number> {
-        return new Promise((resolve, reject) => {
-            if (this.state !== NodeState.CONNECTED) resolve(Infinity);
-
-            const t1 = Date.now();
-
-            const rejectTimeout = setTimeout(() => {
-                reject(new Error('Lavalink Node took more than 2 seconds to respond.\nDo your Lavalink Node supports ping op?'));
-            }, 2000);
-
-            const pong = (node: Node, ping?: number) => {
-                if (node !== this) return;
-                resolve(ping ?? (Date.now() - t1));
-                this.lavashark.removeListener('pong', pong);
-                clearTimeout(rejectTimeout);
-            };
-
-            this.lavashark.on('pong', pong);
-            this.send({ op: 'ping', guildId });
-        });
-    }
-
-    public send(payload: Record<string, unknown>) {
-        if (this.state !== NodeState.CONNECTED || this.ws?.readyState !== WebSocket.OPEN) {
-            const stringifiedPacket = JSON.stringify(payload);
-
-            this.lavashark.emit('warn', this, `Node is not connected. Queueing packet: ${stringifiedPacket}`);
-
-            this.packetQueue.push(stringifiedPacket);
-            return;
-        }
-
-        this.ws.send(JSON.stringify(payload));
     }
 
     private async pollTrack(player: Player) {
@@ -503,12 +491,6 @@ export default class Node {
     private upgrade(msg: IncomingMessage) {
         if (msg.headers['session-resumed'] === 'true') {
             this.lavashark.emit('nodeResume', this);
-        }
-
-        if (this.versions) return;
-
-        if (msg.headers['lavalink-version'] === 'davidffa/lavalink') {
-            this.fetchVersions();
         }
     }
 }

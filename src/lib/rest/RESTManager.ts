@@ -10,7 +10,6 @@ import {
     ROUTE_PLANNER_FREE_ALL,
     ROUTE_PLANNER_FREE_ADDR,
     VERSION,
-    VERSIONS,
     INFO
 } from './Endpoints';
 
@@ -23,7 +22,6 @@ import {
     RoutePlannerStatus,
     TrackInfo,
     UpdatePlayerOptions,
-    Versions
 } from '../../@types';
 
 
@@ -125,17 +123,10 @@ export class RESTManager {
         });
     }
 
-    public async version(): Promise<string> {
+    public async version(): Promise<Buffer> {
         return this.request({
             method: 'GET',
             path: VERSION(),
-        });
-    }
-
-    public async versions(): Promise<Versions> {
-        return this.request({
-            method: 'GET',
-            path: VERSIONS(),
         });
     }
 
