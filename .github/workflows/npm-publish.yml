@@ -17,8 +17,8 @@ jobs:
           node-version: 18
       - run: npm i typescript@4.9.5 -g
       - run: npm ci
-      - run: npm build
-      - run: npm test
+      - run: npm run build
+      - run: npm run test
 
   publish-npm:
     needs: build
@@ -31,7 +31,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm i typescript@4.9.5 -g
       - run: npm ci
-      - run: npm build
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
