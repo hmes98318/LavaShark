@@ -39,11 +39,19 @@ export type VoiceServerUpdatePayload = IncomingDiscordPayload & {
     d: VoiceServerUpdateData;
 };
 
+type SpotifyConfig = {
+    clientId: string;
+    clientSecret: string;
+    market?: string;
+}
+
 export type Metadata = Pick<TrackInfo, 'title' | 'author' | 'uri'> & {
     duration: number;
     source: string;
     isrc?: string;
 };
+
+type UNRESOLVED_SOURCES = 'APPLE_MUSIC' | 'DEEZER' | 'SPOTIFY';
 
 /** Main constructor options */
 export type LavaSharkOptions = {
@@ -55,6 +63,10 @@ export type LavaSharkOptions = {
     defaultSearchSource?: SEARCH_SOURCE;
     /** The default source to search for unresolved tracks */
     unresolvedSearchSource?: SEARCH_SOURCE;
+    /** The spotify credentials */
+    spotify?: SpotifyConfig;
+    /** Disables spotify, apple music or deezer */
+    disabledSources?: UNRESOLVED_SOURCES[];
     /** Whether to search for ISRC to resolve tracks or not */
     useISRC?: boolean;
 };
@@ -240,7 +252,7 @@ type RoutePlannerDetails = {
 /** Lavalink version */
 export type version = string;
 
-/** Info struct (original lavalink) */
+/** Lavalink Info */
 export type Info = {
     version: {
         semver: string;

@@ -4,6 +4,11 @@ import Node, { NodeState } from './Node';
 import Player, { ConnectionState } from './Player';
 import Track from './queue/Track';
 
+import { AbstractExternalSource } from './sources/AbstractExternalSource';
+import AppleMusic from './sources/AppleMusic';
+import Deezer from './sources/Deezer';
+import Spotify from './sources/Spotify';
+
 import type {
     IncomingDiscordPayload,
     OutgoingDiscordPayload,
@@ -29,6 +34,8 @@ export class LavaShark extends EventEmitter {
     private readonly defaultSearchSource: SEARCH_SOURCE;
     public readonly unresolvedSearchSource: SEARCH_SOURCE;
     public readonly useISRC: boolean;
+
+    private externalSources: AbstractExternalSource[];
 
     // <guildId, Player> 
     public players: Map<string, Player>;
@@ -69,6 +76,10 @@ export class LavaShark extends EventEmitter {
             throw new TypeError('LavaSharkOptions.sendWS must be a function');
         }
 
+        if (options.disabledSources && typeof options.disabledSources !== 'object' && !Array.isArray(options.disabledSources)) {
+            throw new TypeError('LavaSharkOptions.disabledSources must be an array');
+        }
+
         if (options.useISRC && typeof options.useISRC !== 'boolean') {
             throw new TypeError('LavaSharkOptions.useISRC must be a boolean');
         }
@@ -90,6 +101,13 @@ export class LavaShark extends EventEmitter {
      * @param {Number} [options.nodes[].retryAttemptsInterval] - The interval between retry attempts
      * @param {String} [options.defaultSearchSource] - The default search source
      * @param {String} [options.unresolvedSearchSource] - The unresolved search source
+     * 
+     * @param {Object} [options.spotify] - The spotify credential options
+     * @param {String} [options.spotify.clientId] - The spotify client id
+     * @param {String} [options.spotify.clientSecret] - The spotify client secret
+     * @param {String} [options.spotify.market] - The spotify market
+     * 
+     * @param {String[]} [options.disabledSources] - Disables, apple music, deezer or spotify
      * @param {Boolean} [options.useISRC] - Whether to use ISRC to resolve tracks or not
      * @param {Function} options.sendWS - The function to send websocket messages to the main gateway
      */
@@ -102,6 +120,21 @@ export class LavaShark extends EventEmitter {
         this.defaultSearchSource = options.defaultSearchSource ?? 'youtube';
         this.unresolvedSearchSource = options.unresolvedSearchSource ?? 'youtube';
         this.useISRC = options.useISRC ?? true;
+
+        this.externalSources = [];
+
+        if (options.disabledSources) {
+            if (!options.disabledSources.includes('SPOTIFY')) this.externalSources.push(new Spotify(this, options.spotify?.clientId, options.spotify?.clientSecret, options.spotify?.market));
+            if (!options.disabledSources.includes('APPLE_MUSIC')) this.externalSources.push(new AppleMusic(this));
+            if (!options.disabledSources.includes('DEEZER')) this.externalSources.push(new Deezer(this));
+        }
+        else {
+            this.externalSources = [
+                new Spotify(this, options.spotify?.clientId, options.spotify?.clientSecret, options.spotify?.market),
+                new AppleMusic(this),
+                new Deezer(this)
+            ];
+        }
 
         this.sendWS = options.sendWS;
 
@@ -134,6 +167,18 @@ export class LavaShark extends EventEmitter {
         }
 
         return node;
+    }
+
+    /**
+     * Adds an external source that produces a SearchResult with UnresolvedTracks
+     * @param {AbstractExternalSource} extSource - The external source
+     */
+    public addExternalSource(extSource: AbstractExternalSource) {
+        if (extSource instanceof AbstractExternalSource) {
+            throw new Error(`${extSource.constructor.name} must extend AbstractExternalSource`);
+        }
+
+        this.externalSources.push(extSource);
     }
 
     /**
@@ -211,6 +256,12 @@ export class LavaShark extends EventEmitter {
     public async search(query: string, source: SEARCH_SOURCE = this.defaultSearchSource): Promise<SearchResult> {
         if (typeof query !== 'string') {
             throw new TypeError('Search query must be a non-empty string');
+        }
+
+        for (const source of this.externalSources) {
+            const loadRes = await source.loadItem(query);
+
+            if (loadRes) return loadRes;
         }
 
         const sourceMap = {

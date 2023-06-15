@@ -278,18 +278,22 @@ export default class Node {
         if (!player || player.node !== this) return;
 
         switch (type) {
-            case 'start':
+            case 'start': {
                 this.lavashark.emit('speakingStart', player, userId);
                 break;
-            case 'stop':
+            }
+            case 'stop': {
                 this.lavashark.emit('speakingStop', player, userId);
                 break;
-            case 'disconnected':
+            }
+            case 'disconnected': {
                 this.lavashark.emit('userDisconnect', player, userId);
                 break;
-            default:
+            }
+            default: {
                 this.lavashark.emit('warn', this, `Unhandled speaking event. Unknown event type: ${type}`);
                 break;
+            }
         }
     }
 
@@ -299,24 +303,30 @@ export default class Node {
         if (!player || player.node !== this) return;
 
         switch (e.type) {
-            case 'TrackStartEvent':
+            case 'TrackStartEvent': {
                 this.handleTrackStart(e as TrackStartEvent, player);
                 break;
-            case 'TrackEndEvent':
+            }
+            case 'TrackEndEvent': {
                 this.handleTrackEnd(e as TrackEndEvent, player);
                 break;
-            case 'TrackStuckEvent':
+            }
+            case 'TrackStuckEvent': {
                 this.handleTrackStuck(e as TrackStuckEvent, player);
                 break;
-            case 'TrackExceptionEvent':
+            }
+            case 'TrackExceptionEvent': {
                 this.handleTrackException(e as TrackExceptionEvent, player);
                 break;
-            case 'WebSocketClosedEvent':
+            }
+            case 'WebSocketClosedEvent': {
                 this.handleWSClose(e as WebSocketClosedEvent, player);
                 break;
-            default:
+            }
+            default: {
                 this.lavashark.emit('warn', this, `Unhandled player event. Unknown event type: ${e.type}`);
                 break;
+            }
         }
     }
 
@@ -332,10 +342,10 @@ export default class Node {
         this.lavashark.emit('trackStart', player, player.current);
     }
 
-    private async handleTrackEnd(ev: TrackEndEvent, player: Player) {
+    private handleTrackEnd(ev: TrackEndEvent, player: Player) {
         if (ev.reason === 'REPLACED') {
             if (player.queueRepeat && player.current) {
-                await player.queue.add(player.current);
+                player.queue.add(player.current);
             }
             return;
         }
@@ -357,7 +367,7 @@ export default class Node {
         }
 
         if (player.queueRepeat && player.current) {
-            await player.queue.add(player.current);
+            player.queue.add(player.current);
         }
 
         this.pollTrack(player);
@@ -408,7 +418,7 @@ export default class Node {
         const payload = JSON.parse(data as string);
 
         switch (payload.op) {
-            case 'ready':
+            case 'ready': {
                 if (this.rest) {
                     this.rest.sessionId = payload.sessionId;
                 }
@@ -416,30 +426,38 @@ export default class Node {
                 if (!payload.resumed && this.options.resumeKey) {
                     this.rest.updateSession(this.options.resumeKey, this.options.resumeTimeout ?? 60);
                 }
-                { break; }
-            case 'stats':
+                break;
+            }
+            case 'stats': {
                 delete payload.op;
                 this.stats = payload as NodeStats;
                 this.calcPenalties();
                 break;
-            case 'pong':
+            }
+            case 'pong': {
                 this.lavashark.emit('pong', this, payload.ping);
                 break;
-            case 'playerUpdate':
+            }
+            case 'playerUpdate': {
                 this.lavashark.players.get(payload.guildId)?.update(payload.state);
                 break;
-            case 'event':
+            }
+            case 'event': {
                 this.handlePlayerEvent(payload);
                 break;
-            case 'speakingEvent':
+            }
+            case 'speakingEvent': {
                 this.handleSpeakingEvent(payload);
                 break;
-            case 'recordFinished':
+            }
+            case 'recordFinished': {
                 this.lavashark.emit('recordFinished', this, payload.guildId, payload.id);
                 break;
-            default:
+            }
+            default: {
                 this.lavashark.emit('warn', this, 'Unknown payload op: ' + payload.op);
                 break;
+            }
         }
 
         this.lavashark.emit('raw', this, payload);
