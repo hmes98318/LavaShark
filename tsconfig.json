@@ -15,6 +15,7 @@
         "allowJs": false,
         "checkJs": false,
         "declaration": true,
+        "declarationDir": "./typings",
         "noEmit": false,
         "isolatedModules": true,
         "esModuleInterop": true,
