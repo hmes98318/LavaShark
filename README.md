@@ -1,6 +1,6 @@
 # LavaShark
 
-A lightweight Node.js client built around the Lavalink node and utilizes REST API.  
+A lightweight Node.js client built around the Lavalink node.  
 
 ### Features
 * Stable  
