@@ -1,4 +1,4 @@
-# LavaShark
+<img height="150" alt="logo" src="public/imgs/big-logo.svg">  
 
 A lightweight Node.js client built around the Lavalink node.  
 
@@ -16,15 +16,13 @@ A lightweight Node.js client built around the Lavalink node.
 Node.js 16 or newer is required.  
 * you need to download the Lavalink node ([lavalink-devs/Lavalink](https://github.com/lavalink-devs/Lavalink)) and run it, or use other public nodes.
 ```sh
-npm install lavashark
+$ npm install lavashark
+# or
+$ yarn add lavashark
 ```
 
 
 ## Documentation
 
-You can find the documentation [here](https://hmes98318.github.io/LavaShark/).
-
-
-
-
+You can find the documentation [**here**](https://hmes98318.gitbook.io/lavashark/).
 
