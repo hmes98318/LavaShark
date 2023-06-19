@@ -1,0 +1,35 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+    .heroBanner {
+        padding: 2rem;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button--secondary {
+    /* 其他樣式設定 */
+
+    /* 添加背景淡化半透明效果 */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.copyIconContainer {
+    margin-left: 10px;
+}
