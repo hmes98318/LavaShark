@@ -9,7 +9,9 @@ Initializing the LavaShark and discord.js library
 ```js
 const { Client, GatewayIntentBits } = require('discord.js');
 const { LavaShark } = require('lavashark');
-const TOKEN = 'your_discord_token';
+
+const TOKEN = 'your_token'; // Discord bot token
+const prefix = '-';         // Command prefix
 
 
 const client = new Client({
