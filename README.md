@@ -24,5 +24,5 @@ $ yarn add lavashark
 
 ## Documentation
 
-You can find the documentation [**here**](https://hmes98318.gitbook.io/lavashark/).
+You can find the documentation [**here**](https://hmes98318.github.io/LavaShark/).
 
