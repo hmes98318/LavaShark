@@ -1,0 +1,16 @@
+{
+    "entryPoints": [
+        "src/index.ts",
+        "src/@types/index.ts"
+    ],
+    "out": "docs",
+    "includes": "src/",
+    "readme": "README.md",
+    "excludePrivate": true,
+    "excludeExternals": true,
+    "excludeInternal": true,
+    "commentStyle": "all",
+    "plugin": "typedoc-plugin-markdown",
+    "theme": "default",
+    "includeVersion": true
+}
