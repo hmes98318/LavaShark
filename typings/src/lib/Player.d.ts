@@ -81,7 +81,7 @@ export default class Player {
      * Gets the latency between lavalink client & node
      * @returns {Promise<Number>} - In milliseconds
      */
-    ping(): Promise<Number>;
+    ping(): Promise<number>;
     /**
      * Plays a track
      * @param {Object} [options] - Play options
