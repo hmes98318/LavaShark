@@ -92,8 +92,8 @@ export default class Spotify extends AbstractExternalSource {
         const spotifyMatch = query.match(Spotify.SPOTIFY_REGEX);
 
         if (!spotifyMatch || !spotifyMatch.groups) {
-            return null
-        };
+            return null;
+        }
 
         switch (spotifyMatch.groups['type']) {
             case 'track': {

@@ -92,8 +92,8 @@ export default class AppleMusic extends AbstractExternalSource {
         const appleMusicMatch = query.match(AppleMusic.APPLE_MUSIC_REGEX);
 
         if (!appleMusicMatch || !appleMusicMatch.groups) {
-            return null
-        };
+            return null;
+        }
 
         const storefront = appleMusicMatch.groups['storefront'];
 

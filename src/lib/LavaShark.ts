@@ -368,9 +368,9 @@ export class LavaShark extends EventEmitter {
      * Get the ping for all nodes
      * @returns {Promise<Number[]>} - All node latency, in milliseconds
      */
-    public async nodesPing(): Promise<Number[]> {
+    public async nodesPing(): Promise<number[]> {
         const nodes = this.nodes;
-        const pingList: Number[] = [];
+        const pingList: number[] = [];
 
         for (const node of nodes) {
             if (node.state !== NodeState.CONNECTED) {

@@ -256,7 +256,7 @@ export default class Player {
      * Gets the latency between lavalink client & node
      * @returns {Promise<Number>} - In milliseconds
      */
-    public async ping(): Promise<Number> {
+    public async ping(): Promise<number> {
         if (this.node === null || this.state !== ConnectionState.CONNECTED) return -1;
 
         try {
@@ -401,7 +401,7 @@ export default class Player {
      * Skips the current playing track
      * @param {Number} [amount=1] - The amount of tracks to skip
      */
-    public async skip(amount: number = 1) {
+    public async skip(amount = 1) {
         if (!this.playing) return false;
 
         if (amount > this.queue.size) {
@@ -418,7 +418,7 @@ export default class Player {
 
             return true;
         } catch (_) {
-            return false
+            return false;
         }
     }
 
@@ -426,7 +426,7 @@ export default class Player {
      * Pause or unpause the player
      * @param {Boolean} [state=true] - Whether to pause or unpause the player
      */
-    public async pause(state: boolean = true) {
+    public async pause(state = true) {
         if (typeof state !== 'boolean') {
             throw new TypeError('State must be a boolean');
         }
