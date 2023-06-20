@@ -11,6 +11,7 @@
     "scripts": {
         "build": "tsc",
         "test": "npm run build",
+        "lint": "eslint . --ext .ts --color",
         "docs": "typedoc --json docs/typedoc.json --options typedoc-config.json"
     },
     "repository": {
@@ -30,6 +31,9 @@
     },
     "devDependencies": {
         "@types/ws": "^8.5.5",
+        "@typescript-eslint/eslint-plugin": "^5.60.0",
+        "@typescript-eslint/parser": "^5.60.0",
+        "eslint": "^8.43.0",
         "ts-node": "^10.9.1",
         "typedoc": "^0.24.8",
         "typedoc-plugin-markdown": "^3.15.3",
