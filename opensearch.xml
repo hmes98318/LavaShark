@@ -4,8 +4,8 @@
   <ShortName>LavaShark</ShortName>
   <Description>Search LavaShark</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://hmes98318.github.io/LavaShark/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://hmes98318.github.io/LavaShark/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://hmes98318.github.io/LavaShark/opensearch.xml" />
-  <moz:SearchForm>https://hmes98318.github.io/LavaShark/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://lavashark.js.org/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://lavashark.js.org/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://lavashark.js.org/opensearch.xml" />
+  <moz:SearchForm>https://lavashark.js.org/</moz:SearchForm>
 </OpenSearchDescription>
