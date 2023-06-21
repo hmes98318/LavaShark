@@ -23,7 +23,7 @@
     "bugs": {
         "url": "https://github.com/hmes98318/LavaShark/issues"
     },
-    "homepage": "https://github.com/hmes98318/LavaShark#readme",
+    "homepage": "https://lavashark.js.org",
     "dependencies": {
         "discord.js": "^14.11.0",
         "undici": "^5.22.1",
