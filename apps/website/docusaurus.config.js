@@ -11,10 +11,10 @@ const config = {
     favicon: 'img/favicon.ico',
 
     // Set the production url of your site here
-    url: 'https://hmes98318.github.io',
+    url: 'https://lavashark.js.org',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: '/LavaShark',
+    baseUrl: '/',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -74,7 +74,7 @@ const config = {
                 appId: '7V7AV8Y672',
             },
             // Replace with your project's social card
-            image: 'img/bear-react-carousel-card.webp',
+            image: 'img/social-card.webp',
             navbar: {
                 title: 'LavaShark',
                 logo: {
