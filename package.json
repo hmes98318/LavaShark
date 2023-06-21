@@ -1,7 +1,7 @@
 {
     "name": "lavashark",
     "version": "1.0.0-beta.3",
-    "description": "A Light-weight lavalink client around node.js",
+    "description": "A lightweight Node.js client built around the Lavalink node",
     "main": "dist/src/index.js",
     "types": "typings/src/index.d.ts",
     "files": [
