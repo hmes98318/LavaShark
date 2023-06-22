@@ -9,6 +9,11 @@ export declare enum ConnectionState {
     CONNECTED = 1,
     DISCONNECTED = 2
 }
+export declare enum RepeatMode {
+    OFF = 0,
+    TRACK = 1,
+    QUEUE = 2
+}
 export default class Player {
     private readonly lavashark;
     node: Node | null;
@@ -106,15 +111,10 @@ export default class Player {
      */
     setSelfMute(state: boolean): void;
     /**
-     * Sets the track looping
-     * @param {Boolean} state - Whether to enable track looping or not
+     * Set repeat mode for this queue
+     * @param {RepeatMode} mode - The repeat mode to apply
      */
-    setTrackLoop(state: boolean): void;
-    /**
-     * Sets the queue looping
-     * @param {Boolean} state - Whether to enable queue looping or not
-     */
-    setQueueLoop(state: boolean): void;
+    setRepeatMode(mode: RepeatMode): void;
     /**
      * Sets the player voice channel
      * @param {String} channelId - The voice channel id

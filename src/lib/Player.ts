@@ -19,6 +19,12 @@ export enum ConnectionState {
     DISCONNECTED
 }
 
+export enum RepeatMode {
+    OFF,
+    TRACK,
+    QUEUE
+}
+
 export default class Player {
     private readonly lavashark: LavaShark;
     public node: Node | null;
@@ -358,19 +364,30 @@ export default class Player {
     }
 
     /**
-     * Sets the track looping
-     * @param {Boolean} state - Whether to enable track looping or not
+     * Set repeat mode for this queue
+     * @param {RepeatMode} mode - The repeat mode to apply
      */
-    public setTrackLoop(state: boolean) {
-        this.trackRepeat = state;
-    }
-
-    /**
-     * Sets the queue looping
-     * @param {Boolean} state - Whether to enable queue looping or not
-     */
-    public setQueueLoop(state: boolean) {
-        this.queueRepeat = state;
+    public setRepeatMode(mode: RepeatMode) {
+        switch (mode) {
+            case RepeatMode.OFF: {
+                this.trackRepeat = false;
+                this.queueRepeat = false;
+                break;
+            }
+            case RepeatMode.TRACK: {
+                this.trackRepeat = true;
+                this.queueRepeat = false;
+                break;
+            }
+            case RepeatMode.QUEUE: {
+                this.trackRepeat = false;
+                this.queueRepeat = true;
+                break;
+            }
+            default: {
+                throw new TypeError('Invalid RepeatMode parameter.');
+            }
+        }
     }
 
     /**
