@@ -89,7 +89,6 @@ export type EventListeners<T> = {
     (event: 'playerDisconnect', listener: (player: Player, code: number, reason: string) => void): T;
     (event: 'queueEnd', listener: (player: Player) => void): T;
     (event: 'pong', listener: (node: Node, ping?: number) => void): T;
-    (event: 'recordFinished', listener: (node: Node, guildId: string, id: string) => void): T;
 }
 
 export type SEARCH_SOURCE = 'youtube' | 'youtubemusic' | 'soundcloud';

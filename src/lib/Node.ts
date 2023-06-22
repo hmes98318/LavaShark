@@ -450,10 +450,6 @@ export default class Node {
                 this.handleSpeakingEvent(payload);
                 break;
             }
-            case 'recordFinished': {
-                this.lavashark.emit('recordFinished', this, payload.guildId, payload.id);
-                break;
-            }
             default: {
                 this.lavashark.emit('warn', this, 'Unknown payload op: ' + payload.op);
                 break;
