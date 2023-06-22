@@ -29,8 +29,5 @@ $ yarn add lavashark
 ## Other resources
 * [Github repository](https://github.com/hmes98318/LavaShark)
 * [NPM page](https://www.npmjs.com/package/lavashark)
-
-
-
-
+* [Discord server](https://discord.gg/7rQEx7SPGr)
 
