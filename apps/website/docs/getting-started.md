@@ -1,10 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Getting started
 
-Initializing the LavaShark and discord.js library  
+Here is an example tutorial for using discord.js v14. If you're using an earlier version, please update it. The [discord.js Guide](https://discordjs.guide/) provides resources to help you with the update process.  
+
+### Initializing the LavaShark and discord.js library  
 
 ```js
 const { Client, GatewayIntentBits } = require('discord.js');
@@ -39,7 +41,7 @@ client.lavashark = lavashark;
 client.login(TOKEN);
 ```
 
-Registering events  
+### Registering events  
 
 ```js
 // -- LavaShark events --
@@ -77,7 +79,7 @@ client.on('raw', (packet) => client.lavashark.handleVoiceUpdate(packet));
 
 ```
 
-Command configuration  
+### Command configuration  
 
 ```js
 client.on('messageCreate', async message => {

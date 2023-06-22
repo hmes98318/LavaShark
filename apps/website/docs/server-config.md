@@ -1,13 +1,32 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Server configuration
 
 you need to download the Lavalink node ([lavalink-devs/Lavalink](https://github.com/lavalink-devs/Lavalink)) and run it, or use other public nodes.  
 
-## Deploying with Docker Compose
-docker-compose.yml
+If you need public nodes, you can refer to the following repository.  
+* [DarrenOfficial/lavalink-list](https://github.com/DarrenOfficial/lavalink-list)
+
+
+## Deploying with Binary
+
+Download binaries from the [Download Server](https://repo.arbjerg.dev/artifacts/lavalink/), [GitHub releases](https://github.com/lavalink-devs/Lavalink/releases) or [GitHub actions](https://github.com/lavalink-devs/Lavalink/actions).
+
+Put an `application.yml` file in your working directory. ([Example here](https://github.com/lavalink-devs/Lavalink/blob/master/LavalinkServer/application.yml.example))  
+
+Run with `java -jar Lavalink.jar` from the same directory.  
+
+
+
+## Deploying with Docker
+
+Docker images can be found under [packages](https://github.com/lavalink-devs/Lavalink/pkgs/container/lavalink) with old builds prior to `v3.7.4` being available on [Docker Hub](https://hub.docker.com/r/fredboat/lavalink/).  
+
+Install [Docker](https://docs.docker.com/engine/install/) & [Docker Compose](https://docs.docker.com/compose/install/)  
+
+Create a `docker-compose.yml` with the following content:
 
 ```yml
 version: "3.8"
@@ -35,7 +54,7 @@ networks:
         name: lavalink
 ```
 
-application.yml
+[`application.yml`](https://github.com/lavalink-devs/Lavalink/blob/master/LavalinkServer/application.yml.example)
 
 ```yml
 server: # REST and WS server

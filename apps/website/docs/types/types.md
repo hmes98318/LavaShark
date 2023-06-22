@@ -116,7 +116,6 @@ ___
 | `playerDisconnect` | `player`: [`Player`](../classes/Player.md), `code`: `number`, `reason`: `string` |
 | `queueEnd` | `player`: [`Player`](../classes/Player.md) |
 | `pong` | `node`: [`Node`](../classes/Node.md), `ping?`: `number` |
-| `recordFinished` | `node`: [`Node`](../classes/Node.md), `guildId`: `string`, `id`: `string` |
 
 #### Type parameters
 
@@ -361,21 +360,6 @@ LavaShark events
 | :------ | :------ |
 | `event` | ``"pong"`` |
 | `listener` | (`node`: [`Node`](../classes/Node.md), `ping?`: `number`) => `void` |
-
-##### Returns
-
-`T`
-
-▸ (`event`, `listener`): `T`
-
-LavaShark events
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"recordFinished"`` |
-| `listener` | (`node`: [`Node`](../classes/Node.md), `guildId`: `string`, `id`: `string`) => `void` |
 
 ##### Returns
 

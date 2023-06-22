@@ -1,10 +1,10 @@
 {
-    "index_name": "bear-react-carousel",
+    "index_name": "lavashark",
     "start_urls": [
-        "https://bear-react-carousel.github.io/"
+        "https://lavashark.js.org/"
     ],
     "sitemap_urls": [
-        "https://bear-react-carousel.github.io/sitemap.xml"
+        "https://lavashark.js.org/sitemap.xml"
     ],
     "sitemap_alternate_links": true,
     "stop_urls": [
