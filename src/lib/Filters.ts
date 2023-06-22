@@ -213,8 +213,7 @@ export default class Filters {
         if (typeof vol !== 'number') throw new TypeError('Volume must be an number.');
         if (vol < 0 || vol > 500) throw new TypeError('Volume must be an number between 0 and 500.');
 
-        if (vol === 100) delete this.options.volume;
-        else this.options.volume = vol / 100;
+        this.options.volume = vol;
 
         if (apply) this.apply();
         return this;
