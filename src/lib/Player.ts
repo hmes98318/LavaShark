@@ -9,7 +9,8 @@ import {
     PlayerOptions,
     PlayerState,
     PlayOptions,
-    VoiceState
+    VoiceState,
+    RepeatMode
 } from '../@types';
 
 
@@ -17,12 +18,6 @@ export enum ConnectionState {
     CONNECTING,
     CONNECTED,
     DISCONNECTED
-}
-
-export enum RepeatMode {
-    OFF,
-    TRACK,
-    QUEUE
 }
 
 export default class Player {
@@ -418,7 +413,10 @@ export default class Player {
      * Skips the current playing track
      * @param {Number} [amount=1] - The amount of tracks to skip
      */
-    public async skip(amount = 1) {
+    public async skip(amount?: number) {
+        if (typeof amount === 'undefined') amount = 1;
+        if (typeof amount !== 'number') TypeError('Amount must be a number');
+
         if (!this.playing) return false;
 
         if (amount > this.queue.size) {

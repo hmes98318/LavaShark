@@ -3,16 +3,11 @@ import Node from './Node';
 import { Queue } from './queue/Queue';
 import Track from './queue/Track';
 import Filters from './Filters';
-import { PlayerOptions, PlayerState, PlayOptions, VoiceState } from '../@types';
+import { PlayerOptions, PlayerState, PlayOptions, VoiceState, RepeatMode } from '../@types';
 export declare enum ConnectionState {
     CONNECTING = 0,
     CONNECTED = 1,
     DISCONNECTED = 2
-}
-export declare enum RepeatMode {
-    OFF = 0,
-    TRACK = 1,
-    QUEUE = 2
 }
 export default class Player {
     private readonly lavashark;

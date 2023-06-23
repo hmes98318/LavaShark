@@ -363,6 +363,18 @@ export type PlayOptions = {
     noReplace?: boolean;
 };
 
+/**
+ * The queue repeat mode. This can be one of:
+ * - OFF
+ * - TRACK
+ * - QUEUE
+ */
+export enum RepeatMode {
+    OFF,
+    TRACK,
+    QUEUE
+}
+
 // ---------- End of Player typings ----------
 
 

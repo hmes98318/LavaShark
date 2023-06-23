@@ -1,8 +1,10 @@
 import { LavaShark } from "./lib/LavaShark";
 import Node from "./lib/Node";
-import Player, { RepeatMode } from "./lib/Player";
+import Player from "./lib/Player";
 import Track from "./lib/queue/Track";
 import Filters from "./lib/Filters";
+
+import { RepeatMode } from "./@types";
 
 import { version } from "../package.json";
 
