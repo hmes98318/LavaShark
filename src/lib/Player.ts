@@ -315,101 +315,6 @@ export default class Player {
     }
 
     /**
-     * Sends a voice state update payload to the discord gateway
-     * @private
-     */
-    private sendVoiceState() {
-        this.lavashark.sendWS(this.guildId, {
-            op: 4,
-            d: {
-                guild_id: this.guildId,
-                channel_id: this.voiceChannelId,
-                self_mute: this.selfMute,
-                self_deaf: this.selfDeaf
-            }
-        });
-
-        this.lavashark.emit('debug', `Sent voiceStateUpdate to discord gateway for player ${this.guildId}. Channel: ${this.voiceChannelId}. Self mute: ${this.selfMute}. Self deaf: ${this.selfDeaf}`);
-    }
-
-    /**
-     * Sets the bot's self deaf state
-     * @param state - Whether to self deaf or not
-     */
-    public setSelfDeaf(state: boolean) {
-        if (typeof state !== 'boolean') throw new TypeError('state must be a boolean');
-
-        if (this.selfDeaf !== state && this.state !== ConnectionState.DISCONNECTED) {
-            this.selfDeaf = state;
-            this.sendVoiceState();
-        }
-    }
-
-    /**
-     * Sets the bot's self mute state
-     * @param {Boolean} state - Whether to self mute or not
-     */
-    public setSelfMute(state: boolean) {
-        if (typeof state !== 'boolean') throw new TypeError('state must be a boolean');
-
-        if (this.selfMute !== state && this.state !== ConnectionState.DISCONNECTED) {
-            this.selfMute = state;
-            this.sendVoiceState();
-        }
-    }
-
-    /**
-     * Set repeat mode for this queue
-     * @param {RepeatMode} mode - The repeat mode to apply
-     */
-    public setRepeatMode(mode: RepeatMode) {
-        switch (mode) {
-            case RepeatMode.OFF: {
-                this.trackRepeat = false;
-                this.queueRepeat = false;
-                break;
-            }
-            case RepeatMode.TRACK: {
-                this.trackRepeat = true;
-                this.queueRepeat = false;
-                break;
-            }
-            case RepeatMode.QUEUE: {
-                this.trackRepeat = false;
-                this.queueRepeat = true;
-                break;
-            }
-            default: {
-                throw new TypeError('Invalid RepeatMode parameter.');
-            }
-        }
-    }
-
-    /**
-     * Sets the player voice channel
-     * @param {String} channelId - The voice channel id
-     */
-    public setVoiceChannel(channelId: string) {
-        if (!channelId || typeof channelId !== 'string') throw new TypeError('Voice channel id must be a string.');
-        if (this.voiceChannelId === channelId) return;
-
-        this.voiceChannelId = channelId;
-        this.state = ConnectionState.DISCONNECTED;
-        this.connect();
-    }
-
-    /**
-     * Shuffles the queue
-     * @deprecated Use `queue.shuffle()` instead
-     */
-    /*
-    public shuffleQueue() {
-        if (this.queue instanceof Queue) {
-            (this.queue as Queue).shuffle();
-        }
-    }*/
-
-    /**
      * Skips the current playing track
      * @param {Number} [amount=1] - The amount of tracks to skip
      */
@@ -484,6 +389,90 @@ export default class Player {
         await this.node?.rest.updatePlayer(this.guildId, {
             position
         });
+    }
+
+    /**
+     * Set repeat mode for this queue
+     * @param {RepeatMode} mode - The repeat mode to apply
+     */
+    public setRepeatMode(mode: RepeatMode) {
+        switch (mode) {
+            case RepeatMode.OFF: {
+                this.trackRepeat = false;
+                this.queueRepeat = false;
+                break;
+            }
+            case RepeatMode.TRACK: {
+                this.trackRepeat = true;
+                this.queueRepeat = false;
+                break;
+            }
+            case RepeatMode.QUEUE: {
+                this.trackRepeat = false;
+                this.queueRepeat = true;
+                break;
+            }
+            default: {
+                throw new TypeError('Invalid RepeatMode parameter.');
+            }
+        }
+    }
+
+    /**
+     * Sends a voice state update payload to the discord gateway
+     * @private
+     */
+    private sendVoiceState() {
+        this.lavashark.sendWS(this.guildId, {
+            op: 4,
+            d: {
+                guild_id: this.guildId,
+                channel_id: this.voiceChannelId,
+                self_mute: this.selfMute,
+                self_deaf: this.selfDeaf
+            }
+        });
+
+        this.lavashark.emit('debug', `Sent voiceStateUpdate to discord gateway for player ${this.guildId}. Channel: ${this.voiceChannelId}. Self mute: ${this.selfMute}. Self deaf: ${this.selfDeaf}`);
+    }
+
+    /**
+     * Sets the bot's self deaf state
+     * @param state - Whether to self deaf or not
+     */
+    public setSelfDeaf(state: boolean) {
+        if (typeof state !== 'boolean') throw new TypeError('state must be a boolean');
+
+        if (this.selfDeaf !== state && this.state !== ConnectionState.DISCONNECTED) {
+            this.selfDeaf = state;
+            this.sendVoiceState();
+        }
+    }
+
+    /**
+     * Sets the bot's self mute state
+     * @param {Boolean} state - Whether to self mute or not
+     */
+    public setSelfMute(state: boolean) {
+        if (typeof state !== 'boolean') throw new TypeError('state must be a boolean');
+
+        if (this.selfMute !== state && this.state !== ConnectionState.DISCONNECTED) {
+            this.selfMute = state;
+            this.sendVoiceState();
+        }
+    }
+
+    /**
+     * Sets the player voice channel
+     * @param {String} channelId - The voice channel id
+     */
+    public setVoiceChannel(channelId: string) {
+        if (!channelId || typeof channelId !== 'string') throw new TypeError('Voice channel id must be a string.');
+        if (this.voiceChannelId === channelId) return;
+
+        this.voiceChannelId = channelId;
+        this.state = ConnectionState.DISCONNECTED;
+        this.connect();
     }
 
     public async sendVoiceUpdate() {
