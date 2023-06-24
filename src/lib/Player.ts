@@ -315,34 +315,6 @@ export default class Player {
     }
 
     /**
-     * Skips the current playing track
-     * @param {Number} [amount=1] - The amount of tracks to skip
-     */
-    public async skip(amount?: number) {
-        if (typeof amount === 'undefined') amount = 1;
-        if (typeof amount !== 'number') TypeError('Amount must be a number');
-
-        if (!this.playing) return false;
-
-        if (amount > this.queue.size) {
-            this.queue.clear();
-        }
-        else {
-            this.queue.skipNTracks(amount);
-        }
-
-        try {
-            await this.node?.rest.updatePlayer(this.guildId, {
-                encodedTrack: null
-            });
-
-            return true;
-        } catch (_) {
-            return false;
-        }
-    }
-
-    /**
      * Pause or unpause the player
      * @param {Boolean} [state=true] - Whether to pause or unpause the player
      */
@@ -369,6 +341,34 @@ export default class Player {
      */
     public async resume() {
         return await this.pause(false);
+    }
+
+    /**
+     * Skips the current playing track
+     * @param {Number} [amount=1] - The amount of tracks to skip
+     */
+    public async skip(amount?: number) {
+        if (typeof amount === 'undefined') amount = 1;
+        if (typeof amount !== 'number') TypeError('Amount must be a number');
+
+        if (!this.playing) return false;
+
+        if (amount > this.queue.size) {
+            this.queue.clear();
+        }
+        else {
+            this.queue.skipNTracks(amount);
+        }
+
+        try {
+            await this.node?.rest.updatePlayer(this.guildId, {
+                encodedTrack: null
+            });
+
+            return true;
+        } catch (_) {
+            return false;
+        }
     }
 
     /**
