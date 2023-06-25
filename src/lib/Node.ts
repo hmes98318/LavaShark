@@ -228,6 +228,16 @@ export default class Node {
     }
 
     /**
+     * Get the Lavalink Node stats
+     * @returns {Promise<NodeStats>}
+     */
+    public async getStats(): Promise<NodeStats> {
+        const stats = await this.rest.stats();
+        this.stats = stats;
+        return stats;
+    }
+
+    /**
      * Gets the route planner status
      * @returns {Promise<Object>}
      */

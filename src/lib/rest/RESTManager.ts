@@ -10,7 +10,8 @@ import {
     ROUTE_PLANNER_FREE_ALL,
     ROUTE_PLANNER_FREE_ADDR,
     VERSION,
-    INFO
+    INFO,
+    STATS
 } from './Endpoints';
 
 import {
@@ -18,6 +19,7 @@ import {
     ITrack,
     LavalinkRESTError,
     LoadTracksResult,
+    NodeStats,
     RequestOptions,
     RoutePlannerStatus,
     TrackInfo,
@@ -116,6 +118,13 @@ export class RESTManager {
         });
     }
 
+    public async version(): Promise<Buffer> {
+        return this.request({
+            method: 'GET',
+            path: VERSION(),
+        });
+    }
+
     public async info(): Promise<Info> {
         return this.request({
             method: 'GET',
@@ -123,10 +132,10 @@ export class RESTManager {
         });
     }
 
-    public async version(): Promise<Buffer> {
+    public async stats(): Promise<NodeStats> {
         return this.request({
             method: 'GET',
-            path: VERSION(),
+            path: STATS(),
         });
     }
 

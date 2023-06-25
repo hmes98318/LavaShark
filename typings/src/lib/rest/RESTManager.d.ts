@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import Node from '../Node';
-import { Info, ITrack, LoadTracksResult, RequestOptions, RoutePlannerStatus, TrackInfo, UpdatePlayerOptions } from '../../@types';
+import { Info, ITrack, LoadTracksResult, NodeStats, RequestOptions, RoutePlannerStatus, TrackInfo, UpdatePlayerOptions } from '../../@types';
 export declare class RESTManager {
     #private;
     private readonly node;
@@ -16,7 +16,8 @@ export declare class RESTManager {
     updateSession(resumeKey: string, timeout?: number): Promise<void>;
     destroyPlayer(guildId: string): Promise<void>;
     updatePlayer(guildId: string, options: UpdatePlayerOptions): Promise<void>;
-    info(): Promise<Info>;
     version(): Promise<Buffer>;
+    info(): Promise<Info>;
+    stats(): Promise<NodeStats>;
     request<T = unknown>(options: RequestOptions): Promise<T>;
 }

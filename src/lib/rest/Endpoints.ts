@@ -15,5 +15,6 @@ export const ROUTE_PLANNER_FREE_ADDR = () => `/v${LAVALINK_API_VERSION}/routepla
 export const ROUTE_PLANNER_FREE_ALL = () => `/v${LAVALINK_API_VERSION}/routeplanner/free/all`;
 
 // Server info
-export const INFO = () => `/v${LAVALINK_API_VERSION}/info`;
 export const VERSION = () => '/version';
+export const INFO = () => `/v${LAVALINK_API_VERSION}/info`;
+export const STATS = () => `/v${LAVALINK_API_VERSION}/stats`;

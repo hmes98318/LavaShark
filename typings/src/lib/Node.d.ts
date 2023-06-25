@@ -52,6 +52,11 @@ export default class Node {
      */
     getInfo(): Promise<Info>;
     /**
+     * Get the Lavalink Node stats
+     * @returns {Promise<NodeStats>}
+     */
+    getStats(): Promise<NodeStats>;
+    /**
      * Gets the route planner status
      * @returns {Promise<Object>}
      */
