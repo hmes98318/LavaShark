@@ -9,7 +9,6 @@ export class Queue {
         this.tracks = [];
     }
 
-
     /**
      * Gets the queue size.
      */
@@ -76,5 +75,48 @@ export class Queue {
      */
     public clear() {
         this.tracks = [];
+    }
+
+    /**
+     * Removes the first track in the queue.
+     * @returns {boolean} Returns true if the track was successfully removed, false otherwise
+     */
+    public remove(): boolean;
+    /**
+     * Removes the track at the specified position.
+     * @param {number} index - The index of the track to remove.
+     * @returns {boolean} Returns true if the track was successfully removed, false otherwise
+     */
+    public remove(index: number): boolean;
+    /**
+     * Removes the tracks in the specified range.
+     * @param {number} start - The start index of the range.
+     * @param {number} end - The end index of the range.
+     * @returns {boolean} Returns true if the tracks were successfully removed, false otherwise
+     */
+    public remove(start: number, end: number): boolean;
+    public remove(arg1?: number, arg2?: number): boolean {
+        if (typeof arg1 === 'undefined') arg1 = 1;
+
+        if (arg2 !== undefined) {
+            if (typeof arg1 !== 'number' || isNaN(arg1)) throw TypeError('Start value must be a number');
+            if (typeof arg2 !== 'number' || isNaN(arg2)) throw TypeError('End value must be a number');
+
+            if (arg1 < 1 || arg2 < arg1 || arg1 > this.tracks.length || arg2 > this.tracks.length) {
+                // Index out of range
+                return false;
+            }
+            this.tracks.splice(arg1 - 1, arg2 - arg1 + 1);
+        }
+        else {
+            if (typeof arg1 !== 'number' || isNaN(arg1)) throw TypeError('Index must be a number');
+
+            if (arg1 < 1 || arg1 > this.tracks.length) {
+                // Index out of range
+                return false;
+            }
+            this.tracks.splice(arg1 - 1, 1);
+        }
+        return true;
     }
 }
