@@ -1,4 +1,4 @@
-# Interface: Timestamp
+# types.Timestamp
 
 [@types](../types.md).Timestamp
 
