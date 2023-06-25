@@ -27,6 +27,6 @@ const formatTime = (milliseconds: number): string => {
     timeString += `${formattedMinutes.toString().padStart(2, '0')}:${formattedSeconds.toString().padStart(2, '0')}`;
 
     return timeString;
-}
+};
 
 export { formatTime };
