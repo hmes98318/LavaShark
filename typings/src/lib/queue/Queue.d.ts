@@ -42,20 +42,20 @@ export declare class Queue {
     clear(): void;
     /**
      * Removes the first track in the queue.
-     * @returns {boolean} Returns true if the track was successfully removed, false if the queue is empty.
+     * @returns {boolean} Returns true if the track was successfully removed, false otherwise
      */
     remove(): boolean;
     /**
      * Removes the track at the specified position.
      * @param {number} index - The index of the track to remove.
-     * @returns {boolean} Returns true if the track was successfully removed, false otherwise.
+     * @returns {boolean} Returns true if the track was successfully removed, false otherwise
      */
     remove(index: number): boolean;
     /**
      * Removes the tracks in the specified range.
      * @param {number} start - The start index of the range.
      * @param {number} end - The end index of the range.
-     * @returns {boolean} Returns true if the tracks were successfully removed, false otherwise.
+     * @returns {boolean} Returns true if the tracks were successfully removed, false otherwise
      */
     remove(start: number, end: number): boolean;
 }
