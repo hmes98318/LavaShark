@@ -181,7 +181,7 @@ export default class AppleMusic extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: title,
-                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: unresolvedTracks,
@@ -211,7 +211,7 @@ export default class AppleMusic extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: `${artistRes.data[0].attributes.name}'s top tracks`,
-                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: unresolvedTracks

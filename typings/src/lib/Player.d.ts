@@ -91,6 +91,30 @@ export default class Player {
      */
     play(options?: PlayOptions): Promise<void>;
     /**
+     * Pause or unpause the player
+     * @param {Boolean} [state=true] - Whether to pause or unpause the player
+     */
+    pause(state?: boolean): Promise<boolean>;
+    /**
+     * Resume the player
+     */
+    resume(): Promise<boolean>;
+    /**
+     * Skips the current playing track
+     * @param {Number} [amount=1] - The amount of tracks to skip
+     */
+    skip(amount?: number): Promise<boolean>;
+    /**
+     * Seek to a specific position in the track
+     * @param {Number} position - The position to seek, in milliseconds
+     */
+    seek(position: number): Promise<void>;
+    /**
+     * Set repeat mode for this queue
+     * @param {RepeatMode} mode - The repeat mode to apply
+     */
+    setRepeatMode(mode: RepeatMode): void;
+    /**
      * Sends a voice state update payload to the discord gateway
      * @private
      */
@@ -106,38 +130,10 @@ export default class Player {
      */
     setSelfMute(state: boolean): void;
     /**
-     * Set repeat mode for this queue
-     * @param {RepeatMode} mode - The repeat mode to apply
-     */
-    setRepeatMode(mode: RepeatMode): void;
-    /**
      * Sets the player voice channel
      * @param {String} channelId - The voice channel id
      */
     setVoiceChannel(channelId: string): void;
-    /**
-     * Shuffles the queue
-     * @deprecated Use `queue.shuffle()` instead
-     */
-    /**
-     * Skips the current playing track
-     * @param {Number} [amount=1] - The amount of tracks to skip
-     */
-    skip(amount?: number): Promise<boolean>;
-    /**
-     * Pause or unpause the player
-     * @param {Boolean} [state=true] - Whether to pause or unpause the player
-     */
-    pause(state?: boolean): Promise<boolean>;
-    /**
-     * Resume the player
-     */
-    resume(): Promise<boolean>;
-    /**
-     * Seek to a specific position in the track
-     * @param {Number} position - The position to seek, in milliseconds
-     */
-    seek(position: number): Promise<void>;
     sendVoiceUpdate(): Promise<void>;
     update(state: PlayerState): void;
 }

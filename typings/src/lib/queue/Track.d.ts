@@ -1,10 +1,10 @@
-import type { ITrack, Metadata } from '../../@types';
+import type { ITrack, Metadata, Timestamp } from '../../@types';
 export default class Track {
     readonly identifier: string;
     private readonly thumbnailUrl?;
     readonly isSeekable: boolean;
     readonly author: string;
-    readonly duration: number;
+    readonly duration: Timestamp;
     readonly isStream: boolean;
     readonly source: string;
     position?: number;

@@ -1,5 +1,8 @@
 import Track from './Track';
 import { LavaShark } from '../LavaShark';
+import { formatTime } from "../utils/formatTime";
+
+import type { Timestamp } from '../../@types';
 
 
 export default class UnresolvedTrack {
@@ -7,7 +10,7 @@ export default class UnresolvedTrack {
 
     public readonly title: string;
     public readonly author: string;
-    public readonly duration: number;
+    public readonly duration: Timestamp;
     public readonly uri: string;
     public readonly source: string;
     public requester: unknown;
@@ -19,7 +22,10 @@ export default class UnresolvedTrack {
 
         this.title = title;
         this.author = author;
-        this.duration = duration ?? 0;
+        this.duration = {
+            label: formatTime(duration ?? 0),
+            value: duration ?? 0
+        };
         this.uri = uri ?? '';
         this.source = source ?? 'Unknown';
 

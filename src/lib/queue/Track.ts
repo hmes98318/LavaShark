@@ -1,4 +1,6 @@
-import type { ITrack, Metadata } from '../../@types';
+import { formatTime } from "../utils/formatTime";
+
+import type { ITrack, Metadata, Timestamp } from '../../@types';
 
 
 export default class Track {
@@ -6,7 +8,7 @@ export default class Track {
     declare private readonly thumbnailUrl?: string;
     public readonly isSeekable: boolean;
     public readonly author: string;
-    public readonly duration: number;
+    public readonly duration: Timestamp;
     public readonly isStream: boolean;
     public readonly source: string;
     public position?: number;
@@ -24,7 +26,10 @@ export default class Track {
         if (data.info.thumbnail) this.thumbnailUrl = data.info.thumbnail;
         this.isSeekable = data.info.isSeekable;
         this.author = data.info.author;
-        this.duration = data.info.length;
+        this.duration = {
+            label: formatTime(data.info.length),
+            value: data.info.length
+        };
         this.isStream = data.info.isStream;
         this.source = data.info.sourceName ?? 'unknown';
         this.position = data.info.position;

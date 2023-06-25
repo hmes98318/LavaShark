@@ -1,10 +1,11 @@
 import Track from './Track';
 import { LavaShark } from '../LavaShark';
+import type { Timestamp } from '../../@types';
 export default class UnresolvedTrack {
     private readonly lavashark;
     readonly title: string;
     readonly author: string;
-    readonly duration: number;
+    readonly duration: Timestamp;
     readonly uri: string;
     readonly source: string;
     requester: unknown;

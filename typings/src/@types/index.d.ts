@@ -38,7 +38,7 @@ type SpotifyConfig = {
     market?: string;
 };
 export type Metadata = Pick<TrackInfo, 'title' | 'author' | 'uri'> & {
-    duration: number;
+    duration: Timestamp;
     source: string;
     isrc?: string;
 };
@@ -130,6 +130,10 @@ export type TrackInfo = {
 export interface ITrack {
     track: string;
     info: TrackInfo;
+}
+export interface Timestamp {
+    label: string;
+    value: number;
 }
 type LoadException = {
     message: string;

@@ -284,7 +284,7 @@ export class LavaShark extends EventEmitter {
         else {
             const tracks = res.tracks.map(t => new Track(t));
             if (res.loadType === 'PLAYLIST_LOADED') {
-                res.playlistInfo.duration = tracks.reduce((acc, cur) => acc + cur.duration, 0);
+                res.playlistInfo.duration = tracks.reduce((acc, cur) => acc + cur.duration.value, 0);
             }
 
             return {

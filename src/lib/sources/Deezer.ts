@@ -88,7 +88,7 @@ export default class Deezer extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: res.title,
-                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: unresolvedTracks,

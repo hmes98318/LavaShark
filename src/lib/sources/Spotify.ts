@@ -164,7 +164,7 @@ export default class Spotify extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: title,
-                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: unresolvedTracks,
@@ -210,7 +210,7 @@ export default class Spotify extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: title,
-                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: unresolvedTracks,
@@ -230,7 +230,7 @@ export default class Spotify extends AbstractExternalSource {
             loadType: 'PLAYLIST_LOADED',
             playlistInfo: {
                 name: `${res.tracks[0].artists.find(a => a.id === id)?.name ?? ''} Top Tracks`,
-                duration: tracks.reduce((acc, curr) => acc + curr.duration, 0),
+                duration: tracks.reduce((acc, curr) => acc + curr.duration.value, 0),
                 selectedTrack: 0
             },
             tracks: tracks

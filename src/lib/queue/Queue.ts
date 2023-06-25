@@ -21,7 +21,7 @@ export class Queue {
      * Gets the queue duration in milliseconds.
      */
     get duration(): number {
-        return this.tracks.reduce((acc, track) => acc + track.duration, 0);
+        return this.tracks.reduce((acc, track) => acc + track.duration.value, 0);
     }
 
     /**

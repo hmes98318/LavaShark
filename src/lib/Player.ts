@@ -123,7 +123,7 @@ export default class Player {
         const rate = filterConfig?.rate ?? 1;
         const speed = filterConfig?.speed ?? 1;
 
-        return Math.min(this.current?.duration ?? 0, (this.position + (Date.now() - this.positionTimestamp)) * rate * speed);
+        return Math.min(this.current?.duration.value ?? 0, (this.position + (Date.now() - this.positionTimestamp)) * rate * speed);
     }
 
     /**
@@ -381,7 +381,7 @@ export default class Player {
             throw new TypeError('Position must be a number');
         }
 
-        if (position > this.current.duration) {
+        if (position > this.current.duration.value) {
             await this.skip();
             return;
         }
