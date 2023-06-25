@@ -2,11 +2,16 @@
 
 ## Table of contents
 
+### Enumerations
+
+- [RepeatMode](./enums/types.RepeatMode.md)
+
 ### Interfaces
 
 - [ITrack](./interfaces/types.ITrack.md)
 - [PlayerEventPayload](./interfaces/types.PlayerEventPayload.md)
 - [SpeakingEventPayload](./interfaces/types.SpeakingEventPayload.md)
+- [Timestamp](./interfaces/types.Timestamp.md)
 - [TrackEndEvent](./interfaces/types.TrackEndEvent.md)
 - [TrackExceptionEvent](./interfaces/types.TrackExceptionEvent.md)
 - [TrackStartEvent](./interfaces/types.TrackStartEvent.md)
@@ -66,7 +71,7 @@
 
 #### Defined in
 
-[@types/index.ts:372](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L372)
+[@types/index.ts:388](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L388)
 
 ___
 
@@ -89,7 +94,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:379](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L379)
+[@types/index.ts:395](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L395)
 
 ___
 
@@ -367,7 +372,7 @@ LavaShark events
 
 #### Defined in
 
-[@types/index.ts:75](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L75)
+[@types/index.ts:75](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L75)
 
 ___
 
@@ -396,7 +401,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:421](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L421)
+[@types/index.ts:437](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L437)
 
 ___
 
@@ -415,7 +420,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:14](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L14)
+[@types/index.ts:14](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L14)
 
 ___
 
@@ -448,7 +453,7 @@ Lavalink Info
 
 #### Defined in
 
-[@types/index.ts:256](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L256)
+[@types/index.ts:260](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L260)
 
 ___
 
@@ -467,7 +472,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:390](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L390)
+[@types/index.ts:406](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L406)
 
 ___
 
@@ -491,7 +496,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/index.ts:57](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L57)
+[@types/index.ts:57](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L57)
 
 ___
 
@@ -512,7 +517,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:115](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L115)
+[@types/index.ts:114](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L114)
 
 ___
 
@@ -522,7 +527,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:164](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L164)
+[@types/index.ts:168](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L168)
 
 ___
 
@@ -538,17 +543,17 @@ ___
 
 #### Defined in
 
-[@types/index.ts:397](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L397)
+[@types/index.ts:413](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L413)
 
 ___
 
 ### Metadata
 
-Ƭ **Metadata**: `Pick`<[`TrackInfo`](types.md#trackinfo), ``"title"`` \| ``"author"`` \| ``"uri"``\> & { `duration`: `number` ; `isrc?`: `string` ; `source`: `string`  }
+Ƭ **Metadata**: `Pick`<[`TrackInfo`](types.md#trackinfo), ``"title"`` \| ``"author"`` \| ``"uri"``\> & { `duration`: [`Timestamp`](./interfaces/types.Timestamp.md) ; `isrc?`: `string` ; `source`: `string`  }
 
 #### Defined in
 
-[@types/index.ts:48](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L48)
+[@types/index.ts:48](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L48)
 
 ___
 
@@ -575,7 +580,7 @@ Lavalink node options
 
 #### Defined in
 
-[@types/index.ts:180](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L180)
+[@types/index.ts:184](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L184)
 
 ___
 
@@ -608,7 +613,7 @@ Lavalink node stats
 
 #### Defined in
 
-[@types/index.ts:204](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L204)
+[@types/index.ts:208](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L208)
 
 ___
 
@@ -625,7 +630,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:9](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L9)
+[@types/index.ts:9](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L9)
 
 ___
 
@@ -644,7 +649,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:360](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L360)
+[@types/index.ts:364](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L364)
 
 ___
 
@@ -667,7 +672,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/index.ts:340](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L340)
+[@types/index.ts:344](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L344)
 
 ___
 
@@ -685,7 +690,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:325](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L325)
+[@types/index.ts:329](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L329)
 
 ___
 
@@ -703,7 +708,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:131](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L131)
+[@types/index.ts:130](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L130)
 
 ___
 
@@ -722,7 +727,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:124](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L124)
+[@types/index.ts:123](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L123)
 
 ___
 
@@ -738,7 +743,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:401](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L401)
+[@types/index.ts:417](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L417)
 
 ___
 
@@ -757,7 +762,7 @@ Route planner API
 
 #### Defined in
 
-[@types/index.ts:233](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L233)
+[@types/index.ts:237](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L237)
 
 ___
 
@@ -767,7 +772,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:95](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L95)
+[@types/index.ts:94](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L94)
 
 ___
 
@@ -777,7 +782,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:168](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L168)
+[@types/index.ts:172](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L172)
 
 ___
 
@@ -795,7 +800,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:405](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L405)
+[@types/index.ts:421](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L421)
 
 ___
 
@@ -820,7 +825,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:137](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L137)
+[@types/index.ts:136](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L136)
 
 ___
 
@@ -837,7 +842,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:411](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L411)
+[@types/index.ts:427](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L427)
 
 ___
 
@@ -865,7 +870,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:99](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L99)
+[@types/index.ts:98](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L98)
 
 ___
 
@@ -882,7 +887,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:416](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L416)
+[@types/index.ts:432](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L432)
 
 ___
 
@@ -892,7 +897,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:37](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L37)
+[@types/index.ts:37](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L37)
 
 ___
 
@@ -909,25 +914,17 @@ ___
 
 #### Defined in
 
-[@types/index.ts:355](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L355)
+[@types/index.ts:359](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L359)
 
 ___
 
 ### VoiceStateUpdatePayload
 
-Ƭ **VoiceStateUpdatePayload**: [`IncomingDiscordPayload`](types.md#incomingdiscordpayload) &  
-{
-    `d`: { `channel_id`: `string` \| ``null`` ;  
-    `guild_id`: `string` ;  
-    `session_id`: `string` ;  
-    `user_id`: `string`  
-    } ;  
-    `t`: ``"VOICE_STATE_UPDATE"``  
-}
+Ƭ **VoiceStateUpdatePayload**: [`IncomingDiscordPayload`](types.md#incomingdiscordpayload) & { `d`: { `channel_id`: `string` \| ``null`` ; `guild_id`: `string` ; `session_id`: `string` ; `user_id`: `string`  } ; `t`: ``"VOICE_STATE_UPDATE"``  }
 
 #### Defined in
 
-[@types/index.ts:21](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L21)
+[@types/index.ts:21](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L21)
 
 ___
 
@@ -939,4 +936,4 @@ Lavalink version
 
 #### Defined in
 
-[@types/index.ts:253](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L253)
+[@types/index.ts:257](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L257)

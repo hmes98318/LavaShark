@@ -21,6 +21,7 @@
 - [clear](Queue.md#clear)
 - [poll](Queue.md#poll)
 - [push](Queue.md#push)
+- [remove](Queue.md#remove)
 - [shuffle](Queue.md#shuffle)
 - [skipNTracks](Queue.md#skipntracks)
 
@@ -32,7 +33,7 @@
 
 #### Defined in
 
-[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L8)
+[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L8)
 
 ## Properties
 
@@ -42,7 +43,7 @@
 
 #### Defined in
 
-[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L6)
+[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L6)
 
 ## Accessors
 
@@ -58,7 +59,7 @@ Gets the queue duration in milliseconds.
 
 #### Defined in
 
-[Queue.ts:23](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L23)
+[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L22)
 
 ___
 
@@ -74,7 +75,7 @@ Gets the queue size.
 
 #### Defined in
 
-[Queue.ts:16](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L16)
+[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L15)
 
 ## Methods
 
@@ -96,7 +97,7 @@ Adds a track to the queue.
 
 #### Defined in
 
-[Queue.ts:40](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L40)
+[Queue.ts:39](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L39)
 
 ___
 
@@ -112,7 +113,7 @@ Clears the queue.
 
 #### Defined in
 
-[Queue.ts:77](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L77)
+[Queue.ts:76](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L76)
 
 ___
 
@@ -130,7 +131,7 @@ The next track in the queue or null if the queue is empty.
 
 #### Defined in
 
-[Queue.ts:48](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L48)
+[Queue.ts:47](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L47)
 
 ___
 
@@ -156,7 +157,66 @@ Adds a track to the queue.
 
 #### Defined in
 
-[Queue.ts:32](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L32)
+[Queue.ts:31](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L31)
+
+___
+
+### remove
+
+▸ **remove**(): `boolean`
+
+Removes the first track in the queue.
+
+#### Returns
+
+`boolean`
+
+Returns true if the track was successfully removed, false otherwise
+
+#### Defined in
+
+[Queue.ts:84](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L84)
+
+▸ **remove**(`index`): `boolean`
+
+Removes the track at the specified position.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | The index of the track to remove. |
+
+#### Returns
+
+`boolean`
+
+Returns true if the track was successfully removed, false otherwise
+
+#### Defined in
+
+[Queue.ts:90](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L90)
+
+▸ **remove**(`start`, `end`): `boolean`
+
+Removes the tracks in the specified range.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `start` | `number` | The start index of the range. |
+| `end` | `number` | The end index of the range. |
+
+#### Returns
+
+`boolean`
+
+Returns true if the tracks were successfully removed, false otherwise
+
+#### Defined in
+
+[Queue.ts:97](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L97)
 
 ___
 
@@ -172,7 +232,7 @@ Shuffles the queue
 
 #### Defined in
 
-[Queue.ts:63](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L63)
+[Queue.ts:62](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L62)
 
 ___
 
@@ -194,4 +254,4 @@ Remove the next n tracks from the queue
 
 #### Defined in
 
-[Queue.ts:56](https://github.com/hmes98318/LavaShark/blob/main/src/lib/queue/Queue.ts#L56)
+[Queue.ts:55](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/queue/Queue.ts#L55)
