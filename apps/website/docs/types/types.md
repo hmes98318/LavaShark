@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[@types/index.ts:388](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L388)
+[@types/index.ts:388](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L388)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:395](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L395)
+[@types/index.ts:395](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L395)
 
 ___
 
@@ -372,7 +372,7 @@ LavaShark events
 
 #### Defined in
 
-[@types/index.ts:75](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L75)
+[@types/index.ts:75](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L75)
 
 ___
 
@@ -401,7 +401,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:437](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L437)
+[@types/index.ts:437](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L437)
 
 ___
 
@@ -420,7 +420,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:14](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L14)
+[@types/index.ts:14](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L14)
 
 ___
 
@@ -453,7 +453,7 @@ Lavalink Info
 
 #### Defined in
 
-[@types/index.ts:260](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L260)
+[@types/index.ts:260](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L260)
 
 ___
 
@@ -472,7 +472,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:406](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L406)
+[@types/index.ts:406](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L406)
 
 ___
 
@@ -496,7 +496,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/index.ts:57](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L57)
+[@types/index.ts:57](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L57)
 
 ___
 
@@ -517,7 +517,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:114](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L114)
+[@types/index.ts:114](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L114)
 
 ___
 
@@ -527,7 +527,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:168](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L168)
+[@types/index.ts:168](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L168)
 
 ___
 
@@ -543,7 +543,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:413](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L413)
+[@types/index.ts:413](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L413)
 
 ___
 
@@ -553,7 +553,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:48](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L48)
+[@types/index.ts:48](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L48)
 
 ___
 
@@ -580,7 +580,7 @@ Lavalink node options
 
 #### Defined in
 
-[@types/index.ts:184](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L184)
+[@types/index.ts:184](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L184)
 
 ___
 
@@ -613,7 +613,7 @@ Lavalink node stats
 
 #### Defined in
 
-[@types/index.ts:208](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L208)
+[@types/index.ts:208](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L208)
 
 ___
 
@@ -630,7 +630,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:9](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L9)
+[@types/index.ts:9](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L9)
 
 ___
 
@@ -649,7 +649,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:364](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L364)
+[@types/index.ts:364](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L364)
 
 ___
 
@@ -672,7 +672,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/index.ts:344](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L344)
+[@types/index.ts:344](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L344)
 
 ___
 
@@ -690,7 +690,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:329](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L329)
+[@types/index.ts:329](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L329)
 
 ___
 
@@ -708,7 +708,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:130](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L130)
+[@types/index.ts:130](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L130)
 
 ___
 
@@ -727,7 +727,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:123](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L123)
+[@types/index.ts:123](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L123)
 
 ___
 
@@ -743,7 +743,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:417](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L417)
+[@types/index.ts:417](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L417)
 
 ___
 
@@ -762,7 +762,7 @@ Route planner API
 
 #### Defined in
 
-[@types/index.ts:237](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L237)
+[@types/index.ts:237](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L237)
 
 ___
 
@@ -772,7 +772,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:94](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L94)
+[@types/index.ts:94](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L94)
 
 ___
 
@@ -782,7 +782,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:172](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L172)
+[@types/index.ts:172](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L172)
 
 ___
 
@@ -800,7 +800,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:421](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L421)
+[@types/index.ts:421](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L421)
 
 ___
 
@@ -825,7 +825,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:136](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L136)
+[@types/index.ts:136](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L136)
 
 ___
 
@@ -842,7 +842,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:427](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L427)
+[@types/index.ts:427](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L427)
 
 ___
 
@@ -870,7 +870,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:98](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L98)
+[@types/index.ts:98](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L98)
 
 ___
 
@@ -887,7 +887,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:432](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L432)
+[@types/index.ts:432](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L432)
 
 ___
 
@@ -897,7 +897,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:37](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L37)
+[@types/index.ts:37](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L37)
 
 ___
 
@@ -914,7 +914,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:359](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L359)
+[@types/index.ts:359](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L359)
 
 ___
 
@@ -924,7 +924,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:21](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L21)
+[@types/index.ts:21](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L21)
 
 ___
 
@@ -936,4 +936,4 @@ Lavalink version
 
 #### Defined in
 
-[@types/index.ts:257](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L257)
+[@types/index.ts:257](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L257)

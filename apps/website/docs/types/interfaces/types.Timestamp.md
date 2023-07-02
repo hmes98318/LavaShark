@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[@types/index.ts:154](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L154)
+[@types/index.ts:154](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L154)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:155](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L155)
+[@types/index.ts:155](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L155)

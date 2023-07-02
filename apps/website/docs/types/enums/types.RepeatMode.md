@@ -23,7 +23,7 @@ The queue repeat mode. This can be one of:
 
 #### Defined in
 
-[@types/index.ts:378](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L378)
+[@types/index.ts:378](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L378)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:379](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L379)
+[@types/index.ts:379](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L379)
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:380](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/@types/index.ts#L380)
+[@types/index.ts:380](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L380)

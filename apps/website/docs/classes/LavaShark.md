@@ -58,7 +58,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L114)
+[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L114)
 
 ## Properties
 
@@ -68,7 +68,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L31)
+[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L31)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L32)
+[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L32)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L27)
+[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L27)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L26)
+[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L26)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L41)
+[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L41)
 
 ___
 
@@ -143,7 +143,7 @@ sendWS: (guildId, payload) => {
 
 #### Defined in
 
-[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L56)
+[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L56)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L35)
+[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L35)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L36)
+[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L36)
 
 ## Accessors
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L151)
+[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L151)
 
 ## Methods
 
@@ -199,7 +199,7 @@ Adds an external source that produces a SearchResult with UnresolvedTracks
 
 #### Defined in
 
-[lib/LavaShark.ts:176](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L176)
+[lib/LavaShark.ts:176](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L176)
 
 ___
 
@@ -221,7 +221,7 @@ Creates a new player or returns an existing one
 
 #### Defined in
 
-[lib/LavaShark.ts:221](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L221)
+[lib/LavaShark.ts:221](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L221)
 
 ___
 
@@ -243,7 +243,7 @@ Decodes a track by its base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:189](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L189)
+[lib/LavaShark.ts:189](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L189)
 
 ___
 
@@ -265,7 +265,7 @@ Decodes multiple tracks by their base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:202](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L202)
+[lib/LavaShark.ts:202](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L202)
 
 ___
 
@@ -283,11 +283,11 @@ Retrieve an existing player using the guild id
 
 #### Returns
 
-[`Player`](Player.md)
+[`Player`](Player.md) \| ``null``
 
 #### Defined in
 
-[lib/LavaShark.ts:239](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L239)
+[lib/LavaShark.ts:239](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L239)
 
 ___
 
@@ -309,7 +309,7 @@ Handles voice state & voice server update packets
 
 #### Defined in
 
-[lib/LavaShark.ts:317](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L317)
+[lib/LavaShark.ts:317](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L317)
 
 ___
 
@@ -327,7 +327,7 @@ Get the ping for all nodes
 
 #### Defined in
 
-[lib/LavaShark.ts:371](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L371)
+[lib/LavaShark.ts:371](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L371)
 
 ___
 
@@ -350,7 +350,7 @@ Search by song name or use music URL
 
 #### Defined in
 
-[lib/LavaShark.ts:256](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L256)
+[lib/LavaShark.ts:256](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L256)
 
 ___
 
@@ -372,7 +372,7 @@ Connects to all lavalink nodes
 
 #### Defined in
 
-[lib/LavaShark.ts:301](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L301)
+[lib/LavaShark.ts:301](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L301)
 
 ___
 
@@ -392,4 +392,4 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/ff4f702/src/lib/LavaShark.ts#L58)
+[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L58)
