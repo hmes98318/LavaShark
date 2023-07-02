@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 入門
 
-這裡有一個使用 discord.js v14 的示例教程。如果你使用的是較早版本，請更新它。[discord.js 指南]((https://discordjs.guide/)) 提供了資源來幫助你進行更新過程。  
+這裡有一個使用 discord.js v14 的示例教程。如果你使用的是較早版本，請更新它。[discord.js 指南](https://discordjs.guide/) 提供了資源來幫助你進行更新過程。  
 
 ### 初始化 LavaShark 和 discord.js 函式庫
 
