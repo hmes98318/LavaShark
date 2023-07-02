@@ -93,7 +93,7 @@ export declare class LavaShark extends EventEmitter {
      * @param {String} guildId - The guild id that player belongs to
      * @returns {Player}
      */
-    getPlayer(guildId: string): Player;
+    getPlayer(guildId: string): Player | null;
     /**
      * Search by song name or use music URL
      * @param {String} query - The query to search for
