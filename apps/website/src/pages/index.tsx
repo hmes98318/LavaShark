@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Translate from '@docusaurus/Translate';
+
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import LogoSvg from '@site/static/img/logo-home.svg';
@@ -39,7 +41,7 @@ function HomepageHeader() {
                 <LogoSvg width={100} />
                 <h1 className="hero__title">LavaShark</h1>
                 <p className="hero__subtitle text--primary text--bold">
-                    A lightweight Node.js client built around the Lavalink node
+                    <Translate>A lightweight Node.js client built around the Lavalink node</Translate>
                 </p>
                 <div className={styles.buttons}>
                     <button

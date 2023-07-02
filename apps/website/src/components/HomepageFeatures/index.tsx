@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -13,30 +14,30 @@ const FeatureList: FeatureItem[] = [
         title: 'Easy to Use',
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
-            <>
+            <Translate>
                 LavaShark is a lightweight Lavalink client that uses the REST API,
                 allowing you to build your own Discord music bot in JavaScript/TypeScript.
-            </>
+            </Translate>
         ),
     },
     {
         title: 'Stable and efficient',
         Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
         description: (
-            <>
+            <Translate>
                 Using Lavalink as the standalone audio sending node provides high scalability and performance.
-            </>
+            </Translate>
         ),
     },
     {
         title: 'Community support',
         Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
         description: (
-            <>
+            <Translate>
                 LavaShark enjoys strong community support,
                 allowing you to seek assistance and collaborate with fellow developers,
                 making it easier to enhance your Discord music bot built with LavaShark.
-            </>
+            </Translate>
         ),
     },
 ];

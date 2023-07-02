@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Classes": {
+    "message": "Classes",
+    "description": "The label for category Classes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Classes.link.generated-index.description": {
+    "message": "Available classes.",
+    "description": "The generated-index page description for category Classes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Components": {
+    "message": "Components",
+    "description": "The label for category Components in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Components.link.generated-index.description": {
+    "message": "@types",
+    "description": "The generated-index page description for category Components in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.enums": {
+    "message": "enums",
+    "description": "The label for category enums in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.interfaces": {
+    "message": "interfaces",
+    "description": "The label for category interfaces in sidebar tutorialSidebar"
+  }
+}

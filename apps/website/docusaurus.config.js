@@ -31,7 +31,17 @@ const config = {
     // to replace "en" with "zh-Hans".
     i18n: {
         defaultLocale: 'en',
-        locales: ['en'],
+        locales: ['en', 'zh-TW'],
+        /*localeConfigs: {
+            en: {
+                label: 'English',
+                direction: 'ltr',
+            },
+            'zh-Hant': {
+                label: '繁體中文（台灣）',
+                direction: 'ltr',
+            },
+        },*/
     },
 
     presets: [
@@ -78,7 +88,7 @@ const config = {
             navbar: {
                 title: 'LavaShark',
                 logo: {
-                    alt: 'Bear React Carousel Logo',
+                    alt: 'LavaShark Logo',
                     src: 'img/logo.svg',
                 },
                 items: [
@@ -90,6 +100,10 @@ const config = {
                     },
                     { to: '/docs/getting-started', label: 'Started', position: 'left' },
                     { href: 'https://github.com/hmes98318/Music-Disc', label: 'Examples', position: 'left' },
+                    {
+                        type: 'localeDropdown',
+                        position: 'right'
+                    },
                     {
                         href: 'https://github.com/hmes98318/LavaShark',
                         position: 'right',
