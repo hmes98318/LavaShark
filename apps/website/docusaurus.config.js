@@ -100,6 +100,7 @@ const config = {
                     },
                     { to: '/docs/getting-started', label: 'Started', position: 'left' },
                     { href: 'https://github.com/hmes98318/Music-Disc', label: 'Examples', position: 'left' },
+                    { href: 'https://discord.gg/7rQEx7SPGr', label: 'Discord', position: 'left' },
                     {
                         type: 'localeDropdown',
                         position: 'right'
