@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "LavaShark",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "LavaShark Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Guide": {
+    "message": "指南",
+    "description": "Navbar item with label Guide"
+  },
+  "item.label.Started": {
+    "message": "開始",
+    "description": "Navbar item with label Started"
+  },
+  "item.label.Examples": {
+    "message": "範例機器人",
+    "description": "Navbar item with label Examples"
+  }
+}
