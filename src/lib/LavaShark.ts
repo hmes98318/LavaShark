@@ -236,14 +236,18 @@ export class LavaShark extends EventEmitter {
      * @param {String} guildId - The guild id that player belongs to
      * @returns {Player}
      */
-    public getPlayer(guildId: string): Player {
+    public getPlayer(guildId: string): Player | null {
+        if (typeof guildId !== 'string') {
+            throw new TypeError('guildId must be a non-empty string');
+        }
+
         const player = this.players.get(guildId);
 
-        if (player) {
-            return player;
+        if (!player) {
+            return null;
         }
         else {
-            throw new Error(`The Player does not exist. You need to create a new one`);
+            return player || null;
         }
     }
 
