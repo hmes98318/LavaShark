@@ -80,6 +80,7 @@ export type EventListeners<T> = {
     (event: 'nodeDisconnect', listener: (node: Node, code: number, reason: string) => void): T;
     (event: 'warn', listener: (node: Node, warn: string) => void): T;
     (event: 'error', listener: (node: Node, error: Error) => void): T;
+    (event: 'tracksAdd', listener: (player: Player, tracks: Track | Array<Track>) => void): T;
     (event: 'trackStart', listener: (player: Player, track: Track) => void): T;
     (event: 'trackEnd', listener: (player: Player, track: Track, reason: TrackEndReason) => void): T;
     (event: 'trackStuck', listener: (player: Player, track: Track, thresholdMs: number) => void): T;

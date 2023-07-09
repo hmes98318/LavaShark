@@ -24,16 +24,7 @@ export class Queue {
     }
 
     /**
-     * Adds a track to the queue.
-     * @param {Track | UnresolvedTrack} track - The track to add to the queue
-     * @deprecated - Use `add()` instead
-     */
-    public push(track: Track | UnresolvedTrack) {
-        this.tracks.push(track);
-    }
-
-    /**
-     * Adds a track to the queue.
+     * [Internal] Adds a track to the queue. External users should use Player.addTracks() method instead.
      * @param {Track | UnresolvedTrack} track - The track to add to the queue
      */
     public add(track: Track | UnresolvedTrack) {

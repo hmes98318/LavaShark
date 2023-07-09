@@ -153,6 +153,27 @@ export default class Player {
     }
 
     /**
+     * Adds one or more tracks to the queue
+     * @param {Track | UnresolvedTrack | Array<Track | UnresolvedTrack>} tracks - The track(s) to add to the queue
+     * @param requester - The requester of the track(s)
+     */
+    public addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: unknown) {
+        if (Array.isArray(tracks)) {
+            for (const track of tracks) {
+                track.setRequester(requester);
+                this.queue.add(track);
+            }
+        }
+        else {
+            tracks.setRequester(requester);
+            this.queue.add(tracks);
+        }
+
+        this.lavashark.emit('tracksAdd', this, tracks);
+    }
+
+
+    /**
      * Connects to the voice channel
      */
     public connect() {

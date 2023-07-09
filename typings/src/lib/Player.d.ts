@@ -2,6 +2,7 @@ import { LavaShark } from './LavaShark';
 import Node from './Node';
 import { Queue } from './queue/Queue';
 import Track from './queue/Track';
+import UnresolvedTrack from './queue/UnresolvedTrack';
 import Filters from './Filters';
 import { PlayerOptions, PlayerState, PlayOptions, VoiceState, RepeatMode } from '../@types';
 export declare enum ConnectionState {
@@ -61,6 +62,12 @@ export default class Player {
      * @private
      */
     private assignNode;
+    /**
+     * Adds one or more tracks to the queue
+     * @param {Track | UnresolvedTrack | Array<Track | UnresolvedTrack>} tracks - The track(s) to add to the queue
+     * @param requester - The requester of the track(s)
+     */
+    addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: unknown): void;
     /**
      * Connects to the voice channel
      */

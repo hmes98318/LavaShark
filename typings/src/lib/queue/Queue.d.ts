@@ -12,13 +12,7 @@ export declare class Queue {
      */
     get duration(): number;
     /**
-     * Adds a track to the queue.
-     * @param {Track | UnresolvedTrack} track - The track to add to the queue
-     * @deprecated - Use `add()` instead
-     */
-    push(track: Track | UnresolvedTrack): void;
-    /**
-     * Adds a track to the queue.
+     * [Internal] Adds a track to the queue. External users should use Player.addTracks() method instead.
      * @param {Track | UnresolvedTrack} track - The track to add to the queue
      */
     add(track: Track | UnresolvedTrack): void;
