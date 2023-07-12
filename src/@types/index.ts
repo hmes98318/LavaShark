@@ -85,6 +85,7 @@ export type EventListeners<T> = {
     (event: 'trackEnd', listener: (player: Player, track: Track, reason: TrackEndReason) => void): T;
     (event: 'trackStuck', listener: (player: Player, track: Track, thresholdMs: number) => void): T;
     (event: 'trackException', listener: (player: Player, track: Track | UnresolvedTrack, exception: LoadException & { cause: string }) => void): T;
+    (event: 'playerConnect', listener: (player: Player) => void): T;
     (event: 'playerCreate', listener: (player: Player) => void): T;
     (event: 'playerDestroy', listener: (player: Player) => void): T;
     (event: 'playerDisconnect', listener: (player: Player, code: number, reason: string) => void): T;

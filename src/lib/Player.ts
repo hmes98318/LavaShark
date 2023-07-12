@@ -199,6 +199,8 @@ export default class Player {
             this.state = ConnectionState.DISCONNECTED;
             throw new Error('Voice connection timeout.');
         }, 10000);
+
+        this.lavashark.emit('playerConnect', this);
     }
 
     /**
