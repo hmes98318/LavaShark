@@ -169,7 +169,7 @@ export default class Player {
             this.queue.add(tracks);
         }
 
-        this.lavashark.emit('tracksAdd', this, tracks);
+        this.lavashark.emit('trackAdd', this, tracks);
     }
 
 
