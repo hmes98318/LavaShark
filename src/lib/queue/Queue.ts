@@ -87,26 +87,26 @@ export class Queue {
      */
     public remove(start: number, end: number): boolean;
     public remove(arg1?: number, arg2?: number): boolean {
-        if (typeof arg1 === 'undefined') arg1 = 1;
+        if (typeof arg1 === 'undefined') arg1 = 0;
 
         if (arg2 !== undefined) {
             if (typeof arg1 !== 'number' || isNaN(arg1)) throw TypeError('Start value must be a number');
             if (typeof arg2 !== 'number' || isNaN(arg2)) throw TypeError('End value must be a number');
 
-            if (arg1 < 1 || arg2 < arg1 || arg1 > this.tracks.length || arg2 > this.tracks.length) {
+            if (arg1 < 0 || arg2 < arg1 || arg1 > this.tracks.length || arg2 > this.tracks.length) {
                 // Index out of range
                 return false;
             }
-            this.tracks.splice(arg1 - 1, arg2 - arg1 + 1);
+            this.tracks.splice(arg1, arg2);
         }
         else {
             if (typeof arg1 !== 'number' || isNaN(arg1)) throw TypeError('Index must be a number');
 
-            if (arg1 < 1 || arg1 > this.tracks.length) {
+            if (arg1 < 0 || arg1 > this.tracks.length) {
                 // Index out of range
                 return false;
             }
-            this.tracks.splice(arg1 - 1, 1);
+            this.tracks.splice(arg1, 1);
         }
         return true;
     }
