@@ -2,7 +2,7 @@ import { IncomingMessage } from 'http';
 import WebSocket, { CloseEvent, ErrorEvent, MessageEvent } from 'ws';
 
 import { LavaShark } from './LavaShark';
-import Player, { ConnectionState } from './Player';
+import Player, { ConnectionState, RepeatMode } from './Player';
 import { RESTManager } from './rest/RESTManager';
 import { LAVALINK_API_VERSION } from './rest/Endpoints';
 import UnresolvedTrack from './queue/UnresolvedTrack';
@@ -354,7 +354,7 @@ export default class Node {
 
     private handleTrackEnd(ev: TrackEndEvent, player: Player) {
         if (ev.reason === 'REPLACED') {
-            if (player.queueRepeat && player.current) {
+            if (player.repeatMode === RepeatMode.QUEUE && player.current) {
                 player.queue.add(player.current);
             }
             return;
@@ -371,12 +371,12 @@ export default class Node {
 
         this.lavashark.emit('trackEnd', player, player.current, ev.reason);
 
-        if (player.trackRepeat) {
+        if (player.repeatMode === RepeatMode.TRACK) {
             player.play();
             return;
         }
 
-        if (player.queueRepeat && player.current) {
+        if (player.repeatMode === RepeatMode.QUEUE && player.current) {
             player.queue.add(player.current);
         }
 

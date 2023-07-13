@@ -5,12 +5,11 @@ import Track from './queue/Track';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 import Filters from './Filters';
 
-import {
+import type {
     PlayerOptions,
     PlayerState,
     PlayOptions,
-    VoiceState,
-    RepeatMode
+    VoiceState
 } from '../@types';
 
 
@@ -18,6 +17,18 @@ export enum ConnectionState {
     CONNECTING,
     CONNECTED,
     DISCONNECTED
+}
+
+/**
+ * The queue repeat mode. This can be one of:
+ * - OFF
+ * - TRACK
+ * - QUEUE
+ */
+export enum RepeatMode {
+    OFF,
+    TRACK,
+    QUEUE
 }
 
 export default class Player {
@@ -39,8 +50,7 @@ export default class Player {
     public current: Track | null;
     public queue: Queue;
 
-    public queueRepeat: boolean;
-    public trackRepeat: boolean;
+    public repeatMode: RepeatMode;
 
     public position: number;
     private positionTimestamp: number;
@@ -92,8 +102,7 @@ export default class Player {
         this.current = null;
         this.queue = options.queue ?? new Queue();
 
-        this.queueRepeat = false;
-        this.trackRepeat = false;
+        this.repeatMode = RepeatMode.OFF;
 
         this.position = 0;
         this.positionTimestamp = 0;
@@ -421,18 +430,15 @@ export default class Player {
     public setRepeatMode(mode: RepeatMode) {
         switch (mode) {
             case RepeatMode.OFF: {
-                this.trackRepeat = false;
-                this.queueRepeat = false;
+                this.repeatMode = RepeatMode.OFF;
                 break;
             }
             case RepeatMode.TRACK: {
-                this.trackRepeat = true;
-                this.queueRepeat = false;
+                this.repeatMode = RepeatMode.TRACK;
                 break;
             }
             case RepeatMode.QUEUE: {
-                this.trackRepeat = false;
-                this.queueRepeat = true;
+                this.repeatMode = RepeatMode.QUEUE;
                 break;
             }
             default: {

@@ -4,11 +4,22 @@ import { Queue } from './queue/Queue';
 import Track from './queue/Track';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 import Filters from './Filters';
-import { PlayerOptions, PlayerState, PlayOptions, VoiceState, RepeatMode } from '../@types';
+import type { PlayerOptions, PlayerState, PlayOptions, VoiceState } from '../@types';
 export declare enum ConnectionState {
     CONNECTING = 0,
     CONNECTED = 1,
     DISCONNECTED = 2
+}
+/**
+ * The queue repeat mode. This can be one of:
+ * - OFF
+ * - TRACK
+ * - QUEUE
+ */
+export declare enum RepeatMode {
+    OFF = 0,
+    TRACK = 1,
+    QUEUE = 2
 }
 export default class Player {
     private readonly lavashark;
@@ -22,8 +33,7 @@ export default class Player {
     selfMute?: boolean;
     current: Track | null;
     queue: Queue;
-    queueRepeat: boolean;
-    trackRepeat: boolean;
+    repeatMode: RepeatMode;
     position: number;
     private positionTimestamp;
     playing: boolean;

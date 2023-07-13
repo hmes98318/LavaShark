@@ -318,17 +318,6 @@ export type PlayOptions = {
     pause?: boolean;
     noReplace?: boolean;
 };
-/**
- * The queue repeat mode. This can be one of:
- * - OFF
- * - TRACK
- * - QUEUE
- */
-export declare enum RepeatMode {
-    OFF = 0,
-    TRACK = 1,
-    QUEUE = 2
-}
 export type ChannelMixOptions = {
     leftToLeft?: number;
     leftToRight?: number;
