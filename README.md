@@ -1,6 +1,6 @@
 <img height="150" alt="logo" src="public/imgs/big-logo.svg">  
 
-A lightweight Node.js client built around the Lavalink node.  
+A lightweight Lavalink client built with Node.js.  
 
 ### Features
 * Stable  
