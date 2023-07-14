@@ -103,12 +103,6 @@ export type Info = {
 }
 
 /** Lavalink node incoming payloads */
-export interface SpeakingEventPayload {
-    op: 'speakingEvent';
-    type: 'start' | 'stop' | 'disconnected';
-    guildId: string;
-    userId: string;
-}
 export interface PlayerEventPayload {
     op: 'event';
     type: 'TrackStartEvent' | 'TrackEndEvent' | 'TrackExceptionEvent' | 'TrackStuckEvent' | 'WebSocketClosedEvent';

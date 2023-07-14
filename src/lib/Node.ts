@@ -13,7 +13,6 @@ import type {
     NodeStats,
     PlayerEventPayload,
     RoutePlannerStatus,
-    SpeakingEventPayload,
     TrackEndEvent,
     TrackExceptionEvent,
     TrackStartEvent,
@@ -488,7 +487,7 @@ export default class Node {
     }
 
     public async updateStats(): Promise<void> {
-        const stats = await this.getStats();console.log('public async updateStats()',stats);
+        await this.getStats();
         this.calcPenalties();
     }
 
