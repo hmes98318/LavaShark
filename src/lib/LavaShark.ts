@@ -148,17 +148,22 @@ export class LavaShark extends EventEmitter {
         this.lastNodeSorting = 0;
     }
 
-    public get bestNode(): Node {
+    public async bestNode(): Promise<Node> {
         if (Date.now() < this.lastNodeSorting + 30000) {
             if (this.nodes[0].state === NodeState.CONNECTED) {
                 return this.nodes[0];
             }
 
             this.lastNodeSorting = 0;
-            return this.bestNode;
+            return this.bestNode();
         }
 
+        this.nodes.forEach(async (node) => {
+            await node.updateStats();
+        });
+
         this.nodes = this.nodes.sort((a, b) => a.totalPenalties - b.totalPenalties);
+
         const node = this.nodes[0];
         this.lastNodeSorting = Date.now();
 
@@ -187,8 +192,7 @@ export class LavaShark extends EventEmitter {
      * @returns {Promise<Track>}
      */
     public async decodeTrack(encodedTrack: string): Promise<Track> {
-        const node = this.bestNode;
-
+        const node = await this.bestNode();
         const trackInfo = await node.rest.decodeTrack(encodedTrack);
 
         return new Track({ track: encodedTrack, info: { ...trackInfo } });
@@ -200,8 +204,7 @@ export class LavaShark extends EventEmitter {
      * @returns {Promise<Track[]>}
      */
     public async decodeTracks(encodedTracks: string[]): Promise<Track[]> {
-        const node = this.bestNode;
-
+        const node = await this.bestNode();
         const res = await node.rest.decodeTracks(encodedTracks);
 
         return res.map(it => new Track(it));
@@ -278,8 +281,7 @@ export class LavaShark extends EventEmitter {
             query = `${sourceMap[source] || 'ytsearch:'}${query}`;
         }
 
-        const node = this.bestNode;
-
+        const node = await this.bestNode();
         const res = await node.rest.loadTracks(query);
 
         if (res.loadType === 'LOAD_FAILED' || res.loadType === 'NO_MATCHES') {

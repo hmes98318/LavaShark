@@ -147,18 +147,21 @@ export default class Node {
         this.ws = null;
     }
 
-    get totalPenalties() {
-        if (this.state !== NodeState.CONNECTED || !this.ws) return Infinity;
-
-        return this.penalties ?? 0;
-    }
-
     get identifier() {
         return this.options.id ?? this.options.hostname;
     }
 
+    get totalPenalties() {
+        if (this.state !== NodeState.CONNECTED || !this.ws) {
+            return Infinity;
+        }
+        else {
+            return this.penalties ?? 0;
+        }
+    }
+
     private calcPenalties() {
-        // https://github.com/freyacodes/Lavalink-Client/blob/master/src/main/java/lavalink/client/io/LavalinkLoadBalancer.java#L131-L141
+        // https://github.com/freyacodes/Lavalink-Client/blob/d71003475376d440baf081faa79577bd11221684/src/main/java/lavalink/client/io/LavalinkLoadBalancer.java#L131-L141
 
         const cpuPenalty = Math.pow(1.05, 100 * this.stats.cpu.systemLoad) * 10 - 10;
 
@@ -281,30 +284,6 @@ export default class Node {
 
         player.current = null;
         this.lavashark.emit('queueEnd', player);
-    }
-
-    private handleSpeakingEvent({ type, guildId, userId }: SpeakingEventPayload) {
-        const player = this.lavashark.players.get(guildId);
-        if (!player || player.node !== this) return;
-
-        switch (type) {
-            case 'start': {
-                this.lavashark.emit('speakingStart', player, userId);
-                break;
-            }
-            case 'stop': {
-                this.lavashark.emit('speakingStop', player, userId);
-                break;
-            }
-            case 'disconnected': {
-                this.lavashark.emit('userDisconnect', player, userId);
-                break;
-            }
-            default: {
-                this.lavashark.emit('warn', this, `Unhandled speaking event. Unknown event type: ${type}`);
-                break;
-            }
-        }
     }
 
     private handlePlayerEvent(e: PlayerEventPayload) {
@@ -456,10 +435,6 @@ export default class Node {
                 this.handlePlayerEvent(payload);
                 break;
             }
-            case 'speakingEvent': {
-                this.handleSpeakingEvent(payload);
-                break;
-            }
             default: {
                 this.lavashark.emit('warn', this, 'Unknown payload op: ' + payload.op);
                 break;
@@ -479,7 +454,7 @@ export default class Node {
         this.lavashark.emit('error', this, error);
     }
 
-    private close({ code, reason, wasClean }: CloseEvent) {
+    private async close({ code, reason, wasClean }: CloseEvent) {
         this.state = NodeState.DISCONNECTED;
 
         this.ws?.removeAllListeners();
@@ -491,7 +466,7 @@ export default class Node {
         }
 
         try {
-            const newNode = this.lavashark.bestNode;
+            const newNode = await this.lavashark.bestNode();
 
             if (newNode) {
                 for (const player of this.lavashark.players.values()) {
@@ -510,6 +485,11 @@ export default class Node {
 
         if (this.retryAttempts === 0) this.connect();
         else setTimeout(() => this.connect(), this.options.retryAttemptsInterval ?? 5000);
+    }
+
+    public async updateStats(): Promise<void> {
+        const stats = await this.getStats();console.log('public async updateStats()',stats);
+        this.calcPenalties();
     }
 
     private upgrade(msg: IncomingMessage) {

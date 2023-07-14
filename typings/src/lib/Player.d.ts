@@ -81,7 +81,7 @@ export default class Player {
     /**
      * Connects to the voice channel
      */
-    connect(): void;
+    connect(): Promise<void>;
     /**
      * Disconnects from the voice channel
      */

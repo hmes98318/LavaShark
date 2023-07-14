@@ -154,8 +154,8 @@ export default class Player {
      * Assigns a Node to this player
      * @private
      */
-    private assignNode() {
-        const node = this.lavashark.bestNode;
+    private async assignNode() {
+        const node = await this.lavashark.bestNode();
 
         this.node = node;
         this.lavashark.emit('debug', `Assigned node ${node.identifier} to player ${this.guildId}`);
@@ -185,7 +185,7 @@ export default class Player {
     /**
      * Connects to the voice channel
      */
-    public connect() {
+    public async connect() {
         if (this.state !== ConnectionState.DISCONNECTED) return;
 
         if (!this.voiceChannelId) {
@@ -195,7 +195,7 @@ export default class Player {
         this.lavashark.emit('debug', `Connecting player ${this.guildId} to voice channel ${this.voiceChannelId}`);
 
         if (this.node === null) {
-            this.assignNode();
+            await this.assignNode();
         }
 
         this.state = ConnectionState.CONNECTING;
@@ -313,7 +313,7 @@ export default class Player {
      */
     public async play(options?: PlayOptions) {
         if (this.node === null) {
-            this.assignNode();
+            await this.assignNode();
         }
 
         if (!this.current) {
@@ -506,7 +506,7 @@ export default class Player {
 
     public async sendVoiceUpdate() {
         if (this.node === null) {
-            this.assignNode();
+            await this.assignNode();
         }
 
         if (this.connectTimeout) {

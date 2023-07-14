@@ -58,7 +58,7 @@ export declare class LavaShark extends EventEmitter {
      * @param {Function} options.sendWS - The function to send websocket messages to the main gateway
      */
     constructor(options: LavaSharkOptions);
-    get bestNode(): Node;
+    bestNode(): Promise<Node>;
     /**
      * Adds an external source that produces a SearchResult with UnresolvedTracks
      * @param {AbstractExternalSource} extSource - The external source

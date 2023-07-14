@@ -36,8 +36,8 @@ export default class Node {
      * @param {Boolean} [options.sendSpeakingEvents=false] - Tells the lavalink node to send speaking events (Supported in my custom lavalink fork)
      */
     constructor(lavashark: LavaShark, options: NodeOptions);
-    get totalPenalties(): number;
     get identifier(): string;
+    get totalPenalties(): number;
     private calcPenalties;
     connect(): void;
     disconnect(): void;
@@ -71,7 +71,6 @@ export default class Node {
      */
     unmarkAllFailedAddress(): Promise<void>;
     private pollTrack;
-    private handleSpeakingEvent;
     private handlePlayerEvent;
     private handleTrackStart;
     private handleTrackEnd;
@@ -82,5 +81,6 @@ export default class Node {
     private message;
     private error;
     private close;
+    updateStats(): Promise<void>;
     private upgrade;
 }
