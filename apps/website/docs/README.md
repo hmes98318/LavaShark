@@ -16,7 +16,7 @@ A lightweight Lavalink client built with Node.js.
 * REST API Support  
 
 :::caution
-Only compatible with Lavalink nodes that support REST API (version 3.7 or higher).
+Only compatible with Lavalink nodes that support REST API (version 3.7.x).
 
 :::
 

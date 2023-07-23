@@ -16,7 +16,7 @@ sidebar_position: 1
 * 支援 REST API  
 
 :::caution
-僅對支持 REST API（版本 3.7 或更高版本）的 Lavalink 節點兼容。
+僅對支持 REST API（版本 3.7.x）的 Lavalink 節點兼容。
 
 :::
 
