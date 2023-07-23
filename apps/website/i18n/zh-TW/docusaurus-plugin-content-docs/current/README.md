@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # LavaShark
 
-圍繞 Lavalink 節點建立的輕量級 Node.js 客戶端。  
+使用 Node.js 構建的輕量級 Lavalink 客戶端。  
 
 ### 特點
 * 穩定  
@@ -15,6 +15,10 @@ sidebar_position: 1
 
 * 支援 REST API  
 
+:::caution
+僅對支持 REST API（版本 3.7 或更高版本）的 Lavalink 節點兼容。
+
+:::
 
 ## 安裝
 需要 Node.js 16.9 或更高版本。  

@@ -41,7 +41,7 @@ function HomepageHeader() {
                 <LogoSvg width={100} />
                 <h1 className="hero__title">LavaShark</h1>
                 <p className="hero__subtitle text--primary text--bold">
-                    <Translate>A lightweight Node.js client built around the Lavalink node</Translate>
+                    <Translate>A lightweight Lavalink client built with Node.js</Translate>
                 </p>
                 <div className={styles.buttons}>
                     <button

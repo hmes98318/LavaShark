@@ -1,6 +1,6 @@
 {
-  "A lightweight Node.js client built around the Lavalink node": {
-    "message": "圍繞 Lavalink 節點建立的輕量級 Node.js 客戶端。"
+  "A lightweight Lavalink client built with Node.js": {
+    "message": "使用 Node.js 構建的輕量級 Lavalink 客戶端"
   },
   "LavaShark is a lightweight Lavalink client that uses the REST API, allowing you to build your own Discord music bot in JavaScript/TypeScript.": {
     "message": "LavaShark 是一個輕量級的 Lavalink 客戶端，使用 REST API，讓您能夠在 JavaScript/TypeScript 中構建自己的 Discord 音樂機器人。"
