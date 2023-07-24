@@ -3,8 +3,8 @@ import WebSocket, { CloseEvent, ErrorEvent, MessageEvent } from 'ws';
 
 import { LavaShark } from './LavaShark';
 import Player, { ConnectionState, RepeatMode } from './Player';
-import { RESTManager } from './rest/RESTManager';
-import { LAVALINK_API_VERSION } from './rest/Endpoints';
+import { RESTController } from './rest/RESTController';
+import { API_VERSION } from './rest/RESTPaths';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 
 import type {
@@ -38,7 +38,7 @@ export default class Node {
 
     private packetQueue: string[];
 
-    public readonly rest: RESTManager;
+    public readonly rest: RESTController;
 
     public retryAttempts: number;
 
@@ -142,7 +142,7 @@ export default class Node {
 
         this.packetQueue = [];
 
-        this.rest = new RESTManager(this);
+        this.rest = new RESTController(this);
         this.ws = null;
     }
 
@@ -190,7 +190,7 @@ export default class Node {
 
         if (this.options.resumeKey) Object.assign(headers, { 'Resume-Key': this.options.resumeKey });
 
-        const wsUrl = `ws${this.options.secure ? 's' : ''}://${this.options.hostname}:${this.options.port}/v${LAVALINK_API_VERSION}/websocket`;
+        const wsUrl = `ws${this.options.secure ? 's' : ''}://${this.options.hostname}:${this.options.port}/v${API_VERSION}/websocket`;
 
         this.ws = new WebSocket(wsUrl, {
             headers,

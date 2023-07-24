@@ -1,5 +1,5 @@
 import { LavaShark } from './LavaShark';
-import { RESTManager } from './rest/RESTManager';
+import { RESTController } from './rest/RESTController';
 import type { Info, NodeOptions, NodeStats, RoutePlannerStatus, version } from '../@types';
 export declare enum NodeState {
     CONNECTING = 0,
@@ -12,7 +12,7 @@ export default class Node {
     private penalties?;
     private ws;
     private packetQueue;
-    readonly rest: RESTManager;
+    readonly rest: RESTController;
     retryAttempts: number;
     state: NodeState;
     stats: NodeStats;

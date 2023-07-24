@@ -3,18 +3,18 @@ import { fetch } from 'undici';
 import Node from '../Node';
 import {
     DECODE_TRACKS,
+    INFO,
     LOAD_TRACKS,
     PLAYER,
     SESSIONS,
+    STATS,
     ROUTE_PLANNER_STATUS,
     ROUTE_PLANNER_FREE_ALL,
     ROUTE_PLANNER_FREE_ADDR,
-    VERSION,
-    INFO,
-    STATS
-} from './Endpoints';
+    VERSION
+} from './RESTPaths';
 
-import {
+import type {
     Info,
     ITrack,
     LavalinkRESTError,
@@ -27,7 +27,7 @@ import {
 } from '../../@types';
 
 
-export class RESTManager {
+export class RESTController {
     private readonly restUrl: string;
     #sessionId: string;
 

@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import Node from '../Node';
-import { Info, ITrack, LoadTracksResult, NodeStats, RequestOptions, RoutePlannerStatus, TrackInfo, UpdatePlayerOptions } from '../../@types';
-export declare class RESTManager {
+import type { Info, ITrack, LoadTracksResult, NodeStats, RequestOptions, RoutePlannerStatus, TrackInfo, UpdatePlayerOptions } from '../../@types';
+export declare class RESTController {
     #private;
     private readonly node;
     private readonly restUrl;

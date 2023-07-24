@@ -1,4 +1,4 @@
-export declare const LAVALINK_API_VERSION = 3;
+export declare const API_VERSION = 3;
 export declare const SESSIONS: (sessionId: string) => string;
 export declare const PLAYER: (sessionId: string, guildId: string) => string;
 export declare const LOAD_TRACKS: (identifier: string) => string;
