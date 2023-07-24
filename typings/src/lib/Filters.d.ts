@@ -1,5 +1,5 @@
-import { ChannelMixOptions, DistortionOptions, FilterOptions, KaraokeOptions, LowPassOptions, RotationOptions, TimescaleOptions, TremoloOptions, VibratoOptions } from '../@types';
 import Player from './Player';
+import type { ChannelMixOptions, DistortionOptions, FilterOptions, KaraokeOptions, LowPassOptions, RotationOptions, TimescaleOptions, TremoloOptions, VibratoOptions } from '../@types';
 export default class Filters {
     private readonly player;
     private options;

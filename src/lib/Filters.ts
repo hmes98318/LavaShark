@@ -1,4 +1,6 @@
-import {
+import Player from './Player';
+
+import type {
     ChannelMixOptions,
     DistortionOptions,
     FilterOptions,
@@ -9,7 +11,6 @@ import {
     TremoloOptions,
     VibratoOptions
 } from '../@types';
-import Player from './Player';
 
 
 export default class Filters {
