@@ -1,4 +1,4 @@
-# types.Timestamp
+# Interface: Timestamp
 
 [@types](../types.md).Timestamp
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[@types/index.ts:154](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L154)
+[@types/REST.types.ts:64](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L64)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:155](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L155)
+[@types/REST.types.ts:65](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L65)

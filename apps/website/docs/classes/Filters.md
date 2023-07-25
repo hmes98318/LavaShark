@@ -43,7 +43,7 @@ Creates an instance of filters
 
 #### Defined in
 
-[lib/Filters.ts:24](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L24)
+[lib/Filters.ts:25](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L25)
 
 ## Accessors
 
@@ -59,7 +59,7 @@ Gets a copy of active filters object
 
 #### Defined in
 
-[lib/Filters.ts:35](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L35)
+[lib/Filters.ts:36](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L36)
 
 ___
 
@@ -75,7 +75,7 @@ Checks if some filter is enabled
 
 #### Defined in
 
-[lib/Filters.ts:30](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L30)
+[lib/Filters.ts:31](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L31)
 
 ## Methods
 
@@ -91,7 +91,7 @@ Sends filters payload to Lavalink Node
 
 #### Defined in
 
-[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L245)
+[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L245)
 
 ___
 
@@ -107,7 +107,7 @@ Clears all active filters
 
 #### Defined in
 
-[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L238)
+[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L238)
 
 ___
 
@@ -129,7 +129,7 @@ Sets all filters
 
 #### Defined in
 
-[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L224)
+[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L224)
 
 ___
 
@@ -154,7 +154,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:49](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L49)
+[lib/Filters.ts:50](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L50)
 
 ___
 
@@ -179,7 +179,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:72](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L72)
+[lib/Filters.ts:73](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L73)
 
 ___
 
@@ -204,7 +204,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:87](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L87)
+[lib/Filters.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L88)
 
 ___
 
@@ -229,7 +229,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:113](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L113)
+[lib/Filters.ts:114](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L114)
 
 ___
 
@@ -254,7 +254,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:129](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L129)
+[lib/Filters.ts:130](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L130)
 
 ___
 
@@ -279,7 +279,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:145](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L145)
+[lib/Filters.ts:146](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L146)
 
 ___
 
@@ -304,7 +304,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:163](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L163)
+[lib/Filters.ts:164](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L164)
 
 ___
 
@@ -329,7 +329,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:180](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L180)
+[lib/Filters.ts:181](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L181)
 
 ___
 
@@ -354,7 +354,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:197](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L197)
+[lib/Filters.ts:198](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L198)
 
 ___
 
@@ -379,4 +379,4 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:212](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L212)
+[lib/Filters.ts:213](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L213)

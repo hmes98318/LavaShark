@@ -1,6 +1,8 @@
-# types.TrackStuckEvent
+# Interface: TrackStuckEvent
 
 [@types](../types.md).TrackStuckEvent
+
+Lavalink node incoming payloads
 
 ## Hierarchy
 
@@ -30,7 +32,7 @@
 
 #### Defined in
 
-[@types/index.ts:290](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L290)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -44,7 +46,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:288](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L288)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -54,7 +56,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:316](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L316)
+[@types/Node.types.ts:136](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L136)
 
 ___
 
@@ -64,7 +66,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:315](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L315)
+[@types/Node.types.ts:135](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L135)
 
 ___
 
@@ -78,4 +80,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:314](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L314)
+[@types/Node.types.ts:134](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L134)

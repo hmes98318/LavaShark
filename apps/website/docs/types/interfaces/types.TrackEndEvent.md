@@ -1,6 +1,8 @@
-# types.TrackEndEvent
+# Interface: TrackEndEvent
 
 [@types](../types.md).TrackEndEvent
+
+Lavalink node incoming payloads
 
 ## Hierarchy
 
@@ -30,7 +32,7 @@
 
 #### Defined in
 
-[@types/index.ts:290](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L290)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -44,17 +46,17 @@ ___
 
 #### Defined in
 
-[@types/index.ts:288](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L288)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L107)
 
 ___
 
 ### reason
 
-• **reason**: `TrackEndReason`
+• **reason**: [`TrackEndReason`](../types.md#trackendreason)
 
 #### Defined in
 
-[@types/index.ts:302](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L302)
+[@types/Node.types.ts:122](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L122)
 
 ___
 
@@ -64,7 +66,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:301](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L301)
+[@types/Node.types.ts:121](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L121)
 
 ___
 
@@ -78,4 +80,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:300](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L300)
+[@types/Node.types.ts:120](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L120)

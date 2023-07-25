@@ -1,6 +1,8 @@
-# types.WebSocketClosedEvent
+# Interface: WebSocketClosedEvent
 
 [@types](../types.md).WebSocketClosedEvent
+
+Lavalink node incoming payloads
 
 ## Hierarchy
 
@@ -27,7 +29,7 @@
 
 #### Defined in
 
-[@types/index.ts:322](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L322)
+[@types/Node.types.ts:142](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L142)
 
 ___
 
@@ -37,7 +39,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:320](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L320)
+[@types/Node.types.ts:140](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L140)
 
 ___
 
@@ -51,7 +53,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:290](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L290)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -65,7 +67,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:288](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L288)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -75,7 +77,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:321](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L321)
+[@types/Node.types.ts:141](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L141)
 
 ___
 
@@ -89,4 +91,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:289](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L289)
+[@types/Node.types.ts:108](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L108)

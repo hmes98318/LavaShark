@@ -1,6 +1,8 @@
-# types.TrackExceptionEvent
+# Interface: TrackExceptionEvent
 
 [@types](../types.md).TrackExceptionEvent
+
+Lavalink node incoming payloads
 
 ## Hierarchy
 
@@ -22,11 +24,11 @@
 
 ### exception
 
-• **exception**: `LoadException` & { `cause`: `string`  }
+• **exception**: [`LoadException`](../types.md#loadexception) & { `cause`: `string`  }
 
 #### Defined in
 
-[@types/index.ts:308](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L308)
+[@types/Node.types.ts:128](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L128)
 
 ___
 
@@ -40,7 +42,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:290](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L290)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -54,7 +56,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:288](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L288)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -64,7 +66,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:307](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L307)
+[@types/Node.types.ts:127](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L127)
 
 ___
 
@@ -78,4 +80,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:306](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L306)
+[@types/Node.types.ts:126](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L126)

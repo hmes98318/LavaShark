@@ -1,6 +1,8 @@
-# types.PlayerEventPayload
+# Interface: PlayerEventPayload
 
 [@types](../types.md).PlayerEventPayload
+
+Lavalink node incoming payloads
 
 ## Hierarchy
 
@@ -32,7 +34,7 @@
 
 #### Defined in
 
-[@types/index.ts:290](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L290)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -42,7 +44,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:288](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L288)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -52,4 +54,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:289](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L289)
+[@types/Node.types.ts:108](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L108)

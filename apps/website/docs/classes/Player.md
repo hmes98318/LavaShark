@@ -17,12 +17,11 @@
 - [playing](Player.md#playing)
 - [position](Player.md#position)
 - [queue](Player.md#queue)
-- [queueRepeat](Player.md#queuerepeat)
+- [repeatMode](Player.md#repeatmode)
 - [selfDeaf](Player.md#selfdeaf)
 - [selfMute](Player.md#selfmute)
 - [state](Player.md#state)
 - [textChannelId](Player.md#textchannelid)
-- [trackRepeat](Player.md#trackrepeat)
 - [voiceChannelId](Player.md#voicechannelid)
 - [voiceState](Player.md#voicestate)
 
@@ -34,6 +33,7 @@
 
 ### Methods
 
+- [addTracks](Player.md#addtracks)
 - [connect](Player.md#connect)
 - [destroy](Player.md#destroy)
 - [disconnect](Player.md#disconnect)
@@ -69,7 +69,7 @@ Create a new Player instance
 
 #### Defined in
 
-[lib/Player.ts:78](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L78)
+[lib/Player.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L88)
 
 ## Properties
 
@@ -79,7 +79,7 @@ Create a new Player instance
 
 #### Defined in
 
-[lib/Player.ts:39](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L39)
+[lib/Player.ts:50](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L50)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:29](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L29)
+[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L40)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:27](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L27)
+[lib/Player.ts:38](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L38)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:54](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L54)
+[lib/Player.ts:64](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L64)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:25](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L25)
+[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L36)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:49](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L49)
+[lib/Player.ts:59](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L59)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L48)
+[lib/Player.ts:58](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L58)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L45)
+[lib/Player.ts:55](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L55)
 
 ___
 
@@ -159,17 +159,17 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L40)
+[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L51)
 
 ___
 
-### queueRepeat
+### repeatMode
 
-• **queueRepeat**: `boolean`
+• **repeatMode**: [`RepeatMode`](../types/enums/types.RepeatMode.md)
 
 #### Defined in
 
-[lib/Player.ts:42](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L42)
+[lib/Player.ts:53](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L53)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L36)
+[lib/Player.ts:47](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L47)
 
 ___
 
@@ -189,17 +189,17 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:37](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L37)
+[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L48)
 
 ___
 
 ### state
 
-• **state**: `ConnectionState`
+• **state**: [`ConnectionState`](../types/enums/types.ConnectionState.md)
 
 #### Defined in
 
-[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L51)
+[lib/Player.ts:61](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L61)
 
 ___
 
@@ -209,17 +209,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:34](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L34)
-
-___
-
-### trackRepeat
-
-• **trackRepeat**: `boolean`
-
-#### Defined in
-
-[lib/Player.ts:43](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L43)
+[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L45)
 
 ___
 
@@ -229,7 +219,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:33](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L33)
+[lib/Player.ts:44](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L44)
 
 ___
 
@@ -239,7 +229,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:52](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L52)
+[lib/Player.ts:62](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L62)
 
 ## Accessors
 
@@ -255,7 +245,7 @@ Gets the exact track position based on the last playerUpdate packet
 
 #### Defined in
 
-[lib/Player.ts:118](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L118)
+[lib/Player.ts:127](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L127)
 
 ___
 
@@ -275,7 +265,7 @@ Gets the queue duration in milliseconds
 
 #### Defined in
 
-[lib/Player.ts:133](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L133)
+[lib/Player.ts:142](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L142)
 
 ___
 
@@ -291,15 +281,22 @@ Gets the volume of the player
 
 #### Defined in
 
-[lib/Player.ts:140](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L140)
+[lib/Player.ts:149](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L149)
 
 ## Methods
 
-### connect
+### addTracks
 
-▸ **connect**(): `void`
+▸ **addTracks**(`tracks`, `requester`): `void`
 
-Connects to the voice channel
+Adds one or more tracks to the queue
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `tracks` | `default` \| [`Track`](Track.md) \| (`default` \| [`Track`](Track.md))[] | The track(s) to add to the queue |
+| `requester` | `unknown` | The requester of the track(s) |
 
 #### Returns
 
@@ -307,7 +304,23 @@ Connects to the voice channel
 
 #### Defined in
 
-[lib/Player.ts:158](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L158)
+[lib/Player.ts:169](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L169)
+
+___
+
+### connect
+
+▸ **connect**(): `Promise`<`void`\>
+
+Connects to the voice channel
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/Player.ts:188](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L188)
 
 ___
 
@@ -323,7 +336,7 @@ Destroys the player
 
 #### Defined in
 
-[lib/Player.ts:207](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L207)
+[lib/Player.ts:239](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L239)
 
 ___
 
@@ -339,7 +352,7 @@ Disconnects from the voice channel
 
 #### Defined in
 
-[lib/Player.ts:186](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L186)
+[lib/Player.ts:218](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L218)
 
 ___
 
@@ -359,7 +372,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:221](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L221)
+[lib/Player.ts:253](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L253)
 
 ___
 
@@ -381,7 +394,7 @@ Pause or unpause the player
 
 #### Defined in
 
-[lib/Player.ts:321](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L321)
+[lib/Player.ts:353](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L353)
 
 ___
 
@@ -399,7 +412,7 @@ Gets the latency between lavalink client & node
 
 #### Defined in
 
-[lib/Player.ts:260](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L260)
+[lib/Player.ts:292](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L292)
 
 ___
 
@@ -421,7 +434,7 @@ Plays a track
 
 #### Defined in
 
-[lib/Player.ts:282](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L282)
+[lib/Player.ts:314](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L314)
 
 ___
 
@@ -437,7 +450,7 @@ Resume the player
 
 #### Defined in
 
-[lib/Player.ts:342](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L342)
+[lib/Player.ts:374](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L374)
 
 ___
 
@@ -459,7 +472,7 @@ Seek to a specific position in the track
 
 #### Defined in
 
-[lib/Player.ts:378](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L378)
+[lib/Player.ts:410](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L410)
 
 ___
 
@@ -473,7 +486,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:478](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L478)
+[lib/Player.ts:507](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L507)
 
 ___
 
@@ -495,7 +508,7 @@ Set repeat mode for this queue
 
 #### Defined in
 
-[lib/Player.ts:398](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L398)
+[lib/Player.ts:430](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L430)
 
 ___
 
@@ -517,7 +530,7 @@ Sets the bot's self deaf state
 
 #### Defined in
 
-[lib/Player.ts:443](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L443)
+[lib/Player.ts:472](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L472)
 
 ___
 
@@ -539,7 +552,7 @@ Sets the bot's self mute state
 
 #### Defined in
 
-[lib/Player.ts:456](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L456)
+[lib/Player.ts:485](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L485)
 
 ___
 
@@ -561,7 +574,7 @@ Sets the player voice channel
 
 #### Defined in
 
-[lib/Player.ts:469](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L469)
+[lib/Player.ts:498](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L498)
 
 ___
 
@@ -583,7 +596,7 @@ Skips the current playing track
 
 #### Defined in
 
-[lib/Player.ts:350](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L350)
+[lib/Player.ts:382](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L382)
 
 ___
 
@@ -603,7 +616,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:501](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L501)
+[lib/Player.ts:530](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L530)
 
 ___
 
@@ -623,4 +636,4 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:56](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L56)
+[lib/Player.ts:66](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Player.ts#L66)

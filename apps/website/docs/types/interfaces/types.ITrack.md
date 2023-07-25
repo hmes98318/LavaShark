@@ -1,4 +1,4 @@
-# types.ITrack
+# Interface: ITrack
 
 [@types](../types.md).ITrack
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[@types/index.ts:151](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L151)
+[@types/REST.types.ts:60](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L60)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[@types/index.ts:150](https://github.com/hmes98318/LavaShark/blob/main/src/@types/index.ts#L150)
+[@types/REST.types.ts:59](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L59)

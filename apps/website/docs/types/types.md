@@ -2,15 +2,10 @@
 
 ## Table of contents
 
-### Enumerations
-
-- [RepeatMode](./enums/types.RepeatMode.md)
-
 ### Interfaces
 
 - [ITrack](./interfaces/types.ITrack.md)
 - [PlayerEventPayload](./interfaces/types.PlayerEventPayload.md)
-- [SpeakingEventPayload](./interfaces/types.SpeakingEventPayload.md)
 - [Timestamp](./interfaces/types.Timestamp.md)
 - [TrackEndEvent](./interfaces/types.TrackEndEvent.md)
 - [TrackExceptionEvent](./interfaces/types.TrackExceptionEvent.md)
@@ -29,6 +24,8 @@
 - [KaraokeOptions](types.md#karaokeoptions)
 - [LavaSharkOptions](types.md#lavasharkoptions)
 - [LavalinkRESTError](types.md#lavalinkresterror)
+- [LoadException](types.md#loadexception)
+- [LoadResultBase](types.md#loadresultbase)
 - [LoadTracksResult](types.md#loadtracksresult)
 - [LowPassOptions](types.md#lowpassoptions)
 - [Metadata](types.md#metadata)
@@ -41,14 +38,19 @@
 - [PlaylistInfo](types.md#playlistinfo)
 - [RequestOptions](types.md#requestoptions)
 - [RotationOptions](types.md#rotationoptions)
+- [RoutePlannerDetails](types.md#routeplannerdetails)
 - [RoutePlannerStatus](types.md#routeplannerstatus)
 - [SEARCH\_SOURCE](types.md#search_source)
 - [SearchResult](types.md#searchresult)
+- [SpotifyConfig](types.md#spotifyconfig)
 - [TimescaleOptions](types.md#timescaleoptions)
+- [TrackEndReason](types.md#trackendreason)
 - [TrackInfo](types.md#trackinfo)
 - [TremoloOptions](types.md#tremolooptions)
+- [UNRESOLVED\_SOURCES](types.md#unresolved_sources)
 - [UpdatePlayerOptions](types.md#updateplayeroptions)
 - [VibratoOptions](types.md#vibratooptions)
+- [VoiceServerUpdateData](types.md#voiceserverupdatedata)
 - [VoiceServerUpdatePayload](types.md#voiceserverupdatepayload)
 - [VoiceState](types.md#voicestate)
 - [VoiceStateUpdatePayload](types.md#voicestateupdatepayload)
@@ -71,7 +73,7 @@
 
 #### Defined in
 
-[@types/index.ts:388](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L388)
+[@types/Filter.types.ts:1](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L1)
 
 ___
 
@@ -94,7 +96,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:395](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L395)
+[@types/Filter.types.ts:8](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L8)
 
 ___
 
@@ -112,6 +114,7 @@ ___
 | `nodeDisconnect` | `node`: [`Node`](../classes/Node.md), `code`: `number`, `reason`: `string` |
 | `warn` | `node`: [`Node`](../classes/Node.md), `warn`: `string` |
 | `error` | `node`: [`Node`](../classes/Node.md), `error`: `Error` |
+| `trackAdd` | `player`: [`Player`](../classes/Player.md), `tracks`: [`Track`](../classes/Track.md) \| Array<[`Track`](../classes/Track.md)> |
 | `trackStart` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md) |
 | `trackEnd` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `reason`: `TrackEndReason` |
 | `trackStuck` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `thresholdMs`: `number` |
@@ -243,6 +246,21 @@ LavaShark events
 
 | Name | Type |
 | :------ | :------ |
+| `event` | ``"trackAdd"`` |
+| `listener` | (`player`: [`Player`](../classes/Player.md), `tracks`: [`Track`](../classes/Track.md) \| [`Track`](../classes/Track.md)[]) => `void` |
+
+##### Returns
+
+`T`
+
+▸ (`event`, `listener`): `T`
+
+LavaShark events
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
 | `event` | ``"trackStart"`` |
 | `listener` | (`player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md)) => `void` |
 
@@ -259,7 +277,7 @@ LavaShark events
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"trackEnd"`` |
-| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `reason`: `TrackEndReason`) => `void` |
+| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `reason`: [`TrackEndReason`](types.md#trackendreason)) => `void` |
 
 ##### Returns
 
@@ -289,7 +307,22 @@ LavaShark events
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"trackException"`` |
-| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: `LoadException` & { `cause`: `string`  }) => `void` |
+| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](types.md#loadexception) & { `cause`: `string`  }) => `void` |
+
+##### Returns
+
+`T`
+
+▸ (`event`, `listener`): `T`
+
+LavaShark events
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | ``"playerConnect"`` |
+| `listener` | (`player`: [`Player`](../classes/Player.md)) => `void` |
 
 ##### Returns
 
@@ -372,7 +405,7 @@ LavaShark events
 
 #### Defined in
 
-[@types/index.ts:75](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L75)
+[@types/LavaShark.types.ts:44](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L44)
 
 ___
 
@@ -401,7 +434,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:437](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L437)
+[@types/Filter.types.ts:50](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L50)
 
 ___
 
@@ -420,7 +453,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:14](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L14)
+[@types/LavaShark.types.ts:9](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L9)
 
 ___
 
@@ -453,7 +486,7 @@ Lavalink Info
 
 #### Defined in
 
-[@types/index.ts:260](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L260)
+[@types/Node.types.ts:81](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L81)
 
 ___
 
@@ -472,7 +505,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:406](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L406)
+[@types/Filter.types.ts:19](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L19)
 
 ___
 
@@ -487,16 +520,16 @@ Main constructor options
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `defaultSearchSource?` | [`SEARCH_SOURCE`](types.md#search_source) | The default source to search for tracks |
-| `disabledSources?` | `UNRESOLVED_SOURCES`[] | Disables spotify, apple music or deezer |
+| `disabledSources?` | [`UNRESOLVED_SOURCES`](types.md#unresolved_sources)[] | Disables spotify, apple music or deezer |
 | `nodes` | [`NodeOptions`](types.md#nodeoptions)[] | The array of lavalink nodes |
 | `sendWS` | (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](types.md#outgoingdiscordpayload)) => `void` | Function to send voice channel connect payloads to discord |
-| `spotify?` | `SpotifyConfig` | The spotify credentials |
+| `spotify?` | [`SpotifyConfig`](types.md#spotifyconfig) | The spotify credentials |
 | `unresolvedSearchSource?` | [`SEARCH_SOURCE`](types.md#search_source) | The default source to search for unresolved tracks |
 | `useISRC?` | `boolean` | Whether to search for ISRC to resolve tracks or not |
 
 #### Defined in
 
-[@types/index.ts:57](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L57)
+[@types/LavaShark.types.ts:81](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L81)
 
 ___
 
@@ -517,17 +550,52 @@ ___
 
 #### Defined in
 
-[@types/index.ts:114](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L114)
+[@types/REST.types.ts:23](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L23)
+
+___
+
+### LoadException
+
+Ƭ **LoadException**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+| `severity` | ``"COMMON"`` \| ``"SUSPIOUS"`` \| ``"FAULT"`` |
+
+#### Defined in
+
+[@types/REST.types.ts:68](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L68)
+
+___
+
+### LoadResultBase
+
+Ƭ **LoadResultBase**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `exception?` | [`LoadException`](types.md#loadexception) |
+| `loadType` | ``"TRACK_LOADED"`` \| ``"PLAYLIST_LOADED"`` \| ``"SEARCH_RESULT"`` \| ``"NO_MATCHES"`` \| ``"LOAD_FAILED"`` |
+| `playlistInfo` | [`PlaylistInfo`](types.md#playlistinfo) |
+
+#### Defined in
+
+[@types/REST.types.ts:73](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L73)
 
 ___
 
 ### LoadTracksResult
 
-Ƭ **LoadTracksResult**: `LoadResultBase` & { `tracks`: [`ITrack`](./interfaces/types.ITrack.md)[]  }
+Ƭ **LoadTracksResult**: [`LoadResultBase`](types.md#loadresultbase) & { `tracks`: [`ITrack`](./interfaces/types.ITrack.md)[]  }
 
 #### Defined in
 
-[@types/index.ts:168](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L168)
+[@types/REST.types.ts:79](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L79)
 
 ___
 
@@ -543,7 +611,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:413](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L413)
+[@types/Filter.types.ts:26](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L26)
 
 ___
 
@@ -553,7 +621,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:48](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L48)
+[@types/LavaShark.types.ts:37](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L37)
 
 ___
 
@@ -580,7 +648,7 @@ Lavalink node options
 
 #### Defined in
 
-[@types/index.ts:184](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L184)
+[@types/Node.types.ts:5](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L5)
 
 ___
 
@@ -613,7 +681,7 @@ Lavalink node stats
 
 #### Defined in
 
-[@types/index.ts:208](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L208)
+[@types/Node.types.ts:29](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L29)
 
 ___
 
@@ -630,7 +698,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:9](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L9)
+[@types/LavaShark.types.ts:65](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L65)
 
 ___
 
@@ -649,7 +717,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:364](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L364)
+[@types/Player.types.ts:26](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Player.types.ts#L26)
 
 ___
 
@@ -672,7 +740,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/index.ts:344](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L344)
+[@types/Player.types.ts:6](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Player.types.ts#L6)
 
 ___
 
@@ -690,7 +758,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:329](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L329)
+[@types/Node.types.ts:145](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L145)
 
 ___
 
@@ -708,7 +776,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:130](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L130)
+[@types/REST.types.ts:39](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L39)
 
 ___
 
@@ -727,7 +795,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:123](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L123)
+[@types/REST.types.ts:32](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L32)
 
 ___
 
@@ -743,7 +811,28 @@ ___
 
 #### Defined in
 
-[@types/index.ts:417](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L417)
+[@types/Filter.types.ts:30](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L30)
+
+___
+
+### RoutePlannerDetails
+
+Ƭ **RoutePlannerDetails**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `blockIndex?` | `string` |
+| `currentAddressIndex?` | `string` |
+| `failingAddresses` | { `address`: `string` ; `failingTime`: `string` ; `failingTimestamp`: `number`  }[] |
+| `ipBlock` | { `size`: `string` ; `type`: `string`  } |
+| `ipBlock.size` | `string` |
+| `ipBlock.type` | `string` |
+
+#### Defined in
+
+[@types/Node.types.ts:63](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L63)
 
 ___
 
@@ -758,11 +847,11 @@ Route planner API
 | Name | Type |
 | :------ | :------ |
 | `class` | `string` \| ``null`` |
-| `details` | `RoutePlannerDetails` \| ``null`` |
+| `details` | [`RoutePlannerDetails`](types.md#routeplannerdetails) \| ``null`` |
 
 #### Defined in
 
-[@types/index.ts:237](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L237)
+[@types/Node.types.ts:58](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L58)
 
 ___
 
@@ -772,17 +861,35 @@ ___
 
 #### Defined in
 
-[@types/index.ts:94](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L94)
+[@types/LavaShark.types.ts:70](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L70)
 
 ___
 
 ### SearchResult
 
-Ƭ **SearchResult**: `LoadResultBase` & { `tracks`: ([`Track`](../classes/Track.md) \| `UnresolvedTrack`)[]  }
+Ƭ **SearchResult**: [`LoadResultBase`](types.md#loadresultbase) & { `tracks`: ([`Track`](../classes/Track.md) \| `UnresolvedTrack`)[]  }
 
 #### Defined in
 
-[@types/index.ts:172](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L172)
+[@types/REST.types.ts:83](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L83)
+
+___
+
+### SpotifyConfig
+
+Ƭ **SpotifyConfig**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `clientId` | `string` |
+| `clientSecret` | `string` |
+| `market?` | `string` |
+
+#### Defined in
+
+[@types/LavaShark.types.ts:74](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L74)
 
 ___
 
@@ -800,7 +907,17 @@ ___
 
 #### Defined in
 
-[@types/index.ts:421](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L421)
+[@types/Filter.types.ts:34](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L34)
+
+___
+
+### TrackEndReason
+
+Ƭ **TrackEndReason**: ``"FINISHED"`` \| ``"LOAD_FAILED"`` \| ``"STOPPED"`` \| ``"REPLACED"`` \| ``"CLEANUP"``
+
+#### Defined in
+
+[@types/Node.types.ts:117](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L117)
 
 ___
 
@@ -825,7 +942,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:136](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L136)
+[@types/REST.types.ts:45](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L45)
 
 ___
 
@@ -842,15 +959,23 @@ ___
 
 #### Defined in
 
-[@types/index.ts:427](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L427)
+[@types/Filter.types.ts:40](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L40)
+
+___
+
+### UNRESOLVED\_SOURCES
+
+Ƭ **UNRESOLVED\_SOURCES**: ``"APPLE_MUSIC"`` \| ``"DEEZER"`` \| ``"SPOTIFY"``
+
+#### Defined in
+
+[@types/LavaShark.types.ts:72](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L72)
 
 ___
 
 ### UpdatePlayerOptions
 
 Ƭ **UpdatePlayerOptions**: `Object`
-
------ REST API -----
 
 #### Type declaration
 
@@ -870,7 +995,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:98](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L98)
+[@types/REST.types.ts:7](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/REST.types.ts#L7)
 
 ___
 
@@ -887,17 +1012,35 @@ ___
 
 #### Defined in
 
-[@types/index.ts:432](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L432)
+[@types/Filter.types.ts:45](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Filter.types.ts#L45)
+
+___
+
+### VoiceServerUpdateData
+
+Ƭ **VoiceServerUpdateData**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `endpoint` | `string` |
+| `guild_id` | `string` |
+| `token` | `string` |
+
+#### Defined in
+
+[@types/LavaShark.types.ts:26](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L26)
 
 ___
 
 ### VoiceServerUpdatePayload
 
-Ƭ **VoiceServerUpdatePayload**: [`IncomingDiscordPayload`](types.md#incomingdiscordpayload) & { `d`: `VoiceServerUpdateData` ; `t`: ``"VOICE_SERVER_UPDATE"``  }
+Ƭ **VoiceServerUpdatePayload**: [`IncomingDiscordPayload`](types.md#incomingdiscordpayload) & { `d`: [`VoiceServerUpdateData`](types.md#voiceserverupdatedata) ; `t`: ``"VOICE_SERVER_UPDATE"``  }
 
 #### Defined in
 
-[@types/index.ts:37](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L37)
+[@types/LavaShark.types.ts:32](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L32)
 
 ___
 
@@ -909,12 +1052,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | `VoiceServerUpdateData` |
+| `event?` | [`VoiceServerUpdateData`](types.md#voiceserverupdatedata) |
 | `sessionId?` | `string` |
 
 #### Defined in
 
-[@types/index.ts:359](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L359)
+[@types/Player.types.ts:21](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Player.types.ts#L21)
 
 ___
 
@@ -924,7 +1067,7 @@ ___
 
 #### Defined in
 
-[@types/index.ts:21](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L21)
+[@types/LavaShark.types.ts:16](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/LavaShark.types.ts#L16)
 
 ___
 
@@ -936,4 +1079,4 @@ Lavalink version
 
 #### Defined in
 
-[@types/index.ts:257](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/@types/index.ts#L257)
+[@types/Node.types.ts:78](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/@types/Node.types.ts#L78)

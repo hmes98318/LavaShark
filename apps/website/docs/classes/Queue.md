@@ -20,7 +20,6 @@
 - [add](Queue.md#add)
 - [clear](Queue.md#clear)
 - [poll](Queue.md#poll)
-- [push](Queue.md#push)
 - [remove](Queue.md#remove)
 - [shuffle](Queue.md#shuffle)
 - [skipNTracks](Queue.md#skipntracks)
@@ -33,7 +32,7 @@
 
 #### Defined in
 
-[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L8)
+[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L8)
 
 ## Properties
 
@@ -43,7 +42,7 @@
 
 #### Defined in
 
-[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L6)
+[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L6)
 
 ## Accessors
 
@@ -59,7 +58,7 @@ Gets the queue duration in milliseconds.
 
 #### Defined in
 
-[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L22)
+[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L22)
 
 ___
 
@@ -75,7 +74,7 @@ Gets the queue size.
 
 #### Defined in
 
-[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L15)
+[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L15)
 
 ## Methods
 
@@ -83,7 +82,7 @@ Gets the queue size.
 
 ▸ **add**(`track`): `void`
 
-Adds a track to the queue.
+[Internal] Adds a track to the queue. External users should use Player.addTracks() method instead.
 
 #### Parameters
 
@@ -97,7 +96,7 @@ Adds a track to the queue.
 
 #### Defined in
 
-[Queue.ts:39](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L39)
+[Queue.ts:30](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L30)
 
 ___
 
@@ -113,7 +112,7 @@ Clears the queue.
 
 #### Defined in
 
-[Queue.ts:76](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L76)
+[Queue.ts:67](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L67)
 
 ___
 
@@ -131,33 +130,7 @@ The next track in the queue or null if the queue is empty.
 
 #### Defined in
 
-[Queue.ts:47](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L47)
-
-___
-
-### push
-
-▸ **push**(`track`): `void`
-
-Adds a track to the queue.
-
-**`Deprecated`**
-
-- Use `add()` instead
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `track` | `default` \| `default` | The track to add to the queue |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[Queue.ts:31](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L31)
+[Queue.ts:38](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L38)
 
 ___
 
@@ -175,7 +148,7 @@ Returns true if the track was successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:84](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L84)
+[Queue.ts:75](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L75)
 
 ▸ **remove**(`index`): `boolean`
 
@@ -195,7 +168,7 @@ Returns true if the track was successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:90](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L90)
+[Queue.ts:81](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L81)
 
 ▸ **remove**(`start`, `end`): `boolean`
 
@@ -216,7 +189,7 @@ Returns true if the tracks were successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:97](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L97)
+[Queue.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L88)
 
 ___
 
@@ -232,7 +205,7 @@ Shuffles the queue
 
 #### Defined in
 
-[Queue.ts:62](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L62)
+[Queue.ts:53](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L53)
 
 ___
 
@@ -254,4 +227,4 @@ Remove the next n tracks from the queue
 
 #### Defined in
 
-[Queue.ts:55](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L55)
+[Queue.ts:46](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L46)
