@@ -1,8 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const fs = require('fs');
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+const lastVersion = '1.1.1';
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -55,6 +60,13 @@ const config = {
                     // Remove this to remove the "edit this page" links.
                     editUrl:
                         'https://github.com/hmes98318/LavaShark/blob/main/apps/website/',
+                    lastVersion: '1.1.1',
+                    //onlyIncludeVersions: JSON.parse(fs.readFileSync('./versions.json', 'utf-8')),
+                    versions: {
+                        "1.1.1": {
+                            label: `v1.1.1`
+                        },
+                    },
                 },
                 blog: {
                     showReadingTime: true,
@@ -101,6 +113,12 @@ const config = {
                     { to: '/docs/getting-started', label: 'Started', position: 'left' },
                     { href: 'https://github.com/hmes98318/Music-Disc', label: 'Examples', position: 'left' },
                     { href: 'https://discord.gg/7rQEx7SPGr', label: 'Discord', position: 'left' },
+                    {
+                        type: 'docsVersionDropdown',
+                        position: 'right',
+                        // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+                        dropdownActiveClassDisabled: false,
+                    },
                     {
                         type: 'localeDropdown',
                         position: 'right'
