@@ -121,31 +121,25 @@ client.on('messageCreate', async message => {
             selfDeaf: true
         });
 
-        // Connects to the voice channel
         try {
-            player.connect();
+            await player.connect(); // Connects to the voice channel
         } catch (error) {
             console.log(error);
-            return message.reply('❌ | I can\'t join voice channel.');
+            return message.reply({ content: `❌ | I can't join audio channel.`, allowedMentions: { repliedUser: false } });
         }
 
         if (res.loadType === 'PLAYLIST_LOADED') {
-            for (const track of res.tracks) {
-                track.setRequester(message.user);
-                player.queue.add(track);
-            }
+            player.addTracks(res.tracks, message.author);
 
             message.reply(`Playlist \`${res.playlistInfo.name}\` loaded!`);
         }
         else {
             const track = res.tracks[0];
-            track.setRequester(message.user);
-
-            player.queue.add(track);
-            message.reply(`Queued \`${track.title}\``);
+            player.addTracks(res.tracks[0], message.author);
+            message.reply(`Added \`${track.title}\``);
         }
 
-        if (!player.playing) player.play();
+        if (!player.playing) await player.play();
     }
 });
 ```

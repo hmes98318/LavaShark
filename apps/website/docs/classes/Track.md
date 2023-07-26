@@ -39,11 +39,11 @@
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`ITrack`](../types/interfaces/types.ITrack.md) |
+| `data` | [`ITrack`](../types/interfaces/Track.types.ITrack.md) |
 
 #### Defined in
 
-[lib/queue/Track.ts:24](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L24)
+[lib/queue/Track.ts:24](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L24)
 
 ## Properties
 
@@ -53,17 +53,17 @@
 
 #### Defined in
 
-[lib/queue/Track.ts:10](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L10)
+[lib/queue/Track.ts:10](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L10)
 
 ___
 
 ### duration
 
-• `Readonly` **duration**: [`Timestamp`](../types/interfaces/types.Timestamp.md)
+• `Readonly` **duration**: [`Timestamp`](../types/interfaces/Track.types.Timestamp.md)
 
 #### Defined in
 
-[lib/queue/Track.ts:11](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L11)
+[lib/queue/Track.ts:11](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L11)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:20](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L20)
+[lib/queue/Track.ts:20](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L20)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:7](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L7)
+[lib/queue/Track.ts:7](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L7)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:9](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L9)
+[lib/queue/Track.ts:9](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L9)
 
 ___
 
@@ -103,17 +103,17 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:12](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L12)
+[lib/queue/Track.ts:12](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L12)
 
 ___
 
 ### metadata
 
-• `Optional` **metadata**: [`Metadata`](../types/types.md#metadata)
+• `Optional` **metadata**: [`Metadata`](../types/LavaShark.types.md#metadata)
 
 #### Defined in
 
-[lib/queue/Track.ts:18](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L18)
+[lib/queue/Track.ts:18](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L18)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:14](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L14)
+[lib/queue/Track.ts:14](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L14)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:22](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L22)
+[lib/queue/Track.ts:22](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L22)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:13](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L13)
+[lib/queue/Track.ts:13](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L13)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:15](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L15)
+[lib/queue/Track.ts:15](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L15)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:16](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L16)
+[lib/queue/Track.ts:16](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L16)
 
 ## Accessors
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:42](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L42)
+[lib/queue/Track.ts:42](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L42)
 
 ## Methods
 
@@ -197,4 +197,4 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:52](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Track.ts#L52)
+[lib/queue/Track.ts:52](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/queue/Track.ts#L52)

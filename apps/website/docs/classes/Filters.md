@@ -43,23 +43,23 @@ Creates an instance of filters
 
 #### Defined in
 
-[lib/Filters.ts:25](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L25)
+[lib/Filters.ts:25](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L25)
 
 ## Accessors
 
 ### active
 
-• `get` **active**(): [`FilterOptions`](../types/types.md#filteroptions)
+• `get` **active**(): [`FilterOptions`](../types/Filter.types.md#filteroptions)
 
 Gets a copy of active filters object
 
 #### Returns
 
-[`FilterOptions`](../types/types.md#filteroptions)
+[`FilterOptions`](../types/Filter.types.md#filteroptions)
 
 #### Defined in
 
-[lib/Filters.ts:36](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L36)
+[lib/Filters.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L36)
 
 ___
 
@@ -75,7 +75,7 @@ Checks if some filter is enabled
 
 #### Defined in
 
-[lib/Filters.ts:31](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L31)
+[lib/Filters.ts:31](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L31)
 
 ## Methods
 
@@ -91,7 +91,7 @@ Sends filters payload to Lavalink Node
 
 #### Defined in
 
-[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L245)
+[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L245)
 
 ___
 
@@ -107,7 +107,7 @@ Clears all active filters
 
 #### Defined in
 
-[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L238)
+[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L238)
 
 ___
 
@@ -121,7 +121,7 @@ Sets all filters
 
 | Name | Type |
 | :------ | :------ |
-| `filters` | [`FilterOptions`](../types/types.md#filteroptions) |
+| `filters` | [`FilterOptions`](../types/Filter.types.md#filteroptions) |
 
 #### Returns
 
@@ -129,7 +129,7 @@ Sets all filters
 
 #### Defined in
 
-[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L224)
+[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L224)
 
 ___
 
@@ -143,7 +143,7 @@ Sets ChannelMix filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`ChannelMixOptions`](../types/types.md#channelmixoptions) | `undefined` | The channel mix options |
+| `options` | ``null`` \| [`ChannelMixOptions`](../types/Filter.types.md#channelmixoptions) | `undefined` | The channel mix options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -154,7 +154,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:50](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L50)
+[lib/Filters.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L50)
 
 ___
 
@@ -168,7 +168,7 @@ Sets Distortion filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`DistortionOptions`](../types/types.md#distortionoptions) | `undefined` | The distortion options |
+| `options` | ``null`` \| [`DistortionOptions`](../types/Filter.types.md#distortionoptions) | `undefined` | The distortion options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -179,7 +179,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:73](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L73)
+[lib/Filters.ts:73](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L73)
 
 ___
 
@@ -204,7 +204,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L88)
+[lib/Filters.ts:88](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L88)
 
 ___
 
@@ -218,7 +218,7 @@ Sets Karaoke filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`KaraokeOptions`](../types/types.md#karaokeoptions) | `undefined` | The karaoke options |
+| `options` | ``null`` \| [`KaraokeOptions`](../types/Filter.types.md#karaokeoptions) | `undefined` | The karaoke options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -229,7 +229,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:114](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L114)
+[lib/Filters.ts:114](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L114)
 
 ___
 
@@ -243,7 +243,7 @@ Sets LowPass filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`LowPassOptions`](../types/types.md#lowpassoptions) | `undefined` | The lowpass options |
+| `options` | ``null`` \| [`LowPassOptions`](../types/Filter.types.md#lowpassoptions) | `undefined` | The lowpass options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -254,7 +254,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:130](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L130)
+[lib/Filters.ts:130](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L130)
 
 ___
 
@@ -268,7 +268,7 @@ Sets Rotation filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`RotationOptions`](../types/types.md#rotationoptions) | `undefined` | The rotation options |
+| `options` | ``null`` \| [`RotationOptions`](../types/Filter.types.md#rotationoptions) | `undefined` | The rotation options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -279,7 +279,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:146](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L146)
+[lib/Filters.ts:146](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L146)
 
 ___
 
@@ -293,7 +293,7 @@ Sets Timescale filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`TimescaleOptions`](../types/types.md#timescaleoptions) | `undefined` | The timescale options |
+| `options` | ``null`` \| [`TimescaleOptions`](../types/Filter.types.md#timescaleoptions) | `undefined` | The timescale options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -304,7 +304,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:164](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L164)
+[lib/Filters.ts:164](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L164)
 
 ___
 
@@ -318,7 +318,7 @@ Sets Tremolo filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`TremoloOptions`](../types/types.md#tremolooptions) | `undefined` | The tremolo options |
+| `options` | ``null`` \| [`TremoloOptions`](../types/Filter.types.md#tremolooptions) | `undefined` | The tremolo options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -329,7 +329,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:181](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L181)
+[lib/Filters.ts:181](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L181)
 
 ___
 
@@ -343,7 +343,7 @@ Sets Vibrato filter
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`VibratoOptions`](../types/types.md#vibratooptions) | `undefined` | The vibrato options |
+| `options` | ``null`` \| [`VibratoOptions`](../types/Filter.types.md#vibratooptions) | `undefined` | The vibrato options |
 | `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
 
 #### Returns
@@ -354,7 +354,7 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:198](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L198)
+[lib/Filters.ts:198](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L198)
 
 ___
 
@@ -379,4 +379,4 @@ The filters instance, for chaining calls
 
 #### Defined in
 
-[lib/Filters.ts:213](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Filters.ts#L213)
+[lib/Filters.ts:213](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L213)

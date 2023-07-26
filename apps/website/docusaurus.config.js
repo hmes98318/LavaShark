@@ -61,7 +61,7 @@ const config = {
                     editUrl:
                         'https://github.com/hmes98318/LavaShark/blob/main/apps/website/',
                     lastVersion: '1.1.1',
-                    //onlyIncludeVersions: JSON.parse(fs.readFileSync('./versions.json', 'utf-8')),
+                    // onlyIncludeVersions: JSON.parse(fs.readFileSync('./versions.json', 'utf-8')),
                     versions: {
                         "1.1.1": {
                             label: `v1.1.1`
@@ -110,9 +110,9 @@ const config = {
                         position: 'left',
                         label: 'Guide',
                     },
-                    { to: '/docs/getting-started', label: 'Started', position: 'left' },
-                    { href: 'https://github.com/hmes98318/Music-Disc', label: 'Examples', position: 'left' },
+                    { to: '/docs/category/classes', label: 'Docs', position: 'left' },
                     { href: 'https://discord.gg/7rQEx7SPGr', label: 'Discord', position: 'left' },
+                    { href: 'https://github.com/hmes98318/Music-Disc', label: 'Example Bot', position: 'left' },
                     {
                         type: 'docsVersionDropdown',
                         position: 'right',

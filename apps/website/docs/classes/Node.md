@@ -46,21 +46,21 @@ Create a new LavaShark instance
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `lavashark` | [`LavaShark`](LavaShark.md) | The LavaShark instance |
-| `options` | [`NodeOptions`](../types/types.md#nodeoptions) | The node options |
+| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) | The node options |
 
 #### Defined in
 
-[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L112)
+[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L112)
 
 ## Properties
 
 ### options
 
-• `Readonly` **options**: [`NodeOptions`](../types/types.md#nodeoptions)
+• `Readonly` **options**: [`NodeOptions`](../types/Node.types.md#nodeoptions)
 
 #### Defined in
 
-[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L34)
+[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L34)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L41)
+[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L41)
 
 ___
 
@@ -80,27 +80,27 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L43)
+[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L43)
 
 ___
 
 ### state
 
-• **state**: [`NodeState`](../types/enums/types.NodeState.md)
+• **state**: [`NodeState`](../types/enums/enums.NodeState.md)
 
 #### Defined in
 
-[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L45)
+[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L45)
 
 ___
 
 ### stats
 
-• **stats**: [`NodeStats`](../types/types.md#nodestats)
+• **stats**: [`NodeStats`](../types/Node.types.md#nodestats)
 
 #### Defined in
 
-[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L46)
+[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L46)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L48)
+[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L48)
 
 ## Accessors
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L149)
+[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L149)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L153)
+[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L153)
 
 ## Methods
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L178)
+[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L178)
 
 ___
 
@@ -166,55 +166,55 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L207)
+[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L207)
 
 ___
 
 ### getInfo
 
-▸ **getInfo**(): `Promise`<[`Info`](../types/types.md#info)\>
+▸ **getInfo**(): `Promise`<[`Info`](../types/Node.types.md#info)\>
 
 Get the Lavalink Node information
 
 #### Returns
 
-`Promise`<[`Info`](../types/types.md#info)\>
+`Promise`<[`Info`](../types/Node.types.md#info)\>
 
 #### Defined in
 
-[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L227)
+[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L227)
 
 ___
 
 ### getRoutePlannerStatus
 
-▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/types.md#routeplannerstatus)\>
+▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 Gets the route planner status
 
 #### Returns
 
-`Promise`<[`RoutePlannerStatus`](../types/types.md#routeplannerstatus)\>
+`Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 #### Defined in
 
-[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L246)
+[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L246)
 
 ___
 
 ### getStats
 
-▸ **getStats**(): `Promise`<[`NodeStats`](../types/types.md#nodestats)\>
+▸ **getStats**(): `Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 Get the Lavalink Node stats
 
 #### Returns
 
-`Promise`<[`NodeStats`](../types/types.md#nodestats)\>
+`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 #### Defined in
 
-[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L236)
+[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L236)
 
 ___
 
@@ -230,7 +230,7 @@ Get the Lavalink Node version
 
 #### Defined in
 
-[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L217)
+[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L217)
 
 ___
 
@@ -246,7 +246,7 @@ Unmarks all failed address
 
 #### Defined in
 
-[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L261)
+[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L261)
 
 ___
 
@@ -268,7 +268,7 @@ Unmarks a failed address
 
 #### Defined in
 
-[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L254)
+[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L254)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L489)
+[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L489)
 
 ___
 
@@ -294,7 +294,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`NodeOptions`](../types/types.md#nodeoptions) |
+| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) |
 
 #### Returns
 
@@ -302,4 +302,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/Node.ts#L50)
+[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L50)

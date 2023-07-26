@@ -43,11 +43,11 @@ Create a new LavaShark instance
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`LavaSharkOptions`](../types/types.md#lavasharkoptions) | The LavaShark options |
+| `options` | [`LavaSharkOptions`](../types/LavaShark.types.md#lavasharkoptions) | The LavaShark options |
 
 #### Defined in
 
-[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L114)
+[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L114)
 
 ## Properties
 
@@ -57,7 +57,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L31)
+[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L31)
 
 ___
 
@@ -67,27 +67,27 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L32)
+[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L32)
 
 ___
 
 ### on
 
-• **on**: [`EventListeners`](../types/types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
+• **on**: [`EventListeners`](../types/LavaShark.types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L27)
+[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L27)
 
 ___
 
 ### once
 
-• **once**: [`EventListeners`](../types/types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
+• **once**: [`EventListeners`](../types/LavaShark.types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L26)
+[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L26)
 
 ___
 
@@ -99,13 +99,13 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L41)
+[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L41)
 
 ___
 
 ### sendWS
 
-• `Readonly` **sendWS**: (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](../types/types.md#outgoingdiscordpayload)) => `void`
+• `Readonly` **sendWS**: (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](../types/LavaShark.types.md#outgoingdiscordpayload)) => `void`
 
 #### Type declaration
 
@@ -124,7 +124,7 @@ sendWS: (guildId, payload) => {
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `guildId` | `string` | guildId |
-| `payload` | [`OutgoingDiscordPayload`](../types/types.md#outgoingdiscordpayload) | payload |
+| `payload` | [`OutgoingDiscordPayload`](../types/LavaShark.types.md#outgoingdiscordpayload) | payload |
 
 ##### Returns
 
@@ -132,17 +132,17 @@ sendWS: (guildId, payload) => {
 
 #### Defined in
 
-[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L56)
+[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L56)
 
 ___
 
 ### unresolvedSearchSource
 
-• `Readonly` **unresolvedSearchSource**: [`SEARCH_SOURCE`](../types/types.md#search_source)
+• `Readonly` **unresolvedSearchSource**: [`SEARCH_SOURCE`](../types/LavaShark.types.md#search_source)
 
 #### Defined in
 
-[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L35)
+[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L35)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L36)
+[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L36)
 
 ## Methods
 
@@ -174,7 +174,7 @@ Adds an external source that produces a SearchResult with UnresolvedTracks
 
 #### Defined in
 
-[lib/LavaShark.ts:181](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L181)
+[lib/LavaShark.ts:181](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L181)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L151)
+[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L151)
 
 ___
 
@@ -202,7 +202,7 @@ Creates a new player or returns an existing one
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`PlayerOptions`](../types/types.md#playeroptions) | The player options |
+| `options` | [`PlayerOptions`](../types/Player.types.md#playeroptions) | The player options |
 
 #### Returns
 
@@ -210,7 +210,7 @@ Creates a new player or returns an existing one
 
 #### Defined in
 
-[lib/LavaShark.ts:224](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L224)
+[lib/LavaShark.ts:224](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L224)
 
 ___
 
@@ -232,7 +232,7 @@ Decodes a track by its base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:194](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L194)
+[lib/LavaShark.ts:194](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L194)
 
 ___
 
@@ -254,7 +254,7 @@ Decodes multiple tracks by their base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:206](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L206)
+[lib/LavaShark.ts:206](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L206)
 
 ___
 
@@ -276,7 +276,7 @@ Retrieve an existing player using the guild id
 
 #### Defined in
 
-[lib/LavaShark.ts:242](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L242)
+[lib/LavaShark.ts:242](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L242)
 
 ___
 
@@ -290,7 +290,7 @@ Handles voice state & voice server update packets
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `payload` | [`IncomingDiscordPayload`](../types/types.md#incomingdiscordpayload) | The voice packet |
+| `payload` | [`IncomingDiscordPayload`](../types/LavaShark.types.md#incomingdiscordpayload) | The voice packet |
 
 #### Returns
 
@@ -298,7 +298,7 @@ Handles voice state & voice server update packets
 
 #### Defined in
 
-[lib/LavaShark.ts:323](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L323)
+[lib/LavaShark.ts:323](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L323)
 
 ___
 
@@ -316,13 +316,13 @@ Get the ping for all nodes
 
 #### Defined in
 
-[lib/LavaShark.ts:377](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L377)
+[lib/LavaShark.ts:377](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L377)
 
 ___
 
 ### search
 
-▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/types.md#searchresult)\>
+▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 Search by song name or use music URL
 
@@ -331,15 +331,15 @@ Search by song name or use music URL
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `query` | `string` | The query to search for |
-| `source?` | [`SEARCH_SOURCE`](../types/types.md#search_source) | The search source |
+| `source?` | [`SEARCH_SOURCE`](../types/LavaShark.types.md#search_source) | The search source |
 
 #### Returns
 
-`Promise`<[`SearchResult`](../types/types.md#searchresult)\>
+`Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:263](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L263)
+[lib/LavaShark.ts:263](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L263)
 
 ___
 
@@ -361,7 +361,7 @@ Connects to all lavalink nodes
 
 #### Defined in
 
-[lib/LavaShark.ts:307](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L307)
+[lib/LavaShark.ts:307](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L307)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`LavaSharkOptions`](../types/types.md#lavasharkoptions) |
+| `options` | [`LavaSharkOptions`](../types/LavaShark.types.md#lavasharkoptions) |
 
 #### Returns
 
@@ -381,4 +381,4 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/LavaShark.ts#L58)
+[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L58)
