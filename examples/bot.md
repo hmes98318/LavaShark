@@ -1,14 +1,19 @@
-# Example Bot
+---
+sidebar_position: 3
+---
 
-Download the Lavalink node ([lavalink-devs/Lavalink](https://github.com/lavalink-devs/Lavalink)) and run it or use other public nodes.  
+# Getting started
+
+Here is an example tutorial for using discord.js v14. If you're using an earlier version, please update it. The [discord.js Guide](https://discordjs.guide/) provides resources to help you with the update process.  
+
+### Initializing the LavaShark and discord.js library  
 
 ```js
 const { Client, GatewayIntentBits } = require('discord.js');
 const { LavaShark } = require('lavashark');
 
-
-const TOKEN = 'your_discord_token'
-const prefix = '-' // command prefix
+const TOKEN = 'your_token'; // Discord bot token
+const prefix = '-';         // Command prefix
 
 
 const client = new Client({
@@ -20,8 +25,7 @@ const client = new Client({
     ]
 });
 
-
-client.lavashark = new LavaShark({
+const lavashark = new LavaShark({
     nodes: [
         {
             id: 'Node 1',
@@ -31,26 +35,27 @@ client.lavashark = new LavaShark({
         }
     ],
     sendWS: (guildId, payload) => { client.guilds.cache.get(guildId)?.shard.send(payload); }
-})
+});
 
+client.lavashark = lavashark;
+client.login(TOKEN);
+```
 
+### Registering events  
 
-
+```js
 // -- LavaShark events --
 
 // Fired when a track starts playing
 client.lavashark.on('trackStart', (player, track) => {
     const channel = client.channels.cache.get(player.textChannelId);
-
     channel.send(`Now playing \`${track.title}\``);
 });
 
 // Fired when the queue ends
 client.lavashark.on('queueEnd', (player) => {
     const channel = client.channels.cache.get(player.textChannelId);
-
-    channel.send(`Queue ended!`);
-
+    channel.send(`Queue ended`);
     player.destroy();
 });
 
@@ -58,9 +63,6 @@ client.lavashark.on('queueEnd', (player) => {
 client.lavashark.on('error', (node, err) => {
     console.error('[LavaShark]', `Error on node ${node.identifier}`, err.message);
 });
-
-// LavaShark debuger
-// client.lavashark.on('debug', (msg) => console.log('[Debug]', msg));
 
 
 // -- Client events --
@@ -75,11 +77,11 @@ client.on('ready', () => {
 // -- REQUIRED --
 client.on('raw', (packet) => client.lavashark.handleVoiceUpdate(packet));
 
-// -- Events end --
+```
 
+### Command configuration  
 
-
-
+```js
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
     if (message.content.indexOf(prefix) !== 0) return;
@@ -97,17 +99,18 @@ client.on('messageCreate', async message => {
 
     console.log('--', command);
 
-    if (command === 'p') {
+    if (command === 'play') {
         const track = args[0];
 
         const res = await client.lavashark.search(track);
 
         if (res.loadType === "LOAD_FAILED") {
             console.log(`Search Error: ${res.exception.message}`);
-            return message.reply('Not found music');
+            return message.reply('❌ | Not found music.');
         }
         else if (res.loadType === "NO_MATCHES") {
-            return message.reply(':x: No matches!');
+            console.log(`Search Error: NO_MATCHES`);
+            return message.reply('❌ | No matches.');
         }
 
         // Creates the audio player
@@ -118,96 +121,25 @@ client.on('messageCreate', async message => {
             selfDeaf: true
         });
 
-        player.connect(); // Connects to the voice channel
-        player.filters.enabled;
+        try {
+            await player.connect(); // Connects to the voice channel
+        } catch (error) {
+            console.log(error);
+            return message.reply({ content: `❌ | I can't join audio channel.`, allowedMentions: { repliedUser: false } });
+        }
 
         if (res.loadType === 'PLAYLIST_LOADED') {
-            for (const track of res.tracks) {
-                track.setRequester(message.user);
-                player.queue.add(track);
-            }
+            player.addTracks(res.tracks, message.author);
 
             message.reply(`Playlist \`${res.playlistInfo.name}\` loaded!`);
         }
         else {
             const track = res.tracks[0];
-            track.setRequester(message.user);
-
-            player.queue.add(track);
-            message.reply(`Queued \`${track.title}\``);
+            player.addTracks(res.tracks[0], message.author);
+            message.reply(`Added \`${track.title}\``);
         }
 
-        if (!player.playing) player.play();
-    }
-
-    else if (command === 'skip') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        player.skip();
-        return message.reply('skipped');
-    }
-
-    else if (command === 'stop') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        player.destroy();
-        return message.reply('stopped');
-    }
-
-    else if (command === 'join') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        player.connect();
-        return message.reply('joined');
-    }
-
-    else if (command === 'pause') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        SUCCESS = await player.pause();
-        console.log('SUCCESS pause', SUCCESS);
-        return message.reply('paused: ' + SUCCESS);
-    }
-    else if (command === 'resume') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        SUCCESS = await player.resume();
-        console.log('SUCCESS resume', SUCCESS);
-        return message.reply('resumed: ' + SUCCESS);
-    }
-
-    else if (command === 'random') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-        player.queue.shuffle();
-        return message.reply('randomed');
-    }
-
-
-    else if (command === 'v') {
-        const version = await client.lavashark.nodes[0].getVersion();
-        const info = JSON.stringify(await client.lavashark.nodes[0].getInfo());
-
-        console.log('getVersion():', version);
-        console.log(' getInfo():', info);
-        message.reply('getVersion():' + version + ' getInfo():' + info);
-    }
-
-    else if (command === 'ping') {
-        const pings = await client.lavashark.nodesPing();
-        let str = pings.map((e, i) => `node ${i + 1}:  ${e}ms`).join('\n');
-
-        console.log(str);
-        message.reply(str);
-    }
-
-
-    else if (command === 'filter') {
-        const player = client.lavashark.getPlayer(message.guild.id);
-
-        player.filters.setTimescale({ pitch: 1.2, rate: 1.1 }, false)
-            .setEqualizer([0.2, 0.2], false)
-            .setTremolo({ depth: 0.3, frequency: 14 }, false)
-            .apply();
-
-        return message.reply('filtered');
+        if (!player.playing) await player.play();
     }
 });
-
-
-client.login(TOKEN);
 ```
