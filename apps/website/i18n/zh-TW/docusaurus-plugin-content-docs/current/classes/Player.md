@@ -17,12 +17,11 @@
 - [playing](Player.md#playing)
 - [position](Player.md#position)
 - [queue](Player.md#queue)
-- [queueRepeat](Player.md#queuerepeat)
+- [repeatMode](Player.md#repeatmode)
 - [selfDeaf](Player.md#selfdeaf)
 - [selfMute](Player.md#selfmute)
 - [state](Player.md#state)
 - [textChannelId](Player.md#textchannelid)
-- [trackRepeat](Player.md#trackrepeat)
 - [voiceChannelId](Player.md#voicechannelid)
 - [voiceState](Player.md#voicestate)
 
@@ -34,6 +33,7 @@
 
 ### Methods
 
+- [addTracks](Player.md#addtracks)
 - [connect](Player.md#connect)
 - [destroy](Player.md#destroy)
 - [disconnect](Player.md#disconnect)
@@ -58,18 +58,18 @@
 
 • **new Player**(`lavashark`, `options`)
 
-Create a new Player instance
+創建一個 Player 實例
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `lavashark` | [`LavaShark`](LavaShark.md) | The lavashark instance |
-| `options` | [`PlayerOptions`](../types/types.md#playeroptions) | The player options |
+| `lavashark` | [`LavaShark`](LavaShark.md) | LavaShark 實例 |
+| `options` | [`PlayerOptions`](../types/Player.types.md#playeroptions) | Player 選項 |
 
 #### Defined in
 
-[lib/Player.ts:78](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L78)
+[lib/Player.ts:88](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L88)
 
 ## Properties
 
@@ -79,7 +79,7 @@ Create a new Player instance
 
 #### Defined in
 
-[lib/Player.ts:39](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L39)
+[lib/Player.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L50)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:29](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L29)
+[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L40)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:27](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L27)
+[lib/Player.ts:38](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L38)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:54](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L54)
+[lib/Player.ts:64](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L64)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:25](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L25)
+[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L36)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:49](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L49)
+[lib/Player.ts:59](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L59)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L48)
+[lib/Player.ts:58](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L58)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L45)
+[lib/Player.ts:55](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L55)
 
 ___
 
@@ -159,17 +159,17 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L40)
+[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L51)
 
 ___
 
-### queueRepeat
+### repeatMode
 
-• **queueRepeat**: `boolean`
+• **repeatMode**: [`RepeatMode`](../types/enums/enums.RepeatMode.md)
 
 #### Defined in
 
-[lib/Player.ts:42](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L42)
+[lib/Player.ts:53](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L53)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L36)
+[lib/Player.ts:47](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L47)
 
 ___
 
@@ -189,17 +189,17 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:37](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L37)
+[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L48)
 
 ___
 
 ### state
 
-• **state**: `ConnectionState`
+• **state**: [`ConnectionState`](../types/enums/enums.ConnectionState.md)
 
 #### Defined in
 
-[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L51)
+[lib/Player.ts:61](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L61)
 
 ___
 
@@ -209,17 +209,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:34](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L34)
-
-___
-
-### trackRepeat
-
-• **trackRepeat**: `boolean`
-
-#### Defined in
-
-[lib/Player.ts:43](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L43)
+[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L45)
 
 ___
 
@@ -229,17 +219,17 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:33](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L33)
+[lib/Player.ts:44](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L44)
 
 ___
 
 ### voiceState
 
-• **voiceState**: [`VoiceState`](../types/types.md#voicestate)
+• **voiceState**: [`VoiceState`](../types/Player.types.md#voicestate)
 
 #### Defined in
 
-[lib/Player.ts:52](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L52)
+[lib/Player.ts:62](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L62)
 
 ## Accessors
 
@@ -255,7 +245,7 @@ Gets the exact track position based on the last playerUpdate packet
 
 #### Defined in
 
-[lib/Player.ts:118](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L118)
+[lib/Player.ts:127](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L127)
 
 ___
 
@@ -263,7 +253,7 @@ ___
 
 • `get` **queueDuration**(): `number`
 
-Gets the queue duration in milliseconds
+獲取隊列的持續時間，以毫秒為單位
 
 **`Deprecated`**
 
@@ -275,7 +265,7 @@ Gets the queue duration in milliseconds
 
 #### Defined in
 
-[lib/Player.ts:133](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L133)
+[lib/Player.ts:142](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L142)
 
 ___
 
@@ -283,7 +273,7 @@ ___
 
 • `get` **volume**(): `number`
 
-Gets the volume of the player
+獲取播放器的音量
 
 #### Returns
 
@@ -291,15 +281,22 @@ Gets the volume of the player
 
 #### Defined in
 
-[lib/Player.ts:140](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L140)
+[lib/Player.ts:149](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L149)
 
 ## Methods
 
-### connect
+### addTracks
 
-▸ **connect**(): `void`
+▸ **addTracks**(`tracks`, `requester`): `void`
 
-Connects to the voice channel
+將一個或多個歌曲添加到隊列
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `tracks` | `default` \| [`Track`](Track.md) \| (`default` \| [`Track`](Track.md))[] | 要添加到隊列的歌曲 |
+| `requester` | `unknown` | 歌曲的請求者 |
 
 #### Returns
 
@@ -307,15 +304,15 @@ Connects to the voice channel
 
 #### Defined in
 
-[lib/Player.ts:158](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L158)
+[lib/Player.ts:169](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L169)
 
 ___
 
-### destroy
+### connect
 
-▸ **destroy**(): `Promise`<`void`\>
+▸ **connect**(): `Promise`<`void`\>
 
-Destroys the player
+連接到語音頻道
 
 #### Returns
 
@@ -323,7 +320,23 @@ Destroys the player
 
 #### Defined in
 
-[lib/Player.ts:207](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L207)
+[lib/Player.ts:188](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L188)
+
+___
+
+### destroy
+
+▸ **destroy**(): `Promise`<`void`\>
+
+摧毀 Player
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/Player.ts:239](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L239)
 
 ___
 
@@ -331,7 +344,7 @@ ___
 
 ▸ **disconnect**(): `void`
 
-Disconnects from the voice channel
+與語音通道斷開連接
 
 #### Returns
 
@@ -339,7 +352,7 @@ Disconnects from the voice channel
 
 #### Defined in
 
-[lib/Player.ts:186](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L186)
+[lib/Player.ts:218](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L218)
 
 ___
 
@@ -351,7 +364,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `node` | [`Node`](Node.md) | The target node to move the player |
+| `node` | [`Node`](Node.md) | 將 Player 移動到的目標節點 |
 
 #### Returns
 
@@ -359,7 +372,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:221](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L221)
+[lib/Player.ts:253](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L253)
 
 ___
 
@@ -367,13 +380,13 @@ ___
 
 ▸ **pause**(`state?`): `Promise`<`boolean`\>
 
-Pause or unpause the player
+暫停或取消暫停 Player
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `state?` | `boolean` | `true` | Whether to pause or unpause the player |
+| `state?` | `boolean` | `true` | 是暫停還是取消暫停 Player |
 
 #### Returns
 
@@ -381,7 +394,7 @@ Pause or unpause the player
 
 #### Defined in
 
-[lib/Player.ts:321](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L321)
+[lib/Player.ts:353](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L353)
 
 ___
 
@@ -389,17 +402,17 @@ ___
 
 ▸ **ping**(): `Promise`<`number`\>
 
-Gets the latency between lavalink client & node
+獲取 Lavalink 客戶端與節點之間的延遲
 
 #### Returns
 
 `Promise`<`number`\>
 
-- In milliseconds
+- 以毫秒為單位
 
 #### Defined in
 
-[lib/Player.ts:260](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L260)
+[lib/Player.ts:292](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L292)
 
 ___
 
@@ -413,7 +426,7 @@ Plays a track
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options?` | [`PlayOptions`](../types/types.md#playoptions) | Play options |
+| `options?` | [`PlayOptions`](../types/Player.types.md#playoptions) | Play options |
 
 #### Returns
 
@@ -421,7 +434,7 @@ Plays a track
 
 #### Defined in
 
-[lib/Player.ts:282](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L282)
+[lib/Player.ts:314](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L314)
 
 ___
 
@@ -429,7 +442,7 @@ ___
 
 ▸ **resume**(): `Promise`<`boolean`\>
 
-Resume the player
+恢復播放 Player
 
 #### Returns
 
@@ -437,7 +450,7 @@ Resume the player
 
 #### Defined in
 
-[lib/Player.ts:342](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L342)
+[lib/Player.ts:374](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L374)
 
 ___
 
@@ -445,13 +458,13 @@ ___
 
 ▸ **seek**(`position`): `Promise`<`void`\>
 
-Seek to a specific position in the track
+在音軌中跳轉到特定位置
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `position` | `number` | The position to seek, in milliseconds |
+| `position` | `number` | 要跳轉的位置，以毫秒為單位 |
 
 #### Returns
 
@@ -459,7 +472,7 @@ Seek to a specific position in the track
 
 #### Defined in
 
-[lib/Player.ts:378](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L378)
+[lib/Player.ts:410](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L410)
 
 ___
 
@@ -473,7 +486,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:478](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L478)
+[lib/Player.ts:507](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L507)
 
 ___
 
@@ -481,13 +494,13 @@ ___
 
 ▸ **setRepeatMode**(`mode`): `void`
 
-Set repeat mode for this queue
+為這個隊列設置重複模式
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode` | [`RepeatMode`](../types/enums/types.RepeatMode.md) | The repeat mode to apply |
+| `mode` | [`RepeatMode`](../types/enums/enums.RepeatMode.md) | 要使用的重複模式 |
 
 #### Returns
 
@@ -495,7 +508,7 @@ Set repeat mode for this queue
 
 #### Defined in
 
-[lib/Player.ts:398](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L398)
+[lib/Player.ts:430](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L430)
 
 ___
 
@@ -503,13 +516,13 @@ ___
 
 ▸ **setSelfDeaf**(`state`): `void`
 
-Sets the bot's self deaf state
+設置機器人的自身拒聽狀態
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `state` | `boolean` | Whether to self deaf or not |
+| `state` | `boolean` | 是將機器人自身拒聽還是取消自身拒聽 |
 
 #### Returns
 
@@ -517,7 +530,7 @@ Sets the bot's self deaf state
 
 #### Defined in
 
-[lib/Player.ts:443](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L443)
+[lib/Player.ts:472](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L472)
 
 ___
 
@@ -525,13 +538,13 @@ ___
 
 ▸ **setSelfMute**(`state`): `void`
 
-Sets the bot's self mute state
+設置機器人的自身靜音狀態
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `state` | `boolean` | Whether to self mute or not |
+| `state` | `boolean` | 是將機器人自身靜音還是取消自身靜音 |
 
 #### Returns
 
@@ -539,7 +552,7 @@ Sets the bot's self mute state
 
 #### Defined in
 
-[lib/Player.ts:456](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L456)
+[lib/Player.ts:485](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L485)
 
 ___
 
@@ -547,13 +560,13 @@ ___
 
 ▸ **setVoiceChannel**(`channelId`): `void`
 
-Sets the player voice channel
+設置 Player 的語音頻道
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `channelId` | `string` | The voice channel id |
+| `channelId` | `string` | 語音頻道 ID |
 
 #### Returns
 
@@ -561,7 +574,7 @@ Sets the player voice channel
 
 #### Defined in
 
-[lib/Player.ts:469](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L469)
+[lib/Player.ts:498](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L498)
 
 ___
 
@@ -569,13 +582,13 @@ ___
 
 ▸ **skip**(`amount?`): `Promise`<`boolean`\>
 
-Skips the current playing track
+跳過正在播放的歌曲
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `amount?` | `number` | The amount of tracks to skip |
+| `amount?` | `number` | 要跳過的歌曲數量 |
 
 #### Returns
 
@@ -583,7 +596,7 @@ Skips the current playing track
 
 #### Defined in
 
-[lib/Player.ts:350](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L350)
+[lib/Player.ts:382](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L382)
 
 ___
 
@@ -595,7 +608,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`PlayerState`](../types/types.md#playerstate) |
+| `state` | [`PlayerState`](../types/Node.types.md#playerstate) |
 
 #### Returns
 
@@ -603,7 +616,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:501](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L501)
+[lib/Player.ts:530](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L530)
 
 ___
 
@@ -615,7 +628,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`PlayerOptions`](../types/types.md#playeroptions) |
+| `options` | [`PlayerOptions`](../types/Player.types.md#playeroptions) |
 
 #### Returns
 
@@ -623,4 +636,4 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:56](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Player.ts#L56)
+[lib/Player.ts:66](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Player.ts#L66)

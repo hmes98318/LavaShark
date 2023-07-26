@@ -54,7 +54,7 @@ networks:
         name: lavalink
 ```
 
-[`application.yml`](https://github.com/lavalink-devs/Lavalink/blob/master/LavalinkServer/application.yml.example)
+將 `application.yml` 與 `docker-compose.yml` 放在同一目錄中。
 
 ```yml
 server: # REST and WS server

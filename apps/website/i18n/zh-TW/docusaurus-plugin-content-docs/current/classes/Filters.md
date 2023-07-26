@@ -33,7 +33,7 @@
 
 • **new Filters**(`player`)
 
-Creates an instance of filters
+創建一個 Filters 實例
 
 #### Parameters
 
@@ -43,23 +43,23 @@ Creates an instance of filters
 
 #### Defined in
 
-[lib/Filters.ts:24](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L24)
+[lib/Filters.ts:25](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L25)
 
 ## Accessors
 
 ### active
 
-• `get` **active**(): [`FilterOptions`](../types/types.md#filteroptions)
+• `get` **active**(): [`FilterOptions`](../types/Filter.types.md#filteroptions)
 
-Gets a copy of active filters object
+獲取活動 Filters 物件的副本
 
 #### Returns
 
-[`FilterOptions`](../types/types.md#filteroptions)
+[`FilterOptions`](../types/Filter.types.md#filteroptions)
 
 #### Defined in
 
-[lib/Filters.ts:35](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L35)
+[lib/Filters.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L36)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • `get` **enabled**(): `boolean`
 
-Checks if some filter is enabled
+檢查某個 Filters 是否已啟用
 
 #### Returns
 
@@ -75,7 +75,7 @@ Checks if some filter is enabled
 
 #### Defined in
 
-[lib/Filters.ts:30](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L30)
+[lib/Filters.ts:31](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L31)
 
 ## Methods
 
@@ -83,7 +83,7 @@ Checks if some filter is enabled
 
 ▸ **apply**(): `void`
 
-Sends filters payload to Lavalink Node
+將 Filters 設置傳送到 Lavalink 節點
 
 #### Returns
 
@@ -91,7 +91,7 @@ Sends filters payload to Lavalink Node
 
 #### Defined in
 
-[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L245)
+[lib/Filters.ts:245](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L245)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 ▸ **clear**(): `void`
 
-Clears all active filters
+清除所有活動的 Filters
 
 #### Returns
 
@@ -107,7 +107,7 @@ Clears all active filters
 
 #### Defined in
 
-[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L238)
+[lib/Filters.ts:238](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L238)
 
 ___
 
@@ -115,13 +115,13 @@ ___
 
 ▸ **set**(`filters`): `void`
 
-Sets all filters
+設置所有 Filters
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `filters` | [`FilterOptions`](../types/types.md#filteroptions) |
+| `filters` | [`FilterOptions`](../types/Filter.types.md#filteroptions) |
 
 #### Returns
 
@@ -129,7 +129,7 @@ Sets all filters
 
 #### Defined in
 
-[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L224)
+[lib/Filters.ts:224](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L224)
 
 ___
 
@@ -137,24 +137,24 @@ ___
 
 ▸ **setChannelMix**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets ChannelMix filter
+設置 ChannelMix Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`ChannelMixOptions`](../types/types.md#channelmixoptions) | `undefined` | The channel mix options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`ChannelMixOptions`](../types/Filter.types.md#channelmixoptions) | `undefined` | channel mix 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:49](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L49)
+[lib/Filters.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L50)
 
 ___
 
@@ -162,24 +162,24 @@ ___
 
 ▸ **setDistortion**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Distortion filter
+設置 Distortion Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`DistortionOptions`](../types/types.md#distortionoptions) | `undefined` | The distortion options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`DistortionOptions`](../types/Filter.types.md#distortionoptions) | `undefined` | distortion 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:72](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L72)
+[lib/Filters.ts:73](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L73)
 
 ___
 
@@ -187,24 +187,24 @@ ___
 
 ▸ **setEqualizer**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Equalizer filter
+設置 Equalizer Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| `number`[] | `undefined` | The equalizer band array |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| `number`[] | `undefined` | 等化器陣列 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:87](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L87)
+[lib/Filters.ts:88](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L88)
 
 ___
 
@@ -212,24 +212,24 @@ ___
 
 ▸ **setKaraoke**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Karaoke filter
+設置 Karaoke Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`KaraokeOptions`](../types/types.md#karaokeoptions) | `undefined` | The karaoke options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`KaraokeOptions`](../types/Filter.types.md#karaokeoptions) | `undefined` | karaoke 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:113](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L113)
+[lib/Filters.ts:114](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L114)
 
 ___
 
@@ -237,24 +237,24 @@ ___
 
 ▸ **setLowPass**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets LowPass filter
+設置 LowPass Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`LowPassOptions`](../types/types.md#lowpassoptions) | `undefined` | The lowpass options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`LowPassOptions`](../types/Filter.types.md#lowpassoptions) | `undefined` | lowpass 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:129](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L129)
+[lib/Filters.ts:130](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L130)
 
 ___
 
@@ -262,24 +262,24 @@ ___
 
 ▸ **setRotation**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Rotation filter
+設置 Rotation Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`RotationOptions`](../types/types.md#rotationoptions) | `undefined` | The rotation options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`RotationOptions`](../types/Filter.types.md#rotationoptions) | `undefined` | rotation 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:145](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L145)
+[lib/Filters.ts:146](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L146)
 
 ___
 
@@ -287,24 +287,24 @@ ___
 
 ▸ **setTimescale**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Timescale filter
+設置 Timescale Filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`TimescaleOptions`](../types/types.md#timescaleoptions) | `undefined` | The timescale options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`TimescaleOptions`](../types/Filter.types.md#timescaleoptions) | `undefined` | timescale 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:163](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L163)
+[lib/Filters.ts:164](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L164)
 
 ___
 
@@ -312,24 +312,24 @@ ___
 
 ▸ **setTremolo**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Tremolo filter
+設置 Tremolo filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`TremoloOptions`](../types/types.md#tremolooptions) | `undefined` | The tremolo options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`TremoloOptions`](../types/Filter.types.md#tremolooptions) | `undefined` | tremolo 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:180](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L180)
+[lib/Filters.ts:181](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L181)
 
 ___
 
@@ -337,24 +337,24 @@ ___
 
 ▸ **setVibrato**(`options`, `apply?`): [`Filters`](Filters.md)
 
-Sets Vibrato filter
+設置 Vibrato filter
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `options` | ``null`` \| [`VibratoOptions`](../types/types.md#vibratooptions) | `undefined` | The vibrato options |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `options` | ``null`` \| [`VibratoOptions`](../types/Filter.types.md#vibratooptions) | `undefined` | vibrato 選項 |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:197](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L197)
+[lib/Filters.ts:198](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L198)
 
 ___
 
@@ -362,21 +362,21 @@ ___
 
 ▸ **setVolume**(`vol`, `apply?`): [`Filters`](Filters.md)
 
-Sets the volume
+設置音量
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `vol` | `number` | `undefined` | The volume to set [0,500] |
-| `apply` | `boolean` | `true` | Whether to send filter payload to Lavalink or not |
+| `vol` | `number` | `undefined` | 要設置的音量 [0,500] |
+| `apply` | `boolean` | `true` | 是否將 Filter 設置傳送到 Lavalink 節點 |
 
 #### Returns
 
 [`Filters`](Filters.md)
 
-The filters instance, for chaining calls
+Filter 實例，用於鏈式呼叫
 
 #### Defined in
 
-[lib/Filters.ts:212](https://github.com/hmes98318/LavaShark/blob/main/src/lib/Filters.ts#L212)
+[lib/Filters.ts:213](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Filters.ts#L213)

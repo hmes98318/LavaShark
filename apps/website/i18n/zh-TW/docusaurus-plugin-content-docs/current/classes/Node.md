@@ -30,6 +30,7 @@
 - [getVersion](Node.md#getversion)
 - [unmarkAllFailedAddress](Node.md#unmarkallfailedaddress)
 - [unmarkFailedAddress](Node.md#unmarkfailedaddress)
+- [updateStats](Node.md#updatestats)
 - [checkOptions](Node.md#checkoptions)
 
 ## Constructors
@@ -38,38 +39,38 @@
 
 • **new Node**(`lavashark`, `options`)
 
-Create a new LavaShark instance
+創建一個 Node 實例
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `lavashark` | [`LavaShark`](LavaShark.md) | The LavaShark instance |
-| `options` | [`NodeOptions`](../types/types.md#nodeoptions) | The node options |
+| `lavashark` | [`LavaShark`](LavaShark.md) | LavaShark 實例 |
+| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) | Node 選項 |
 
 #### Defined in
 
-[lib/Node.ts:113](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L113)
+[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L112)
 
 ## Properties
 
 ### options
 
-• `Readonly` **options**: [`NodeOptions`](../types/types.md#nodeoptions)
+• `Readonly` **options**: [`NodeOptions`](../types/Node.types.md#nodeoptions)
 
 #### Defined in
 
-[lib/Node.ts:35](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L35)
+[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L34)
 
 ___
 
 ### rest
 
-• `Readonly` **rest**: `RESTManager`
+• `Readonly` **rest**: `RESTController`
 
 #### Defined in
 
-[lib/Node.ts:42](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L42)
+[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L41)
 
 ___
 
@@ -79,27 +80,27 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:44](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L44)
+[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L43)
 
 ___
 
 ### state
 
-• **state**: `NodeState`
+• **state**: [`NodeState`](../types/enums/enums.NodeState.md)
 
 #### Defined in
 
-[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L46)
+[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L45)
 
 ___
 
 ### stats
 
-• **stats**: [`NodeStats`](../types/types.md#nodestats)
+• **stats**: [`NodeStats`](../types/Node.types.md#nodestats)
 
 #### Defined in
 
-[lib/Node.ts:47](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L47)
+[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L46)
 
 ___
 
@@ -109,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:49](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L49)
+[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L48)
 
 ## Accessors
 
@@ -123,7 +124,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:156](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L156)
+[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L149)
 
 ___
 
@@ -137,7 +138,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:150](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L150)
+[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L153)
 
 ## Methods
 
@@ -151,7 +152,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:176](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L176)
+[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L178)
 
 ___
 
@@ -165,55 +166,55 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:205](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L205)
+[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L207)
 
 ___
 
 ### getInfo
 
-▸ **getInfo**(): `Promise`<[`Info`](../types/types.md#info)\>
+▸ **getInfo**(): `Promise`<[`Info`](../types/Node.types.md#info)\>
 
-Get the Lavalink Node information
+獲取 Lavalink 節點資訊
 
 #### Returns
 
-`Promise`<[`Info`](../types/types.md#info)\>
+`Promise`<[`Info`](../types/Node.types.md#info)\>
 
 #### Defined in
 
-[lib/Node.ts:225](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L225)
+[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L227)
 
 ___
 
 ### getRoutePlannerStatus
 
-▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/types.md#routeplannerstatus)\>
+▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
-Gets the route planner status
+獲取路徑規劃器狀態
 
 #### Returns
 
-`Promise`<[`RoutePlannerStatus`](../types/types.md#routeplannerstatus)\>
+`Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 #### Defined in
 
-[lib/Node.ts:244](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L244)
+[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L246)
 
 ___
 
 ### getStats
 
-▸ **getStats**(): `Promise`<[`NodeStats`](../types/types.md#nodestats)\>
+▸ **getStats**(): `Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
-Get the Lavalink Node stats
+獲取 Lavalink 節點統計信息
 
 #### Returns
 
-`Promise`<[`NodeStats`](../types/types.md#nodestats)\>
+`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 #### Defined in
 
-[lib/Node.ts:234](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L234)
+[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L236)
 
 ___
 
@@ -221,7 +222,7 @@ ___
 
 ▸ **getVersion**(): `Promise`<`string`\>
 
-Get the Lavalink Node version
+獲取 Lavalink 節點版本
 
 #### Returns
 
@@ -229,7 +230,7 @@ Get the Lavalink Node version
 
 #### Defined in
 
-[lib/Node.ts:215](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L215)
+[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L217)
 
 ___
 
@@ -245,7 +246,7 @@ Unmarks all failed address
 
 #### Defined in
 
-[lib/Node.ts:259](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L259)
+[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L261)
 
 ___
 
@@ -267,7 +268,21 @@ Unmarks a failed address
 
 #### Defined in
 
-[lib/Node.ts:252](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L252)
+[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L254)
+
+___
+
+### updateStats
+
+▸ **updateStats**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L489)
 
 ___
 
@@ -279,7 +294,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`NodeOptions`](../types/types.md#nodeoptions) |
+| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) |
 
 #### Returns
 
@@ -287,4 +302,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:51](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/Node.ts#L51)
+[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L50)

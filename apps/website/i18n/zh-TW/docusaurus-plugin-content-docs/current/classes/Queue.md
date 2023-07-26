@@ -20,7 +20,6 @@
 - [add](Queue.md#add)
 - [clear](Queue.md#clear)
 - [poll](Queue.md#poll)
-- [push](Queue.md#push)
 - [remove](Queue.md#remove)
 - [shuffle](Queue.md#shuffle)
 - [skipNTracks](Queue.md#skipntracks)
@@ -33,7 +32,7 @@
 
 #### Defined in
 
-[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L8)
+[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L8)
 
 ## Properties
 
@@ -43,7 +42,7 @@
 
 #### Defined in
 
-[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L6)
+[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L6)
 
 ## Accessors
 
@@ -51,7 +50,7 @@
 
 • `get` **duration**(): `number`
 
-Gets the queue duration in milliseconds.
+獲取隊列的持續時間，以毫秒為單位
 
 #### Returns
 
@@ -59,7 +58,7 @@ Gets the queue duration in milliseconds.
 
 #### Defined in
 
-[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L22)
+[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L22)
 
 ___
 
@@ -67,7 +66,7 @@ ___
 
 • `get` **size**(): `number`
 
-Gets the queue size.
+獲取隊列的大小
 
 #### Returns
 
@@ -75,7 +74,7 @@ Gets the queue size.
 
 #### Defined in
 
-[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L15)
+[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L15)
 
 ## Methods
 
@@ -83,13 +82,13 @@ Gets the queue size.
 
 ▸ **add**(`track`): `void`
 
-Adds a track to the queue.
+[內部使用] 將音軌添加到隊列中。外部使用者應使用 Player.addTracks() 方法代替
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `track` | `default` \| `default` | The track to add to the queue |
+| `track` | `default` \| `default` | 要添加到隊列的歌曲 |
 
 #### Returns
 
@@ -97,7 +96,7 @@ Adds a track to the queue.
 
 #### Defined in
 
-[Queue.ts:39](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L39)
+[Queue.ts:30](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L30)
 
 ___
 
@@ -105,7 +104,7 @@ ___
 
 ▸ **clear**(): `void`
 
-Clears the queue.
+清空隊列
 
 #### Returns
 
@@ -113,7 +112,7 @@ Clears the queue.
 
 #### Defined in
 
-[Queue.ts:76](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L76)
+[Queue.ts:67](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L67)
 
 ___
 
@@ -121,43 +120,17 @@ ___
 
 ▸ **poll**(): ``null`` \| `default` \| `default`
 
-Polls the queue for the next track.
+從隊列中取出下一首歌曲
 
 #### Returns
 
 ``null`` \| `default` \| `default`
 
-The next track in the queue or null if the queue is empty.
+隊列中的下一個歌曲，如果隊列為空則返回 null
 
 #### Defined in
 
-[Queue.ts:47](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L47)
-
-___
-
-### push
-
-▸ **push**(`track`): `void`
-
-Adds a track to the queue.
-
-**`Deprecated`**
-
-- Use `add()` instead
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `track` | `default` \| `default` | The track to add to the queue |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[Queue.ts:31](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L31)
+[Queue.ts:38](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L38)
 
 ___
 
@@ -165,58 +138,58 @@ ___
 
 ▸ **remove**(): `boolean`
 
-Removes the first track in the queue.
+移除隊列中的第一首歌曲
 
 #### Returns
 
 `boolean`
 
-Returns true if the track was successfully removed, false otherwise
+如果歌曲成功移除則返回 true，否則返回 false
 
 #### Defined in
 
-[Queue.ts:84](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L84)
+[Queue.ts:75](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L75)
 
 ▸ **remove**(`index`): `boolean`
 
-Removes the track at the specified position.
+移除指定位置的歌曲
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | `number` | The index of the track to remove. |
+| `index` | `number` | 要移除的歌曲的索引 |
 
 #### Returns
 
 `boolean`
 
-Returns true if the track was successfully removed, false otherwise
+如果歌曲成功移除則返回 true，否則返回 false
 
 #### Defined in
 
-[Queue.ts:90](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L90)
+[Queue.ts:81](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L81)
 
 ▸ **remove**(`start`, `end`): `boolean`
 
-Removes the tracks in the specified range.
+移除指定範圍內的歌曲
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `start` | `number` | The start index of the range. |
-| `end` | `number` | The end index of the range. |
+| `start` | `number` | 範圍的開始索引 |
+| `end` | `number` | 範圍的結束索引 |
 
 #### Returns
 
 `boolean`
 
-Returns true if the tracks were successfully removed, false otherwise
+如果歌曲成功移除則返回 true，否則返回 false
 
 #### Defined in
 
-[Queue.ts:97](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L97)
+[Queue.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L88)
 
 ___
 
@@ -224,7 +197,7 @@ ___
 
 ▸ **shuffle**(): `void`
 
-Shuffles the queue
+隨機洗牌隊列
 
 #### Returns
 
@@ -232,7 +205,7 @@ Shuffles the queue
 
 #### Defined in
 
-[Queue.ts:62](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L62)
+[Queue.ts:53](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L53)
 
 ___
 
@@ -240,13 +213,13 @@ ___
 
 ▸ **skipNTracks**(`n`): `void`
 
-Remove the next n tracks from the queue
+從隊列中移除 n 首歌曲
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `n` | `number` | The number of tracks to skip |
+| `n` | `number` | 要跳過的歌曲數量 |
 
 #### Returns
 
@@ -254,4 +227,4 @@ Remove the next n tracks from the queue
 
 #### Defined in
 
-[Queue.ts:55](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/queue/Queue.ts#L55)
+[Queue.ts:46](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L46)

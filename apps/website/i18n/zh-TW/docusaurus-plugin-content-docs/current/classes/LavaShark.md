@@ -2,14 +2,6 @@
 
 ## Table of contents
 
-## Hierarchy
-
-- `EventEmitter`
-
-  ↳ **`LavaShark`**
-
-## Table of contents
-
 ### Constructors
 
 - [constructor](LavaShark.md#constructor)
@@ -25,13 +17,10 @@
 - [unresolvedSearchSource](LavaShark.md#unresolvedsearchsource)
 - [useISRC](LavaShark.md#useisrc)
 
-### Accessors
-
-- [bestNode](LavaShark.md#bestnode)
-
 ### Methods
 
 - [addExternalSource](LavaShark.md#addexternalsource)
+- [bestNode](LavaShark.md#bestnode)
 - [createPlayer](LavaShark.md#createplayer)
 - [decodeTrack](LavaShark.md#decodetrack)
 - [decodeTracks](LavaShark.md#decodetracks)
@@ -48,17 +37,17 @@
 
 • **new LavaShark**(`options`)
 
-Create a new LavaShark instance
+創建一個 LavaShark 實例
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`LavaSharkOptions`](../types/types.md#lavasharkoptions) | The LavaShark options |
+| `options` | [`LavaSharkOptions`](../types/LavaShark.types.md#lavasharkoptions) | LavaShark 選項 |
 
 #### Defined in
 
-[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L114)
+[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L114)
 
 ## Properties
 
@@ -68,7 +57,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L31)
+[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L31)
 
 ___
 
@@ -78,27 +67,27 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L32)
+[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L32)
 
 ___
 
 ### on
 
-• **on**: [`EventListeners`](../types/types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
+• **on**: [`EventListeners`](../types/LavaShark.types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L27)
+[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L27)
 
 ___
 
 ### once
 
-• **once**: [`EventListeners`](../types/types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
+• **once**: [`EventListeners`](../types/LavaShark.types.md#eventlisteners)<[`LavaShark`](LavaShark.md)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L26)
+[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L26)
 
 ___
 
@@ -110,13 +99,13 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L41)
+[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L41)
 
 ___
 
 ### sendWS
 
-• `Readonly` **sendWS**: (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](../types/types.md#outgoingdiscordpayload)) => `void`
+• `Readonly` **sendWS**: (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](../types/LavaShark.types.md#outgoingdiscordpayload)) => `void`
 
 #### Type declaration
 
@@ -135,7 +124,7 @@ sendWS: (guildId, payload) => {
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `guildId` | `string` | guildId |
-| `payload` | [`OutgoingDiscordPayload`](../types/types.md#outgoingdiscordpayload) | payload |
+| `payload` | [`OutgoingDiscordPayload`](../types/LavaShark.types.md#outgoingdiscordpayload) | payload |
 
 ##### Returns
 
@@ -143,17 +132,17 @@ sendWS: (guildId, payload) => {
 
 #### Defined in
 
-[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L56)
+[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L56)
 
 ___
 
 ### unresolvedSearchSource
 
-• `Readonly` **unresolvedSearchSource**: [`SEARCH_SOURCE`](../types/types.md#search_source)
+• `Readonly` **unresolvedSearchSource**: [`SEARCH_SOURCE`](../types/LavaShark.types.md#search_source)
 
 #### Defined in
 
-[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L35)
+[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L35)
 
 ___
 
@@ -163,21 +152,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L36)
-
-## Accessors
-
-### bestNode
-
-• `get` **bestNode**(): [`Node`](Node.md)
-
-#### Returns
-
-[`Node`](Node.md)
-
-#### Defined in
-
-[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L151)
+[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L36)
 
 ## Methods
 
@@ -185,13 +160,13 @@ ___
 
 ▸ **addExternalSource**(`extSource`): `void`
 
-Adds an external source that produces a SearchResult with UnresolvedTracks
+添加一個外部來源，生成帶有 UnresolvedTracks 的 SearchResult
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `extSource` | `AbstractExternalSource` | The external source |
+| `extSource` | `AbstractExternalSource` | 外部來源 |
 
 #### Returns
 
@@ -199,7 +174,21 @@ Adds an external source that produces a SearchResult with UnresolvedTracks
 
 #### Defined in
 
-[lib/LavaShark.ts:176](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L176)
+[lib/LavaShark.ts:181](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L181)
+
+___
+
+### bestNode
+
+▸ **bestNode**(): `Promise`<[`Node`](Node.md)\>
+
+#### Returns
+
+`Promise`<[`Node`](Node.md)\>
+
+#### Defined in
+
+[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L151)
 
 ___
 
@@ -207,13 +196,13 @@ ___
 
 ▸ **createPlayer**(`options`): [`Player`](Player.md)
 
-Creates a new player or returns an existing one
+創建一個新的 Player 或返回一個現有的 Player
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`PlayerOptions`](../types/types.md#playeroptions) | The player options |
+| `options` | [`PlayerOptions`](../types/Player.types.md#playeroptions) | Player 選項 |
 
 #### Returns
 
@@ -221,7 +210,7 @@ Creates a new player or returns an existing one
 
 #### Defined in
 
-[lib/LavaShark.ts:221](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L221)
+[lib/LavaShark.ts:224](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L224)
 
 ___
 
@@ -243,7 +232,7 @@ Decodes a track by its base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:189](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L189)
+[lib/LavaShark.ts:194](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L194)
 
 ___
 
@@ -265,29 +254,29 @@ Decodes multiple tracks by their base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:202](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L202)
+[lib/LavaShark.ts:206](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L206)
 
 ___
 
 ### getPlayer
 
-▸ **getPlayer**(`guildId`): [`Player`](Player.md)
+▸ **getPlayer**(`guildId`): ``null`` \| [`Player`](Player.md)
 
-Retrieve an existing player using the guild id
+使用 guild ID 檢索現有的 Player
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `guildId` | `string` | The guild id that player belongs to |
+| `guildId` | `string` | 該 Player 所屬的 guild ID |
 
 #### Returns
 
-[`Player`](Player.md) \| ``null``
+``null`` \| [`Player`](Player.md)
 
 #### Defined in
 
-[lib/LavaShark.ts:239](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L239)
+[lib/LavaShark.ts:242](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L242)
 
 ___
 
@@ -295,13 +284,13 @@ ___
 
 ▸ **handleVoiceUpdate**(`payload`): `void`
 
-Handles voice state & voice server update packets
+處理語音狀態和語音伺服器更新封包
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `payload` | [`IncomingDiscordPayload`](../types/types.md#incomingdiscordpayload) | The voice packet |
+| `payload` | [`IncomingDiscordPayload`](../types/LavaShark.types.md#incomingdiscordpayload) | 語音封包 |
 
 #### Returns
 
@@ -309,7 +298,7 @@ Handles voice state & voice server update packets
 
 #### Defined in
 
-[lib/LavaShark.ts:317](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L317)
+[lib/LavaShark.ts:323](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L323)
 
 ___
 
@@ -317,40 +306,40 @@ ___
 
 ▸ **nodesPing**(): `Promise`<`number`[]\>
 
-Get the ping for all nodes
+獲取所有節點的 ping 值
 
 #### Returns
 
 `Promise`<`number`[]\>
 
-- All node latency, in milliseconds
+- 所有節點的延遲，以毫秒為單位
 
 #### Defined in
 
-[lib/LavaShark.ts:371](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L371)
+[lib/LavaShark.ts:377](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L377)
 
 ___
 
 ### search
 
-▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/types.md#searchresult)\>
+▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
-Search by song name or use music URL
+通過歌曲名稱進行搜索或使用歌曲連結
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | `string` | The query to search for |
-| `source?` | [`SEARCH_SOURCE`](../types/types.md#search_source) | The search source |
+| `query` | `string` | 要搜索的內容 |
+| `source?` | [`SEARCH_SOURCE`](../types/LavaShark.types.md#search_source) | 搜尋來源 |
 
 #### Returns
 
-`Promise`<[`SearchResult`](../types/types.md#searchresult)\>
+`Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 #### Defined in
 
-[lib/LavaShark.ts:256](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L256)
+[lib/LavaShark.ts:263](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L263)
 
 ___
 
@@ -358,13 +347,13 @@ ___
 
 ▸ **start**(`clientId`): `void`
 
-Connects to all lavalink nodes
+連接到所有 Lavalink 節點
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `clientId` | `string` | The client id (BOT) |
+| `clientId` | `string` | client ID (BOT) |
 
 #### Returns
 
@@ -372,7 +361,7 @@ Connects to all lavalink nodes
 
 #### Defined in
 
-[lib/LavaShark.ts:301](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L301)
+[lib/LavaShark.ts:307](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L307)
 
 ___
 
@@ -384,7 +373,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`LavaSharkOptions`](../types/types.md#lavasharkoptions) |
+| `options` | [`LavaSharkOptions`](../types/LavaShark.types.md#lavasharkoptions) |
 
 #### Returns
 
@@ -392,4 +381,4 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/51b03f2/src/lib/LavaShark.ts#L58)
+[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L58)
