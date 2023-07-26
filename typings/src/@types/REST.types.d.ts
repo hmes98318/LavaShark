@@ -2,6 +2,7 @@ import type { Dispatcher } from "undici";
 import type Track from "../lib/queue/Track";
 import type UnresolvedTrack from "../lib/queue/UnresolvedTrack";
 import type { FilterOptions } from "./Filter.types";
+import type { ITrack, PlaylistInfo } from "./Track.types";
 export type UpdatePlayerOptions = {
     encodedTrack?: string | null;
     position?: number;
@@ -30,31 +31,6 @@ export type RequestOptions = {
     json?: unknown;
     headers?: Record<string, string>;
 };
-export type PlaylistInfo = {
-    selectedTrack: number;
-    name: string;
-    duration: number;
-};
-export type TrackInfo = {
-    identifier: string;
-    thumbnail?: string;
-    isSeekable: boolean;
-    author: string;
-    length: number;
-    isStream: boolean;
-    sourceName: string | null;
-    position: number;
-    title: string;
-    uri: string;
-};
-export interface ITrack {
-    track: string;
-    info: TrackInfo;
-}
-export interface Timestamp {
-    label: string;
-    value: number;
-}
 export type LoadException = {
     message: string;
     severity: 'COMMON' | 'SUSPIOUS' | 'FAULT';

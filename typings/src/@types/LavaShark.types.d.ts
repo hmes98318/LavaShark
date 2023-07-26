@@ -3,7 +3,8 @@ import type Player from "../lib/Player";
 import type Track from "../lib/queue/Track";
 import type UnresolvedTrack from "../lib/queue/UnresolvedTrack";
 import type { NodeOptions, TrackEndReason } from "./Node.types";
-import type { TrackInfo, Timestamp, LoadException } from "./REST.types";
+import type { LoadException } from "./REST.types";
+import type { TrackInfo, Timestamp } from "./Track.types";
 export type IncomingDiscordPayload = {
     op: number;
     d?: unknown;
