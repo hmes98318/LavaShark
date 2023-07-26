@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_lavashark_website=self.webpackChunk_lavashark_website||[]).push([[8894],{8894:(e,s,a)=>{a.r(s)}}]);

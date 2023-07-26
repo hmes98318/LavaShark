@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_lavashark_website=self.webpackChunk_lavashark_website||[]).push([[416],{7085:e=>{e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
