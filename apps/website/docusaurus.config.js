@@ -6,7 +6,7 @@ const fs = require('fs');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const lastVersion = '1.1.1';
+const lastVersion = '1.2.0';
 
 
 /** @type {import('@docusaurus/types').Config} */
@@ -60,11 +60,14 @@ const config = {
                     // Remove this to remove the "edit this page" links.
                     editUrl:
                         'https://github.com/hmes98318/LavaShark/blob/main/apps/website/',
-                    lastVersion: '1.1.1',
+                    lastVersion: lastVersion,
                     // onlyIncludeVersions: JSON.parse(fs.readFileSync('./versions.json', 'utf-8')),
                     versions: {
                         "1.1.1": {
                             label: `v1.1.1`
+                        },
+                        "1.2.0": {
+                            label: `v1.2.0`
                         },
                     },
                 },
