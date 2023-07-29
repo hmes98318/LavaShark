@@ -369,6 +369,37 @@ export class LavaShark extends EventEmitter {
     }
 
     /**
+     * Get the ping for a single node
+     * @param {Node} node - The node to ping
+     * @param {number} timeout - Timeout value in milliseconds
+     * @returns {Promise<number>} - Node latency, in milliseconds
+     */
+    public async nodePing(node: Node, timeout: number = 1500): Promise<number> {
+        if (!node || !(node instanceof Node)) {
+            throw new Error('Invalid node parameter. Expected Node instance.');
+        }
+
+        try {
+            const startTime = Date.now();
+
+            await Promise.race([
+                node.getStats(),
+                new Promise<void>((_, reject) => {
+                    setTimeout(() => {
+                        reject(new Error('Update stats timed out'));
+                    }, timeout);
+                })
+            ]);
+
+            const endTime = Date.now();
+            const ping = endTime - startTime;
+            return ping;
+        } catch (_) {
+            return -1;
+        }
+    }
+
+    /**
      * Get the ping for all nodes
      * @param {number} timeout - Timeout value in milliseconds
      * @returns {Promise<Number[]>} - All node latency, in milliseconds
@@ -378,6 +409,7 @@ export class LavaShark extends EventEmitter {
         const pingPromises = nodes.map(async (node) => {
             try {
                 const startTime = Date.now();
+
                 await Promise.race([
                     node.getStats(),
                     new Promise<void>((_, reject) => {
@@ -386,9 +418,9 @@ export class LavaShark extends EventEmitter {
                         }, timeout);
                     })
                 ]);
+
                 const endTime = Date.now();
                 const ping = endTime - startTime;
-
                 return ping;
             } catch (_) {
                 return -1;

@@ -112,6 +112,13 @@ export declare class LavaShark extends EventEmitter {
      */
     handleVoiceUpdate(payload: IncomingDiscordPayload): void;
     /**
+     * Get the ping for a single node
+     * @param {Node} node - The node to ping
+     * @param {number} timeout - Timeout value in milliseconds
+     * @returns {Promise<number>} - Node latency, in milliseconds
+     */
+    nodePing(node: Node, timeout?: number): Promise<number>;
+    /**
      * Get the ping for all nodes
      * @param {number} timeout - Timeout value in milliseconds
      * @returns {Promise<Number[]>} - All node latency, in milliseconds
