@@ -370,31 +370,32 @@ export class LavaShark extends EventEmitter {
 
     /**
      * Get the ping for all nodes
+     * @param {number} timeout - Timeout value in milliseconds
      * @returns {Promise<Number[]>} - All node latency, in milliseconds
      */
-    public async nodesPing(): Promise<number[]> {
+    public async nodesPing(timeout: number = 1500): Promise<number[]> {
         const nodes = this.nodes;
-        const pingList: number[] = [];
+        const pingPromises = nodes.map(async (node) => {
+            try {
+                const startTime = Date.now();
+                await Promise.race([
+                    node.getStats(),
+                    new Promise<void>((_, reject) => {
+                        setTimeout(() => {
+                            reject(new Error('Update stats timed out'));
+                        }, timeout);
+                    })
+                ]);
+                const endTime = Date.now();
+                const ping = endTime - startTime;
 
-        for (const node of nodes) {
-            if (node.state !== NodeState.CONNECTED) {
-                pingList.push(-1);
-                continue;
+                return ping;
+            } catch (_) {
+                return -1;
             }
-            else {
-                try {
-                    const startTime = Date.now();
-                    await node.getVersion();
-                    const endTime = Date.now();
+        });
 
-                    const ping = endTime - startTime;
-                    pingList.push(ping);
-                } catch (_) {
-                    pingList.push(-1);
-                }
-            }
-        }
-
+        const pingList = await Promise.all(pingPromises);
         return pingList;
     }
 }
