@@ -487,8 +487,20 @@ export default class Node {
     }
 
     public async updateStats(): Promise<void> {
-        await this.getStats();
-        this.calcPenalties();
+        try {
+            await Promise.race([
+                this.getStats(),
+                new Promise<void>((_, reject) => {
+                    setTimeout(() => {
+                        reject(new Error('Update stats timed out'));
+                    }, 1500);
+                })
+            ]);
+            this.calcPenalties();
+        } catch (_) {
+            this.state = NodeState.DISCONNECTED;
+            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node`));
+        }
     }
 
     private upgrade(msg: IncomingMessage) {

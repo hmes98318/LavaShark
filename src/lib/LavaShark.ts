@@ -153,15 +153,13 @@ export class LavaShark extends EventEmitter {
             if (this.nodes[0].state === NodeState.CONNECTED) {
                 return this.nodes[0];
             }
-
-            this.lastNodeSorting = 0;
-            return this.bestNode();
+            else {
+                this.lastNodeSorting = 0;
+                return this.bestNode();
+            }
         }
 
-        this.nodes.forEach(async (node) => {
-            await node.updateStats();
-        });
-
+        await Promise.all(this.nodes.map(node => node.updateStats()));
         this.nodes = this.nodes.sort((a, b) => a.totalPenalties - b.totalPenalties);
 
         const node = this.nodes[0];
