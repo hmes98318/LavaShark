@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[@types/REST.types.ts:24](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L24)
+[@types/REST.types.ts:24](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L24)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:40](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L40)
+[@types/REST.types.ts:40](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L40)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:45](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L45)
+[@types/REST.types.ts:45](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L45)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:51](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L51)
+[@types/REST.types.ts:51](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L51)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:33](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L33)
+[@types/REST.types.ts:33](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L33)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:55](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L55)
+[@types/REST.types.ts:55](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L55)
 
 ___
 
@@ -131,4 +131,4 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:8](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/REST.types.ts#L8)
+[@types/REST.types.ts:8](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/REST.types.ts#L8)

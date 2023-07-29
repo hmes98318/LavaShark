@@ -26,6 +26,7 @@
 - [decodeTracks](LavaShark.md#decodetracks)
 - [getPlayer](LavaShark.md#getplayer)
 - [handleVoiceUpdate](LavaShark.md#handlevoiceupdate)
+- [nodePing](LavaShark.md#nodeping)
 - [nodesPing](LavaShark.md#nodesping)
 - [search](LavaShark.md#search)
 - [start](LavaShark.md#start)
@@ -47,7 +48,7 @@
 
 #### Defined in
 
-[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L114)
+[lib/LavaShark.ts:114](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L114)
 
 ## Properties
 
@@ -57,7 +58,7 @@
 
 #### Defined in
 
-[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L31)
+[lib/LavaShark.ts:31](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L31)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L32)
+[lib/LavaShark.ts:32](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L32)
 
 ___
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L27)
+[lib/LavaShark.ts:27](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L27)
 
 ___
 
@@ -87,7 +88,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L26)
+[lib/LavaShark.ts:26](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L26)
 
 ___
 
@@ -99,7 +100,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L41)
+[lib/LavaShark.ts:41](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L41)
 
 ___
 
@@ -132,7 +133,7 @@ sendWS: (guildId, payload) => {
 
 #### Defined in
 
-[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L56)
+[lib/LavaShark.ts:56](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L56)
 
 ___
 
@@ -142,7 +143,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L35)
+[lib/LavaShark.ts:35](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L35)
 
 ___
 
@@ -152,7 +153,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L36)
+[lib/LavaShark.ts:36](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L36)
 
 ## Methods
 
@@ -174,7 +175,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:181](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L181)
+[lib/LavaShark.ts:181](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L181)
 
 ___
 
@@ -188,7 +189,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L151)
+[lib/LavaShark.ts:151](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L151)
 
 ___
 
@@ -210,7 +211,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:224](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L224)
+[lib/LavaShark.ts:224](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L224)
 
 ___
 
@@ -232,7 +233,7 @@ Decodes a track by its base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:194](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L194)
+[lib/LavaShark.ts:194](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L194)
 
 ___
 
@@ -254,7 +255,7 @@ Decodes multiple tracks by their base64 string
 
 #### Defined in
 
-[lib/LavaShark.ts:206](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L206)
+[lib/LavaShark.ts:206](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L206)
 
 ___
 
@@ -276,7 +277,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:242](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L242)
+[lib/LavaShark.ts:242](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L242)
 
 ___
 
@@ -298,7 +299,32 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:323](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L323)
+[lib/LavaShark.ts:323](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L323)
+
+___
+
+### nodePing
+
+▸ **nodePing**(`node`, `timeout?`): `Promise`<`number`\>
+
+獲取單個節點的 ping 值
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `node` | [`Node`](Node.md) | `undefined` | 要 ping 的節點 |
+| `timeout` | `number` | `1500` | 超時值，以毫秒為單位 |
+
+#### Returns
+
+`Promise`<`number`\>
+
+- 節點的延遲，以毫秒為單位
+
+#### Defined in
+
+[lib/LavaShark.ts:377](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L377)
 
 ___
 
@@ -308,6 +334,12 @@ ___
 
 獲取所有節點的 ping 值
 
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `timeout` | `number` | `1500` | 超時值，以毫秒為單位 |
+
 #### Returns
 
 `Promise`<`number`[]\>
@@ -316,7 +348,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:377](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L377)
+[lib/LavaShark.ts:407](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L407)
 
 ___
 
@@ -339,7 +371,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:263](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L263)
+[lib/LavaShark.ts:263](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L263)
 
 ___
 
@@ -361,7 +393,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:307](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L307)
+[lib/LavaShark.ts:307](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L307)
 
 ___
 
@@ -381,4 +413,4 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/LavaShark.ts#L58)
+[lib/LavaShark.ts:58](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/LavaShark.ts#L58)

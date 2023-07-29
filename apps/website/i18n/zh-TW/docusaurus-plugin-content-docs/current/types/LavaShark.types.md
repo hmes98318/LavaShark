@@ -321,7 +321,7 @@ LavaShark events
 
 #### Defined in
 
-[@types/LavaShark.types.ts:44](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L44)
+[@types/LavaShark.types.ts:44](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L44)
 
 ___
 
@@ -340,7 +340,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:9](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L9)
+[@types/LavaShark.types.ts:9](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L9)
 
 ___
 
@@ -364,7 +364,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/LavaShark.types.ts:81](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L81)
+[@types/LavaShark.types.ts:81](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L81)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:37](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L37)
+[@types/LavaShark.types.ts:37](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L37)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:65](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L65)
+[@types/LavaShark.types.ts:65](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L65)
 
 ___
 
@@ -401,7 +401,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:70](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L70)
+[@types/LavaShark.types.ts:70](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L70)
 
 ___
 
@@ -419,7 +419,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:74](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L74)
+[@types/LavaShark.types.ts:74](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L74)
 
 ___
 
@@ -429,7 +429,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:72](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L72)
+[@types/LavaShark.types.ts:72](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L72)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:26](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L26)
+[@types/LavaShark.types.ts:26](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L26)
 
 ___
 
@@ -457,7 +457,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:32](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L32)
+[@types/LavaShark.types.ts:32](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L32)
 
 ___
 
@@ -467,4 +467,4 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:16](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/@types/LavaShark.types.ts#L16)
+[@types/LavaShark.types.ts:16](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L16)

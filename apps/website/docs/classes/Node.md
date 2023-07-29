@@ -39,7 +39,7 @@
 
 • **new Node**(`lavashark`, `options`)
 
-Create a new LavaShark instance
+Create a new Node instance
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L112)
+[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L112)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Create a new LavaShark instance
 
 #### Defined in
 
-[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L34)
+[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L34)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L41)
+[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L41)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L43)
+[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L43)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L45)
+[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L45)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L46)
+[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L46)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L48)
+[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L48)
 
 ## Accessors
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L149)
+[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L149)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L153)
+[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L153)
 
 ## Methods
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L178)
+[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L178)
 
 ___
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L207)
+[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L207)
 
 ___
 
@@ -182,7 +182,7 @@ Get the Lavalink Node information
 
 #### Defined in
 
-[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L227)
+[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L227)
 
 ___
 
@@ -198,7 +198,7 @@ Gets the route planner status
 
 #### Defined in
 
-[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L246)
+[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L246)
 
 ___
 
@@ -214,7 +214,7 @@ Get the Lavalink Node stats
 
 #### Defined in
 
-[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L236)
+[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L236)
 
 ___
 
@@ -230,7 +230,7 @@ Get the Lavalink Node version
 
 #### Defined in
 
-[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L217)
+[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L217)
 
 ___
 
@@ -246,7 +246,7 @@ Unmarks all failed address
 
 #### Defined in
 
-[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L261)
+[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L261)
 
 ___
 
@@ -268,7 +268,7 @@ Unmarks a failed address
 
 #### Defined in
 
-[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L254)
+[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L254)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L489)
+[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L489)
 
 ___
 
@@ -302,4 +302,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/21c4e47/src/lib/Node.ts#L50)
+[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L50)

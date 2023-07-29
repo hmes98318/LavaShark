@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L8)
+[Queue.ts:8](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L8)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L6)
+[Queue.ts:6](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L6)
 
 ## Accessors
 
@@ -58,7 +58,7 @@ Gets the queue duration in milliseconds.
 
 #### Defined in
 
-[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L22)
+[Queue.ts:22](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L22)
 
 ___
 
@@ -74,7 +74,7 @@ Gets the queue size.
 
 #### Defined in
 
-[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L15)
+[Queue.ts:15](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L15)
 
 ## Methods
 
@@ -96,7 +96,7 @@ Gets the queue size.
 
 #### Defined in
 
-[Queue.ts:30](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L30)
+[Queue.ts:30](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L30)
 
 ___
 
@@ -112,7 +112,7 @@ Clears the queue.
 
 #### Defined in
 
-[Queue.ts:67](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L67)
+[Queue.ts:67](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L67)
 
 ___
 
@@ -130,7 +130,7 @@ The next track in the queue or null if the queue is empty.
 
 #### Defined in
 
-[Queue.ts:38](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L38)
+[Queue.ts:38](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L38)
 
 ___
 
@@ -148,7 +148,7 @@ Returns true if the track was successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:75](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L75)
+[Queue.ts:75](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L75)
 
 ▸ **remove**(`index`): `boolean`
 
@@ -168,7 +168,7 @@ Returns true if the track was successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:81](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L81)
+[Queue.ts:81](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L81)
 
 ▸ **remove**(`start`, `end`): `boolean`
 
@@ -189,7 +189,7 @@ Returns true if the tracks were successfully removed, false otherwise
 
 #### Defined in
 
-[Queue.ts:88](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L88)
+[Queue.ts:88](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L88)
 
 ___
 
@@ -205,7 +205,7 @@ Shuffles the queue
 
 #### Defined in
 
-[Queue.ts:53](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L53)
+[Queue.ts:53](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L53)
 
 ___
 
@@ -227,4 +227,4 @@ Remove the next n tracks from the queue
 
 #### Defined in
 
-[Queue.ts:46](https://github.com/hmes98318/LavaShark/blob/cb14d9b/src/lib/queue/Queue.ts#L46)
+[Queue.ts:46](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/queue/Queue.ts#L46)
