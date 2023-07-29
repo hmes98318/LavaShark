@@ -406,6 +406,11 @@ export class LavaShark extends EventEmitter {
      */
     public async nodesPing(timeout: number = 1500): Promise<number[]> {
         const nodes = this.nodes;
+
+        if (nodes.length === 0) {
+            throw new Error('No nodes available for pinging.');
+        }
+
         const pingPromises = nodes.map(async (node) => {
             try {
                 const startTime = Date.now();
