@@ -35,6 +35,7 @@
 | `trackEnd` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `reason`: [`TrackEndReason`](Node.types.md#trackendreason) |
 | `trackStuck` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `thresholdMs`: `number` |
 | `trackException` | `player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](REST.types.md#loadexception) & { `cause`: `string`  } |
+| `playerConnect` | `player`: [`Player`](../classes/Player.md) |
 | `playerCreate` | `player`: [`Player`](../classes/Player.md) |
 | `playerDestroy` | `player`: [`Player`](../classes/Player.md) |
 | `playerDisconnect` | `player`: [`Player`](../classes/Player.md), `code`: `number`, `reason`: `string` |
