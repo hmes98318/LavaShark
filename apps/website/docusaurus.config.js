@@ -6,7 +6,19 @@ const fs = require('fs');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const lastVersion = '1.2.1';
+const versionList = JSON.parse(fs.readFileSync('./versions.json', 'utf-8'));
+const lastVersion = versionList[0];
+
+
+const versionListConversion = (/** @type {String[]} */ list) => {
+    const versions = {};
+
+    for (const version of list) {
+        versions[version] = { label: `v${version}` };
+    }
+
+    return versions;
+}
 
 
 /** @type {import('@docusaurus/types').Config} */
@@ -61,18 +73,8 @@ const config = {
                     editUrl:
                         'https://github.com/hmes98318/LavaShark/blob/main/apps/website/',
                     lastVersion: lastVersion,
-                    // onlyIncludeVersions: JSON.parse(fs.readFileSync('./versions.json', 'utf-8')),
-                    versions: {
-                        "1.1.1": {
-                            label: `v1.1.1`
-                        },
-                        "1.2.0": {
-                            label: `v1.2.0`
-                        },
-                        "1.2.1": {
-                            label: `v1.2.1`
-                        }
-                    },
+                    // onlyIncludeVersions: versionList,
+                    versions: versionListConversion(versionList),
                 },
                 blog: {
                     showReadingTime: true,
