@@ -12,10 +12,12 @@ export default class Node {
     private penalties?;
     private ws;
     private packetQueue;
-    readonly rest: RESTController;
+    rest: RESTController;
+    private resumeKey;
     retryAttempts: number;
     state: NodeState;
     stats: NodeStats;
+    private keepAliveInterval;
     version?: version;
     static checkOptions(options: NodeOptions): void;
     /**
@@ -39,8 +41,24 @@ export default class Node {
     get identifier(): string;
     get totalPenalties(): number;
     private calcPenalties;
+    /**
+     * Connect to node
+     */
     connect(): void;
+    /**
+     * Disconnect from node
+     */
     disconnect(): void;
+    /**
+     * Reconnects the node
+     */
+    reconnect(): Promise<void>;
+    /**
+     * Check session exists
+     */
+    checkNodeSession(): Promise<void>;
+    private KeepingNodeAwake;
+    private stopKeepingNodeAwake;
     /**
      * Get the Lavalink Node version
      * @returns {Promise<version>}
@@ -70,6 +88,10 @@ export default class Node {
      * Unmarks all failed address
      */
     unmarkAllFailedAddress(): Promise<void>;
+    /**
+     * Update node stats
+     */
+    updateStats(): Promise<void>;
     private pollTrack;
     private handlePlayerEvent;
     private handleTrackStart;
@@ -81,6 +103,6 @@ export default class Node {
     private message;
     private error;
     private close;
-    updateStats(): Promise<void>;
     private upgrade;
+    private pong;
 }

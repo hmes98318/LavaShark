@@ -1,4 +1,6 @@
 import { IncomingMessage } from 'http';
+import { setTimeout as promisesSetTimeout } from 'timers/promises';
+
 import WebSocket, { CloseEvent, ErrorEvent, MessageEvent } from 'ws';
 
 import { LavaShark } from './LavaShark';
@@ -6,6 +8,7 @@ import Player, { ConnectionState, RepeatMode } from './Player';
 import { RESTController } from './rest/RESTController';
 import { API_VERSION } from './rest/RESTPaths';
 import UnresolvedTrack from './queue/UnresolvedTrack';
+import { generateRandomKey } from './utils/generateRandomKey';
 
 import type {
     Info,
@@ -38,12 +41,15 @@ export default class Node {
 
     private packetQueue: string[];
 
-    public readonly rest: RESTController;
+    public rest: RESTController;
+    private resumeKey: string;
 
     public retryAttempts: number;
 
     public state: NodeState;
     public stats: NodeStats;
+
+    private keepAliveInterval: NodeJS.Timer;
 
     declare public version?: version;
 
@@ -175,6 +181,9 @@ export default class Node {
         this.penalties = ~~(cpuPenalty + deficitFramePenalty + nullFramePenalty + this.stats.playingPlayers);
     }
 
+    /**
+     * Connect to node 
+     */
     public connect() {
         if (this.state !== NodeState.DISCONNECTED) return;
 
@@ -185,10 +194,13 @@ export default class Node {
         const headers = {
             'User-Id': this.lavashark.clientId,
             'Client-Name': `LavaShark/${VERSION}`,
-            Authorization: this.options.password ?? 'youshallnotpass',
+            Authorization: this.options.password ?? 'youshallnotpass'
         };
 
-        if (this.options.resumeKey) Object.assign(headers, { 'Resume-Key': this.options.resumeKey });
+        if (this.options.resumeKey !== 'disable' && this.options.resumeKey !== 'DISABLE') {
+            this.resumeKey = `LavaShark_${VERSION}_${generateRandomKey(8)}`;
+            Object.assign(headers, { 'Resume-Key': this.resumeKey });
+        }
 
         const wsUrl = `ws${this.options.secure ? 's' : ''}://${this.options.hostname}:${this.options.port}/v${API_VERSION}/websocket`;
 
@@ -201,13 +213,52 @@ export default class Node {
         this.ws.onmessage = this.message.bind(this);
         this.ws.onerror = this.error.bind(this);
         this.ws.onclose = this.close.bind(this);
-        this.ws.once('upgrade', this.upgrade.bind(this));
+        this.ws.on('upgrade', this.upgrade.bind(this));
+        this.ws.on('pong', this.pong.bind(this));
     }
 
+    /**
+     * Disconnect from node
+     */
     public disconnect() {
-        if (this.state === NodeState.DISCONNECTED || this.ws === null) return;
+        if (this.ws !== null) this.ws.close(1000, 'LavaShark: disconnect');
+    }
 
-        this.ws.close(1000, 'LavaShark: disconnect');
+    /**
+     * Reconnects the node
+     */
+    public async reconnect(): Promise<void> {
+        this.disconnect();
+        await promisesSetTimeout(50);
+        this.connect();
+        await promisesSetTimeout(2000);
+    }
+
+    /**
+     * Check session exists
+     */
+    public async checkNodeSession(): Promise<void> {
+        try {
+            await this.rest.updateSession(this.resumeKey, this.options.resumeTimeout ?? 60);
+        } catch (_) {
+            this.lavashark.emit('error', this, `Updating session failed, try to reconnect node "${this.options.id}"`);
+            await this.reconnect();
+        }
+    }
+
+    private KeepingNodeAwake(milliseconds: number) {
+        this.keepAliveInterval = setInterval(async () => {
+            try {
+                this.ws?.ping();
+            } catch (error) {
+                this.lavashark.emit('error', this, `Keeping node awake failed, try to reconnect node "${this.options.id}"`);
+                await this.reconnect();
+            }
+        }, milliseconds);
+    }
+
+    private stopKeepingNodeAwake() {
+        clearInterval(this.keepAliveInterval);
     }
 
     /**
@@ -260,6 +311,26 @@ export default class Node {
      */
     public unmarkAllFailedAddress() {
         return this.rest.freeAllRoutePlannerAddresses();
+    }
+
+    /**
+     * Update node stats
+     */
+    public async updateStats(): Promise<void> {
+        try {
+            await Promise.race([
+                this.getStats(),
+                new Promise<void>((_, reject) => {
+                    setTimeout(() => {
+                        reject(new Error('Update stats timed out'));
+                    }, 1500);
+                })
+            ]);
+            this.calcPenalties();
+        } catch (_) {
+            this.disconnect();
+            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node`));
+        }
     }
 
     private async pollTrack(player: Player) {
@@ -388,11 +459,13 @@ export default class Node {
     }
 
     // ---------- WebSocket event handlers ----------
+
     private open() {
         this.state = NodeState.CONNECTED;
         this.lavashark.emit('nodeConnect', this);
 
         this.retryAttempts = 0;
+        this.KeepingNodeAwake(30 * 1000);
 
         for (let i = 0; i < this.packetQueue.length; i++) {
             if (this.state !== NodeState.CONNECTED) break;
@@ -407,23 +480,13 @@ export default class Node {
 
         switch (payload.op) {
             case 'ready': {
-                if (this.rest) {
-                    this.rest.sessionId = payload.sessionId;
-                }
-
-                if (!payload.resumed && this.options.resumeKey) {
-                    this.rest.updateSession(this.options.resumeKey, this.options.resumeTimeout ?? 60);
-                }
+                this.rest.setSessionId = payload.sessionId;
                 break;
             }
             case 'stats': {
                 delete payload.op;
                 this.stats = payload as NodeStats;
                 this.calcPenalties();
-                break;
-            }
-            case 'pong': {
-                this.lavashark.emit('pong', this, payload.ping);
                 break;
             }
             case 'playerUpdate': {
@@ -456,6 +519,8 @@ export default class Node {
     private async close({ code, reason, wasClean }: CloseEvent) {
         this.state = NodeState.DISCONNECTED;
 
+        this.stopKeepingNodeAwake();
+
         this.ws?.removeAllListeners();
         this.ws = null;
 
@@ -470,7 +535,7 @@ export default class Node {
             if (newNode) {
                 for (const player of this.lavashark.players.values()) {
                     if (player.node === this) {
-                        player.moveNode(newNode);
+                        await player.moveNode(newNode);
                     }
                 }
             }
@@ -486,26 +551,15 @@ export default class Node {
         else setTimeout(() => this.connect(), this.options.retryAttemptsInterval ?? 5000);
     }
 
-    public async updateStats(): Promise<void> {
-        try {
-            await Promise.race([
-                this.getStats(),
-                new Promise<void>((_, reject) => {
-                    setTimeout(() => {
-                        reject(new Error('Update stats timed out'));
-                    }, 1500);
-                })
-            ]);
-            this.calcPenalties();
-        } catch (_) {
-            this.state = NodeState.DISCONNECTED;
-            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node`));
-        }
-    }
-
     private upgrade(msg: IncomingMessage) {
         if (msg.headers['session-resumed'] === 'true') {
             this.lavashark.emit('nodeResume', this);
         }
     }
+
+    private pong(data: Buffer) {
+        this.lavashark.emit('pong', this, data);
+    }
+
+    // ----------------------------------------------
 }

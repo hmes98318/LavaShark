@@ -29,10 +29,10 @@ import type {
 
 export class RESTController {
     private readonly restUrl: string;
-    #sessionId: string;
+    private _sessionId: string;
 
-    set sessionId(sessionId: string) {
-        this.#sessionId = sessionId;
+    set setSessionId(sessionId: string) {
+        this._sessionId = sessionId;
     }
 
     constructor(private readonly node: Node) {
@@ -88,7 +88,7 @@ export class RESTController {
     public async updateSession(resumeKey: string, timeout?: number) {
         await this.request({
             method: 'PATCH',
-            path: SESSIONS(this.#sessionId),
+            path: SESSIONS(this._sessionId),
             json: {
                 resumeKey,
                 timeout
@@ -99,12 +99,12 @@ export class RESTController {
     public async destroyPlayer(guildId: string) {
         await this.request({
             method: 'DELETE',
-            path: PLAYER(this.#sessionId, guildId)
+            path: PLAYER(this._sessionId, guildId)
         });
     }
 
     public async updatePlayer(guildId: string, options: UpdatePlayerOptions) {
-        let path = PLAYER(this.#sessionId, guildId);
+        let path = PLAYER(this._sessionId, guildId);
 
         if (options.noReplace) {
             path += '?noReplace=true';

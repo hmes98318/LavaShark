@@ -240,6 +240,7 @@ export default class Player {
         this.disconnect();
 
         await this.node?.rest.destroyPlayer(this.guildId);
+        this.node = null;
 
         this.lavashark.players.delete(this.guildId);
 
@@ -337,13 +338,13 @@ export default class Player {
             this.current = newTrack;
         }
 
-        this.playing = true;
-
         await this.node?.rest.updatePlayer(this.guildId, {
             encodedTrack: this.current.encodedTrack,
             position: options?.startTime ?? 0,
             ...options
         });
+
+        this.playing = true;
     }
 
     /**

@@ -13,9 +13,9 @@ export type NodeOptions = {
     followRedirects?: boolean;
     /** The node password */
     password?: string;
-    /** The resume key */
-    resumeKey?: string;
-    /** The resume timeout, in seconds */
+    /** Whether to enable resume key */
+    resumeKey?: "enable" | "disable" | "ENABLE" | "DISABLE";
+    /** The resume timeout, in seconds (default is 60s) */
     resumeTimeout?: number;
     /** The max number of retry attempts */
     maxRetryAttempts?: number;

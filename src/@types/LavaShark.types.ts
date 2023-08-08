@@ -60,7 +60,7 @@ export type EventListeners<T> = {
     (event: 'playerDestroy', listener: (player: Player) => void): T;
     (event: 'playerDisconnect', listener: (player: Player, code: number, reason: string) => void): T;
     (event: 'queueEnd', listener: (player: Player) => void): T;
-    (event: 'pong', listener: (node: Node, ping?: number) => void): T;
+    (event: 'pong', listener: (node: Node, buffer: Buffer) => void): T;
 }
 
 export type OutgoingDiscordPayload = {

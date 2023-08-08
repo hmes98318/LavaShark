@@ -169,6 +169,12 @@ export class LavaShark extends EventEmitter {
             throw new Error('No connected nodes!');
         }
 
+        try {
+            await node.checkNodeSession();
+        } catch (_) {
+            throw new Error('Session not found.');
+        }
+
         return node;
     }
 
