@@ -124,13 +124,13 @@ export default class Deezer extends AbstractExternalSource {
             headers: {
                 'User-Agent': Deezer.USER_AGENT
             }
-        }).then(r => r.body.json());
+        }).then(r => r.body.json()) as any;
 
         if (res.error) {
             return new DeezerError(res.error.type, res.error.message);
         }
 
-        return res;
+        return res as T;
     }
 }
 

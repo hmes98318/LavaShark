@@ -270,13 +270,13 @@ export default class Spotify extends AbstractExternalSource {
             headers: {
                 Authorization: this.token as string,
             }
-        }).then(r => r.body.json());
+        }).then(r => r.body.json()) as any;
 
         if (res.error) {
             return new SpotifyError(res.error.message);
         }
 
-        return res;
+        return res as T;
     }
 
     private async renewToken() {
