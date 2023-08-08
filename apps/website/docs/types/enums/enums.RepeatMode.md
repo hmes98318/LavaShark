@@ -21,7 +21,7 @@ The queue repeat mode. This can be one of:
 
 #### Defined in
 
-[lib/Player.ts:29](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Player.ts#L29)
+[lib/Player.ts:29](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L29)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:31](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Player.ts#L31)
+[lib/Player.ts:31](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L31)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:30](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Player.ts#L30)
+[lib/Player.ts:30](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L30)

@@ -22,12 +22,14 @@
 
 ### Methods
 
+- [checkNodeSession](Node.md#checknodesession)
 - [connect](Node.md#connect)
 - [disconnect](Node.md#disconnect)
 - [getInfo](Node.md#getinfo)
 - [getRoutePlannerStatus](Node.md#getrouteplannerstatus)
 - [getStats](Node.md#getstats)
 - [getVersion](Node.md#getversion)
+- [reconnect](Node.md#reconnect)
 - [unmarkAllFailedAddress](Node.md#unmarkallfailedaddress)
 - [unmarkFailedAddress](Node.md#unmarkfailedaddress)
 - [updateStats](Node.md#updatestats)
@@ -50,7 +52,7 @@
 
 #### Defined in
 
-[lib/Node.ts:112](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L112)
+[lib/Node.ts:118](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L118)
 
 ## Properties
 
@@ -60,17 +62,17 @@
 
 #### Defined in
 
-[lib/Node.ts:34](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L34)
+[lib/Node.ts:37](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L37)
 
 ___
 
 ### rest
 
-• `Readonly` **rest**: `RESTController`
+• **rest**: `RESTController`
 
 #### Defined in
 
-[lib/Node.ts:41](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L41)
+[lib/Node.ts:44](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L44)
 
 ___
 
@@ -80,7 +82,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:43](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L43)
+[lib/Node.ts:47](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L47)
 
 ___
 
@@ -90,7 +92,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:45](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L45)
+[lib/Node.ts:49](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L49)
 
 ___
 
@@ -100,7 +102,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:46](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L46)
+[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L50)
 
 ___
 
@@ -110,7 +112,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:48](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L48)
+[lib/Node.ts:54](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L54)
 
 ## Accessors
 
@@ -124,7 +126,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:149](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L149)
+[lib/Node.ts:155](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L155)
 
 ___
 
@@ -138,13 +140,31 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:153](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L153)
+[lib/Node.ts:159](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L159)
 
 ## Methods
+
+### checkNodeSession
+
+▸ **checkNodeSession**(): `Promise`<`void`\>
+
+檢查 session 是否存在
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/Node.ts:240](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L240)
+
+___
 
 ### connect
 
 ▸ **connect**(): `void`
+
+連接到節點
 
 #### Returns
 
@@ -152,7 +172,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:178](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L178)
+[lib/Node.ts:187](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L187)
 
 ___
 
@@ -160,13 +180,15 @@ ___
 
 ▸ **disconnect**(): `void`
 
+與節點斷開連接
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[lib/Node.ts:207](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L207)
+[lib/Node.ts:223](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L223)
 
 ___
 
@@ -182,7 +204,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:227](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L227)
+[lib/Node.ts:278](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L278)
 
 ___
 
@@ -198,7 +220,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:246](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L246)
+[lib/Node.ts:297](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L297)
 
 ___
 
@@ -214,7 +236,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:236](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L236)
+[lib/Node.ts:287](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L287)
 
 ___
 
@@ -230,7 +252,23 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:217](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L217)
+[lib/Node.ts:268](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L268)
+
+___
+
+### reconnect
+
+▸ **reconnect**(): `Promise`<`void`\>
+
+與節點重新連接
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/Node.ts:230](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L230)
 
 ___
 
@@ -238,7 +276,7 @@ ___
 
 ▸ **unmarkAllFailedAddress**(): `Promise`<`void`\>
 
-Unmarks all failed address
+取消所有失敗的地址標記
 
 #### Returns
 
@@ -246,7 +284,7 @@ Unmarks all failed address
 
 #### Defined in
 
-[lib/Node.ts:261](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L261)
+[lib/Node.ts:312](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L312)
 
 ___
 
@@ -254,13 +292,13 @@ ___
 
 ▸ **unmarkFailedAddress**(`address`): `Promise`<`void`\>
 
-Unmarks a failed address
+取消一個失敗的地址標記
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `address` | `string` | The address to unmark |
+| `address` | `string` | 要取消標記的地址 |
 
 #### Returns
 
@@ -268,7 +306,7 @@ Unmarks a failed address
 
 #### Defined in
 
-[lib/Node.ts:254](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L254)
+[lib/Node.ts:305](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L305)
 
 ___
 
@@ -276,13 +314,15 @@ ___
 
 ▸ **updateStats**(): `Promise`<`void`\>
 
+更新節點統計信息
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[lib/Node.ts:489](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L489)
+[lib/Node.ts:319](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L319)
 
 ___
 
@@ -302,4 +342,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/lib/Node.ts#L50)
+[lib/Node.ts:56](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L56)

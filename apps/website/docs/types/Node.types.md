@@ -53,7 +53,7 @@ Lavalink Info
 
 #### Defined in
 
-[@types/Node.types.ts:81](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L81)
+[@types/Node.types.ts:81](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L81)
 
 ___
 
@@ -73,14 +73,14 @@ Lavalink node options
 | `maxRetryAttempts?` | `number` | The max number of retry attempts |
 | `password?` | `string` | The node password |
 | `port` | `number` | The node port |
-| `resumeKey?` | `string` | The resume key |
+| `resumeKey?` | ``"enable"`` \| ``"disable"`` \| ``"ENABLE"`` \| ``"DISABLE"`` | Whether to enable resume key |
 | `resumeTimeout?` | `number` | The resume timeout, in seconds |
 | `retryAttemptsInterval?` | `number` | The interval between retry attempts |
 | `secure?` | `boolean` | Whether to use SSL/TLS or not |
 
 #### Defined in
 
-[@types/Node.types.ts:5](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L5)
+[@types/Node.types.ts:5](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L5)
 
 ___
 
@@ -113,7 +113,7 @@ Lavalink node stats
 
 #### Defined in
 
-[@types/Node.types.ts:29](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L29)
+[@types/Node.types.ts:29](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L29)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:145](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L145)
+[@types/Node.types.ts:145](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L145)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:63](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L63)
+[@types/Node.types.ts:63](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L63)
 
 ___
 
@@ -171,7 +171,7 @@ Route planner API
 
 #### Defined in
 
-[@types/Node.types.ts:58](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L58)
+[@types/Node.types.ts:58](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L58)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:117](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L117)
+[@types/Node.types.ts:117](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L117)
 
 ___
 
@@ -193,4 +193,4 @@ Lavalink version
 
 #### Defined in
 
-[@types/Node.types.ts:78](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Node.types.ts#L78)
+[@types/Node.types.ts:78](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Node.types.ts#L78)

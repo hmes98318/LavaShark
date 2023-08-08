@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[@types/Player.types.ts:26](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Player.types.ts#L26)
+[@types/Player.types.ts:26](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Player.types.ts#L26)
 
 ___
 
@@ -48,7 +48,7 @@ Main constructor options
 
 #### Defined in
 
-[@types/Player.types.ts:6](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Player.types.ts#L6)
+[@types/Player.types.ts:6](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Player.types.ts#L6)
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[@types/Player.types.ts:21](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Player.types.ts#L21)
+[@types/Player.types.ts:21](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Player.types.ts#L21)

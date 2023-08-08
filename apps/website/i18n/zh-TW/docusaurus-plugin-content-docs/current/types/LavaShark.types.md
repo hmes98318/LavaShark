@@ -39,7 +39,7 @@
 | `playerDestroy` | `player`: [`Player`](../classes/Player.md) |
 | `playerDisconnect` | `player`: [`Player`](../classes/Player.md), `code`: `number`, `reason`: `string` |
 | `queueEnd` | `player`: [`Player`](../classes/Player.md) |
-| `pong` | `node`: [`Node`](../classes/Node.md), `ping?`: `number` |
+| `pong` | `node`: [`Node`](../classes/Node.md), `buffer`: `Buffer` |
 
 #### Type parameters
 
@@ -313,7 +313,7 @@ LavaShark events
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pong"`` |
-| `listener` | (`node`: [`Node`](../classes/Node.md), `ping?`: `number`) => `void` |
+| `listener` | (`node`: [`Node`](../classes/Node.md), `buffer`: `Buffer`) => `void` |
 
 ##### Returns
 
@@ -321,7 +321,7 @@ LavaShark events
 
 #### Defined in
 
-[@types/LavaShark.types.ts:44](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L44)
+[@types/LavaShark.types.ts:45](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L45)
 
 ___
 
@@ -340,7 +340,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:9](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L9)
+[@types/LavaShark.types.ts:9](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L10)
 
 ___
 
@@ -354,17 +354,17 @@ Main constructor options
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `defaultSearchSource?` | [`SEARCH_SOURCE`](LavaShark.types.md#search_source) | 搜索曲目的默認來源 |
-| `disabledSources?` | [`UNRESOLVED_SOURCES`](LavaShark.types.md#unresolved_sources)[] | 禁用 Spotify、Apple Music 或 Deezer |
-| `nodes` | [`NodeOptions`](Node.types.md#nodeoptions)[] | lavalink 節點陣列 |
-| `sendWS` | (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](LavaShark.types.md#outgoingdiscordpayload)) => `void` | 發送語音通道連接有效負載到不和諧的功能 |
-| `spotify?` | [`SpotifyConfig`](LavaShark.types.md#spotifyconfig) | Spotify 憑證 |
-| `unresolvedSearchSource?` | [`SEARCH_SOURCE`](LavaShark.types.md#search_source) | 搜索未解析曲目的默認來源 |
-| `useISRC?` | `boolean` | 是否搜索ISRC來解析曲目 |
+| `defaultSearchSource?` | [`SEARCH_SOURCE`](LavaShark.types.md#search_source) | The default source to search for tracks |
+| `disabledSources?` | [`UNRESOLVED_SOURCES`](LavaShark.types.md#unresolved_sources)[] | Disables spotify, apple music or deezer |
+| `nodes` | [`NodeOptions`](Node.types.md#nodeoptions)[] | The array of lavalink nodes |
+| `sendWS` | (`guildId`: `string`, `payload`: [`OutgoingDiscordPayload`](LavaShark.types.md#outgoingdiscordpayload)) => `void` | Function to send voice channel connect payloads to discord |
+| `spotify?` | [`SpotifyConfig`](LavaShark.types.md#spotifyconfig) | The spotify credentials |
+| `unresolvedSearchSource?` | [`SEARCH_SOURCE`](LavaShark.types.md#search_source) | The default source to search for unresolved tracks |
+| `useISRC?` | `boolean` | Whether to search for ISRC to resolve tracks or not |
 
 #### Defined in
 
-[@types/LavaShark.types.ts:81](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L81)
+[@types/LavaShark.types.ts:81](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L82)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:37](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L37)
+[@types/LavaShark.types.ts:37](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L38)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:65](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L65)
+[@types/LavaShark.types.ts:65](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L66)
 
 ___
 
@@ -401,7 +401,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:70](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L70)
+[@types/LavaShark.types.ts:70](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L71)
 
 ___
 
@@ -419,7 +419,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:74](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L74)
+[@types/LavaShark.types.ts:74](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L75)
 
 ___
 
@@ -429,7 +429,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:72](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L72)
+[@types/LavaShark.types.ts:72](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L73)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:26](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L26)
+[@types/LavaShark.types.ts:26](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L27)
 
 ___
 
@@ -457,7 +457,7 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:32](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L32)
+[@types/LavaShark.types.ts:32](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L33)
 
 ___
 
@@ -467,4 +467,4 @@ ___
 
 #### Defined in
 
-[@types/LavaShark.types.ts:16](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/LavaShark.types.ts#L16)
+[@types/LavaShark.types.ts:16](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/LavaShark.types.ts#L17)

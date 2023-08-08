@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[@types/Track.types.ts:1](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Track.types.ts#L1)
+[@types/Track.types.ts:1](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Track.types.ts#L1)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[@types/Track.types.ts:7](https://github.com/hmes98318/LavaShark/blob/3261a2e/src/@types/Track.types.ts#L7)
+[@types/Track.types.ts:7](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/Track.types.ts#L7)
