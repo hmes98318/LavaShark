@@ -21,7 +21,7 @@ export default class Node {
     version?: version;
     static checkOptions(options: NodeOptions): void;
     /**
-     * Create a new LavaShark instance
+     * Create a new Node instance
      * @param {LavaShark} lavashark - The LavaShark instance
      * @param {Object} options - The node options
      * @param {String} [options.id] - The lavalink node identifier
