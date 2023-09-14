@@ -49,7 +49,7 @@ export default class Node {
     public state: NodeState;
     public stats: NodeStats;
 
-    private keepAliveInterval: NodeJS.Timer;
+    private keepAliveInterval: NodeJS.Timeout;
 
     declare public version?: version;
 
