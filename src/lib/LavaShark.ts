@@ -389,16 +389,16 @@ export class LavaShark extends EventEmitter {
             const startTime = Date.now();
 
             await Promise.race([
-                node.getStats(),
+                node.getVersion(),
                 new Promise<void>((_, reject) => {
                     setTimeout(() => {
-                        reject(new Error('Update stats timed out'));
+                        reject(new Error('Send ping data timed out.'));
                     }, timeout);
                 })
             ]);
 
             const endTime = Date.now();
-            const ping = endTime - startTime;
+            const ping = endTime - startTime;   
             return ping;
         } catch (_) {
             return -1;
@@ -418,24 +418,7 @@ export class LavaShark extends EventEmitter {
         }
 
         const pingPromises = nodes.map(async (node) => {
-            try {
-                const startTime = Date.now();
-
-                await Promise.race([
-                    node.getStats(),
-                    new Promise<void>((_, reject) => {
-                        setTimeout(() => {
-                            reject(new Error('Update stats timed out'));
-                        }, timeout);
-                    })
-                ]);
-
-                const endTime = Date.now();
-                const ping = endTime - startTime;
-                return ping;
-            } catch (_) {
-                return -1;
-            }
+            return this.nodePing(node);
         });
 
         const pingList = await Promise.all(pingPromises);
