@@ -239,9 +239,13 @@ export default class Player {
     public async destroy() {
         this.disconnect();
 
-        await this.node?.rest.destroyPlayer(this.guildId);
-        this.node = null;
+        try {
+            await this.node?.rest.destroyPlayer(this.guildId);
+        } catch (error) {
+            this.lavashark.emit('error', this.node, `Failed to send destroyPlayer signal to node "${this.node?.identifier}"`);
+        }
 
+        this.node = null;
         this.lavashark.players.delete(this.guildId);
 
         this.lavashark.emit('playerDestroy', this);
