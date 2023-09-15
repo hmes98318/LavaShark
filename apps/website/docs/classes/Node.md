@@ -26,6 +26,7 @@
 - [connect](Node.md#connect)
 - [disconnect](Node.md#disconnect)
 - [getInfo](Node.md#getinfo)
+- [getPing](index.Node.md#getping)
 - [getRoutePlannerStatus](Node.md#getrouteplannerstatus)
 - [getStats](Node.md#getstats)
 - [getVersion](Node.md#getversion)
@@ -52,7 +53,7 @@ Create a new Node instance
 
 #### Defined in
 
-[lib/Node.ts:118](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L118)
+[lib/Node.ts:118](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L118)
 
 ## Properties
 
@@ -62,7 +63,7 @@ Create a new Node instance
 
 #### Defined in
 
-[lib/Node.ts:37](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L37)
+[lib/Node.ts:37](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L37)
 
 ___
 
@@ -72,7 +73,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:44](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L44)
+[lib/Node.ts:44](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L44)
 
 ___
 
@@ -82,7 +83,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:47](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L47)
+[lib/Node.ts:47](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L47)
 
 ___
 
@@ -92,7 +93,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:49](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L49)
+[lib/Node.ts:49](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L49)
 
 ___
 
@@ -102,7 +103,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L50)
+[lib/Node.ts:50](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L50)
 
 ___
 
@@ -112,7 +113,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:54](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L54)
+[lib/Node.ts:54](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L54)
 
 ## Accessors
 
@@ -126,7 +127,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:155](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L155)
+[lib/Node.ts:155](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L155)
 
 ___
 
@@ -140,7 +141,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:159](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L159)
+[lib/Node.ts:159](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L159)
 
 ## Methods
 
@@ -156,7 +157,7 @@ Check session exists
 
 #### Defined in
 
-[lib/Node.ts:240](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L240)
+[lib/Node.ts:240](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L240)
 
 ___
 
@@ -172,7 +173,7 @@ Connect to node
 
 #### Defined in
 
-[lib/Node.ts:187](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L187)
+[lib/Node.ts:187](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L187)
 
 ___
 
@@ -188,7 +189,7 @@ Disconnect from node
 
 #### Defined in
 
-[lib/Node.ts:223](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L223)
+[lib/Node.ts:223](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L223)
 
 ___
 
@@ -204,7 +205,31 @@ Get the Lavalink Node information
 
 #### Defined in
 
-[lib/Node.ts:278](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L278)
+[lib/Node.ts:278](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L278)
+
+___
+
+### getPing
+
+▸ **getPing**(`timeout?`): `Promise`<`number`\>
+
+Get the ping for the node
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `timeout` | `number` | `1500` | Timeout value in milliseconds |
+
+#### Returns
+
+`Promise`<`number`\>
+
+- Node latency, in milliseconds
+
+#### Defined in
+
+[lib/Node.ts:308](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L308)
 
 ___
 
@@ -220,7 +245,7 @@ Gets the route planner status
 
 #### Defined in
 
-[lib/Node.ts:297](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L297)
+[lib/Node.ts:335](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L335)
 
 ___
 
@@ -232,11 +257,11 @@ Get the Lavalink Node stats
 
 #### Returns
 
-`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
+`Promise`<[`NodeStats`](../modules/types.md#nodestats)\>
 
 #### Defined in
 
-[lib/Node.ts:287](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L287)
+[lib/Node.ts:297](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L297)
 
 ___
 
@@ -252,7 +277,7 @@ Get the Lavalink Node version
 
 #### Defined in
 
-[lib/Node.ts:268](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L268)
+[lib/Node.ts:278](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L278)
 
 ___
 
@@ -268,7 +293,7 @@ Reconnects the node
 
 #### Defined in
 
-[lib/Node.ts:230](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L230)
+[lib/Node.ts:240](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L240)
 
 ___
 
@@ -284,7 +309,7 @@ Unmarks all failed address
 
 #### Defined in
 
-[lib/Node.ts:312](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L312)
+[lib/Node.ts:350](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L350)
 
 ___
 
@@ -306,15 +331,21 @@ Unmarks a failed address
 
 #### Defined in
 
-[lib/Node.ts:305](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L305)
+[lib/Node.ts:343](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L343)
 
 ___
 
 ### updateStats
 
-▸ **updateStats**(): `Promise`<`void`\>
+▸ **updateStats**(`timeout?`): `Promise`<`void`\>
 
 Update node stats
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `timeout` | `number` | `1500` |
 
 #### Returns
 
@@ -322,7 +353,7 @@ Update node stats
 
 #### Defined in
 
-[lib/Node.ts:319](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L319)
+[lib/Node.ts:357](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L357)
 
 ___
 
@@ -334,7 +365,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) |
+| `options` | [`NodeOptions`](../modules/types.md#nodeoptions) |
 
 #### Returns
 
@@ -342,4 +373,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:56](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Node.ts#L56)
+[lib/Node.ts:56](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Node.ts#L56)
