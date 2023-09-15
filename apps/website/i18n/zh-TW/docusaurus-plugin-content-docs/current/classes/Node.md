@@ -26,7 +26,7 @@
 - [connect](Node.md#connect)
 - [disconnect](Node.md#disconnect)
 - [getInfo](Node.md#getinfo)
-- [getPing](index.Node.md#getping)
+- [getPing](Node.md#getping)
 - [getRoutePlannerStatus](Node.md#getrouteplannerstatus)
 - [getStats](Node.md#getstats)
 - [getVersion](Node.md#getversion)

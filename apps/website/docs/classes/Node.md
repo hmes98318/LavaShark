@@ -26,7 +26,7 @@
 - [connect](Node.md#connect)
 - [disconnect](Node.md#disconnect)
 - [getInfo](Node.md#getinfo)
-- [getPing](index.Node.md#getping)
+- [getPing](Node.md#getping)
 - [getRoutePlannerStatus](Node.md#getrouteplannerstatus)
 - [getStats](Node.md#getstats)
 - [getVersion](Node.md#getversion)
@@ -257,7 +257,7 @@ Get the Lavalink Node stats
 
 #### Returns
 
-`Promise`<[`NodeStats`](../modules/types.md#nodestats)\>
+`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 #### Defined in
 
@@ -365,7 +365,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`NodeOptions`](../modules/types.md#nodeoptions) |
+| `options` | [`NodeOptions`](../types/Node.types.md#nodeoptions) |
 
 #### Returns
 

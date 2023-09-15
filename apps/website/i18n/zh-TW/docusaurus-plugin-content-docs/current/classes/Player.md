@@ -500,7 +500,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode` | [`RepeatMode`](../enums/index.RepeatMode.md) | The repeat mode to apply |
+| `mode` | [`RepeatMode`](../types/enums/enums.RepeatMode.md) | The repeat mode to apply |
 
 #### Returns
 
