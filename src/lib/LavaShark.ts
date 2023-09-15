@@ -418,7 +418,7 @@ export class LavaShark extends EventEmitter {
         }
 
         const pingPromises = nodes.map(async (node) => {
-            return this.nodePing(node);
+            return this.nodePing(node, timeout);
         });
 
         const pingList = await Promise.all(pingPromises);
