@@ -17,3 +17,14 @@ sidebar_position: 4
 ```js
 client.on('raw', (packet) => client.lavashark.handleVoiceUpdate(packet));
 ```
+
+
+### 執行了Player.connect()，但機器人沒有加入語音頻道。
+檢查調用 `Player.connect()` 時是否使用 **await**，並確保在創建 LavaShark 實例時已初始化 `sendWS()`。  
+
+```js
+client.lavashark = new LavaShark({
+    nodes: nodeList,
+    sendWS: (guildId, payload) => { client.guilds.cache.get(guildId)?.shard.send(payload); }
+});
+```

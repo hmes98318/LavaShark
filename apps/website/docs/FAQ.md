@@ -17,3 +17,14 @@ and if you have registered the `raw` event on the Discord client.
 ```js
 client.on('raw', (packet) => client.lavashark.handleVoiceUpdate(packet));
 ```
+
+
+### Executed Player.connect(), but the bot didn't join the voice channel.
+Check if you're using **await** when calling `Player.connect()` and ensure that you've initialized `sendWS()` when creating the LavaShark instance.  
+
+```js
+client.lavashark = new LavaShark({
+    nodes: nodeList,
+    sendWS: (guildId, payload) => { client.guilds.cache.get(guildId)?.shard.send(payload); }
+});
+```

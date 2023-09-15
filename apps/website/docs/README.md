@@ -13,6 +13,8 @@ A lightweight Lavalink client built with Node.js.
 
 * Speedy and efficient  
 
+* Minimal CPU/memory footprint
+
 :::caution
 Only compatible with Lavalink nodes that support **REST API** (version 3.7.x).
 :::

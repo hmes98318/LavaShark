@@ -13,6 +13,8 @@ sidebar_position: 1
 
 * 快速高效  
 
+* 最小的 CPU/記憶體 占用  
+
 :::caution
 僅對支持 REST API（版本 3.7.x）的 Lavalink 節點兼容。
 :::
