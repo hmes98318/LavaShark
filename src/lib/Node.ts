@@ -166,19 +166,29 @@ export default class Node {
     }
 
     private calcPenalties() {
-        // https://github.com/freyacodes/Lavalink-Client/blob/d71003475376d440baf081faa79577bd11221684/src/main/java/lavalink/client/io/LavalinkLoadBalancer.java#L131-L141
+        const totalWeight = 100; // Total weight is 100%
+
+        // Weights for each penalty category
+        const weightCpuPenalty = 25;
+        const weightDeficitFramePenalty = 30;
+        const weightNullFramePenalty = 15;
+        const weightPlayingPlayers = 30;
 
         const cpuPenalty = Math.pow(1.05, 100 * this.stats.cpu.systemLoad) * 10 - 10;
-
         let deficitFramePenalty = 0, nullFramePenalty = 0;
 
         if (this.stats.frameStats) {
-            deficitFramePenalty = Math.pow(1.03, 500 * this.stats.frameStats.deficit / 3000) * 600 - 600;
-            nullFramePenalty = Math.pow(1.03, 500 * this.stats.frameStats.nulled / 3000) * 300 - 300;
-            nullFramePenalty *= 2;
+            deficitFramePenalty = Math.pow(1.03, this.stats.frameStats.deficit * 2);
+            nullFramePenalty = Math.pow(1.03, this.stats.frameStats.nulled);
         }
 
-        this.penalties = ~~(cpuPenalty + deficitFramePenalty + nullFramePenalty + this.stats.playingPlayers);
+        // Calculate weighted values for each penalty category
+        const weightedPlayingPlayers = (weightPlayingPlayers / totalWeight) * this.stats.playingPlayers;
+        const weightedDeficitFramePenalty = (weightDeficitFramePenalty / totalWeight) * deficitFramePenalty;
+        const weightedNullFramePenalty = (weightNullFramePenalty / totalWeight) * nullFramePenalty;
+        const weightedCpuPenalty = (weightCpuPenalty / totalWeight) * cpuPenalty;
+
+        this.penalties = ~~((weightedPlayingPlayers + weightedDeficitFramePenalty + weightedNullFramePenalty + weightedCpuPenalty) * 100);
     }
 
     /**
@@ -291,6 +301,34 @@ export default class Node {
     }
 
     /**
+     * Get the ping for the node
+     * @param {number} timeout - Timeout value in milliseconds
+     * @returns {Promise<number>} - Node latency, in milliseconds
+     */
+    public async getPing(timeout: number = 1500): Promise<number> {
+        try {
+            const startTime = Date.now();
+
+            await Promise.race([
+                this.getStats(),
+                new Promise<void>((_, reject) => {
+                    setTimeout(() => {
+                        reject(new Error('Update stats timed out'));
+                    }, timeout);
+                })
+            ]);
+
+            const endTime = Date.now();
+            const ping = endTime - startTime;
+            return ping;
+        } catch (_) {
+            this.disconnect();
+            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node`));
+            return -1;
+        }
+    }
+
+    /**
      * Gets the route planner status
      * @returns {Promise<Object>}
      */
@@ -316,20 +354,20 @@ export default class Node {
     /**
      * Update node stats
      */
-    public async updateStats(): Promise<void> {
+    public async updateStats(timeout: number = 1500): Promise<void> {
         try {
             await Promise.race([
                 this.getStats(),
                 new Promise<void>((_, reject) => {
                     setTimeout(() => {
                         reject(new Error('Update stats timed out'));
-                    }, 1500);
+                    }, timeout);
                 })
             ]);
             this.calcPenalties();
         } catch (_) {
             this.disconnect();
-            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node`));
+            this.lavashark.emit('error', this, new Error(`An error occurred while updating stats: Unable to connect to the node "${this.identifier}"`));
         }
     }
 
@@ -487,6 +525,7 @@ export default class Node {
                 delete payload.op;
                 this.stats = payload as NodeStats;
                 this.calcPenalties();
+                this.lavashark.emit('debug', `Node "${this.identifier}" penalties: ${this.penalties ?? 0}`);
                 break;
             }
             case 'playerUpdate': {

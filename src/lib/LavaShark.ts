@@ -172,7 +172,8 @@ export class LavaShark extends EventEmitter {
         try {
             await node.checkNodeSession();
         } catch (_) {
-            throw new Error('Session not found.');
+            this.lastNodeSorting = 0;
+            return this.bestNode();
         }
 
         return node;
@@ -385,24 +386,7 @@ export class LavaShark extends EventEmitter {
             throw new Error('Invalid node parameter. Expected Node instance.');
         }
 
-        try {
-            const startTime = Date.now();
-
-            await Promise.race([
-                node.getVersion(),
-                new Promise<void>((_, reject) => {
-                    setTimeout(() => {
-                        reject(new Error('Send ping data timed out.'));
-                    }, timeout);
-                })
-            ]);
-
-            const endTime = Date.now();
-            const ping = endTime - startTime;   
-            return ping;
-        } catch (_) {
-            return -1;
-        }
+        return await node.getPing(timeout);
     }
 
     /**
@@ -418,7 +402,7 @@ export class LavaShark extends EventEmitter {
         }
 
         const pingPromises = nodes.map(async (node) => {
-            return this.nodePing(node, timeout);
+            return node.getPing(timeout);
         });
 
         const pingList = await Promise.all(pingPromises);

@@ -75,6 +75,12 @@ export default class Node {
      */
     getStats(): Promise<NodeStats>;
     /**
+     * Get the ping for the node
+     * @param {number} timeout - Timeout value in milliseconds
+     * @returns {Promise<number>} - Node latency, in milliseconds
+     */
+    getPing(timeout?: number): Promise<number>;
+    /**
      * Gets the route planner status
      * @returns {Promise<Object>}
      */
@@ -91,7 +97,7 @@ export default class Node {
     /**
      * Update node stats
      */
-    updateStats(): Promise<void>;
+    updateStats(timeout?: number): Promise<void>;
     private pollTrack;
     private handlePlayerEvent;
     private handleTrackStart;
