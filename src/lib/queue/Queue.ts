@@ -52,11 +52,10 @@ export class Queue {
      */
     public shuffle() {
         if (this.tracks.length) {
-            let j;
-            for (let i = this.tracks.length - 1; i; i--) {
-                j = Math.floor(Math.random() * (i + 1));
-
-                [this.tracks[i], this.tracks[j]] = [this.tracks[j], this.tracks[i]];
+            const len = this.tracks.length;
+            for (let i = 0; i < len; i++) {
+                const rand = Math.floor(Math.random() * (len - i)) + i;
+                [this.tracks[i], this.tracks[rand]] = [this.tracks[rand], this.tracks[i]];
             }
         }
     }
