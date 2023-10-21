@@ -525,7 +525,7 @@ export default class Node {
                 delete payload.op;
                 this.stats = payload as NodeStats;
                 this.calcPenalties();
-                this.lavashark.emit('debug', `Node "${this.identifier}" penalties: ${this.penalties ?? 0}`);
+                this.lavashark.emit('debug', `Node "${this.identifier}" penalties: ${this.totalPenalties}`);
                 break;
             }
             case 'playerUpdate': {
