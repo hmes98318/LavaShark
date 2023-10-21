@@ -26,7 +26,6 @@ export default class Player {
     node: Node | null;
     readonly guildId: string;
     readonly filters: Filters;
-    private connectTimeout?;
     voiceChannelId: string;
     textChannelId?: string | null;
     selfDeaf?: boolean;
@@ -152,5 +151,10 @@ export default class Player {
      */
     setVoiceChannel(channelId: string): void;
     sendVoiceUpdate(): Promise<void>;
+    /**
+     * Update player state
+     * @inner
+     * @param state - playerUpdate event
+     */
     update(state: PlayerState): void;
 }

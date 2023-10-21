@@ -39,8 +39,6 @@ export default class Player {
 
     public readonly filters: Filters;
 
-    declare private connectTimeout?: NodeJS.Timeout;
-
     public voiceChannelId: string;
     public textChannelId?: string | null;
 
@@ -199,15 +197,43 @@ export default class Player {
         }
 
         this.state = ConnectionState.CONNECTING;
-
         this.sendVoiceState();
 
-        if (this.connectTimeout) clearTimeout(this.connectTimeout);
+        let checkCount = 0;
+        const maxChecks = 5;
+        const checkInterval = 1000; // 1s
+        const controller = new AbortController();
 
-        this.connectTimeout = setTimeout(() => {
-            this.state = ConnectionState.DISCONNECTED;
-            throw new Error('Voice connection timeout.');
-        }, 10000);
+        const checkConnected = async () => {
+            return new Promise<void>(async (resolve, reject) => {
+                if (this.state === ConnectionState.CONNECTED) {
+                    resolve();
+                }
+                else if (this.state === ConnectionState.DISCONNECTED) {
+                    controller.abort();
+                    await this.destroy();
+                    reject(new Error('Voice connection timeout.'));
+                }
+                else {
+                    checkCount++;
+                    if (checkCount >= maxChecks) {
+                        this.state = ConnectionState.DISCONNECTED;
+                        controller.abort();
+                        await this.destroy();
+                        reject(new Error('Voice connection timeout.'));
+                    }
+
+                    try {
+                        await new Promise(resolve => setTimeout(resolve, checkInterval));
+                        await checkConnected();
+                    } catch (error) {
+                        reject(error);
+                    }
+                    resolve();
+                }
+            });
+        };
+        await checkConnected();
 
         this.lavashark.emit('playerConnect', this);
     }
@@ -216,8 +242,6 @@ export default class Player {
      * Disconnects from the voice channel
      */
     public disconnect() {
-        clearTimeout(this.connectTimeout);
-
         this.lavashark.sendWS(this.guildId, {
             op: 4,
             d: {
@@ -514,11 +538,6 @@ export default class Player {
             await this.assignNode();
         }
 
-        if (this.connectTimeout) {
-            clearTimeout(this.connectTimeout);
-            delete this.connectTimeout;
-        }
-
         this.state = ConnectionState.CONNECTED;
 
         await this.node?.rest.updatePlayer(this.guildId, {
@@ -532,14 +551,27 @@ export default class Player {
         this.lavashark.emit('debug', `Sent voiceUpdate to lavalink node for player ${this.guildId}.`);
     }
 
+    /**
+     * Update player state
+     * @inner
+     * @param state - playerUpdate event
+     */
     public update(state: PlayerState): void {
-        if (state.position) this.position = state.position;
-        if (state.time) this.positionTimestamp = state.time;
+        if ('position' in state) {
+            this.position = state.position ?? 0;
+        }
 
-        if (state.connected) {
-            this.state = ConnectionState.CONNECTED;
-        } else if (this.state === ConnectionState.CONNECTED) {
-            this.state = ConnectionState.DISCONNECTED;
+        if ('time' in state) {
+            this.positionTimestamp = state.time;
+        }
+
+        if ('connected' in state) {
+            if (state.connected) {
+                this.state = ConnectionState.CONNECTED;
+            }
+            else {
+                this.state = ConnectionState.DISCONNECTED;
+            }
         }
     }
 }
