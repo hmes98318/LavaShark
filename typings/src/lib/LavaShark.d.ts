@@ -17,6 +17,7 @@ export declare class LavaShark extends EventEmitter {
     readonly useISRC: boolean;
     private externalSources;
     players: Map<string, Player>;
+    private checkNodesStateTimer;
     private lastNodeSorting;
     /**
      * @param {String} guildId - guildId
@@ -76,6 +77,10 @@ export declare class LavaShark extends EventEmitter {
      * @returns {Promise<Track[]>}
      */
     decodeTracks(encodedTracks: string[]): Promise<Track[]>;
+    /**
+     * Regularly check the connection state of all nodes
+     */
+    private keepCheckNodesState;
     /**
      * Creates a new player or returns an existing one
      * @param {Object} options - The player options

@@ -40,6 +40,7 @@ export class LavaShark extends EventEmitter {
     // <guildId, Player> 
     public players: Map<string, Player>;
 
+    private checkNodesStateTimer!: NodeJS.Timeout | undefined;
     private lastNodeSorting: number;
 
     /**
@@ -216,6 +217,24 @@ export class LavaShark extends EventEmitter {
     }
 
     /**
+     * Regularly check the connection state of all nodes
+     */
+    private keepCheckNodesState() {
+        this.checkNodesStateTimer = setInterval(async () => {
+            for (const node of this.nodes) {
+                if (node.state === NodeState.DISCONNECTED) {
+                    try {
+                        this.emit('warn', node, `Try to reconnect to the disconnected node "${node.identifier}"`);
+                        await node.reconnect();
+                    } catch (error) {
+                        this.emit('warn', node, `Failed to reconnect the disconnected node "${node.identifier}"`);
+                    }
+                }
+            }
+        }, 5 * 60 * 1000); // 5 minutes
+    }
+
+    /**
      * Creates a new player or returns an existing one
      * @param {Object} options - The player options
      * @param {String} options.guildId - The guild id that player belongs to
@@ -319,6 +338,9 @@ export class LavaShark extends EventEmitter {
         for (const node of this.nodes) {
             node.connect();
         }
+
+        if (this.checkNodesStateTimer) clearInterval(this.checkNodesStateTimer);
+        this.keepCheckNodesState();
     }
 
     /**
