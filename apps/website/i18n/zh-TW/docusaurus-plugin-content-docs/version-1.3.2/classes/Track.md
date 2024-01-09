@@ -131,6 +131,8 @@ ___
 
 • **requester**: `User` | `null`
 
+discord.js 的 User 類型
+
 #### Defined in
 
 [lib/queue/Track.ts:17](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/queue/Track.ts#L17)
