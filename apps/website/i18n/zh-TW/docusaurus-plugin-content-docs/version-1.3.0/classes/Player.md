@@ -69,7 +69,7 @@
 
 #### Defined in
 
-[lib/Player.ts:88](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L88)
+[lib/Player.ts:88](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L88)
 
 ## Properties
 
@@ -79,7 +79,7 @@
 
 #### Defined in
 
-[lib/Player.ts:50](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L50)
+[lib/Player.ts:50](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L50)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L40)
+[lib/Player.ts:40](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L40)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:38](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L38)
+[lib/Player.ts:38](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L38)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:64](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L64)
+[lib/Player.ts:64](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L64)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L36)
+[lib/Player.ts:36](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L36)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:59](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L59)
+[lib/Player.ts:59](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L59)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:58](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L58)
+[lib/Player.ts:58](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L58)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:55](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L55)
+[lib/Player.ts:55](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L55)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L51)
+[lib/Player.ts:51](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L51)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:53](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L53)
+[lib/Player.ts:53](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L53)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:47](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L47)
+[lib/Player.ts:47](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L47)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L48)
+[lib/Player.ts:48](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L48)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:61](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L61)
+[lib/Player.ts:61](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L61)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L45)
+[lib/Player.ts:45](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L45)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:44](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L44)
+[lib/Player.ts:44](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L44)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:62](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L62)
+[lib/Player.ts:62](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L62)
 
 ## Accessors
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:127](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L127)
+[lib/Player.ts:127](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L127)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:142](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L142)
+[lib/Player.ts:142](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L142)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:149](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L149)
+[lib/Player.ts:149](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L149)
 
 ## Methods
 
@@ -296,7 +296,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `tracks` | `default` \| [`Track`](Track.md) \| (`default` \| [`Track`](Track.md))[] | 要添加到隊列的歌曲 |
-| `requester` | `unknown` | 歌曲的請求者 |
+| `requester` | `User` | 歌曲的請求者，discord 的 User 類型 |
 
 #### Returns
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:169](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L169)
+[lib/Player.ts:169](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L169)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:188](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L188)
+[lib/Player.ts:188](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L188)
 
 ___
 
@@ -336,7 +336,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:239](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L239)
+[lib/Player.ts:239](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L239)
 
 ___
 
@@ -352,7 +352,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:218](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L218)
+[lib/Player.ts:218](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L218)
 
 ___
 
@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:258](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L258)
+[lib/Player.ts:258](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L258)
 
 ___
 
@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:358](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L358)
+[lib/Player.ts:358](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L358)
 
 ___
 
@@ -412,7 +412,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:297](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L297)
+[lib/Player.ts:297](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L297)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:319](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L319)
+[lib/Player.ts:319](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L319)
 
 ___
 
@@ -450,7 +450,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:379](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L379)
+[lib/Player.ts:379](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L379)
 
 ___
 
@@ -472,7 +472,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:415](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L415)
+[lib/Player.ts:415](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L415)
 
 ___
 
@@ -486,7 +486,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:512](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L512)
+[lib/Player.ts:512](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L512)
 
 ___
 
@@ -508,7 +508,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:435](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L435)
+[lib/Player.ts:435](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L435)
 
 ___
 
@@ -530,7 +530,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:477](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L477)
+[lib/Player.ts:477](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L477)
 
 ___
 
@@ -552,7 +552,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:490](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L490)
+[lib/Player.ts:490](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L490)
 
 ___
 
@@ -574,7 +574,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:503](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L503)
+[lib/Player.ts:503](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L503)
 
 ___
 
@@ -596,7 +596,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:387](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L387)
+[lib/Player.ts:387](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L387)
 
 ___
 
@@ -616,7 +616,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:535](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L535)
+[lib/Player.ts:535](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L535)
 
 ___
 
@@ -636,4 +636,4 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:66](https://github.com/hmes98318/LavaShark/blob/624651a/src/lib/Player.ts#L66)
+[lib/Player.ts:66](https://github.com/hmes98318/LavaShark/blob/129784c9/src/lib/Player.ts#L66)
