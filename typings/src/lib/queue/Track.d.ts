@@ -1,19 +1,20 @@
+import type { User } from 'discord.js';
 import type { ITrack, Metadata, Timestamp } from '../../@types';
 export default class Track {
     readonly identifier: string;
-    private readonly thumbnailUrl?;
-    readonly isSeekable: boolean;
+    readonly uri: string;
+    readonly title: string;
     readonly author: string;
     readonly duration: Timestamp;
-    readonly isStream: boolean;
     readonly source: string;
+    readonly isSeekable: boolean;
+    readonly isStream: boolean;
+    requester: User | null;
     position?: number;
-    readonly title: string;
-    readonly uri: string;
-    metadata?: Metadata;
     encodedTrack: string;
-    requester: unknown;
+    metadata?: Metadata;
+    private readonly thumbnailUrl?;
     constructor(data: ITrack);
     get thumbnail(): string | null;
-    setRequester(requester: unknown): void;
+    setRequester(requester: User | null): void;
 }

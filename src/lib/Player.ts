@@ -5,6 +5,7 @@ import Track from './queue/Track';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 import Filters from './Filters';
 
+import type { User } from 'discord.js';
 import type {
     PlayerOptions,
     PlayerState,
@@ -164,7 +165,7 @@ export default class Player {
      * @param {Track | UnresolvedTrack | Array<Track | UnresolvedTrack>} tracks - The track(s) to add to the queue
      * @param requester - The requester of the track(s)
      */
-    public addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: unknown) {
+    public addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: User) {
         if (Array.isArray(tracks)) {
             for (const track of tracks) {
                 track.setRequester(requester);

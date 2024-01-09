@@ -1,25 +1,25 @@
 import { formatTime } from "../utils/formatTime";
 
+import type { User } from 'discord.js';
 import type { ITrack, Metadata, Timestamp } from '../../@types';
 
 
 export default class Track {
     public readonly identifier: string;
-    declare private readonly thumbnailUrl?: string;
-    public readonly isSeekable: boolean;
+    public readonly uri: string;
+    public readonly title: string;
     public readonly author: string;
     public readonly duration: Timestamp;
-    public readonly isStream: boolean;
     public readonly source: string;
-    public position?: number;
-    public readonly title: string;
-    public readonly uri: string;
+    public readonly isSeekable: boolean;
+    public readonly isStream: boolean;
 
+    public requester: User | null;
+    public position?: number;
+    public encodedTrack: string;
     declare public metadata?: Metadata;
 
-    public encodedTrack: string;
-
-    declare public requester: unknown;
+    declare private readonly thumbnailUrl?: string;
 
     constructor(data: ITrack) {
         this.identifier = data.info.identifier;
@@ -49,7 +49,7 @@ export default class Track {
         return null;
     }
 
-    public setRequester(requester: unknown): void {
+    public setRequester(requester: User | null): void {
         this.requester = requester;
     }
 }

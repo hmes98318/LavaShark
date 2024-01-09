@@ -4,6 +4,7 @@ import { Queue } from './queue/Queue';
 import Track from './queue/Track';
 import UnresolvedTrack from './queue/UnresolvedTrack';
 import Filters from './Filters';
+import type { User } from 'discord.js';
 import type { PlayerOptions, PlayerState, PlayOptions, VoiceState } from '../@types';
 export declare enum ConnectionState {
     CONNECTING = 0,
@@ -76,7 +77,7 @@ export default class Player {
      * @param {Track | UnresolvedTrack | Array<Track | UnresolvedTrack>} tracks - The track(s) to add to the queue
      * @param requester - The requester of the track(s)
      */
-    addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: unknown): void;
+    addTracks(tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>, requester: User): void;
     /**
      * Connects to the voice channel
      */

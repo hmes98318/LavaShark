@@ -2,20 +2,21 @@ import Track from './Track';
 import { LavaShark } from '../LavaShark';
 import { formatTime } from "../utils/formatTime";
 
+import type { User } from 'discord.js';
 import type { Timestamp } from '../../@types';
 
 
 export default class UnresolvedTrack {
-    private readonly lavashark: LavaShark;
-
     public readonly title: string;
     public readonly author: string;
     public readonly duration: Timestamp;
     public readonly uri: string;
     public readonly source: string;
-    public requester: unknown;
+
+    public requester: User | null;
 
     declare private readonly isrc: string;
+    private readonly lavashark: LavaShark;
 
     constructor(lavashark: LavaShark, title: string, author: string, duration?: number, uri?: string, source?: string, isrc?: string) {
         this.lavashark = lavashark;
@@ -64,7 +65,7 @@ export default class UnresolvedTrack {
         return track;
     }
 
-    public setRequester(requester: unknown) {
+    public setRequester(requester: User | null) {
         this.requester = requester;
     }
 }
