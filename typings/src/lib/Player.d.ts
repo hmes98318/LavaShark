@@ -89,7 +89,7 @@ export default class Player {
     /**
      * Destroys the player
      */
-    destroy(): Promise<void>;
+    destroy(): void;
     /**
      * @param {Node} node - The target node to move the player
      */

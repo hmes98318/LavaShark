@@ -185,8 +185,9 @@ export default class Player {
      * Connects to the voice channel
      */
     public async connect() {
-        if (this.state !== ConnectionState.DISCONNECTED) return;
-
+        if (this.state !== ConnectionState.DISCONNECTED) {
+            return;
+        }
         if (!this.voiceChannelId) {
             throw new Error('No voice channel id provided');
         }
@@ -197,42 +198,30 @@ export default class Player {
             await this.assignNode();
         }
 
+
         this.state = ConnectionState.CONNECTING;
         this.sendVoiceState();
 
-        let checkCount = 0;
         const maxChecks = 5;
-        const checkInterval = 1000; // 1s
-        const controller = new AbortController();
+        const checkInterval = 1000;     // 1s
 
         const checkConnected = async () => {
-            return new Promise<void>(async (resolve, reject) => {
+            for (let i = 0; i < maxChecks; i++) {
                 if (this.state === ConnectionState.CONNECTED) {
-                    resolve();
+                    return;
                 }
                 else if (this.state === ConnectionState.DISCONNECTED) {
-                    controller.abort();
-                    await this.destroy();
-                    reject(new Error('Voice connection timeout.'));
+                    this.destroy();
+                    throw new Error('Voice connection timeout.');
                 }
-                else {
-                    checkCount++;
-                    if (checkCount >= maxChecks) {
-                        this.state = ConnectionState.DISCONNECTED;
-                        controller.abort();
-                        await this.destroy();
-                        reject(new Error('Voice connection timeout.'));
-                    }
 
-                    try {
-                        await new Promise(resolve => setTimeout(resolve, checkInterval));
-                        await checkConnected();
-                    } catch (error) {
-                        reject(error);
-                    }
-                    resolve();
-                }
-            });
+                await new Promise(resolve => setTimeout(resolve, checkInterval));
+            }
+
+            this.state = ConnectionState.DISCONNECTED;
+            this.destroy();
+
+            throw new Error('Voice connection timeout.');
         };
         await checkConnected();
 
@@ -261,14 +250,14 @@ export default class Player {
     /**
      * Destroys the player
      */
-    public async destroy() {
+    public destroy() {
         this.disconnect();
 
-        try {
-            await this.node?.rest.destroyPlayer(this.guildId);
-        } catch (error) {
-            this.lavashark.emit('error', this.node, `Failed to send destroyPlayer signal to node "${this.node?.identifier}"`);
-        }
+        this.node?.rest.destroyPlayer(this.guildId)
+            .catch((_error) => {
+                this.lavashark.emit('error', this.node, `Failed to send destroyPlayer signal to node "${this.node?.identifier}"`);
+            });
+
 
         this.node = null;
         this.lavashark.players.delete(this.guildId);
