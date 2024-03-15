@@ -12,7 +12,7 @@ import Spotify from './sources/Spotify';
 import type {
     IncomingDiscordPayload,
     OutgoingDiscordPayload,
-    EventListeners,
+    LavaSharkEvents,
     PlayerOptions,
     SearchResult,
     SEARCH_SOURCE,
@@ -22,12 +22,7 @@ import type {
 } from '../@types';
 
 
-export interface LavaShark {
-    once: EventListeners<this>;
-    on: EventListeners<this>;
-}
-
-export class LavaShark extends EventEmitter {
+export class LavaShark extends EventEmitter implements LavaSharkEvents {
     public clientId: string;
     public nodes: Node[];
 

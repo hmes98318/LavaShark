@@ -36,6 +36,10 @@ export type Metadata = Pick<TrackInfo, 'title' | 'author' | 'uri'> & {
     isrc?: string;
 };
 /** LavaShark events */
+export interface LavaSharkEvents {
+    once: EventListeners<this>;
+    on: EventListeners<this>;
+}
 export type EventListeners<T> = {
     (event: 'debug', listener: (message: string) => void): T;
     (event: 'raw', listener: (node: Node, payload: unknown) => void): T;

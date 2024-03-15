@@ -4,12 +4,8 @@ import Node from './Node';
 import Player from './Player';
 import Track from './queue/Track';
 import { AbstractExternalSource } from './sources/AbstractExternalSource';
-import type { IncomingDiscordPayload, OutgoingDiscordPayload, EventListeners, PlayerOptions, SearchResult, SEARCH_SOURCE, LavaSharkOptions } from '../@types';
-export interface LavaShark {
-    once: EventListeners<this>;
-    on: EventListeners<this>;
-}
-export declare class LavaShark extends EventEmitter {
+import type { IncomingDiscordPayload, OutgoingDiscordPayload, LavaSharkEvents, PlayerOptions, SearchResult, SEARCH_SOURCE, LavaSharkOptions } from '../@types';
+export declare class LavaShark extends EventEmitter implements LavaSharkEvents {
     clientId: string;
     nodes: Node[];
     private readonly defaultSearchSource;
