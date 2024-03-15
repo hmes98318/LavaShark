@@ -11,6 +11,10 @@
     "message": "指南",
     "description": "Navbar item with label Guide"
   },
+  "item.label.Docs": {
+    "message": "文檔",
+    "description": "Navbar item with label Docs"
+  },
   "item.label.Started": {
     "message": "開始",
     "description": "Navbar item with label Started"

@@ -11,6 +11,10 @@
     "message": "Guide",
     "description": "Navbar item with label Guide"
   },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
   "item.label.Started": {
     "message": "Started",
     "description": "Navbar item with label Started"
