@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_lavashark_website=self.webpackChunk_lavashark_website||[]).push([[2802],{3769:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);
