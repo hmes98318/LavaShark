@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Getting started
 
 Here is an example tutorial for using discord.js v14. If you're using an earlier version, please update it. The [discord.js Guide](https://discordjs.guide/) provides resources to help you with the update process.  
@@ -104,12 +100,16 @@ client.on('messageCreate', async message => {
 
         const res = await client.lavashark.search(track);
 
-        if (res.loadType === "LOAD_FAILED") {
+        /**
+         * search loadType: playlist, search, track, empty, error
+         */
+
+        if (res.loadType === "error") {
             console.log(`Search Error: ${res.exception.message}`);
             return message.reply('❌ | Not found music.');
         }
-        else if (res.loadType === "NO_MATCHES") {
-            console.log(`Search Error: NO_MATCHES`);
+        else if (res.loadType === "empty") {
+            console.log(`Search Error: No matches (empty)`);
             return message.reply('❌ | No matches.');
         }
 
@@ -128,7 +128,7 @@ client.on('messageCreate', async message => {
             return message.reply({ content: `❌ | I can't join audio channel.`, allowedMentions: { repliedUser: false } });
         }
 
-        if (res.loadType === 'PLAYLIST_LOADED') {
+        if (res.loadType === 'playlist') {
             player.addTracks(res.tracks, message.author);
 
             message.reply(`Playlist \`${res.playlistInfo.name}\` loaded!`);
