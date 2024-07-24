@@ -18,7 +18,7 @@ export type TrackInfo = {
 };
 
 export interface ITrack {
-    track: string;
+    encoded: string;
     info: TrackInfo;
 }
 

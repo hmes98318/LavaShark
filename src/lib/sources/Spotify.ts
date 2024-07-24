@@ -1,7 +1,7 @@
 import { request } from 'undici';
 
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import UnresolvedTrack from '../queue/UnresolvedTrack';
 
 import type { PlaylistInfo, SearchResult } from '../../@types';
@@ -61,7 +61,7 @@ interface ISpotifyError {
 
 
 export default class Spotify extends AbstractExternalSource {
-    public static readonly SPOTIFY_REGEX = /^(?:https?:\/\/(?:open\.)?spotify\.com|spotify)[/:](?<type>track|album|playlist|artist)[/:](?<id>[a-zA-Z0-9]+)/;
+    public static readonly SPOTIFY_REGEX = /^(?:https?:\/\/(?:open\.)?spotify\.com|spotify)[/:](?:intl-[a-zA-Z]+\/)?(?<type>track|album|playlist|artist)[/:](?<id>[a-zA-Z0-9]+)/;
 
     private static readonly USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36';
 
@@ -121,7 +121,7 @@ export default class Spotify extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'TRACK_LOADED',
+            loadType: 'track',
             playlistInfo: {} as PlaylistInfo,
             tracks: [this.buildTrack(res)],
         };
@@ -161,7 +161,7 @@ export default class Spotify extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'playlist',
             playlistInfo: {
                 name: title,
                 duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -207,7 +207,7 @@ export default class Spotify extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'playlist',
             playlistInfo: {
                 name: title,
                 duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -227,7 +227,7 @@ export default class Spotify extends AbstractExternalSource {
         const tracks = res.tracks.map(t => this.buildTrack(t));
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'playlist',
             playlistInfo: {
                 name: `${res.tracks[0].artists.find(a => a.id === id)?.name ?? ''} Top Tracks`,
                 duration: tracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -239,7 +239,7 @@ export default class Spotify extends AbstractExternalSource {
 
     private handleErrorResult(error: SpotifyError): SearchResult {
         return {
-            loadType: 'LOAD_FAILED',
+            loadType: 'error',
             playlistInfo: {} as PlaylistInfo,
             tracks: [],
             exception: {

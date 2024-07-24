@@ -16,14 +16,14 @@ export default class Track {
 
     public requester: User | null;
     public position?: number;
-    public encodedTrack: string;
-    declare public metadata?: Metadata;
+    public encoded: string;
+    public metadata?: Metadata;
 
-    declare private readonly thumbnailUrl?: string;
+    readonly #thumbnailUrl?: string;
 
     constructor(data: ITrack) {
         this.identifier = data.info.identifier;
-        if (data.info.thumbnail) this.thumbnailUrl = data.info.thumbnail;
+        if (data.info.thumbnail) this.#thumbnailUrl = data.info.thumbnail;
         this.isSeekable = data.info.isSeekable;
         this.author = data.info.author;
         this.duration = {
@@ -36,11 +36,11 @@ export default class Track {
         this.title = data.info.title;
         this.uri = data.info.uri;
 
-        this.encodedTrack = data.track;
+        this.encoded = data.encoded;
     }
 
     get thumbnail(): string | null {
-        if (this.thumbnailUrl) return this.thumbnailUrl;
+        if (this.#thumbnailUrl) return this.#thumbnailUrl;
 
         if (this.source === 'youtube') {
             return `https://img.youtube.com/vi/${this.identifier}/sddefault.jpg`;

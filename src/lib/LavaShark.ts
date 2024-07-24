@@ -10,33 +10,32 @@ import Deezer from './sources/Deezer';
 import Spotify from './sources/Spotify';
 
 import type {
+    ITrack,
     IncomingDiscordPayload,
-    OutgoingDiscordPayload,
     LavaSharkEvents,
+    LavaSharkOptions,
+    OutgoingDiscordPayload,
     PlayerOptions,
-    SearchResult,
+    PlaylistData,
     SEARCH_SOURCE,
+    SearchResult,
     VoiceServerUpdatePayload,
-    VoiceStateUpdatePayload,
-    LavaSharkOptions
+    VoiceStateUpdatePayload
 } from '../@types';
 
 
-export class LavaShark extends EventEmitter implements LavaSharkEvents {
+export default class LavaShark extends EventEmitter implements LavaSharkEvents {
     public clientId: string;
     public nodes: Node[];
+    public players: Map<string, Player>;    // <guildId, Player> 
 
-    private readonly defaultSearchSource: SEARCH_SOURCE;
+    #externalSources: AbstractExternalSource[];
+    #checkNodesStateTimer!: NodeJS.Timeout | undefined;
+    #lastNodeSorting: number;
+
+    readonly #defaultSearchSource: SEARCH_SOURCE;
     public readonly unresolvedSearchSource: SEARCH_SOURCE;
     public readonly useISRC: boolean;
-
-    private externalSources: AbstractExternalSource[];
-
-    // <guildId, Player> 
-    public players: Map<string, Player>;
-
-    private checkNodesStateTimer!: NodeJS.Timeout | undefined;
-    private lastNodeSorting: number;
 
     /**
      * @param {String} guildId - guildId
@@ -83,28 +82,28 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
 
     /**
      * Create a new LavaShark instance
-     * @param {Object} options - The LavaShark options
-     * @param {Object[]} options.nodes - The lavalink nodes array
-     * @param {String} [options.nodes[].id] - The lavalink node identifier
-     * @param {String} [options.nodes[].hostname] - The lavalink node hostname
-     * @param {Number} [options.nodes[].port] - The lavalink node port
-     * @param {String} [options.nodes[].password] - The lavalink node password
-     * @param {Boolean} [options.nodes[].secure] - Whether the lavalink node uses TLS/SSL or not
-     * @param {Boolean} [options.nodes[].followRedirects] - Whether to follow redirects or not (default is false)
-     * @param {String} [options.nodes[].resumeKey] - The resume key
-     * @param {Number} [options.nodes[].resumeTimeout] - The resume timeout, in seconds
-     * @param {Number} [options.nodes[].maxRetryAttempts] - The max number of retry attempts
-     * @param {Number} [options.nodes[].retryAttemptsInterval] - The interval between retry attempts
-     * @param {String} [options.defaultSearchSource] - The default search source
-     * @param {String} [options.unresolvedSearchSource] - The unresolved search source
+     * @param {object} options - The LavaShark options
+     * @param {object[]} options.nodes - The lavalink nodes array
+     * @param {string} [options.nodes[].id] - The lavalink node identifier
+     * @param {string} [options.nodes[].hostname] - The lavalink node hostname
+     * @param {number} [options.nodes[].port] - The lavalink node port
+     * @param {string} [options.nodes[].password] - The lavalink node password
+     * @param {boolean} [options.nodes[].secure] - Whether the lavalink node uses TLS/SSL or not
+     * @param {boolean} [options.nodes[].followRedirects] - Whether to follow redirects or not (default is false)
+     * @param {string} [options.nodes[].resumeKey] - The resume key
+     * @param {number} [options.nodes[].resumeTimeout] - The resume timeout, in seconds
+     * @param {number} [options.nodes[].maxRetryAttempts] - The max number of retry attempts
+     * @param {number} [options.nodes[].retryAttemptsInterval] - The interval between retry attempts
+     * @param {string} [options.defaultSearchSource] - The default search source
+     * @param {string} [options.unresolvedSearchSource] - The unresolved search source
      * 
-     * @param {Object} [options.spotify] - The spotify credential options
-     * @param {String} [options.spotify.clientId] - The spotify client id
-     * @param {String} [options.spotify.clientSecret] - The spotify client secret
-     * @param {String} [options.spotify.market] - The spotify market
+     * @param {object} [options.spotify] - The spotify credential options
+     * @param {string} [options.spotify.clientId] - The spotify client id
+     * @param {string} [options.spotify.clientSecret] - The spotify client secret
+     * @param {string} [options.spotify.market] - The spotify market
      * 
-     * @param {String[]} [options.disabledSources] - Disables, apple music, deezer or spotify
-     * @param {Boolean} [options.useISRC] - Whether to use ISRC to resolve tracks or not
+     * @param {string[]} [options.disabledSources] - Disables, apple music, deezer or spotify
+     * @param {boolean} [options.useISRC] - Whether to use ISRC to resolve tracks or not
      * @param {Function} options.sendWS - The function to send websocket messages to the main gateway
      */
     constructor(options: LavaSharkOptions) {
@@ -113,19 +112,19 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
         LavaShark.checkOptions(options);
 
         this.nodes = [];
-        this.defaultSearchSource = options.defaultSearchSource ?? 'youtube';
+        this.#defaultSearchSource = options.defaultSearchSource ?? 'youtube';
         this.unresolvedSearchSource = options.unresolvedSearchSource ?? 'youtube';
         this.useISRC = options.useISRC ?? true;
 
-        this.externalSources = [];
+        this.#externalSources = [];
 
         if (options.disabledSources) {
-            if (!options.disabledSources.includes('SPOTIFY')) this.externalSources.push(new Spotify(this, options.spotify?.clientId, options.spotify?.clientSecret, options.spotify?.market));
-            if (!options.disabledSources.includes('APPLE_MUSIC')) this.externalSources.push(new AppleMusic(this));
-            if (!options.disabledSources.includes('DEEZER')) this.externalSources.push(new Deezer(this));
+            if (!options.disabledSources.includes('SPOTIFY')) this.#externalSources.push(new Spotify(this, options.spotify?.clientId, options.spotify?.clientSecret, options.spotify?.market));
+            if (!options.disabledSources.includes('APPLE_MUSIC')) this.#externalSources.push(new AppleMusic(this));
+            if (!options.disabledSources.includes('DEEZER')) this.#externalSources.push(new Deezer(this));
         }
         else {
-            this.externalSources = [
+            this.#externalSources = [
                 new Spotify(this, options.spotify?.clientId, options.spotify?.clientSecret, options.spotify?.market),
                 new AppleMusic(this),
                 new Deezer(this)
@@ -141,16 +140,21 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
             this.nodes.push(newNode);
         }
 
-        this.lastNodeSorting = 0;
+        this.#lastNodeSorting = 0;
     }
 
+
+    /**
+     * Get the best available node
+     * @returns {Promise<Node>}
+     */
     public async bestNode(): Promise<Node> {
-        if (Date.now() < this.lastNodeSorting + 30000) {
+        if (Date.now() < this.#lastNodeSorting + 30000) {
             if (this.nodes[0].state === NodeState.CONNECTED) {
                 return this.nodes[0];
             }
             else {
-                this.lastNodeSorting = 0;
+                this.#lastNodeSorting = 0;
                 return this.bestNode();
             }
         }
@@ -159,16 +163,16 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
         this.nodes = this.nodes.sort((a, b) => a.totalPenalties - b.totalPenalties);
 
         const node = this.nodes[0];
-        this.lastNodeSorting = Date.now();
+        this.#lastNodeSorting = Date.now();
 
         if (!node || node.state !== NodeState.CONNECTED) {
             throw new Error('No connected nodes!');
         }
 
         try {
-            await node.checkNodeSession();
+            await node.getPing();
         } catch (_) {
-            this.lastNodeSorting = 0;
+            this.#lastNodeSorting = 0;
             return this.bestNode();
         }
 
@@ -184,24 +188,24 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
             throw new Error(`${extSource.constructor.name} must extend AbstractExternalSource`);
         }
 
-        this.externalSources.push(extSource);
+        this.#externalSources.push(extSource);
     }
 
     /**
      * Decodes a track by its base64 string
-     * @param {String} encodedTrack - The base64 encoded track
+     * @param {string} encoded - The base64 encoded track
      * @returns {Promise<Track>}
      */
-    public async decodeTrack(encodedTrack: string): Promise<Track> {
+    public async decodeTrack(encoded: string): Promise<Track> {
         const node = await this.bestNode();
-        const trackInfo = await node.rest.decodeTrack(encodedTrack);
+        const trackInfo = await node.rest.decodeTrack(encoded);
 
-        return new Track({ track: encodedTrack, info: { ...trackInfo } });
+        return new Track({ encoded: encoded, info: { ...trackInfo } });
     }
 
     /**
      * Decodes multiple tracks by their base64 string
-     * @param {String[]} encodedTracks - The base64 encoded tracks
+     * @param {string[]} encodedTracks - The base64 encoded tracks
      * @returns {Promise<Track[]>}
      */
     public async decodeTracks(encodedTracks: string[]): Promise<Track[]> {
@@ -215,38 +219,28 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
      * Regularly check the connection state of all nodes
      */
     private keepCheckNodesState() {
-        this.checkNodesStateTimer = setInterval(() => {
-            const reconnectPromises = this.nodes.map(async node => {
+        this.#checkNodesStateTimer = setInterval(async () => {
+            for (const node of this.nodes) {
                 if (node.state === NodeState.DISCONNECTED) {
-                    this.emit('warn', node, `Try to reconnect to the disconnected node "${node.identifier}"`);
-
                     try {
+                        this.emit('warn', node, `Try to reconnect to the disconnected node "${node.identifier}"`);
                         await node.reconnect();
-                        this.emit('debug', node, `Successfully reconnected the disconnected node "${node.identifier}"`);
-                    } catch {
+                    } catch (error) {
                         this.emit('warn', node, `Failed to reconnect the disconnected node "${node.identifier}"`);
                     }
                 }
-                else {
-                    // NodeState.CONNECTED
-                    return Promise.resolve();
-                }
-            });
-
-            Promise.allSettled(reconnectPromises).then(() => {
-                this.emit('debug', 'Checked the connection status of all nodes');
-            });
-        }, 5 * 60 * 1000);      // 5 minutes
+            }
+        }, 5 * 60 * 1000); // 5 minutes
     }
 
     /**
      * Creates a new player or returns an existing one
-     * @param {Object} options - The player options
-     * @param {String} options.guildId - The guild id that player belongs to
-     * @param {String} options.voiceChannelId - The voice channel id
-     * @param {String} [options.textChannelId] - The text channel id
-     * @param {Boolean} [options.selfDeaf=false] - Whether the bot joins the voice channel deafened or not
-     * @param {Boolean} [options.selfMute=false] - Whether the bot joins the voice channel muted or not
+     * @param {object} options - The player options
+     * @param {string} options.guildId - The guild id that player belongs to
+     * @param {string} options.voiceChannelId - The voice channel id
+     * @param {string} [options.textChannelId] - The text channel id
+     * @param {boolean} [options.selfDeaf=false] - Whether the bot joins the voice channel deafened or not
+     * @param {boolean} [options.selfMute=false] - Whether the bot joins the voice channel muted or not
      * @param {Queue} [options.queue] - The queue for this player
      * @returns {Player}
      */
@@ -265,7 +259,7 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
 
     /**
      * Retrieve an existing player using the guild id
-     * @param {String} guildId - The guild id that player belongs to
+     * @param {string} guildId - The guild id that player belongs to
      * @returns {Player}
      */
     public getPlayer(guildId: string): Player | null {
@@ -285,16 +279,16 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
 
     /**
      * Search by song name or use music URL
-     * @param {String} query - The query to search for
+     * @param {string} query - The query to search for
      * @param {('youtube' | 'youtubemusic' | 'soundcloud')} [source=youtube] - The search source
      * @returns {Promise<SearchResult>}
      */
-    public async search(query: string, source: SEARCH_SOURCE = this.defaultSearchSource): Promise<SearchResult> {
+    public async search(query: string, source: SEARCH_SOURCE = this.#defaultSearchSource): Promise<SearchResult> {
         if (typeof query !== 'string') {
             throw new TypeError('Search query must be a non-empty string');
         }
 
-        for (const source of this.externalSources) {
+        for (const source of this.#externalSources) {
             const loadRes = await source.loadItem(query);
 
             if (loadRes) return loadRes;
@@ -313,14 +307,33 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
         const node = await this.bestNode();
         const res = await node.rest.loadTracks(query);
 
-        if (res.loadType === 'LOAD_FAILED' || res.loadType === 'NO_MATCHES') {
+        /**
+         * loadType: playlist, search, track, empty, error
+         */
+        if (res.loadType === 'error' || res.loadType === 'empty') {
             return res as unknown as SearchResult;
         }
         else {
-            const tracks = res.tracks.map(t => new Track(t));
-            if (res.loadType === 'PLAYLIST_LOADED') {
-                res.playlistInfo.duration = tracks.reduce((acc, cur) => acc + cur.duration.value, 0);
+            let tracks: Track[] = [];
+
+            if (res.loadType === 'playlist') {
+                const playlistData = res.data as unknown as PlaylistData;
+
+                tracks = playlistData.tracks.map(t => new Track(t));
+
+                res.playlistInfo = {
+                    name: playlistData.info.name,
+                    duration: tracks.reduce((acc, cur) => acc + cur.duration.value, 0) ?? 0,
+                    selectedTrack: playlistData.info.selectedTrack
+                };
             }
+            else if (res.loadType === 'search') {
+                tracks = (res.data as ITrack[]).map(t => new Track(t));
+            }
+            else if (res.loadType === 'track') {
+                tracks = [new Track(res.data as unknown as ITrack)];
+            }
+
 
             return {
                 ...res,
@@ -331,7 +344,7 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
 
     /**
      * Connects to all lavalink nodes
-     * @param {String} clientId - The client id (BOT)
+     * @param {string} clientId - The client id (BOT)
      */
     public start(clientId: string) {
         if (typeof clientId !== 'string') {
@@ -344,7 +357,7 @@ export class LavaShark extends EventEmitter implements LavaSharkEvents {
             node.connect();
         }
 
-        if (this.checkNodesStateTimer) clearInterval(this.checkNodesStateTimer);
+        if (this.#checkNodesStateTimer) clearInterval(this.#checkNodesStateTimer);
         this.keepCheckNodesState();
     }
 

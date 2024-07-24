@@ -1,7 +1,7 @@
 import { request } from 'undici';
 
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import UnresolvedTrack from '../queue/UnresolvedTrack';
 
 import type { PlaylistInfo, SearchResult } from '../../@types';
@@ -128,7 +128,7 @@ export default class AppleMusic extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'TRACK_LOADED',
+            loadType: 'track',
             playlistInfo: {} as PlaylistInfo,
             tracks: [this.buildTrack(res.data[0].attributes)],
         };
@@ -142,7 +142,7 @@ export default class AppleMusic extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'TRACK_LOADED',
+            loadType: 'track',
             playlistInfo: {} as PlaylistInfo,
             tracks: [this.buildTrack(res.data[0].attributes)],
         };
@@ -178,7 +178,7 @@ export default class AppleMusic extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'playlist',
             playlistInfo: {
                 name: title,
                 duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -208,7 +208,7 @@ export default class AppleMusic extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'playlist',
             playlistInfo: {
                 name: `${artistRes.data[0].attributes.name}'s top tracks`,
                 duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -220,7 +220,7 @@ export default class AppleMusic extends AbstractExternalSource {
 
     private handleErrorResult(error: AppleMusicError): SearchResult {
         return {
-            loadType: 'LOAD_FAILED',
+            loadType: 'error',
             playlistInfo: {} as PlaylistInfo,
             tracks: [],
             exception: {

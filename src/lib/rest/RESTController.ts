@@ -2,6 +2,7 @@ import { fetch } from 'undici';
 
 import Node from '../Node';
 import {
+    DECODE_TRACK,
     DECODE_TRACKS,
     INFO,
     LOAD_TRACKS,
@@ -28,21 +29,21 @@ import type {
 
 
 export class RESTController {
-    private readonly restUrl: string;
-    private _sessionId: string;
+    readonly #restUrl: string;
+    #sessionId: string;
 
     set setSessionId(sessionId: string) {
-        this._sessionId = sessionId;
+        this.#sessionId = sessionId;
     }
 
     constructor(private readonly node: Node) {
-        this.restUrl = `http${node.options.secure ? 's' : ''}://${node.options.hostname}:${node.options.port}`;
+        this.#restUrl = `http${node.options.secure ? 's' : ''}://${node.options.hostname}:${node.options.port}`;
     }
 
     public async decodeTrack(encodedTrack: string): Promise<TrackInfo> {
         return this.request({
             method: 'GET',
-            path: DECODE_TRACKS() + `?track=${encodeURIComponent(encodedTrack)}`
+            path: DECODE_TRACK() + `?encodedTrack=${encodeURIComponent(encodedTrack)}`
         });
     }
 
@@ -85,12 +86,12 @@ export class RESTController {
         });
     }
 
-    public async updateSession(resumeKey: string, timeout?: number) {
+    public async updateSession(resuming: boolean, timeout?: number) {
         await this.request({
             method: 'PATCH',
-            path: SESSIONS(this._sessionId),
+            path: SESSIONS(this.#sessionId),
             json: {
-                resumeKey,
+                resuming,
                 timeout
             }
         });
@@ -99,12 +100,12 @@ export class RESTController {
     public async destroyPlayer(guildId: string) {
         await this.request({
             method: 'DELETE',
-            path: PLAYER(this._sessionId, guildId)
+            path: PLAYER(this.#sessionId, guildId)
         });
     }
 
     public async updatePlayer(guildId: string, options: UpdatePlayerOptions) {
-        let path = PLAYER(this._sessionId, guildId);
+        let path = PLAYER(this.#sessionId, guildId);
 
         if (options.noReplace) {
             path += '?noReplace=true';
@@ -153,7 +154,7 @@ export class RESTController {
             body = JSON.stringify(json);
         }
 
-        const res = await fetch(`${this.restUrl}${path}`, {
+        const res = await fetch(`${this.#restUrl}${path}`, {
             method,
             headers,
             body

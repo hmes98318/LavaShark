@@ -1,5 +1,5 @@
 import { SearchResult } from '../../@types';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 
 
 export abstract class AbstractExternalSource {

@@ -1,7 +1,7 @@
 import { request } from 'undici';
 
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import UnresolvedTrack from '../queue/UnresolvedTrack';
 
 import type { PlaylistInfo, SearchResult } from '../../@types';
@@ -65,7 +65,7 @@ export default class Deezer extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'TRACK_LOADED',
+            loadType: 'track',
             playlistInfo: {} as PlaylistInfo,
             tracks: [this.buildTrack(res)],
         };
@@ -85,7 +85,7 @@ export default class Deezer extends AbstractExternalSource {
         }
 
         return {
-            loadType: 'PLAYLIST_LOADED',
+            loadType: 'error',
             playlistInfo: {
                 name: res.title,
                 duration: unresolvedTracks.reduce((acc, curr) => acc + curr.duration.value, 0),
@@ -97,7 +97,7 @@ export default class Deezer extends AbstractExternalSource {
 
     private handleErrorResult(error: DeezerError): SearchResult {
         return {
-            loadType: 'LOAD_FAILED',
+            loadType: 'error',
             playlistInfo: {} as PlaylistInfo,
             tracks: [],
             exception: {
