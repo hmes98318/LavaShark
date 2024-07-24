@@ -1,4 +1,4 @@
-import { LavaShark } from './LavaShark';
+import LavaShark from './LavaShark';
 import { RESTController } from './rest/RESTController';
 import type { Info, NodeOptions, NodeStats, RoutePlannerStatus, version } from '../@types';
 export declare enum NodeState {
@@ -7,35 +7,30 @@ export declare enum NodeState {
     DISCONNECTED = 2
 }
 export default class Node {
-    private readonly lavashark;
+    #private;
+    version?: version;
     readonly options: NodeOptions;
-    private penalties?;
-    private ws;
-    private packetQueue;
     rest: RESTController;
-    private resumeKey;
     retryAttempts: number;
     state: NodeState;
     stats: NodeStats;
-    private keepAliveInterval;
-    version?: version;
     static checkOptions(options: NodeOptions): void;
     /**
      * Create a new Node instance
      * @param {LavaShark} lavashark - The LavaShark instance
-     * @param {Object} options - The node options
-     * @param {String} [options.id] - The lavalink node identifier
-     * @param {String} options.hostname - The lavalink node hostname
-     * @param {Number} options.port - The lavalink node port
-     * @param {String} [options.password] - The lavalink node password
-     * @param {Boolean} [options.secure] - Whether the lavalink node uses TLS/SSL or not
-     * @param {String} [options.region] - The lavalink node region
-     * @param {String} [options.resumeKey] - The resume key
-     * @param {Number} [options.resumeTimeout] - The resume timeout, in seconds
-     * @param {Number} [options.maxRetryAttempts] - The max number of reconnect attempts
-     * @param {Number} [options.retryAttemptsInterval] - The interval between reconnect attempts, in milliseconds
-     * @param {Boolean} [options.followRedirects] - Whether to follow redirects (3xx status codes)
-     * @param {Boolean} [options.sendSpeakingEvents=false] - Tells the lavalink node to send speaking events (Supported in my custom lavalink fork)
+     * @param {object} options - The node options
+     * @param {string} [options.id] - The lavalink node identifier
+     * @param {string} options.hostname - The lavalink node hostname
+     * @param {number} options.port - The lavalink node port
+     * @param {string} [options.password] - The lavalink node password
+     * @param {boolean} [options.secure] - Whether the lavalink node uses TLS/SSL or not
+     * @param {string} [options.region] - The lavalink node region
+     * @param {boolean} [options.resuming] - Whether to resume the session after the client disconnects
+     * @param {number} [options.resumeTimeout] - The resume timeout, in seconds
+     * @param {number} [options.maxRetryAttempts] - The max number of reconnect attempts
+     * @param {number} [options.retryAttemptsInterval] - The interval between reconnect attempts, in milliseconds
+     * @param {boolean} [options.followRedirects] - Whether to follow redirects (3xx status codes)
+     * @param {boolean} [options.sendSpeakingEvents=false] - Tells the lavalink node to send speaking events (Supported in my custom lavalink fork)
      */
     constructor(lavashark: LavaShark, options: NodeOptions);
     get identifier(): string;
@@ -54,9 +49,9 @@ export default class Node {
      */
     reconnect(): Promise<void>;
     /**
-     * Check session exists
+     * Update session exists
      */
-    checkNodeSession(): Promise<void>;
+    updatseNodeSession(): Promise<boolean>;
     private KeepingNodeAwake;
     private stopKeepingNodeAwake;
     /**
@@ -87,7 +82,7 @@ export default class Node {
     getRoutePlannerStatus(): Promise<RoutePlannerStatus>;
     /**
      * Unmarks a failed address
-     * @param {String} address - The address to unmark
+     * @param {string} address - The address to unmark
      */
     unmarkFailedAddress(address: string): Promise<void>;
     /**

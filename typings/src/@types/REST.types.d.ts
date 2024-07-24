@@ -4,7 +4,10 @@ import type UnresolvedTrack from "../lib/queue/UnresolvedTrack";
 import type { FilterOptions } from "./Filter.types";
 import type { ITrack, PlaylistInfo } from "./Track.types";
 export type UpdatePlayerOptions = {
-    encodedTrack?: string | null;
+    track?: {
+        encoded?: string | null;
+        identifier?: string;
+    };
     position?: number;
     endTime?: number;
     volume?: number;
@@ -36,12 +39,21 @@ export type LoadException = {
     severity: 'COMMON' | 'SUSPIOUS' | 'FAULT';
 };
 export type LoadResultBase = {
-    loadType: 'TRACK_LOADED' | 'PLAYLIST_LOADED' | 'SEARCH_RESULT' | 'NO_MATCHES' | 'LOAD_FAILED';
-    playlistInfo: PlaylistInfo;
+    loadType: 'track' | 'playlist' | 'search' | 'empty' | 'error';
+    playlistInfo?: PlaylistInfo;
     exception?: LoadException;
 };
 export type LoadTracksResult = LoadResultBase & {
+    data: ITrack[];
+};
+export type PlaylistData = {
+    info: PlaylistInfo;
+    pluginInfo: object;
     tracks: ITrack[];
+};
+export type PlaylistLoadResult = Omit<LoadResultBase, 'loadType'> & {
+    loadType: 'playlist';
+    data: PlaylistData;
 };
 export type SearchResult = LoadResultBase & {
     tracks: Array<Track | UnresolvedTrack>;

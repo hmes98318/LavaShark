@@ -16,7 +16,7 @@ export type TrackInfo = {
     uri: string;
 };
 export interface ITrack {
-    track: string;
+    encoded: string;
     info: TrackInfo;
 }
 export interface Timestamp {

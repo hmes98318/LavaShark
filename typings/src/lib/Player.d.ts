@@ -1,4 +1,4 @@
-import { LavaShark } from './LavaShark';
+import LavaShark from './LavaShark';
 import Node from './Node';
 import { Queue } from './queue/Queue';
 import Track from './queue/Track';
@@ -23,10 +23,10 @@ export declare enum RepeatMode {
     QUEUE = 2
 }
 export default class Player {
-    private readonly lavashark;
-    node: Node | null;
+    #private;
     readonly guildId: string;
     readonly filters: Filters;
+    node: Node | null;
     voiceChannelId: string;
     textChannelId?: string | null;
     selfDeaf?: boolean;
@@ -35,7 +35,6 @@ export default class Player {
     queue: Queue;
     repeatMode: RepeatMode;
     position: number;
-    private positionTimestamp;
     playing: boolean;
     paused: boolean;
     state: ConnectionState;
@@ -45,12 +44,12 @@ export default class Player {
     /**
      * Create a new Player instance
      * @param {LavaShark} lavashark - The lavashark instance
-     * @param {Object} options - The player options
-     * @param {String} options.guildId - The guild id of this player
-     * @param {String} options.voiceChannelId - The voice channel id of this player
-     * @param {String} [options.textChannelId] - The text channel id of this player
-     * @param {Boolean} [options.selfMute] - Whether or not this player is muted
-     * @param {Boolean} [options.selfDeaf] - Whether or not this player is deafened
+     * @param {object} options - The player options
+     * @param {string} options.guildId - The guild id of this player
+     * @param {string} options.voiceChannelId - The voice channel id of this player
+     * @param {string} [options.textChannelId] - The text channel id of this player
+     * @param {boolean} [options.selfMute] - Whether or not this player is muted
+     * @param {boolean} [options.selfDeaf] - Whether or not this player is deafened
      * @param {Queue} [options.queue] - The queue for this player
      */
     constructor(lavashark: LavaShark, options: PlayerOptions);

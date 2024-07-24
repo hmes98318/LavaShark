@@ -9,13 +9,13 @@ export type NodeOptions = {
     port: number;
     /** Whether to use SSL/TLS or not */
     secure?: boolean;
-    /** Whether to follow redirects or not (default is false) */
+    /** Whether to follow redirects or not (default: true) */
     followRedirects?: boolean;
     /** The node password */
     password?: string;
-    /** Whether to enable resume key */
-    resumeKey?: "enable" | "disable" | "ENABLE" | "DISABLE";
-    /** The resume timeout, in seconds (default is 60s) */
+    /** Whether to resume the session after the client disconnects (default: true) */
+    resuming?: boolean;
+    /** The resume timeout, in seconds (default: 60s) */
     resumeTimeout?: number;
     /** The max number of retry attempts */
     maxRetryAttempts?: number;

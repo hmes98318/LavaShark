@@ -1,5 +1,5 @@
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import type { SearchResult } from '../../@types';
 export default class AppleMusic extends AbstractExternalSource {
     static readonly APPLE_MUSIC_REGEX: RegExp;

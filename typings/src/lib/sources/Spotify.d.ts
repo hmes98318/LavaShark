@@ -1,5 +1,5 @@
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import type { SearchResult } from '../../@types';
 export default class Spotify extends AbstractExternalSource {
     static readonly SPOTIFY_REGEX: RegExp;

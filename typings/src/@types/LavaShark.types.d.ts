@@ -1,4 +1,5 @@
 /// <reference types="node" />
+import type LavaShark from "../lib/LavaShark";
 import type Node from "../lib/Node";
 import type Player from "../lib/Player";
 import type Track from "../lib/queue/Track";
@@ -37,10 +38,10 @@ export type Metadata = Pick<TrackInfo, 'title' | 'author' | 'uri'> & {
 };
 /** LavaShark events */
 export interface LavaSharkEvents {
-    once: EventListeners<this>;
-    on: EventListeners<this>;
+    once: LavaSharkEventListeners<LavaShark>;
+    on: LavaSharkEventListeners<LavaShark>;
 }
-export type EventListeners<T> = {
+export type LavaSharkEventListeners<T> = {
     (event: 'debug', listener: (message: string) => void): T;
     (event: 'raw', listener: (node: Node, payload: unknown) => void): T;
     (event: 'nodeConnect', listener: (node: Node) => void): T;

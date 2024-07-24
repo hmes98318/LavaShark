@@ -1,5 +1,5 @@
 import { AbstractExternalSource } from './AbstractExternalSource';
-import { LavaShark } from '../LavaShark';
+import LavaShark from '../LavaShark';
 import type { SearchResult } from '../../@types';
 export default class Deezer extends AbstractExternalSource {
     static readonly DEEZER_REGEX: RegExp;
