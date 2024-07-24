@@ -12,8 +12,7 @@ A lightweight Lavalink client built with Node.js.
 * Minimal CPU/memory footprint
 
 
-> Only compatible with Lavalink server that support REST API (version 3.7.x).  
-> Current stable Lavalink server version **v3.7.11**  
+> **LavaShark v2** only supports **Lavalink v4** nodes.  
 
 
 ## Installation
