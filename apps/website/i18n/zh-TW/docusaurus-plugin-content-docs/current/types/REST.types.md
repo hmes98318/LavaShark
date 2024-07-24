@@ -8,6 +8,8 @@
 - [LoadException](REST.types.md#loadexception)
 - [LoadResultBase](REST.types.md#loadresultbase)
 - [LoadTracksResult](REST.types.md#loadtracksresult)
+- [PlaylistData](REST.types.md#playlistdata)
+- [PlaylistLoadResult](REST.types.md#playlistloadresult)
 - [RequestOptions](REST.types.md#requestoptions)
 - [SearchResult](REST.types.md#searchresult)
 - [UpdatePlayerOptions](REST.types.md#updateplayeroptions)
@@ -31,7 +33,7 @@
 
 #### Defined in
 
-[@types/REST.types.ts:24](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L24)
+[@types/REST.types.ts:24](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L24)
 
 ___
 
@@ -48,7 +50,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:40](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L40)
+[@types/REST.types.ts:40](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L40)
 
 ___
 
@@ -61,12 +63,12 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `exception?` | [`LoadException`](REST.types.md#loadexception) |
-| `loadType` | ``"TRACK_LOADED"`` \| ``"PLAYLIST_LOADED"`` \| ``"SEARCH_RESULT"`` \| ``"NO_MATCHES"`` \| ``"LOAD_FAILED"`` |
-| `playlistInfo` | [`PlaylistInfo`](Track.types.md#playlistinfo) |
+| `loadType` | ``"track"`` \| ``"playlist"`` \| ``"search"`` \| ``"empty"`` \| ``"error"`` |
+| `playlistInfo?` | [`PlaylistInfo`](REST.types.md#playlistinfo) |
 
 #### Defined in
 
-[@types/REST.types.ts:45](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L45)
+[@types/REST.types.ts:48](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L48)
 
 ___
 
@@ -76,7 +78,35 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:51](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L51)
+[@types/REST.types.ts:51](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L51)
+
+___
+
+### PlaylistData
+
+Ƭ **PlaylistData**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `info` | [`PlaylistInfo`](REST.types.md#playlistinfo) |
+| `pluginInfo` | `object` |
+| `tracks` | [`ITrack`](./interfaces/Track.types.ITrack.md)[] |
+
+#### Defined in
+
+[@types/REST.types.ts:58](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L58)
+
+___
+
+### PlaylistLoadResult
+
+Ƭ **PlaylistLoadResult**: `Omit`\<[`LoadResultBase`](REST.types.md#loadresultbase), ``"loadType"``\> & \{ `data`: [`PlaylistData`](REST.types.md#playlistdata) ; `loadType`: ``"playlist"``  }
+
+#### Defined in
+
+[@types/REST.types.ts:64](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L64)
 
 ___
 
@@ -95,7 +125,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:33](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L33)
+[@types/REST.types.ts:33](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L33)
 
 ___
 
@@ -105,7 +135,7 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:55](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L55)
+[@types/REST.types.ts:55](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L55)
 
 ___
 
@@ -131,4 +161,4 @@ ___
 
 #### Defined in
 
-[@types/REST.types.ts:8](https://github.com/hmes98318/LavaShark/blob/50abc40/src/@types/REST.types.ts#L8)
+[@types/REST.types.ts:8](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/@types/REST.types.ts#L8)

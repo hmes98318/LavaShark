@@ -16,7 +16,7 @@
 
 #### Defined in
 
-[lib/Player.ts:18](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L18)
+[lib/Player.ts:19](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/Player.ts#L19)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:17](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L17)
+[lib/Player.ts:18](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/Player.ts#L18)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[lib/Player.ts:19](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/Player.ts#L19)
+[lib/Player.ts:20](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/Player.ts#L20)

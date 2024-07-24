@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[lib/queue/Track.ts:24](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L24)
+[lib/queue/Track.ts:24](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L24)
 
 ## Properties
 
@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[lib/queue/Track.ts:10](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L10)
+[lib/queue/Track.ts:11](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L11)
 
 ___
 
@@ -63,17 +63,17 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:11](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L11)
+[lib/queue/Track.ts:12](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L12)
 
 ___
 
-### encodedTrack
+### encoded
 
-• **encodedTrack**: `string`
+• **encoded**: `string`
 
 #### Defined in
 
-[lib/queue/Track.ts:20](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L20)
+[lib/queue/Track.ts:19](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L19)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:7](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L7)
+[lib/queue/Track.ts:8](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L8)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:9](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L9)
+[lib/queue/Track.ts:14](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L14)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:12](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L12)
+[lib/queue/Track.ts:15](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L15)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:18](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L18)
+[lib/queue/Track.ts:20](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L20)
 
 ___
 
@@ -123,17 +123,17 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:14](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L14)
+[lib/queue/Track.ts:18](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L18)
 
 ___
 
 ### requester
 
-• **requester**: `unknown`
+• **requester**: ``null`` | `User`
 
 #### Defined in
 
-[lib/queue/Track.ts:22](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L22)
+[lib/queue/Track.ts:17](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L17)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:13](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L13)
+[lib/queue/Track.ts:13](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L13)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:15](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L15)
+[lib/queue/Track.ts:10](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L10)
 
 ___
 
@@ -163,21 +163,21 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:16](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L16)
+[lib/queue/Track.ts:9](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L9)
 
 ## Accessors
 
 ### thumbnail
 
-• `get` **thumbnail**(): ``null`` \| `string`
+• `get` **thumbnail**(): ``null`` | `string`
 
 #### Returns
 
-``null`` \| `string`
+``null`` | `string`
 
 #### Defined in
 
-[lib/queue/Track.ts:42](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L42)
+[lib/queue/Track.ts:42](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L42)
 
 ## Methods
 
@@ -189,7 +189,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `requester` | `unknown` |
+| `requester` | ``null`` | `User` |
 
 #### Returns
 
@@ -197,4 +197,4 @@ ___
 
 #### Defined in
 
-[lib/queue/Track.ts:52](https://github.com/hmes98318/LavaShark/blob/50abc40/src/lib/queue/Track.ts#L52)
+[lib/queue/Track.ts:52](https://github.com/hmes98318/LavaShark/blob/bdb5d6203c6316405b9087cfd884b2899d298a4f/src/lib/queue/Track.ts#L52)
