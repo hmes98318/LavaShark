@@ -219,18 +219,28 @@ export default class LavaShark extends EventEmitter implements LavaSharkEvents {
      * Regularly check the connection state of all nodes
      */
     private keepCheckNodesState() {
-        this.#checkNodesStateTimer = setInterval(async () => {
-            for (const node of this.nodes) {
+        this.#checkNodesStateTimer = setInterval(() => {
+            const reconnectPromises = this.nodes.map(async node => {
                 if (node.state === NodeState.DISCONNECTED) {
+                    this.emit('warn', node, `Try to reconnect to the disconnected node "${node.identifier}"`);
+
                     try {
-                        this.emit('warn', node, `Try to reconnect to the disconnected node "${node.identifier}"`);
                         await node.reconnect();
-                    } catch (error) {
+                        this.emit('debug', node, `Successfully reconnected the disconnected node "${node.identifier}"`);
+                    } catch {
                         this.emit('warn', node, `Failed to reconnect the disconnected node "${node.identifier}"`);
                     }
                 }
-            }
-        }, 5 * 60 * 1000); // 5 minutes
+                else {
+                    // NodeState.CONNECTED
+                    return Promise.resolve();
+                }
+            });
+
+            Promise.allSettled(reconnectPromises).then(() => {
+                this.emit('debug', 'Checked the connection status of all nodes');
+            });
+        }, 5 * 60 * 1000);      // 5 minutes
     }
 
     /**
