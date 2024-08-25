@@ -13,6 +13,7 @@ import { VERSION } from "../index";
 
 import type {
     Info,
+    LoadException,
     NodeOptions,
     NodeStats,
     PlayerEventPayload,
@@ -248,7 +249,7 @@ export default class Node {
             await this.rest.updateSession(this.#resuming, this.options.resumeTimeout ?? 60);
             return true;
         } catch (_) {
-            this.#lavashark.emit('error', this, `Updating session failed, on node "${this.options.id}"`);
+            this.#lavashark.emit('error', this, new Error(`Updating session failed, on node "${this.options.id}"`));
             return false;
         }
     }
@@ -258,7 +259,7 @@ export default class Node {
             try {
                 this.#ws?.ping();
             } catch (error) {
-                this.#lavashark.emit('error', this, `Keeping node awake failed, try to reconnect node "${this.options.id}"`);
+                this.#lavashark.emit('error', this, new Error(`Keeping node awake failed, try to reconnect node "${this.options.id}"`));
                 await this.reconnect();
             }
         }, milliseconds);
@@ -376,7 +377,7 @@ export default class Node {
                 try {
                     newTrack = await newTrack.build();
                 } catch (err) {
-                    this.#lavashark.emit('trackException', player, newTrack, err);
+                    this.#lavashark.emit('trackException', player, newTrack, (err as LoadException & { cause: string }));
                     this.pollTrack(player);
                     return;
                 }
@@ -433,7 +434,7 @@ export default class Node {
             return;
         }
 
-        this.#lavashark.emit('trackStart', player, player.current);
+        this.#lavashark.emit('trackStart', player, player.current!);
     }
 
     private handleTrackEnd(ev: TrackEndEvent, player: Player) {
@@ -447,13 +448,13 @@ export default class Node {
         player.playing = false;
 
         if (['LOAD_FAILED', 'CLEANUP'].includes(ev.reason)) {
-            this.#lavashark.emit('trackEnd', player, player.current, ev.reason);
+            this.#lavashark.emit('trackEnd', player, player.current!, ev.reason);
 
             this.pollTrack(player);
             return;
         }
 
-        this.#lavashark.emit('trackEnd', player, player.current, ev.reason);
+        this.#lavashark.emit('trackEnd', player, player.current!, ev.reason);
 
         if (player.repeatMode === RepeatMode.TRACK) {
             player.play();
@@ -468,11 +469,11 @@ export default class Node {
     }
 
     private handleTrackStuck(ev: TrackStuckEvent, player: Player) {
-        this.#lavashark.emit('trackStuck', player, player.current, ev.thresholdMs);
+        this.#lavashark.emit('trackStuck', player, player.current!, ev.thresholdMs);
     }
 
     private handleTrackException(ev: TrackExceptionEvent, player: Player) {
-        this.#lavashark.emit('trackException', player, player.current, ev.exception);
+        this.#lavashark.emit('trackException', player, player.current!, ev.exception);
         player.skip();
     }
 

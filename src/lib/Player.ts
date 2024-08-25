@@ -7,6 +7,7 @@ import Filters from './Filters';
 
 import type { User } from 'discord.js';
 import type {
+    LoadException,
     PlayerOptions,
     PlayerState,
     PlayOptions,
@@ -230,7 +231,7 @@ export default class Player {
 
         this.node?.rest.destroyPlayer(this.guildId)
             .catch((_error) => {
-                this.#lavashark.emit('error', this.node, `Failed to send destroyPlayer signal to node "${this.node?.identifier}"`);
+                this.#lavashark.emit('error', this.node!, new Error(`Failed to send destroyPlayer signal to node "${this.node?.identifier}"`));
             });
 
         this.node = null;
@@ -316,8 +317,8 @@ export default class Player {
                 if (newTrack instanceof UnresolvedTrack) {
                     try {
                         newTrack = await newTrack.build();
-                    } catch (e) {
-                        this.#lavashark.emit('trackException', this, newTrack, e);
+                    } catch (err) {
+                        this.#lavashark.emit('trackException', this, newTrack, (err as LoadException & { cause: string }));
                         if (this.queue.size > 0) this.play();
                         return;
                     }

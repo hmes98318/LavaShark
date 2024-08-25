@@ -24,7 +24,7 @@ import type {
 } from '../@types';
 
 
-export default class LavaShark extends EventEmitter implements LavaSharkEvents {
+export default class LavaShark extends EventEmitter {
     public clientId: string;
     public nodes: Node[];
     public players: Map<string, Player>;    // <guildId, Player> 
@@ -143,6 +143,18 @@ export default class LavaShark extends EventEmitter implements LavaSharkEvents {
         this.#lastNodeSorting = 0;
     }
 
+    public emit<EventName extends keyof LavaSharkEvents>(event: EventName, ...args: Parameters<LavaSharkEvents[EventName]>): boolean {
+        return super.emit(event, ...args);
+    }
+
+    public on<EventName extends keyof LavaSharkEvents>(event: EventName, listener: LavaSharkEvents[EventName]): this {
+        return super.on(event, listener);
+    }
+
+    public once<EventName extends keyof LavaSharkEvents>(event: EventName, listener: LavaSharkEvents[EventName]): this {
+        return super.once(event, listener);
+    }
+
 
     /**
      * Get the best available node
@@ -226,7 +238,7 @@ export default class LavaShark extends EventEmitter implements LavaSharkEvents {
 
                     try {
                         await node.reconnect();
-                        this.emit('debug', node, `Successfully reconnected the disconnected node "${node.identifier}"`);
+                        this.emit('debug', `Successfully reconnected the disconnected node "${node.identifier}"`);
                     } catch {
                         this.emit('warn', node, `Failed to reconnect the disconnected node "${node.identifier}"`);
                     }

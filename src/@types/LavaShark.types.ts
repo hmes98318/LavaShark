@@ -44,30 +44,25 @@ export type Metadata = Pick<TrackInfo, 'title' | 'author' | 'uri'> & {
 
 
 /** LavaShark events */
-export interface LavaSharkEvents {
-    once: LavaSharkEventListeners<LavaShark>;
-    on: LavaSharkEventListeners<LavaShark>;
-}
-
-export type LavaSharkEventListeners<T> = {
-    (event: 'debug', listener: (message: string) => void): T;
-    (event: 'raw', listener: (node: Node, payload: unknown) => void): T;
-    (event: 'nodeConnect', listener: (node: Node) => void): T;
-    (event: 'nodeResume', listener: (node: Node) => void): T;
-    (event: 'nodeDisconnect', listener: (node: Node, code: number, reason: string) => void): T;
-    (event: 'warn', listener: (node: Node, warn: string) => void): T;
-    (event: 'error', listener: (node: Node, error: Error) => void): T;
-    (event: 'trackAdd', listener: (player: Player, tracks: Track | Array<Track>) => void): T;
-    (event: 'trackStart', listener: (player: Player, track: Track) => void): T;
-    (event: 'trackEnd', listener: (player: Player, track: Track, reason: TrackEndReason) => void): T;
-    (event: 'trackStuck', listener: (player: Player, track: Track, thresholdMs: number) => void): T;
-    (event: 'trackException', listener: (player: Player, track: Track | UnresolvedTrack, exception: LoadException & { cause: string }) => void): T;
-    (event: 'playerConnect', listener: (player: Player) => void): T;
-    (event: 'playerCreate', listener: (player: Player) => void): T;
-    (event: 'playerDestroy', listener: (player: Player) => void): T;
-    (event: 'playerDisconnect', listener: (player: Player, code: number, reason: string) => void): T;
-    (event: 'queueEnd', listener: (player: Player) => void): T;
-    (event: 'pong', listener: (node: Node, buffer: Buffer) => void): T;
+export type LavaSharkEvents = {
+    'debug': (message: string) => void;
+    'raw': (node: Node, payload: unknown) => void;
+    'nodeConnect': (node: Node) => void;
+    'nodeResume': (node: Node) => void;
+    'nodeDisconnect': (node: Node, code: number, reason: string) => void;
+    'warn': (node: Node, warn: string) => void;
+    'error': (node: Node, error: Error) => void;
+    'trackAdd': (player: Player, tracks: Track | UnresolvedTrack | Array<Track | UnresolvedTrack>) => void;
+    'trackStart': (player: Player, track: Track) => void;
+    'trackEnd': (player: Player, track: Track, reason: TrackEndReason) => void;
+    'trackStuck': (player: Player, track: Track, thresholdMs: number) => void;
+    'trackException': (player: Player, track: Track | UnresolvedTrack, exception: LoadException & { cause: string }) => void;
+    'playerConnect': (player: Player) => void;
+    'playerCreate': (player: Player) => void;
+    'playerDestroy': (player: Player) => void;
+    'playerDisconnect': (player: Player, code: number, reason: string) => void;
+    'queueEnd': (player: Player) => void;
+    'pong': (node: Node, buffer: Buffer) => void;
 }
 
 export type OutgoingDiscordPayload = {

@@ -5,7 +5,7 @@ import Player from './Player';
 import Track from './queue/Track';
 import { AbstractExternalSource } from './sources/AbstractExternalSource';
 import type { IncomingDiscordPayload, LavaSharkEvents, LavaSharkOptions, OutgoingDiscordPayload, PlayerOptions, SEARCH_SOURCE, SearchResult } from '../@types';
-export default class LavaShark extends EventEmitter implements LavaSharkEvents {
+export default class LavaShark extends EventEmitter {
     #private;
     clientId: string;
     nodes: Node[];
@@ -52,6 +52,9 @@ export default class LavaShark extends EventEmitter implements LavaSharkEvents {
      * @param {Function} options.sendWS - The function to send websocket messages to the main gateway
      */
     constructor(options: LavaSharkOptions);
+    emit<EventName extends keyof LavaSharkEvents>(event: EventName, ...args: Parameters<LavaSharkEvents[EventName]>): boolean;
+    on<EventName extends keyof LavaSharkEvents>(event: EventName, listener: LavaSharkEvents[EventName]): this;
+    once<EventName extends keyof LavaSharkEvents>(event: EventName, listener: LavaSharkEvents[EventName]): this;
     /**
      * Get the best available node
      * @returns {Promise<Node>}
