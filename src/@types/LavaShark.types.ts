@@ -1,4 +1,3 @@
-import type LavaShark from "../lib/LavaShark";
 import type Node from "../lib/Node";
 import type Player from "../lib/Player";
 import type Track from "../lib/queue/Track";
