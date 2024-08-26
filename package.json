@@ -25,7 +25,7 @@
     },
     "homepage": "https://lavashark.js.org",
     "dependencies": {
-        "undici": "^6.19.4",
+        "undici": "^6.19.8",
         "ws": "^8.18.0"
     },
     "devDependencies": {
