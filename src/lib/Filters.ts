@@ -246,6 +246,6 @@ export default class Filters {
         const payload = this.options;
         if (this.options.equalizer) { Object.assign(payload, { equalizer: this.options.equalizer.map((gain, band) => ({ band, gain })) }); }
 
-        this.player.node?.rest.updatePlayer(this.player.guildId, this.options);
+        this.player.node?.rest.updatePlayer(this.player.guildId, { filters: this.options });
     }
 }
