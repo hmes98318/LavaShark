@@ -107,6 +107,11 @@ export default class Player {
      */
     play(options?: PlayOptions): Promise<void>;
     /**
+     * Prioritizes playing a new track
+     * @param {Track | UnresolvedTrack} track - The track to prioritize
+     */
+    prioritizePlay(track: Track | UnresolvedTrack, requester: User): Promise<boolean>;
+    /**
      * Pause or unpause the player
      * @param {Boolean} [state=true] - Whether to pause or unpause the player
      */

@@ -341,6 +341,29 @@ export default class Player {
     }
 
     /**
+     * Prioritizes playing a new track
+     * @param {Track | UnresolvedTrack} track - The track to prioritize
+     */
+    public async prioritizePlay(track: Track | UnresolvedTrack, requester: User) {
+        track.setRequester(requester);
+        const inserted = this.queue.insert(0, track);
+
+        if (!inserted) {
+            throw new Error('Failed to insert track at the front of the queue');
+        }
+
+
+        if (this.playing && this.current) {
+            this.queue.add(this.current);
+            return await this.skip();
+        }
+        else {
+            await this.play();
+            return true;
+        }
+    }
+
+    /**
      * Pause or unpause the player
      * @param {Boolean} [state=true] - Whether to pause or unpause the player
      */
