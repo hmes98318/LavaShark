@@ -214,9 +214,8 @@ export default class Filters {
         if (typeof vol !== 'number') throw new TypeError('Volume must be an number.');
         if (vol < 0 || vol > 500) throw new TypeError('Volume must be an number between 0 and 500.');
 
-        this.options.volume = vol;
+        this.player.node?.rest.updatePlayer(this.player.guildId, { volume: vol });
 
-        if (apply) this.apply();
         return this;
     }
 
@@ -225,10 +224,12 @@ export default class Filters {
         this.options = {};
 
         for (const [filter, config] of Object.entries(filters)) {
-            if (!['channelMix', 'distortion', 'equalizer', 'karaoke', 'lowPass', 'rotation', 'timescale', 'tremolo', 'volume', 'vibrato'].includes(filter)) continue;
-
-            if (filter === 'volume') this.options[filter] = (config as number) / 100;
-            else this.options[filter] = config;
+            if (!['channelMix', 'distortion', 'equalizer', 'karaoke', 'lowPass', 'rotation', 'timescale', 'tremolo', 'vibrato'].includes(filter)) {
+                continue;
+            }
+            else {
+                this.options[filter] = config;
+            }
         }
 
         this.apply();
