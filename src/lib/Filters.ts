@@ -207,10 +207,9 @@ export default class Filters {
     /**
      * Sets the volume
      * @param vol - The volume to set [0,500]
-     * @param apply - Whether to send filter payload to Lavalink or not
      * @returns The filters instance, for chaining calls
      */
-    public setVolume(vol: number, apply = true): this {
+    public setVolume(vol: number): this {
         if (typeof vol !== 'number') throw new TypeError('Volume must be an number.');
         if (vol < 0 || vol > 500) throw new TypeError('Volume must be an number between 0 and 500.');
 
