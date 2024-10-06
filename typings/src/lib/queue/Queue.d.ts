@@ -17,6 +17,13 @@ export declare class Queue {
      */
     add(track: Track | UnresolvedTrack): void;
     /**
+     * Inserts a track at the specified index, moving subsequent tracks back.
+     * @param {number} index - The index at which to insert the track.
+     * @param {Track | UnresolvedTrack} track - The track to insert.
+     * @throws {RangeError} Throws an error if the index is out of range.
+     */
+    insert(index: number, track: Track | UnresolvedTrack): boolean;
+    /**
      * Polls the queue for the next track.
      * @returns {Track | UnresolvedTrack | null} The next track in the queue or null if the queue is empty.
      */
@@ -52,4 +59,11 @@ export declare class Queue {
      * @returns {boolean} Returns true if the tracks were successfully removed, false otherwise
      */
     remove(start: number, end: number): boolean;
+    /**
+     * Moves a track from one index to another within the queue.
+     * @param {number} index1 - The current index of the track.
+     * @param {number} index2 - The new index to which the track should be moved.
+     * @returns {boolean} Returns true if the track was successfully moved, false otherwise.
+     */
+    move(index1: number, index2: number): boolean;
 }

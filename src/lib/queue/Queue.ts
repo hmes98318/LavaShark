@@ -32,6 +32,21 @@ export class Queue {
     }
 
     /**
+     * Inserts a track at the specified index, moving subsequent tracks back.
+     * @param {number} index - The index at which to insert the track.
+     * @param {Track | UnresolvedTrack} track - The track to insert.
+     * @throws {RangeError} Throws an error if the index is out of range.
+     */
+    public insert(index: number, track: Track | UnresolvedTrack) {
+        if (index < 0 || index > this.tracks.length) {
+            return false;
+        }
+
+        this.tracks.splice(index, 0, track);
+        return true;
+    }
+
+    /**
      * Polls the queue for the next track.
      * @returns {Track | UnresolvedTrack | null} The next track in the queue or null if the queue is empty.
      */
@@ -107,6 +122,26 @@ export class Queue {
             }
             this.tracks.splice(arg1, 1);
         }
+        return true;
+    }
+
+    /**
+     * Moves a track from one index to another within the queue.
+     * @param {number} index1 - The current index of the track.
+     * @param {number} index2 - The new index to which the track should be moved.
+     * @returns {boolean} Returns true if the track was successfully moved, false otherwise.
+     */
+    public move(index1: number, index2: number): boolean {
+        if (
+            (index1 < 0 || index1 >= this.tracks.length) ||
+            (index2 < 0 || index2 >= this.tracks.length)
+        ) {
+            // Invalid index
+            return false;
+        }
+
+        // Swap the elements at index1 and index2
+        [this.tracks[index1], this.tracks[index2]] = [this.tracks[index2], this.tracks[index1]];
         return true;
     }
 }
