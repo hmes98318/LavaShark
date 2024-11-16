@@ -213,6 +213,8 @@ export default class Filters {
         if (typeof vol !== 'number') throw new TypeError('Volume must be an number.');
         if (vol < 0 || vol > 500) throw new TypeError('Volume must be an number between 0 and 500.');
 
+        this.options.volume = vol;
+
         this.player.node?.rest.updatePlayer(this.player.guildId, { volume: vol });
 
         return this;
@@ -220,7 +222,7 @@ export default class Filters {
 
     /** Sets all filters */
     public set(filters: FilterOptions): void {
-        this.options = {};
+        this.options = this.options.volume ? { volume: this.options.volume } : {};
 
         for (const [filter, config] of Object.entries(filters)) {
             if (!['channelMix', 'distortion', 'equalizer', 'karaoke', 'lowPass', 'rotation', 'timescale', 'tremolo', 'vibrato'].includes(filter)) {
@@ -244,8 +246,11 @@ export default class Filters {
     /** Sends filters payload to Lavalink Node */
     public apply(): void {
         const payload = this.options;
+        if('volume' in payload) {
+            delete payload.volume;
+        }
         if (this.options.equalizer) { Object.assign(payload, { equalizer: this.options.equalizer.map((gain, band) => ({ band, gain })) }); }
 
-        this.player.node?.rest.updatePlayer(this.player.guildId, { filters: this.options });
+        this.player.node?.rest.updatePlayer(this.player.guildId, { filters: payload });
     }
 }
