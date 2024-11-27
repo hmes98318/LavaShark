@@ -25,19 +25,19 @@
     },
     "homepage": "https://lavashark.js.org",
     "dependencies": {
-        "undici": "^6.19.8",
+        "undici": "^6.21.0",
         "ws": "^8.18.0"
     },
     "devDependencies": {
-        "@types/ws": "^8.5.11",
+        "@types/ws": "^8.5.13",
         "@typescript-eslint/eslint-plugin": "^7.16.1",
         "@typescript-eslint/parser": "^7.16.1",
         "discord.js": "^14.15.3",
         "eslint": "^8.57.0",
-        "ts-node": "^10.9.2",
+        "tsx": "^4.19.2",
         "typedoc": "^0.25.12",
         "typedoc-plugin-markdown": "^3.17.1",
-        "typescript": "~5.4.2"
+        "typescript": "~5.4.5"
     },
     "engines": {
         "node": ">=18.12.0"
