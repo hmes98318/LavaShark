@@ -103,10 +103,9 @@ export default class Filters {
     /**
      * Sets the volume
      * @param vol - The volume to set [0,500]
-     * @param apply - Whether to send filter payload to Lavalink or not
      * @returns The filters instance, for chaining calls
      */
-    setVolume(vol: number, apply?: boolean): this;
+    setVolume(vol: number): this;
     /** Sets all filters */
     set(filters: FilterOptions): void;
     /** Clears all active filters */

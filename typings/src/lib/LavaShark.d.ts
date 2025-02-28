@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { EventEmitter } from 'events';
 import Node from './Node';
 import Player from './Player';

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import type Node from "../lib/Node";
 import type Player from "../lib/Player";
 import type Track from "../lib/queue/Track";
