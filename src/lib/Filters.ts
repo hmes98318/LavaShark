@@ -51,8 +51,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('ChannelMixOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('ChannelMixOptions must be an object.');
 
-        options === null ? delete this.options.channelMix : this.options.channelMix = options;
+        if (options === null) {
+            delete this.options.channelMix;
+        }
+        else {
+            this.options.channelMix = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -74,8 +81,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('DistortionOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('DistortionOptions must be an object.');
 
-        options === null ? delete this.options.distortion : this.options.distortion = options;
+        if (options === null) {
+            delete this.options.distortion;
+        }
+        else {
+            this.options.distortion = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -115,8 +129,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('KaraokeOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('KaraokeOptions must be an object.');
 
-        options === null ? delete this.options.karaoke : this.options.karaoke = options;
+        if (options === null) {
+            delete this.options.karaoke;
+        }
+        else {
+            this.options.karaoke = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -131,7 +152,13 @@ export default class Filters {
         if (options === undefined) throw new TypeError('LowPassOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('LowPassOptions must be an object.');
 
-        options === null ? delete this.options.lowPass : this.options.lowPass = options;
+        if (options === null) {
+            delete this.options.lowPass;
+        }
+        else {
+            this.options.lowPass = options;
+        }
+
         if (apply) this.apply();
         return this;
     }
@@ -147,8 +174,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('RotationOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('RotationOptions must be an object.');
 
-        options === null ? delete this.options.rotation : this.options.rotation = options;
+        if (options === null) {
+            delete this.options.rotation;
+        }
+        else {
+            this.options.rotation = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -165,8 +199,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('TimescaleOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('TimescaleOptions must be an object.');
 
-        options === null ? delete this.options.timescale : this.options.timescale = options;
+        if (options === null) {
+            delete this.options.timescale;
+        }
+        else {
+            this.options.timescale = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -182,8 +223,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('TremoloOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('TremoloOptions must be an object.');
 
-        options === null ? delete this.options.tremolo : this.options.tremolo = options;
+        if (options === null) {
+            delete this.options.tremolo;
+        }
+        else {
+            this.options.tremolo = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -199,8 +247,15 @@ export default class Filters {
         if (options === undefined) throw new TypeError('VibratoOptions must not be empty!');
         if (typeof options !== 'object' || Array.isArray(options)) throw new TypeError('VibratoOptions must be an object.');
 
-        options === null ? delete this.options.vibrato : this.options.vibrato = options;
+        if (options === null) {
+            delete this.options.vibrato;
+        }
+        else {
+            this.options.vibrato = options;
+        }
+
         if (apply) this.apply();
+
         return this;
     }
 
@@ -246,7 +301,7 @@ export default class Filters {
     /** Sends filters payload to Lavalink Node */
     public apply(): void {
         const payload = this.options;
-        if('volume' in payload) {
+        if ('volume' in payload) {
             delete payload.volume;
         }
         if (this.options.equalizer) { Object.assign(payload, { equalizer: this.options.equalizer.map((gain, band) => ({ band, gain })) }); }
