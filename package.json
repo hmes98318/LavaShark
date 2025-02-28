@@ -25,22 +25,23 @@
     },
     "homepage": "https://lavashark.js.org",
     "dependencies": {
-        "undici": "^6.21.0",
-        "ws": "^8.18.0"
+        "undici": "^7.4.0",
+        "ws": "^8.18.1"
     },
     "devDependencies": {
-        "@types/ws": "^8.5.13",
-        "@typescript-eslint/eslint-plugin": "^7.16.1",
-        "@typescript-eslint/parser": "^7.16.1",
-        "discord.js": "^14.15.3",
-        "eslint": "^8.57.0",
-        "tsx": "^4.19.2",
-        "typedoc": "^0.25.12",
-        "typedoc-plugin-markdown": "^3.17.1",
-        "typescript": "~5.4.5"
+        "@eslint/js": "^9.21.0",
+        "@types/ws": "^8.5.14",
+        "discord.js": "^14.18.0",
+        "eslint": "^9.21.0",
+        "globals": "^16.0.0",
+        "tsx": "^4.19.3",
+        "typedoc": "^0.27.9",
+        "typedoc-plugin-markdown": "^4.4.2",
+        "typescript": "~5.7.3",
+        "typescript-eslint": "^8.25.0"
     },
     "engines": {
-        "node": ">=18.12.0"
+        "node": ">=22.12.0"
     },
     "keywords": [
         "lavalink",
