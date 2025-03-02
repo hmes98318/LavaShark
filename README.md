@@ -16,7 +16,7 @@ A lightweight Lavalink client built with Node.js.
 
 
 ## Installation
-Node.js **v18.12** or higher is required.  
+Node.js **v22.12.0** or higher is required.  
 * You need at least one [Lavalink Server](https://github.com/lavalink-devs/Lavalink) node to run. Please refer to the [Server Configuration](https://lavashark.js.org/docs/server-config) section for setting up the configuration.
 
 ```bash
