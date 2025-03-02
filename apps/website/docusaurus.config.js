@@ -73,7 +73,7 @@ const config = {
                     editUrl:
                         'https://github.com/hmes98318/LavaShark/blob/main/apps/website/',
                     lastVersion: lastVersion,
-                    // onlyIncludeVersions: versionList,
+                    onlyIncludeVersions: versionList,
                     versions: versionListConversion(versionList),
                 },
                 blog: {
@@ -97,11 +97,6 @@ const config = {
                 defaultMode: 'dark',
                 disableSwitch: false,
                 respectPrefersColorScheme: false,
-            },
-            algolia: {
-                apiKey: 'd012934f4a6a049a495bd0b1db01333c',
-                indexName: 'bear-react-carousel',
-                appId: '7V7AV8Y672',
             },
             // Replace with your project's social card
             image: 'img/social-card.webp',
