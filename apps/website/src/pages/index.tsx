@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, JSX } from 'react';
 import clsx from 'clsx';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -11,7 +11,6 @@ import CopySvg from '@site/static/img/copy.svg';
 import CopiedSvg from '@site/static/img/copied.svg';
 
 import styles from './index.module.css';
-import 'bear-react-carousel/dist/index.css';
 
 function HomepageHeader() {
     const codeToCopy = 'npm install lavashark';
