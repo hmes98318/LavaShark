@@ -98,6 +98,11 @@ const config = {
                 disableSwitch: false,
                 respectPrefersColorScheme: false,
             },
+            algolia: {
+                apiKey: 'b95a0b72ef86a760cca486b578974912',
+                indexName: 'algolia-site-verification',
+                appId: 'GUQW5TR4FG',
+            },
             // Replace with your project's social card
             image: 'img/social-card.webp',
             navbar: {
