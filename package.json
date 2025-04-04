@@ -25,6 +25,8 @@
     },
     "homepage": "https://lavashark.js.org",
     "dependencies": {
+        "node-html-parser": "^7.0.1",
+        "otpauth": "^9.4.0",
         "undici": "^7.4.0",
         "ws": "^8.18.1"
     },

@@ -18,6 +18,9 @@ export default class Spotify extends AbstractExternalSource {
     private buildTrack;
     private makeRequest;
     private renewToken;
+    private buildTokenUrl;
+    private calculateToken;
+    private getAccessTokenUrl;
     private getAnonymousToken;
     private getToken;
 }

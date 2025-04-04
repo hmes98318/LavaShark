@@ -1,3 +1,5 @@
+import { parse } from "node-html-parser";
+import { Secret, TOTP } from "otpauth";
 import { request } from 'undici';
 
 import { AbstractExternalSource } from './AbstractExternalSource';
@@ -288,12 +290,106 @@ export default class Spotify extends AbstractExternalSource {
         }
     }
 
+    private buildTokenUrl() {
+        const baseUrl = new URL("https://open.spotify.com/get_access_token");
+
+        baseUrl.searchParams.set("reason", "init");
+        baseUrl.searchParams.set("productType", "web-player");
+
+        return baseUrl;
+    }
+
+    private calculateToken(hex: Array<number>) {
+        const token = hex.map((v, i) => v ^ ((i % 33) + 9));
+        const bufferToken = Buffer.from(token.join(""), "utf8").toString("hex");
+
+        return Secret.fromHex(bufferToken);
+    }
+
+    /**
+     * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
+     * Source: https://github.com/iTsMaaT/discord-player-spotify
+     *
+     * The original code is licensed under the MIT License.
+     */
+    private async getAccessTokenUrl() {
+        if (this.auth) return "https://accounts.spotify.com/api/token?grant_type=client_credentials";
+
+        const token = this.calculateToken([12, 56, 76, 33, 88, 44, 88, 33, 78, 78, 11, 66, 22, 22, 55, 69, 54]);
+
+        const spotifyHtml = await fetch("https://open.spotify.com", {
+            headers: {
+                "User-Agent": Spotify.USER_AGENT,
+            },
+        }).then((v) => v.text());
+
+        const root = parse(spotifyHtml);
+        const scriptTags = root.querySelectorAll("script");
+        const playerSrc = scriptTags.find((v) => v.getAttribute("src")?.includes("web-player/web-player."))?.getAttribute("src");
+
+        if (!playerSrc) throw new Error("Could not find player script source");
+
+
+        const playerScript = await fetch(playerSrc, {
+            headers: {
+                Dnt: "1",
+                Referer: "https://open.spotify.com/",
+                "User-Agent": Spotify.USER_AGENT,
+            },
+        }).then((v) => v.text());
+
+        const playerVerSplit = playerScript.split("buildVer");
+        const versionString = `{"buildVer"${playerVerSplit[1].split("}")[0].replace("buildDate", "\"buildDate\"")}}`;
+        const version = JSON.parse(versionString);
+
+        const url = this.buildTokenUrl();
+        const { searchParams } = url;
+
+        const cTime = Date.now();
+        const sTime = await fetch("https://open.spotify.com/server-time", {
+            headers: {
+                Referer: "https://open.spotify.com/",
+                Origin: "https://open.spotify.com",
+            },
+        })
+            .then((v) => v.json())
+            .then((v: any) => v.serverTime);
+
+        const totp = new TOTP({
+            secret: token,
+            period: 30,
+            digits: 6,
+            algorithm: "SHA1",
+        });
+
+        const totpServer = totp.generate({
+            timestamp: sTime * 1e3,
+        });
+        const totpClient = totp.generate({
+            timestamp: cTime,
+        });
+
+        searchParams.set("sTime", String(sTime));
+        searchParams.set("cTime", String(cTime));
+        searchParams.set("totp", totpClient);
+        searchParams.set("totpServer", totpServer);
+        searchParams.set("totpVer", "5");
+        searchParams.set("buildVer", version.buildVer);
+        searchParams.set("buildDate", version.buildDate);
+
+        return url;
+    }
+
     private async getAnonymousToken() {
+        const accessTokenUrl = await this.getAccessTokenUrl();
+
         const {
             accessToken,
             accessTokenExpirationTimestampMs
-        } = await request('https://open.spotify.com/get_access_token?reason=transport&productType=embed', {
+        } = await request(accessTokenUrl, {
             headers: {
+                Referer: "https://open.spotify.com/",
+                Origin: "https://open.spotify.com",
                 'User-Agent': Spotify.USER_AGENT
             }
         }).then(r => r.body.json() as Promise<IAnonymousTokenResponse>);
