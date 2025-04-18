@@ -20,6 +20,12 @@ export default class Spotify extends AbstractExternalSource {
     private renewToken;
     private buildTokenUrl;
     private calculateToken;
+    /**
+     * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
+     * Source: https://github.com/iTsMaaT/discord-player-spotify
+     *
+     * The original code is licensed under the MIT License.
+     */
     private getAccessTokenUrl;
     private getAnonymousToken;
     private getToken;
