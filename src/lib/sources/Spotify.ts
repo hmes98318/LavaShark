@@ -434,6 +434,7 @@ export default class Spotify extends AbstractExternalSource {
             this.renewDate = accessTokenExpirationTimestampMs - 5000;
         } catch (error) {
             // Let the error propagate up to try the fallback method
+            console.error('Error getting Spotify anonymous token:', error);
             throw error;
         }
     }
