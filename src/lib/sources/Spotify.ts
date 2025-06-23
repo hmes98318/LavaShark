@@ -65,7 +65,7 @@ interface ISpotifyError {
 export default class Spotify extends AbstractExternalSource {
     public static readonly SPOTIFY_REGEX = /^(?:https?:\/\/(?:open\.)?spotify\.com|spotify)[/:](?:intl-[a-zA-Z]+\/)?(?<type>track|album|playlist|artist)[/:](?<id>[a-zA-Z0-9]+)/;
 
-    private static readonly USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36';
+    private static readonly USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36';
 
     private readonly auth: string | null;
 
@@ -271,6 +271,8 @@ export default class Spotify extends AbstractExternalSource {
         const res = await request(`https://api.spotify.com/v1/${endpoint}`, {
             headers: {
                 Authorization: this.token as string,
+                Referer: "https://open.spotify.com/",
+                Origin: "https://open.spotify.com",
             }
         }).then(r => r.body.json()) as any;
 
@@ -282,16 +284,37 @@ export default class Spotify extends AbstractExternalSource {
     }
 
     private async renewToken() {
-        if (this.auth) {
-            await this.getToken();
+        try {
+            if (this.auth) {
+                await this.getToken();
+            } else {
+                await this.getAnonymousToken();
+            }
+        } catch (error) {
+            // Try fallback method
+            console.error('Error renewing Spotify token:', error);
+            await this.getTokenFallback();
         }
-        else {
-            await this.getAnonymousToken();
+    }
+
+    private async getTokenFallback() {
+        try {
+            const response = await fetch("https://open.spotify.com/");
+            const body = await response.text();
+            const token = body.match(/"accessToken":"(.+?)"/)?.[1];
+            const expiresAfter = Number(body.match(/"accessTokenExpirationTimestampMs":(\d+)/)?.[1]) || 1000 * 60 * 60;
+
+            if (!token) throw new Error("Failed to retrieve access token from Spotify.");
+
+            this.token = `Bearer ${token}`;
+            this.renewDate = expiresAfter - 5000;
+        } catch (error) {
+            throw new Error("Failed to retrieve access token from Spotify.");
         }
     }
 
     private buildTokenUrl() {
-        const baseUrl = new URL("https://open.spotify.com/get_access_token");
+        const baseUrl = new URL("https://open.spotify.com/api/token");
 
         baseUrl.searchParams.set("reason", "init");
         baseUrl.searchParams.set("productType", "web-player");
@@ -309,6 +332,7 @@ export default class Spotify extends AbstractExternalSource {
     /**
      * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
      * Source: https://github.com/iTsMaaT/discord-player-spotify
+     * Commit: ece41db6390e0f22eb8e6008e8892851425a0142
      *
      * The original code is licensed under the MIT License.
      */
@@ -338,18 +362,25 @@ export default class Spotify extends AbstractExternalSource {
             },
         }).then((v) => v.text());
 
-        const playerVerSplit = playerScript.split("buildVer");
-        const versionString = `{"buildVer"${playerVerSplit[1].split("}")[0].replace("buildDate", "\"buildDate\"")}}`;
-        const version = JSON.parse(versionString);
+        const versionMatch = playerScript.match(/buildVer["']?\s*:\s*["']?([^,"'}\s]+)["']?,\s*buildDate["']?\s*:\s*["']?([^,"'}\s]+)["']?/);
+
+        if (!versionMatch)
+            throw new Error("Could not extract buildVer/buildDate from player script");
+
+        const version = {
+            buildVer: versionMatch[1],
+            buildDate: versionMatch[2],
+        };
 
         const url = this.buildTokenUrl();
         const { searchParams } = url;
 
         const cTime = Date.now();
-        const sTime = await fetch("https://open.spotify.com/server-time", {
+        const sTime = await fetch("https://open.spotify.com/api/server-time/", {
             headers: {
                 Referer: "https://open.spotify.com/",
                 Origin: "https://open.spotify.com",
+                "User-Agent": Spotify.USER_AGENT,
             },
         })
             .then((v) => v.json())
@@ -381,25 +412,30 @@ export default class Spotify extends AbstractExternalSource {
     }
 
     private async getAnonymousToken() {
-        const accessTokenUrl = await this.getAccessTokenUrl();
+        try {
+            const accessTokenUrl = await this.getAccessTokenUrl();
 
-        const {
-            accessToken,
-            accessTokenExpirationTimestampMs
-        } = await request(accessTokenUrl, {
-            headers: {
-                Referer: "https://open.spotify.com/",
-                Origin: "https://open.spotify.com",
-                'User-Agent': Spotify.USER_AGENT
+            const {
+                accessToken,
+                accessTokenExpirationTimestampMs
+            } = await request(accessTokenUrl, {
+                headers: {
+                    Referer: "https://open.spotify.com/",
+                    Origin: "https://open.spotify.com",
+                    'User-Agent': Spotify.USER_AGENT
+                }
+            }).then(r => r.body.json() as Promise<IAnonymousTokenResponse>);
+
+            if (!accessToken) {
+                throw new Error('Failed to get anonymous token on Spotify.');
             }
-        }).then(r => r.body.json() as Promise<IAnonymousTokenResponse>);
 
-        if (!accessToken) {
-            throw new Error('Failed to get anonymous token on Spotify.');
+            this.token = `Bearer ${accessToken}`;
+            this.renewDate = accessTokenExpirationTimestampMs - 5000;
+        } catch (error) {
+            // Let the error propagate up to try the fallback method
+            throw error;
         }
-
-        this.token = `Bearer ${accessToken}`;
-        this.renewDate = accessTokenExpirationTimestampMs - 5000;
     }
 
     private async getToken() {

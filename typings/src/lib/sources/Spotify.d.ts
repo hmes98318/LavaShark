@@ -18,11 +18,13 @@ export default class Spotify extends AbstractExternalSource {
     private buildTrack;
     private makeRequest;
     private renewToken;
+    private getTokenFallback;
     private buildTokenUrl;
     private calculateToken;
     /**
      * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
      * Source: https://github.com/iTsMaaT/discord-player-spotify
+     * Commit: ece41db6390e0f22eb8e6008e8892851425a0142
      *
      * The original code is licensed under the MIT License.
      */
