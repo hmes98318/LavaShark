@@ -42,8 +42,9 @@ export default class Node {
     connect(): void;
     /**
      * Disconnect from node
+     * @param {boolean} full - Fully disconnect the node. Removes it from the nodes list and stops the periodic reconnection
      */
-    disconnect(): void;
+    disconnect(full?: boolean): void;
     /**
      * Reconnects the node
      */

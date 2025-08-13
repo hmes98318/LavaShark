@@ -256,6 +256,20 @@ export default class LavaShark extends EventEmitter {
     }
 
     /**
+     * Stop the reconnection check of the node
+     * @param {string} nodeIdentifier - The identifier of the node
+     */
+    public stopCheckNodeState(nodeIdentifier: string) {
+        this.nodes = this.nodes.filter(node => node.identifier !== nodeIdentifier);
+
+        if (this.nodes.length === 0 && this.#checkNodesStateTimer) {
+            clearInterval(this.#checkNodesStateTimer);
+            this.#checkNodesStateTimer = undefined;
+            this.emit('debug', 'Stopped checking node states because there are no connected nodes left');
+        }
+    }
+
+    /**
      * Creates a new player or returns an existing one
      * @param {object} options - The player options
      * @param {string} options.guildId - The guild id that player belongs to

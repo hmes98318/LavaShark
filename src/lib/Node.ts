@@ -226,8 +226,10 @@ export default class Node {
 
     /**
      * Disconnect from node
+     * @param {boolean} full - Fully disconnect the node. Removes it from the nodes list and stops the periodic reconnection
      */
-    public disconnect() {
+    public disconnect(full: boolean = false) {
+        if (full && this.#lavashark) this.#lavashark.stopCheckNodeState(this.identifier);
         if (this.#ws !== null) this.#ws.close(1000, 'LavaShark: disconnect');
     }
 
