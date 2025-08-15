@@ -30,11 +30,11 @@
 | `nodeDisconnect` | `node`: [`Node`](../classes/Node.md), `code`: `number`, `reason`: `string` |
 | `warn` | `node`: [`Node`](../classes/Node.md), `warn`: `string` |
 | `error` | `node`: [`Node`](../classes/Node.md), `error`: `Error` |
-| `trackAdd` | `player`: [`Player`](../classes/Player.md), `tracks`: [`Track`](../classes/Track.md) \| Array<[`Track`](../classes/Track.md)> |
+| `trackAdd` | `player`: [`Player`](../classes/Player.md), `tracks`: [`Track`](../classes/Track.md) \| Array\<[`Track`](../classes/Track.md)\> |
 | `trackStart` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md) |
 | `trackEnd` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `reason`: [`TrackEndReason`](Node.types.md#trackendreason) |
 | `trackStuck` | `player`: [`Player`](../classes/Player.md), `track`: [`Track`](../classes/Track.md), `thresholdMs`: `number` |
-| `trackException` | `player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](REST.types.md#loadexception) & { `cause`: `string`  } |
+| `trackException` | `player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](REST.types.md#loadexception) & \{ `cause`: `string`  \} |
 | `playerCreate` | `player`: [`Player`](../classes/Player.md) |
 | `playerDestroy` | `player`: [`Player`](../classes/Player.md) |
 | `playerDisconnect` | `player`: [`Player`](../classes/Player.md), `code`: `number`, `reason`: `string` |
@@ -223,7 +223,7 @@ LavaShark events
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"trackException"`` |
-| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](REST.types.md#loadexception) & { `cause`: `string`  }) => `void` |
+| `listener` | (`player`: [`Player`](../classes/Player.md), `track`: `default` \| [`Track`](../classes/Track.md), `exception`: [`LoadException`](REST.types.md#loadexception) & \{ `cause`: `string`  \}) => `void` |
 
 ##### Returns
 
@@ -370,7 +370,7 @@ ___
 
 ### Metadata
 
-Ƭ **Metadata**: `Pick`<[`TrackInfo`](Track.types.md#trackinfo), ``"title"`` \| ``"author"`` \| ``"uri"``\> & { `duration`: [`Timestamp`](./interfaces/Track.types.Timestamp.md) ; `isrc?`: `string` ; `source`: `string`  }
+Ƭ **Metadata**: `Pick`\<[`TrackInfo`](Track.types.md#trackinfo), ``"title"`` \| ``"author"`` \| ``"uri"``\> & \{ `duration`: [`Timestamp`](./interfaces/Track.types.Timestamp.md) ; `isrc?`: `string` ; `source`: `string`  \}
 
 #### Defined in
 
@@ -386,7 +386,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `d` | `Record`<`string`, `unknown`\> |
+| `d` | `Record`\<`string`, `unknown`\> |
 | `op` | `number` |
 
 #### Defined in
@@ -453,7 +453,7 @@ ___
 
 ### VoiceServerUpdatePayload
 
-Ƭ **VoiceServerUpdatePayload**: [`IncomingDiscordPayload`](LavaShark.types.md#incomingdiscordpayload) & { `d`: [`VoiceServerUpdateData`](LavaShark.types.md#voiceserverupdatedata) ; `t`: ``"VOICE_SERVER_UPDATE"``  }
+Ƭ **VoiceServerUpdatePayload**: [`IncomingDiscordPayload`](LavaShark.types.md#incomingdiscordpayload) & \{ `d`: [`VoiceServerUpdateData`](LavaShark.types.md#voiceserverupdatedata) ; `t`: ``"VOICE_SERVER_UPDATE"``  \}
 
 #### Defined in
 
@@ -463,7 +463,7 @@ ___
 
 ### VoiceStateUpdatePayload
 
-Ƭ **VoiceStateUpdatePayload**: [`IncomingDiscordPayload`](LavaShark.types.md#incomingdiscordpayload) & { `d`: { `channel_id`: `string` \| ``null`` ; `guild_id`: `string` ; `session_id`: `string` ; `user_id`: `string`  } ; `t`: ``"VOICE_STATE_UPDATE"``  }
+Ƭ **VoiceStateUpdatePayload**: [`IncomingDiscordPayload`](LavaShark.types.md#incomingdiscordpayload) & \{ `d`: \{ `channel_id`: `string` \| ``null`` ; `guild_id`: `string` ; `session_id`: `string` ; `user_id`: `string`  \} ; `t`: ``"VOICE_STATE_UPDATE"``  \}
 
 #### Defined in
 

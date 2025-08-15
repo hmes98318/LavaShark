@@ -82,9 +82,9 @@ ___
 
 ### players
 
-• **players**: `Map`<`string`, [`Player`](Player.md)>
+• **players**: `Map`\<`string`, [`Player`](Player.md)\>
 
-<guildId, Player>
+\<guildId, Player\>
 
 #### Defined in
 
@@ -169,13 +169,13 @@ ___
 
 ### bestNode
 
-▸ **bestNode**(): `Promise`<[`Node`](Node.md)>
+▸ **bestNode**(): `Promise`\<[`Node`](Node.md)\>
 
 取得最佳可用節點  
 
 #### Returns
 
-`Promise`<[`Node`](Node.md)>
+`Promise`\<[`Node`](Node.md)\>
 
 #### Defined in
 
@@ -207,7 +207,7 @@ ___
 
 ### decodeTrack
 
-▸ **decodeTrack**(`encoded`): `Promise`<[`Track`](Track.md)>
+▸ **decodeTrack**(`encoded`): `Promise`\<[`Track`](Track.md)\>
 
 解碼以 base64 字串表示的音軌
 
@@ -219,7 +219,7 @@ ___
 
 #### Returns
 
-`Promise`<[`Track`](Track.md)>
+`Promise`\<[`Track`](Track.md)\>
 
 #### Defined in
 
@@ -229,7 +229,7 @@ ___
 
 ### decodeTracks
 
-▸ **decodeTracks**(`encodedTracks`): `Promise`<[`Track`](Track.md)[]>
+▸ **decodeTracks**(`encodedTracks`): `Promise`\<[`Track`](Track.md)[]\>
 
 解碼多個音軌的 base64 字串
 
@@ -241,7 +241,7 @@ ___
 
 #### Returns
 
-`Promise`<[`Track`](Track.md)[]>
+`Promise`\<[`Track`](Track.md)[]\>
 
 #### Defined in
 
@@ -326,7 +326,7 @@ ___
 
 ### nodePing
 
-▸ **nodePing**(`node`, `timeout?`): `Promise`<`number`>
+▸ **nodePing**(`node`, `timeout?`): `Promise`\<`number`\>
 
 獲取單個節點的 ping 值
 
@@ -339,7 +339,7 @@ ___
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - 節點的延遲，以毫秒為單位
 
@@ -351,7 +351,7 @@ ___
 
 ### nodesPing
 
-▸ **nodesPing**(`timeout?`): `Promise`<`number`[]>
+▸ **nodesPing**(`timeout?`): `Promise`\<`number`[]\>
 
 獲取所有節點的 ping 值
 
@@ -363,7 +363,7 @@ ___
 
 #### Returns
 
-`Promise`<`number`[]>
+`Promise`\<`number`[]\>
 
 - 所有節點的延遲，以毫秒為單位
 
@@ -437,7 +437,7 @@ ___
 
 ### search
 
-▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/REST.types.md#searchresult)>
+▸ **search**(`query`, `source?`): `Promise`\<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 通過歌曲名稱進行搜索或使用歌曲連結
 
@@ -450,7 +450,7 @@ ___
 
 #### Returns
 
-`Promise`<[`SearchResult`](../types/REST.types.md#searchresult)>
+`Promise`\<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 #### Defined in
 

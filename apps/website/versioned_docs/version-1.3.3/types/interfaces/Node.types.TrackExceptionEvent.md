@@ -24,7 +24,7 @@ Lavalink node incoming payloads
 
 ### exception
 
-• **exception**: [`LoadException`](../REST.types.md#loadexception) & { `cause`: `string`  }
+• **exception**: [`LoadException`](../REST.types.md#loadexception) & \{ `cause`: `string`  \}
 
 #### Defined in
 

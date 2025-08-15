@@ -36,15 +36,15 @@ Lavalink Info
 | :------ | :------ |
 | `buildTime` | `number` |
 | `filters` | `string`[] |
-| `git` | { `branch`: `string` ; `commit`: `string` ; `commitTime`: `number`  } |
+| `git` | \{ `branch`: `string` ; `commit`: `string` ; `commitTime`: `number`  \} |
 | `git.branch` | `string` |
 | `git.commit` | `string` |
 | `git.commitTime` | `number` |
 | `jvm` | `string` |
 | `lavaplayer` | `string` |
-| `plugins` | { `name`: `string` ; `version`: `string`  }[] |
+| `plugins` | \{ `name`: `string` ; `version`: `string`  \}[] |
 | `sourceManagers` | `string`[] |
-| `version` | { `major`: `number` ; `minor`: `number` ; `patch`: `number` ; `preRelease`: `string` \| ``null`` ; `semver`: `string`  } |
+| `version` | \{ `major`: `number` ; `minor`: `number` ; `patch`: `number` ; `preRelease`: `string` \| ``null`` ; `semver`: `string`  \} |
 | `version.major` | `number` |
 | `version.minor` | `number` |
 | `version.patch` | `number` |
@@ -94,15 +94,15 @@ Lavalink node stats
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cpu` | { `cores`: `number` ; `lavalinkLoad`: `number` ; `systemLoad`: `number`  } | CPU 統計信息, [0, 1] |
+| `cpu` | \{ `cores`: `number` ; `lavalinkLoad`: `number` ; `systemLoad`: `number`  \} | CPU 統計信息, [0, 1] |
 | `cpu.cores` | `number` | - |
 | `cpu.lavalinkLoad` | `number` | - |
 | `cpu.systemLoad` | `number` | - |
-| `frameStats?` | { `deficit`: `number` ; `nulled`: `number` ; `sent`: `number`  } | 音頻幀統計 |
+| `frameStats?` | \{ `deficit`: `number` ; `nulled`: `number` ; `sent`: `number`  \} | 音頻幀統計 |
 | `frameStats.deficit` | `number` | - |
 | `frameStats.nulled` | `number` | - |
 | `frameStats.sent` | `number` | - |
-| `memory` | { `allocated`: `number` ; `free`: `number` ; `reservable`: `number` ; `used`: `number`  } | RAM 統計信息，以 byte 為單位 |
+| `memory` | \{ `allocated`: `number` ; `free`: `number` ; `reservable`: `number` ; `used`: `number`  \} | RAM 統計信息，以 byte 為單位 |
 | `memory.allocated` | `number` | - |
 | `memory.free` | `number` | - |
 | `memory.reservable` | `number` | - |
@@ -145,8 +145,8 @@ ___
 | :------ | :------ |
 | `blockIndex?` | `string` |
 | `currentAddressIndex?` | `string` |
-| `failingAddresses` | { `address`: `string` ; `failingTime`: `string` ; `failingTimestamp`: `number`  }[] |
-| `ipBlock` | { `size`: `string` ; `type`: `string`  } |
+| `failingAddresses` | \{ `address`: `string` ; `failingTime`: `string` ; `failingTimestamp`: `number`  \}[] |
+| `ipBlock` | \{ `size`: `string` ; `type`: `string`  \} |
 | `ipBlock.size` | `string` |
 | `ipBlock.type` | `string` |
 

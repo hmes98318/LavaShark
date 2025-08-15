@@ -74,7 +74,7 @@ ___
 
 ### LoadTracksResult
 
-Ƭ **LoadTracksResult**: [`LoadResultBase`](REST.types.md#loadresultbase) & { `tracks`: [`ITrack`](./interfaces/Track.types.ITrack.md)[]  }
+Ƭ **LoadTracksResult**: [`LoadResultBase`](REST.types.md#loadresultbase) & \{ `tracks`: [`ITrack`](./interfaces/Track.types.ITrack.md)[]  \}
 
 #### Defined in
 
@@ -102,7 +102,7 @@ ___
 
 ### PlaylistLoadResult
 
-Ƭ **PlaylistLoadResult**: `Omit`\<[`LoadResultBase`](REST.types.md#loadresultbase), ``"loadType"``\> & \{ `data`: [`PlaylistData`](REST.types.md#playlistdata) ; `loadType`: ``"playlist"``  }
+Ƭ **PlaylistLoadResult**: `Omit`\<[`LoadResultBase`](REST.types.md#loadresultbase), ``"loadType"``\> & \{ `data`: [`PlaylistData`](REST.types.md#playlistdata) ; `loadType`: ``"playlist"``  \}
 
 #### Defined in
 
@@ -118,7 +118,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `headers?` | `Record`<`string`, `string`\> |
+| `headers?` | `Record`\<`string`, `string`\> |
 | `json?` | `unknown` |
 | `method` | `Dispatcher.HttpMethod` |
 | `path` | `string` |
@@ -131,7 +131,7 @@ ___
 
 ### SearchResult
 
-Ƭ **SearchResult**: [`LoadResultBase`](REST.types.md#loadresultbase) & { `tracks`: ([`Track`](../classes/Track.md) \| `UnresolvedTrack`)[]  }
+Ƭ **SearchResult**: [`LoadResultBase`](REST.types.md#loadresultbase) & \{ `tracks`: ([`Track`](../classes/Track.md) \| `UnresolvedTrack`)[]  \}
 
 #### Defined in
 
@@ -153,7 +153,7 @@ ___
 | `noReplace?` | `boolean` | - |
 | `paused?` | `boolean` | - |
 | `position?` | `number` | identifier?: string; |
-| `voice?` | { `endpoint`: `string` ; `sessionId`: `string` ; `token`: `string`  } | - |
+| `voice?` | \{ `endpoint`: `string` ; `sessionId`: `string` ; `token`: `string`  \} | - |
 | `voice.endpoint` | `string` | - |
 | `voice.sessionId` | `string` | - |
 | `voice.token` | `string` | - |

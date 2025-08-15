@@ -179,13 +179,13 @@ ___
 
 ### getInfo
 
-▸ **getInfo**(): `Promise`<[`Info`](../types/Node.types.md#info)>
+▸ **getInfo**(): `Promise`\<[`Info`](../types/Node.types.md#info)\>
 
 獲取 Lavalink 節點資訊
 
 #### Returns
 
-`Promise`<[`Info`](../types/Node.types.md#info)>
+`Promise`\<[`Info`](../types/Node.types.md#info)\>
 
 #### Defined in
 
@@ -195,7 +195,7 @@ ___
 
 ### getPing
 
-▸ **getPing**(`timeout?`): `Promise`<`number`>
+▸ **getPing**(`timeout?`): `Promise`\<`number`\>
 
 獲取節點的 ping
 
@@ -207,7 +207,7 @@ ___
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - 與節點的延遲，以毫秒為單位
 
@@ -219,13 +219,13 @@ ___
 
 ### getRoutePlannerStatus
 
-▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)>
+▸ **getRoutePlannerStatus**(): `Promise`\<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 獲取路徑規劃器狀態
 
 #### Returns
 
-`Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)>
+`Promise`\<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 #### Defined in
 
@@ -235,13 +235,13 @@ ___
 
 ### getStats
 
-▸ **getStats**(): `Promise`<[`NodeStats`](../types/Node.types.md#nodestats)>
+▸ **getStats**(): `Promise`\<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 獲取 Lavalink 節點統計信息
 
 #### Returns
 
-`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)>
+`Promise`\<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 #### Defined in
 
@@ -251,13 +251,13 @@ ___
 
 ### getVersion
 
-▸ **getVersion**(): `Promise`<`string`>
+▸ **getVersion**(): `Promise`\<`string`\>
 
 獲取 Lavalink 節點版本
 
 #### Returns
 
-`Promise`<`string`>
+`Promise`\<`string`\>
 
 #### Defined in
 
@@ -267,13 +267,13 @@ ___
 
 ### reconnect
 
-▸ **reconnect**(): `Promise`<`void`>
+▸ **reconnect**(): `Promise`\<`void`\>
 
 與節點重新連接
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -283,13 +283,13 @@ ___
 
 ### unmarkAllFailedAddress
 
-▸ **unmarkAllFailedAddress**(): `Promise`<`void`>
+▸ **unmarkAllFailedAddress**(): `Promise`\<`void`\>
 
 取消所有失敗的地址標記
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -299,7 +299,7 @@ ___
 
 ### unmarkFailedAddress
 
-▸ **unmarkFailedAddress**(`address`): `Promise`<`void`>
+▸ **unmarkFailedAddress**(`address`): `Promise`\<`void`\>
 
 取消一個失敗的地址標記
 
@@ -311,7 +311,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -321,7 +321,7 @@ ___
 
 ### updateStats
 
-▸ **updateStats**(`timeout?`): `Promise`<`void`>
+▸ **updateStats**(`timeout?`): `Promise`\<`void`\>
 
 更新節點統計信息
 
@@ -333,7 +333,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -343,13 +343,13 @@ ___
 
 ### updatseNodeSession
 
-▸ **updatseNodeSession**(): `Promise`<`boolean`>
+▸ **updatseNodeSession**(): `Promise`\<`boolean`\>
 
 更新節點 session  
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 

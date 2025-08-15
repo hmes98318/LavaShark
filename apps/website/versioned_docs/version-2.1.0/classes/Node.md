@@ -183,13 +183,13 @@ ___
 
 ### getInfo
 
-▸ **getInfo**(): `Promise`<[`Info`](../types/Node.types.md#info)>
+▸ **getInfo**(): `Promise`\<[`Info`](../types/Node.types.md#info)\>
 
 Get the Lavalink Node information
 
 #### Returns
 
-`Promise`<[`Info`](../types/Node.types.md#info)>
+`Promise`\<[`Info`](../types/Node.types.md#info)\>
 
 #### Defined in
 
@@ -199,7 +199,7 @@ ___
 
 ### getPing
 
-▸ **getPing**(`timeout?`): `Promise`<`number`>
+▸ **getPing**(`timeout?`): `Promise`\<`number`\>
 
 Get the ping for the node
 
@@ -211,7 +211,7 @@ Get the ping for the node
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - Node latency, in milliseconds
 
@@ -223,13 +223,13 @@ ___
 
 ### getRoutePlannerStatus
 
-▸ **getRoutePlannerStatus**(): `Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)>
+▸ **getRoutePlannerStatus**(): `Promise`\<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 Gets the route planner status
 
 #### Returns
 
-`Promise`<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)>
+`Promise`\<[`RoutePlannerStatus`](../types/Node.types.md#routeplannerstatus)\>
 
 #### Defined in
 
@@ -239,13 +239,13 @@ ___
 
 ### getStats
 
-▸ **getStats**(): `Promise`<[`NodeStats`](../types/Node.types.md#nodestats)>
+▸ **getStats**(): `Promise`\<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 Get the Lavalink Node stats
 
 #### Returns
 
-`Promise`<[`NodeStats`](../types/Node.types.md#nodestats)>
+`Promise`\<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
 #### Defined in
 
@@ -255,13 +255,13 @@ ___
 
 ### getVersion
 
-▸ **getVersion**(): `Promise`<`string`>
+▸ **getVersion**(): `Promise`\<`string`\>
 
 Get the Lavalink Node version
 
 #### Returns
 
-`Promise`<`string`>
+`Promise`\<`string`\>
 
 #### Defined in
 
@@ -271,13 +271,13 @@ ___
 
 ### reconnect
 
-▸ **reconnect**(): `Promise`<`void`>
+▸ **reconnect**(): `Promise`\<`void`\>
 
 Reconnects the node
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -287,13 +287,13 @@ ___
 
 ### unmarkAllFailedAddress
 
-▸ **unmarkAllFailedAddress**(): `Promise`<`void`>
+▸ **unmarkAllFailedAddress**(): `Promise`\<`void`\>
 
 Unmarks all failed address
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -303,7 +303,7 @@ ___
 
 ### unmarkFailedAddress
 
-▸ **unmarkFailedAddress**(`address`): `Promise`<`void`>
+▸ **unmarkFailedAddress**(`address`): `Promise`\<`void`\>
 
 Unmarks a failed address
 
@@ -315,7 +315,7 @@ Unmarks a failed address
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -325,7 +325,7 @@ ___
 
 ### updateStats
 
-▸ **updateStats**(`timeout?`): `Promise`<`void`>
+▸ **updateStats**(`timeout?`): `Promise`\<`void`\>
 
 Update node stats
 
@@ -337,7 +337,7 @@ Update node stats
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -347,13 +347,13 @@ ___
 
 ### updatseNodeSession
 
-▸ **updatseNodeSession**(): `Promise`<`boolean`>
+▸ **updatseNodeSession**(): `Promise`\<`boolean`\>
 
 Update session exists
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 

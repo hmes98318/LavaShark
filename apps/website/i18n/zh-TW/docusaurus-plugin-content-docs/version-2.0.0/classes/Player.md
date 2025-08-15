@@ -314,13 +314,13 @@ ___
 
 ### connect
 
-▸ **connect**(): `Promise`<`void`>
+▸ **connect**(): `Promise`\<`void`\>
 
 連接到語音頻道
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -362,7 +362,7 @@ ___
 
 ### moveNode
 
-▸ **moveNode**(`node`): `Promise`<`void`>
+▸ **moveNode**(`node`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -372,7 +372,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -382,7 +382,7 @@ ___
 
 ### pause
 
-▸ **pause**(`state?`): `Promise`<`boolean`>
+▸ **pause**(`state?`): `Promise`\<`boolean`\>
 
 暫停或取消暫停 Player
 
@@ -394,7 +394,7 @@ ___
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
@@ -404,13 +404,13 @@ ___
 
 ### ping
 
-▸ **ping**(): `Promise`<`number`>
+▸ **ping**(): `Promise`\<`number`\>
 
 獲取 Lavalink 客戶端與節點之間的延遲
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - 以毫秒為單位
 
@@ -422,7 +422,7 @@ ___
 
 ### play
 
-▸ **play**(`options?`): `Promise`<`void`>
+▸ **play**(`options?`): `Promise`\<`void`\>
 
 播放曲目
 
@@ -434,7 +434,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -444,13 +444,13 @@ ___
 
 ### resume
 
-▸ **resume**(): `Promise`<`boolean`>
+▸ **resume**(): `Promise`\<`boolean`\>
 
 恢復播放
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
@@ -460,7 +460,7 @@ ___
 
 ### seek
 
-▸ **seek**(`position`): `Promise`<`void`>
+▸ **seek**(`position`): `Promise`\<`void`\>
 
 在音軌中跳轉到特定位置
 
@@ -472,7 +472,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -482,11 +482,11 @@ ___
 
 ### sendVoiceUpdate
 
-▸ **sendVoiceUpdate**(): `Promise`<`void`>
+▸ **sendVoiceUpdate**(): `Promise`\<`void`\>
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -584,7 +584,7 @@ ___
 
 ### skip
 
-▸ **skip**(`amount?`): `Promise`<`boolean`>
+▸ **skip**(`amount?`): `Promise`\<`boolean`\>
 
 跳過正在播放的歌曲
 
@@ -596,7 +596,7 @@ ___
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 

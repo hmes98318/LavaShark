@@ -82,9 +82,9 @@ ___
 
 ### players
 
-• **players**: `Map`<`string`, [`Player`](Player.md)>
+• **players**: `Map`\<`string`, [`Player`](Player.md)\>
 
-<guildId, Player>
+\<guildId, Player\>
 
 #### Defined in
 
@@ -169,13 +169,13 @@ ___
 
 ### bestNode
 
-▸ **bestNode**(): `Promise`<[`Node`](Node.md)>
+▸ **bestNode**(): `Promise`\<[`Node`](Node.md)\>
 
 Get the best available node
 
 #### Returns
 
-`Promise`<[`Node`](Node.md)>
+`Promise`\<[`Node`](Node.md)\>
 
 #### Defined in
 
@@ -207,7 +207,7 @@ ___
 
 ### decodeTrack
 
-▸ **decodeTrack**(`encoded`): `Promise`<[`Track`](Track.md)>
+▸ **decodeTrack**(`encoded`): `Promise`\<[`Track`](Track.md)\>
 
 Decodes a track by its base64 string
 
@@ -219,7 +219,7 @@ Decodes a track by its base64 string
 
 #### Returns
 
-`Promise`<[`Track`](Track.md)>
+`Promise`\<[`Track`](Track.md)\>
 
 #### Defined in
 
@@ -229,7 +229,7 @@ ___
 
 ### decodeTracks
 
-▸ **decodeTracks**(`encodedTracks`): `Promise`<[`Track`](Track.md)[]>
+▸ **decodeTracks**(`encodedTracks`): `Promise`\<[`Track`](Track.md)[]\>
 
 Decodes multiple tracks by their base64 string
 
@@ -241,7 +241,7 @@ Decodes multiple tracks by their base64 string
 
 #### Returns
 
-`Promise`<[`Track`](Track.md)[]>
+`Promise`\<[`Track`](Track.md)[]\>
 
 #### Defined in
 
@@ -326,7 +326,7 @@ ___
 
 ### nodePing
 
-▸ **nodePing**(`node`, `timeout?`): `Promise`<`number`>
+▸ **nodePing**(`node`, `timeout?`): `Promise`\<`number`\>
 
 Get the ping for a single node
 
@@ -339,7 +339,7 @@ Get the ping for a single node
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - Node latency, in milliseconds
 
@@ -351,7 +351,7 @@ ___
 
 ### nodesPing
 
-▸ **nodesPing**(`timeout?`): `Promise`<`number`[]>
+▸ **nodesPing**(`timeout?`): `Promise`\<`number`[]\>
 
 Get the ping for all nodes
 
@@ -363,7 +363,7 @@ Get the ping for all nodes
 
 #### Returns
 
-`Promise`<`number`[]>
+`Promise`\<`number`[]\>
 
 - All node latency, in milliseconds
 
@@ -437,7 +437,7 @@ ___
 
 ### search
 
-▸ **search**(`query`, `source?`): `Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
+▸ **search**(`query`, `source?`): `Promise`\<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 Search by song name or use music URL
 
@@ -450,7 +450,7 @@ Search by song name or use music URL
 
 #### Returns
 
-`Promise`<[`SearchResult`](../types/REST.types.md#searchresult)\>
+`Promise`\<[`SearchResult`](../types/REST.types.md#searchresult)\>
 
 #### Defined in
 

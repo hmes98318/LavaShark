@@ -311,13 +311,13 @@ ___
 
 ### connect
 
-▸ **connect**(): `Promise`<`void`>
+▸ **connect**(): `Promise`\<`void`\>
 
 Connects to the voice channel
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -359,7 +359,7 @@ ___
 
 ### moveNode
 
-▸ **moveNode**(`node`): `Promise`<`void`>
+▸ **moveNode**(`node`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -369,7 +369,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -379,7 +379,7 @@ ___
 
 ### pause
 
-▸ **pause**(`state?`): `Promise`<`boolean`>
+▸ **pause**(`state?`): `Promise`\<`boolean`\>
 
 Pause or unpause the player
 
@@ -391,7 +391,7 @@ Pause or unpause the player
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
@@ -401,13 +401,13 @@ ___
 
 ### ping
 
-▸ **ping**(): `Promise`<`number`>
+▸ **ping**(): `Promise`\<`number`\>
 
 Gets the latency between lavalink client & node
 
 #### Returns
 
-`Promise`<`number`>
+`Promise`\<`number`\>
 
 - In milliseconds
 
@@ -419,7 +419,7 @@ ___
 
 ### play
 
-▸ **play**(`options?`): `Promise`<`void`>
+▸ **play**(`options?`): `Promise`\<`void`\>
 
 Plays a track
 
@@ -454,7 +454,7 @@ Prioritizes playing a new track
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -464,7 +464,7 @@ ___
 
 ### resume
 
-▸ **resume**(): `Promise`<`boolean`>
+▸ **resume**(): `Promise`\<`boolean`\>
 
 Resume the player
 
@@ -480,7 +480,7 @@ ___
 
 ### seek
 
-▸ **seek**(`position`): `Promise`<`void`>
+▸ **seek**(`position`): `Promise`\<`void`\>
 
 Seek to a specific position in the track
 
@@ -492,7 +492,7 @@ Seek to a specific position in the track
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -502,11 +502,11 @@ ___
 
 ### sendVoiceUpdate
 
-▸ **sendVoiceUpdate**(): `Promise`<`void`>
+▸ **sendVoiceUpdate**(): `Promise`\<`void`\>
 
 #### Returns
 
-`Promise`<`void`>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -604,7 +604,7 @@ ___
 
 ### skip
 
-▸ **skip**(`amount?`): `Promise`<`boolean`>
+▸ **skip**(`amount?`): `Promise`\<`boolean`\>
 
 Skips the current playing track
 
@@ -616,7 +616,7 @@ Skips the current playing track
 
 #### Returns
 
-`Promise`<`boolean`>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
