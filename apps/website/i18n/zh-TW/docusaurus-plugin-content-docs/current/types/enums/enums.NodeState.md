@@ -16,7 +16,7 @@
 
 #### Defined in
 
-[lib/Node.ts:31](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/Node.ts#L32)
+[lib/Node.ts:31](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/Node.ts#L32)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:30](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/Node.ts#L31)
+[lib/Node.ts:30](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/Node.ts#L31)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[lib/Node.ts:32](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/Node.ts#L33)
+[lib/Node.ts:32](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/Node.ts#L33)

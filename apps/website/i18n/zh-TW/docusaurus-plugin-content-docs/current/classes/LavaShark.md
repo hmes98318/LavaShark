@@ -30,6 +30,7 @@
 - [nodesPing](LavaShark.md#nodesping)
 - [search](LavaShark.md#search)
 - [start](LavaShark.md#start)
+- [stopCheckNodeState](LavaShark.md#stopCheckNodeState)
 - [checkOptions](LavaShark.md#checkoptions)
 
 ## Constructors
@@ -56,7 +57,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[lib/LavaShark.ts:109](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L109)
+[lib/LavaShark.ts:109](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L109)
 
 ## Properties
 
@@ -66,7 +67,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[lib/LavaShark.ts:28](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L28)
+[lib/LavaShark.ts:28](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L28)
 
 ___
 
@@ -76,7 +77,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:29](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L29)
+[lib/LavaShark.ts:29](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L29)
 
 ___
 
@@ -88,7 +89,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:30](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L30)
+[lib/LavaShark.ts:30](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L30)
 
 ___
 
@@ -121,7 +122,7 @@ sendWS: (guildId, payload) => {
 
 #### Defined in
 
-[lib/LavaShark.ts:51](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L51)
+[lib/LavaShark.ts:51](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L51)
 
 ___
 
@@ -131,7 +132,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:37](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L37)
+[lib/LavaShark.ts:37](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L37)
 
 ___
 
@@ -141,7 +142,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:38](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L38)
+[lib/LavaShark.ts:38](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L38)
 
 ## Methods
 
@@ -163,7 +164,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:198](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L198)
+[lib/LavaShark.ts:198](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L198)
 
 ___
 
@@ -179,7 +180,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:163](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L163)
+[lib/LavaShark.ts:163](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L163)
 
 ___
 
@@ -201,7 +202,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:269](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L269)
+[lib/LavaShark.ts:283](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L283)
 
 ___
 
@@ -223,7 +224,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:211](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L211)
+[lib/LavaShark.ts:211](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L211)
 
 ___
 
@@ -245,7 +246,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:223](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L223)
+[lib/LavaShark.ts:223](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L223)
 
 ___
 
@@ -276,7 +277,7 @@ EventEmitter.emit
 
 #### Defined in
 
-[lib/LavaShark.ts:146](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L146)
+[lib/LavaShark.ts:146](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L146)
 
 ___
 
@@ -298,7 +299,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:287](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L287)
+[lib/LavaShark.ts:301](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L301)
 
 ___
 
@@ -320,7 +321,7 @@ Handles voice state & voice server update packets
 
 #### Defined in
 
-[lib/LavaShark.ts:390](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L390)
+[lib/LavaShark.ts:404](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L404)
 
 ___
 
@@ -345,7 +346,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:446](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L446)
+[lib/LavaShark.ts:460](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L460)
 
 ___
 
@@ -369,7 +370,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:459](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L459)
+[lib/LavaShark.ts:473](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L473)
 
 ___
 
@@ -400,7 +401,7 @@ EventEmitter.on
 
 #### Defined in
 
-[lib/LavaShark.ts:150](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L150)
+[lib/LavaShark.ts:150](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L150)
 
 ___
 
@@ -431,7 +432,7 @@ EventEmitter.once
 
 #### Defined in
 
-[lib/LavaShark.ts:154](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L154)
+[lib/LavaShark.ts:154](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L154)
 
 ___
 
@@ -454,7 +455,7 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:308](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L308)
+[lib/LavaShark.ts:322](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L322)
 
 ___
 
@@ -464,11 +465,12 @@ ___
 
 連接到所有 Lavalink 節點
 
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `clientId` | `string` | client ID (BOT) |
+| `clientId` | `string` | The client id (BOT) |
 
 #### Returns
 
@@ -476,7 +478,29 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:371](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L371)
+[lib/LavaShark.ts:385](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L385)
+
+___
+
+### stopCheckNodeState
+
+▸ **stopCheckNodeState**(`nodeIdentifier`): `void`
+
+停止節點的自動重連檢查
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `nodeIdentifier` | `string` | The identifier of the node |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[lib/LavaShark.ts:262](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L262)
 
 ___
 
@@ -496,4 +520,4 @@ ___
 
 #### Defined in
 
-[lib/LavaShark.ts:53](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/lib/LavaShark.ts#L53)
+[lib/LavaShark.ts:53](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/lib/LavaShark.ts#L53)

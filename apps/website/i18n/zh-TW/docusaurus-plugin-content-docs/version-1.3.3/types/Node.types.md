@@ -94,7 +94,7 @@ Lavalink node stats
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cpu` | \{ `cores`: `number` ; `lavalinkLoad`: `number` ; `systemLoad`: `number`  \} | CPU 統計信息, [0, 1] |
+| `cpu` | \{ `cores`: `number` ; `lavalinkLoad`: `number` ; `systemLoad`: `number`  \} | CPU 統計訊息, [0, 1] |
 | `cpu.cores` | `number` | - |
 | `cpu.lavalinkLoad` | `number` | - |
 | `cpu.systemLoad` | `number` | - |
@@ -102,7 +102,7 @@ Lavalink node stats
 | `frameStats.deficit` | `number` | - |
 | `frameStats.nulled` | `number` | - |
 | `frameStats.sent` | `number` | - |
-| `memory` | \{ `allocated`: `number` ; `free`: `number` ; `reservable`: `number` ; `used`: `number`  \} | RAM 統計信息，以 byte 為單位 |
+| `memory` | \{ `allocated`: `number` ; `free`: `number` ; `reservable`: `number` ; `used`: `number`  \} | RAM 統計訊息，以 byte 為單位 |
 | `memory.allocated` | `number` | - |
 | `memory.free` | `number` | - |
 | `memory.reservable` | `number` | - |

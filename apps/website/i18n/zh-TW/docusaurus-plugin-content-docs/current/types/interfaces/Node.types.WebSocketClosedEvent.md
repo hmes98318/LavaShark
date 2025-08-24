@@ -29,7 +29,7 @@ Lavalink node incoming payloads
 
 #### Defined in
 
-[@types/Node.types.ts:142](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L142)
+[@types/Node.types.ts:142](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L142)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:140](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L140)
+[@types/Node.types.ts:140](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L140)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L109)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L107)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:141](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L141)
+[@types/Node.types.ts:141](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L141)
 
 ___
 
@@ -91,4 +91,4 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:108](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L108)
+[@types/Node.types.ts:108](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L108)

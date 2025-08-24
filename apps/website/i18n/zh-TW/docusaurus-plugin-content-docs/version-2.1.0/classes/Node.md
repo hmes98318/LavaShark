@@ -241,7 +241,7 @@ ___
 
 ▸ **getStats**(): `Promise`\<[`NodeStats`](../types/Node.types.md#nodestats)\>
 
-獲取 Lavalink 節點統計信息
+獲取 Lavalink 節點統計訊息
 
 #### Returns
 
@@ -327,7 +327,7 @@ ___
 
 ▸ **updateStats**(`timeout?`): `Promise`\<`void`\>
 
-更新節點統計信息
+更新節點統計訊息
 
 #### Parameters
 

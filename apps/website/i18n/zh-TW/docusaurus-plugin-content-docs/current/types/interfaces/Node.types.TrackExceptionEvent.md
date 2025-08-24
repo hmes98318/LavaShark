@@ -28,7 +28,7 @@ Lavalink node incoming payloads
 
 #### Defined in
 
-[@types/Node.types.ts:128](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L128)
+[@types/Node.types.ts:128](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L128)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L109)
+[@types/Node.types.ts:109](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L109)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L107)
+[@types/Node.types.ts:107](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L107)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:127](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L127)
+[@types/Node.types.ts:127](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L127)
 
 ___
 
@@ -80,4 +80,4 @@ ___
 
 #### Defined in
 
-[@types/Node.types.ts:126](https://github.com/hmes98318/LavaShark/blob/45bf2120d636a6aca823f03d72da2dc01b7bbfbf/src/@types/Node.types.ts#L126)
+[@types/Node.types.ts:126](https://github.com/hmes98318/LavaShark/blob/accfd833a0203cc1d8758108ff5b6cd5af205387/src/@types/Node.types.ts#L126)
