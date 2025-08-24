@@ -4,6 +4,13 @@ import type { SearchResult } from '../../@types';
 export default class Spotify extends AbstractExternalSource {
     static readonly SPOTIFY_REGEX: RegExp;
     private static readonly USER_AGENT;
+    /**
+     * Secrets URL from https://github.com/Thereallo1026/spotify-secrets
+     */
+    private readonly SECRETS_URL;
+    private readonly CACHE_DURATION;
+    private cachedSecrets;
+    private secretsCacheTime;
     private readonly auth;
     private readonly market;
     private token;
@@ -21,6 +28,22 @@ export default class Spotify extends AbstractExternalSource {
     private getTokenFallback;
     private buildTokenUrl;
     private calculateToken;
+    /**
+     * Fetch the latest secrets from remote URL
+     */
+    private fetchSecretsFromRemote;
+    /**
+     * Get secrets (prioritize cache, re-fetch when expired)
+     */
+    private getSecrets;
+    /**
+     * Randomly select an available secret
+     */
+    private getRandomSecret;
+    /**
+     * Force refresh secrets cache
+     */
+    private refreshSecrets;
     /**
      * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
      * Source: https://github.com/iTsMaaT/discord-player-spotify

@@ -84,7 +84,7 @@ export default class LavaShark extends EventEmitter {
      * Stop the reconnection check of the node
      * @param {string} nodeIdentifier - The identifier of the node
      */
-    public stopCheckNodeState(nodeIdentifier: string): void;
+    stopCheckNodeState(nodeIdentifier: string): void;
     /**
      * Creates a new player or returns an existing one
      * @param {object} options - The player options
