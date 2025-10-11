@@ -30,27 +30,52 @@ Create a `docker-compose.yml` with the following content:
 
 ```yml
 services:
-    lavalink:
-        image: fredboat/lavalink:4.0.8 # pin the image version to Lavalink v4
-        container_name: lavalink_v4
-        restart: unless-stopped
-        environment:
-            - _JAVA_OPTIONS=-Xmx6G # set Java options here
-            - SERVER_PORT=2333 # set lavalink server port
-            - LAVALINK_SERVER_PASSWORD=youshallnotpass # set password for lavalink
-        volumes:
-            - ./application.yml:/opt/Lavalink/application.yml # mount application.yml from the same directory or use environment variables
-            - ./plugins/:/opt/Lavalink/plugins/ # persist plugins between restarts, make sure to set the correct permissions (user: 322, group: 322)
-        networks:
-            - lavalink
-        expose:
-            - 2333 # lavalink exposes port 2333 to connect to for other containers (this is for documentation purposes only)
-        ports:
-            - 2333:2333 # you only need this if you want to make your lavalink accessible from outside of containers
+  yt-cipher:
+    image: ghcr.io/kikkia/yt-cipher:master
+    container_name: yt-cipher
+    restart: unless-stopped
+    environment:
+      - API_TOKEN=yt-cipher-token
+    networks:
+      - lavalink
+    ports:
+      - "8001:8001"
+
+  lavalink:
+    image: fredboat/lavalink:4.1.1  # pin the image version to Lavalink v4
+    container_name: lavalink_v4
+    restart: unless-stopped
+    environment:
+      - _JAVA_OPTIONS=-Xmx6G  # set Java options here
+      - SERVER_PORT=2333      # set lavalink server port
+      - LAVALINK_SERVER_PASSWORD=youshallnotpass  # set password for lavalink
+    volumes:
+      - ./application.yml:/opt/Lavalink/application.yml   # mount application.yml from the same directory or use environment variables
+      - ./plugins/:/opt/Lavalink/plugins/                 # persist plugins between restarts, make sure to set the correct permissions (user: 322, group: 322)
+    networks:
+      - lavalink
+    expose:
+      - 2333        # lavalink exposes port 2333 to connect to for other containers (this is for documentation purposes only)
+    ports:
+      - "2333:2333" # you only need this if you want to make your lavalink accessible from outside of containers
+    depends_on:
+      - yt-cipher
+
 networks:
-    lavalink: # create a lavalink network you can add other containers to, to give them access to Lavalink
-        name: lavalink
+  lavalink:   # create a lavalink network you can add other containers to, to give them access to Lavalink
+    name: lavalink
 ```
+
+It becomes harder and harder to keep up with YouTube's cipher changes, as they become more frequent and complex.  
+To help with this, `yt-cipher` is a remote cipher server to handle signature deciphering.  
+You need to deploy `yt-cipher` and connect Lavalink's youtube plugin to the cipher server.  
+
+Detailed description: [using-a-remote-cipher-server](https://github.com/lavalink-devs/youtube-source/?tab=readme-ov-file#using-a-remote-cipher-server)  
+Github: [kikkia/yt-cipher](https://github.com/kikkia/yt-cipher)  
+
+---
+
+## Configuration file
 
 Place the `application.yml` in the same directory as `docker-compose.yml`.
 
@@ -58,14 +83,45 @@ Place the `application.yml` in the same directory as `docker-compose.yml`.
 server: # REST and WS server
   port: 2333
   address: 0.0.0.0
+
 plugins:
+  youtube:
+    enabled: true                 # Whether this source can be used.
+    allowSearch: true             # Whether "ytsearch:" and "ytmsearch:" can be used.
+    allowDirectVideoIds: true     # Whether just video IDs can match. If false, only complete URLs will be loaded.
+    allowDirectPlaylistIds: true  # Whether just playlist IDs can match. If false, only complete URLs will be loaded.
+    # The clients to use for track loading. See below for a list of valid clients.
+    # Clients are queried in the order they are given (so the first client is queried first and so on...)
+    clients:
+      - MUSIC
+      - TVHTML5EMBEDDED
+      - ANDROID_MUSIC
+      - WEB
+    oauth:
+      # setting "enabled: true" is the bare minimum to get OAuth working.
+      enabled: true
+
+      # if you have a refresh token, you may set it below (make sure to uncomment the line to apply it).
+      # setting a valid refresh token will skip the OAuth flow entirely. See above note on how to retrieve
+      # your refreshToken.
+      # refreshToken: "paste your refresh token here if applicable"
+
+      # Set this if you don't want the OAuth flow to be triggered, if you intend to supply a refresh token later.
+      # Initialization is skipped automatically if a valid refresh token is supplied. Leave this commented if you're
+      # completing the OAuth flow for the first time/do not have a refresh token.
+      # skipInitialization: true
+    remoteCipher:
+      url: "http://yt-cipher:8001"  # The base URL of your remote cipher server.
+      password: "yt-cipher-token"   # The password to authenticate with your remote cipher server.
+
 #  name: # Name of the plugin
 #    some_key: some_value # Some key-value pair for the plugin
 #    another_key: another_value
+
 lavalink:
   plugins:
-      # https://github.com/lavalink-devs/youtube-source
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5"
+    # https://github.com/lavalink-devs/youtube-source
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.14.0"
       repository: "https://maven.lavalink.dev/releases"
   server:
     password: "youshallnotpass"
@@ -141,7 +197,6 @@ logging:
     includeQueryString: true
     includePayload: true
     maxPayloadLength: 10000
-
 
   logback:
     rollingpolicy:

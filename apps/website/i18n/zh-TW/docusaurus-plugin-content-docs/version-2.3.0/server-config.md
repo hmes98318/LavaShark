@@ -53,20 +53,62 @@ networks:
         name: lavalink
 ```
 
+隨著 YouTube 密碼的更新越來越頻繁和複雜，跟上它的腳步變得​​越來越困難。  
+為了解決這個問題，`yt-cipher` 是一個用來處理簽章解密的遠端密碼伺服器。  
+你需要部署 `yt-cipher` 並把 Lavalink 的 youtube plugin 連接到 cipher server。  
+
+詳細說明: [using-a-remote-cipher-server](https://github.com/lavalink-devs/youtube-source/?tab=readme-ov-file#using-a-remote-cipher-server)  
+Github: [kikkia/yt-cipher](https://github.com/kikkia/yt-cipher)  
+
+---
+
+## 配置檔
+
 將 `application.yml` 與 `docker-compose.yml` 放在同一目錄中。
 
 ```yml
 server: # REST and WS server
   port: 2333
   address: 0.0.0.0
+
 plugins:
+  youtube:
+    enabled: true                 # Whether this source can be used.
+    allowSearch: true             # Whether "ytsearch:" and "ytmsearch:" can be used.
+    allowDirectVideoIds: true     # Whether just video IDs can match. If false, only complete URLs will be loaded.
+    allowDirectPlaylistIds: true  # Whether just playlist IDs can match. If false, only complete URLs will be loaded.
+    # The clients to use for track loading. See below for a list of valid clients.
+    # Clients are queried in the order they are given (so the first client is queried first and so on...)
+    clients:
+      - MUSIC
+      - TVHTML5EMBEDDED
+      - ANDROID_MUSIC
+      - WEB
+    oauth:
+      # setting "enabled: true" is the bare minimum to get OAuth working.
+      enabled: true
+
+      # if you have a refresh token, you may set it below (make sure to uncomment the line to apply it).
+      # setting a valid refresh token will skip the OAuth flow entirely. See above note on how to retrieve
+      # your refreshToken.
+      # refreshToken: "paste your refresh token here if applicable"
+
+      # Set this if you don't want the OAuth flow to be triggered, if you intend to supply a refresh token later.
+      # Initialization is skipped automatically if a valid refresh token is supplied. Leave this commented if you're
+      # completing the OAuth flow for the first time/do not have a refresh token.
+      # skipInitialization: true
+    remoteCipher:
+      url: "http://yt-cipher:8001"  # The base URL of your remote cipher server.
+      password: "yt-cipher-token"   # The password to authenticate with your remote cipher server.
+
 #  name: # Name of the plugin
 #    some_key: some_value # Some key-value pair for the plugin
 #    another_key: another_value
+
 lavalink:
   plugins:
-      # https://github.com/lavalink-devs/youtube-source
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5"
+    # https://github.com/lavalink-devs/youtube-source
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.14.0"
       repository: "https://maven.lavalink.dev/releases"
   server:
     password: "youshallnotpass"
@@ -142,7 +184,6 @@ logging:
     includeQueryString: true
     includePayload: true
     maxPayloadLength: 10000
-
 
   logback:
     rollingpolicy:
