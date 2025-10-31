@@ -72,9 +72,9 @@ export default class Spotify extends AbstractExternalSource {
     private static readonly USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36';
 
     /**
-     * Secrets URL from https://github.com/Thereallo1026/spotify-secrets
+     * Secrets URL from https://github.com/xyloflake/spot-secrets-go
      */
-    private readonly SECRETS_URL = 'https://github.com/Thereallo1026/spotify-secrets/blob/main/secrets/secretBytes.json?raw=true';
+    private readonly SECRETS_URL = 'https://raw.githubusercontent.com/xyloflake/spot-secrets-go/refs/heads/main/secrets/secretBytes.json';
     private readonly CACHE_DURATION = 30 * 60 * 1000;   // 30 minutes
 
     private cachedSecrets: ISpotifySecret[] | null = null;
