@@ -75,7 +75,8 @@ export default class Spotify extends AbstractExternalSource {
      * Secrets URL from https://github.com/xyloflake/spot-secrets-go
      */
     private readonly SECRETS_URL = 'https://raw.githubusercontent.com/xyloflake/spot-secrets-go/refs/heads/main/secrets/secretBytes.json';
-    private readonly CACHE_DURATION = 30 * 60 * 1000;   // 30 minutes
+    private readonly CACHE_DURATION = 60 * 60 * 1000;   // Cache duration for secrets (1 hour)
+    private readonly MAX_SECRETS_REFRESH_RETRIES = 3;   // Maximum retries for refreshing secrets
 
     private cachedSecrets: ISpotifySecret[] | null = null;
     private secretsCacheTime: number = 0;
@@ -417,16 +418,18 @@ export default class Spotify extends AbstractExternalSource {
     /**
      * Get secrets (prioritize cache, re-fetch when expired)
      */
-    private async getSecrets(): Promise<ISpotifySecret[]> {
+    private async getSecrets(forceRefresh: boolean = false): Promise<ISpotifySecret[]> {
         const now = Date.now();
 
-        // Check if cache is valid
-        if (this.cachedSecrets && (now - this.secretsCacheTime) < this.CACHE_DURATION) {
+        // Check if cache is valid and not forcing refresh
+        if (!forceRefresh && this.cachedSecrets && (now - this.secretsCacheTime) < this.CACHE_DURATION) {
             this.lavashark.emit('debug', '[Spotify] Using cached secrets');
             return this.cachedSecrets;
         }
 
         try {
+            this.lavashark.emit('debug', '[Spotify] Fetching secrets from remote...');
+
             // Try to fetch from remote
             const secrets = await this.fetchSecretsFromRemote();
 
@@ -440,7 +443,7 @@ export default class Spotify extends AbstractExternalSource {
             this.lavashark.emit('debug', `[Spotify] Failed to fetch remote secrets: ${error}`);
 
             // If there's old cache, use old cache
-            if (this.cachedSecrets) {
+            if (this.cachedSecrets && !forceRefresh) {
                 this.lavashark.emit('debug', '[Spotify] Using expired cache as fallback');
                 return this.cachedSecrets;
             }
@@ -451,29 +454,36 @@ export default class Spotify extends AbstractExternalSource {
     }
 
     /**
-     * Randomly select an available secret
+     * Get first available secret from cache
+     * Returns null if no secrets available
      */
-    private async getRandomSecret(): Promise<ISpotifySecret> {
+    private async getNextSecret(): Promise<ISpotifySecret | null> {
         const secrets = await this.getSecrets();
-        const randomIndex = Math.floor(Math.random() * secrets.length);
-        return secrets[randomIndex];
+
+        if (!secrets || secrets.length === 0) {
+            return null;
+        }
+
+        const secret = secrets[0];
+        this.lavashark.emit('debug', `[Spotify] Selecting first secret, version ${secret.version}`);
+
+        return secret;
     }
 
     /**
-     * Force refresh secrets cache
+     * Remove the failed secret from cache
+     * Uses shift() to remove the first element
      */
-    private async refreshSecrets(): Promise<ISpotifySecret[]> {
-        try {
-            const secrets = await this.fetchSecretsFromRemote();
-            this.cachedSecrets = secrets;
-            this.secretsCacheTime = Date.now();
-            this.lavashark.emit('debug', '[Spotify] Successfully refreshed secrets cache');
-            return secrets;
-        } catch (error) {
-            this.lavashark.emit('debug', `[Spotify] Failed to refresh secrets: ${error}`);
-            throw error;
+    private removeCurrentSecret(): void {
+        if (!this.cachedSecrets || this.cachedSecrets.length === 0) {
+            this.lavashark.emit('debug', '[Spotify] No secrets to remove from cache');
+            return;
         }
+
+        const removedSecret = this.cachedSecrets.shift();
+        this.lavashark.emit('debug', `[Spotify] Removed failed secret version ${removedSecret?.version}, ${this.cachedSecrets.length} secrets remaining`);
     }
+
 
     /**
      * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
@@ -485,7 +495,12 @@ export default class Spotify extends AbstractExternalSource {
     private async getAccessTokenUrl(): Promise<URL | string> {
         if (this.auth) return "https://accounts.spotify.com/api/token?grant_type=client_credentials";
 
-        const selectedSecret = await this.getRandomSecret();
+        const selectedSecret = await this.getNextSecret();
+
+        if (!selectedSecret) {
+            throw new Error('No secrets available');
+        }
+
         const token = this.calculateToken(selectedSecret.secret, selectedSecret.version);
         this.lavashark.emit('debug', `[Spotify] Using secret version ${selectedSecret.version}`);
 
@@ -529,57 +544,82 @@ export default class Spotify extends AbstractExternalSource {
     }
 
     private async getAnonymousToken() {
-        let retryCount = 0;
-        const maxRetries = 2;
+        let secretsRefreshCount = 0;
 
-        while (retryCount <= maxRetries) {
-            try {
-                const accessTokenUrl = await this.getAccessTokenUrl();
+        while (secretsRefreshCount <= this.MAX_SECRETS_REFRESH_RETRIES) {
+            // Get current secrets
+            const secrets = await this.getSecrets(secretsRefreshCount > 0);
 
-                const {
-                    accessToken,
-                    accessTokenExpirationTimestampMs
-                } = await request(accessTokenUrl, {
-                    headers: {
-                        Referer: "https://open.spotify.com/",
-                        Origin: "https://open.spotify.com",
-                        'User-Agent': Spotify.USER_AGENT
-                    }
-                }).then(r => r.body.json() as Promise<IAnonymousTokenResponse>);
+            if (!secrets || secrets.length === 0) {
+                throw new Error('No secrets available');
+            }
 
-                if (!accessToken) {
-                    throw new Error('Failed to get anonymous token on Spotify.');
-                }
+            // Try all secrets in the current cache
+            const secretsToTry = [...secrets]; // Copy to track how many we've tried
+            let triedCount = 0;
 
-                this.token = `Bearer ${accessToken}`;
-                this.renewDate = accessTokenExpirationTimestampMs - 5000;
+            while (triedCount < secretsToTry.length) {
+                try {
+                    const accessTokenUrl = await this.getAccessTokenUrl();
 
-                this.lavashark.emit('debug', '[Spotify] Successfully obtained anonymous token');
-                return;
-            } catch (error) {
-                this.lavashark.emit('debug', `[Spotify] Attempt ${retryCount + 1} failed: ${error}`);
-
-                if (retryCount < maxRetries) {
-                    // Refresh secrets on first retry
-                    if (retryCount === 0) {
-                        this.lavashark.emit('debug', '[Spotify] Refreshing secrets cache and retrying...');
-                        try {
-                            await this.refreshSecrets();
-                        } catch (refreshError) {
-                            this.lavashark.emit('debug', `[Spotify] Failed to refresh secrets: ${refreshError}`);
+                    const {
+                        accessToken,
+                        accessTokenExpirationTimestampMs
+                    } = await request(accessTokenUrl, {
+                        headers: {
+                            Referer: "https://open.spotify.com/",
+                            Origin: "https://open.spotify.com",
+                            'User-Agent': Spotify.USER_AGENT
                         }
+                    }).then(r => r.body.json() as Promise<IAnonymousTokenResponse>);
+
+                    if (!accessToken) {
+                        throw new Error('Failed to get anonymous token on Spotify.');
                     }
 
-                    retryCount++;
-                    // Wait for some time before retrying
-                    await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
-                } else {
-                    // All retries failed, throw error
-                    this.lavashark.emit('debug', '[Spotify] All retry attempts failed');
-                    throw error;
+                    this.token = `Bearer ${accessToken}`;
+                    this.renewDate = accessTokenExpirationTimestampMs - 5000;
+
+                    this.lavashark.emit('debug', '[Spotify] Successfully obtained anonymous token');
+
+                    return;
+                } catch (error) {
+                    this.lavashark.emit('debug', `[Spotify] Failed to get token with current secret: ${error}`);
+
+                    // Remove the failed secret and try next one
+                    this.removeCurrentSecret();
+                    triedCount++;
+
+                    // If we still have secrets to try, continue the loop
+                    if (this.cachedSecrets && this.cachedSecrets.length > 0) {
+                        this.lavashark.emit('debug', `[Spotify] Trying next secret (${this.cachedSecrets.length} remaining in cache)`);
+                        continue;
+                    } else {
+                        // No more secrets in cache
+                        this.lavashark.emit('debug', '[Spotify] All secrets in cache failed');
+                        break;
+                    }
+                }
+            }
+
+            // All secrets in current cache failed, try refreshing
+            secretsRefreshCount++;
+
+            if (secretsRefreshCount <= this.MAX_SECRETS_REFRESH_RETRIES) {
+                this.lavashark.emit('debug', `[Spotify] Refreshing secrets from remote (attempt ${secretsRefreshCount}/${this.MAX_SECRETS_REFRESH_RETRIES})`);
+
+                try {
+                    await this.getSecrets(true);    // Force refresh
+                    // Wait a bit before retrying
+                    await new Promise(resolve => setTimeout(resolve, 1000 * secretsRefreshCount));
+                } catch (refreshError) {
+                    this.lavashark.emit('debug', `[Spotify] Failed to refresh secrets: ${refreshError}`);
                 }
             }
         }
+
+        // All retries exhausted
+        throw new Error(`Failed to obtain anonymous token after trying all secrets and ${this.MAX_SECRETS_REFRESH_RETRIES} refresh attempts`);
     }
 
     private async getToken() {

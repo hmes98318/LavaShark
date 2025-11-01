@@ -5,10 +5,11 @@ export default class Spotify extends AbstractExternalSource {
     static readonly SPOTIFY_REGEX: RegExp;
     private static readonly USER_AGENT;
     /**
-     * Secrets URL from https://github.com/Thereallo1026/spotify-secrets
+     * Secrets URL from https://github.com/xyloflake/spot-secrets-go
      */
     private readonly SECRETS_URL;
     private readonly CACHE_DURATION;
+    private readonly MAX_SECRETS_REFRESH_RETRIES;
     private cachedSecrets;
     private secretsCacheTime;
     private readonly auth;
@@ -37,13 +38,15 @@ export default class Spotify extends AbstractExternalSource {
      */
     private getSecrets;
     /**
-     * Randomly select an available secret
+     * Get first available secret from cache
+     * Returns null if no secrets available
      */
-    private getRandomSecret;
+    private getNextSecret;
     /**
-     * Force refresh secrets cache
+     * Remove the failed secret from cache
+     * Uses shift() to remove the first element
      */
-    private refreshSecrets;
+    private removeCurrentSecret;
     /**
      * The function that generates an anonymous token is adapted from the iTsMaaT/discord-player-spotify repository.
      * Source: https://github.com/iTsMaaT/discord-player-spotify
