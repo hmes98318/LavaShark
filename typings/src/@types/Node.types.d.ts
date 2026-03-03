@@ -1,3 +1,4 @@
+import type { ITrack } from "./Track.types";
 import type { LoadException } from "./REST.types";
 /** Lavalink node options */
 export type NodeOptions = {
@@ -102,24 +103,24 @@ export interface PlayerEventPayload {
 }
 export interface TrackStartEvent extends PlayerEventPayload {
     type: 'TrackStartEvent';
-    track: string;
+    track: string | ITrack;
 }
 export type TrackEndReason = 'FINISHED' | 'LOAD_FAILED' | 'STOPPED' | 'REPLACED' | 'CLEANUP';
 export interface TrackEndEvent extends PlayerEventPayload {
     type: 'TrackEndEvent';
-    track: string;
+    track: string | ITrack;
     reason: TrackEndReason;
 }
 export interface TrackExceptionEvent extends PlayerEventPayload {
     type: 'TrackExceptionEvent';
-    track: string;
+    track: string | ITrack;
     exception: LoadException & {
         cause: string;
     };
 }
 export interface TrackStuckEvent extends PlayerEventPayload {
     type: 'TrackStuckEvent';
-    track: string;
+    track: string | ITrack;
     thresholdMs: number;
 }
 export interface WebSocketClosedEvent extends PlayerEventPayload {

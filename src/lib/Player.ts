@@ -535,7 +535,8 @@ export default class Player {
             voice: {
                 sessionId: this.voiceState.sessionId!,
                 token: this.voiceState.event!.token!,
-                endpoint: this.voiceState.event!.endpoint!
+                endpoint: this.voiceState.event!.endpoint!,
+                channelId: this.voiceChannelId
             }
         });
 

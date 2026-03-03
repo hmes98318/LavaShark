@@ -6,6 +6,8 @@ export type PlaylistInfo = {
 export type TrackInfo = {
     identifier: string;
     thumbnail?: string;
+    artworkUrl?: string;
+    isrc?: string;
     isSeekable: boolean;
     author: string;
     length: number;
