@@ -19,6 +19,7 @@ export type UpdatePlayerOptions = {
         sessionId: string;
         token: string;
         endpoint: string;
+        channelId?: string;
     };
     noReplace?: boolean;
 }
