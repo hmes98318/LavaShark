@@ -1,6 +1,6 @@
 {
     "name": "lavashark",
-    "version": "2.3.2",
+    "version": "2.3.1",
     "description": "A lightweight Lavalink client built with Node.js",
     "main": "dist/src/index.js",
     "types": "typings/src/index.d.ts",
@@ -30,7 +30,7 @@
         "ws": "^8.19.0"
     },
     "devDependencies": {
-        "@eslint/js": "^10.0.1",
+        "@eslint/js": "^9.39.4",
         "@types/ws": "^8.18.1",
         "discord.js": "^14.25.1",
         "eslint": "^10.0.3",
@@ -48,7 +48,7 @@
         "minimatch": "^9.0.6",
         "markdown-it": "^14.1.1",
         "undici": "^7.24.3",
-        "flatted": "3.4.1"
+        "flatted": "^3.4.1"
     },
     "engines": {
         "node": ">=22.12.0"
