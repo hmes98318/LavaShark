@@ -436,7 +436,9 @@ export default class Node {
             return;
         }
 
-        this.#lavashark.emit('trackStart', player, player.current!);
+        if (player.current) {
+            this.#lavashark.emit('trackStart', player, player.current);
+        }
     }
 
     private handleTrackEnd(ev: TrackEndEvent, player: Player) {
@@ -450,13 +452,17 @@ export default class Node {
         player.playing = false;
 
         if (['LOAD_FAILED', 'CLEANUP'].includes(ev.reason)) {
-            this.#lavashark.emit('trackEnd', player, player.current!, ev.reason);
+            if (player.current) {
+                this.#lavashark.emit('trackEnd', player, player.current, ev.reason);
+            }
 
             this.pollTrack(player);
             return;
         }
 
-        this.#lavashark.emit('trackEnd', player, player.current!, ev.reason);
+        if (player.current) {
+            this.#lavashark.emit('trackEnd', player, player.current, ev.reason);
+        }
 
         if (player.repeatMode === RepeatMode.TRACK) {
             player.play();
@@ -471,11 +477,15 @@ export default class Node {
     }
 
     private handleTrackStuck(ev: TrackStuckEvent, player: Player) {
-        this.#lavashark.emit('trackStuck', player, player.current!, ev.thresholdMs);
+        if (player.current) {
+            this.#lavashark.emit('trackStuck', player, player.current, ev.thresholdMs);
+        }
     }
 
     private handleTrackException(ev: TrackExceptionEvent, player: Player) {
-        this.#lavashark.emit('trackException', player, player.current!, ev.exception);
+        if (player.current) {
+            this.#lavashark.emit('trackException', player, player.current, ev.exception);
+        }
         player.skip();
     }
 
