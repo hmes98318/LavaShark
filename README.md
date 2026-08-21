@@ -34,3 +34,11 @@ You can find the documentation [**here**](https://lavashark.js.org/docs).
 ## Help
 
 If you encounter any issues or would like to contribute to the community, please join our [Discord server](https://discord.gg/7rQEx7SPGr).
+
+
+## Development
+
+See the project development documentation before contributing:
+
+- [Development Guidelines](docs/development-guidelines.md)
+- [TypeScript Coding Style](docs/coding-style.md)
