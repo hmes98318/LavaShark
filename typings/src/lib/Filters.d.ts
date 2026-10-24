@@ -1,5 +1,5 @@
 import Player from './Player';
-import type { ChannelMixOptions, DistortionOptions, FilterOptions, KaraokeOptions, LowPassOptions, RotationOptions, TimescaleOptions, TremoloOptions, VibratoOptions } from '../@types';
+import type { ChannelMixOptions, DistortionOptions, EchoOptions, FilterOptions, HighPassOptions, LavaDSPXEchoOptions, KaraokeOptions, LavaDSPXFiltersOptions, LavaDSPXLowPassOptions, LowPassOptions, NormalizationOptions, PluginFiltersOptions, RotationOptions, TimescaleOptions, TremoloOptions, VibratoOptions } from '../@types';
 export default class Filters {
     private readonly player;
     private options;
@@ -100,6 +100,21 @@ export default class Filters {
      * @returns The filters instance, for chaining calls
      */
     setVibrato(options: VibratoOptions | null, apply?: boolean): this;
+    setPluginFilters(options: PluginFiltersOptions | null, apply?: boolean): this;
+    setPluginFilter(pluginName: string, options: Record<string, unknown> | null, apply?: boolean): this;
+    setNormalization(options: NormalizationOptions | null, apply?: boolean): this;
+    setEcho(options: EchoOptions | null, apply?: boolean): this;
+    setHighPass(options: HighPassOptions | null, apply?: boolean): this;
+    /** Sets the filters provided by LavaDSPX-Plugin. */
+    setLavaDSPXFilters(options: LavaDSPXFiltersOptions | null, apply?: boolean): this;
+    /** Sets LavaDSPX's normalization filter. */
+    setLavaDSPXNormalization(options: NormalizationOptions | null, apply?: boolean): this;
+    /** Sets LavaDSPX's echo filter. */
+    setLavaDSPXEcho(options: LavaDSPXEchoOptions | null, apply?: boolean): this;
+    /** Sets LavaDSPX's high-pass filter. */
+    setLavaDSPXHighPass(options: HighPassOptions | null, apply?: boolean): this;
+    /** Sets LavaDSPX's low-pass filter. */
+    setLavaDSPXLowPass(options: LavaDSPXLowPassOptions | null, apply?: boolean): this;
     /**
      * Sets the volume
      * @param vol - The volume to set [0,500]

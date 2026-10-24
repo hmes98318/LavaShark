@@ -31,6 +31,43 @@ $ yarn add lavashark
 You can find the documentation [**here**](https://lavashark.js.org/docs).
 
 
+## LavaDSPX Plugin filters
+
+LavaShark provides explicit helpers for the filters from [LavaDSPX-Plugin](https://github.com/Devoxin/LavaDSPX-Plugin). Install the plugin on your Lavalink node first:
+
+```yaml
+lavalink:
+  plugins:
+    - dependency: com.github.Devoxin:LavaDSPX-Plugin:{VERSION}
+      repository: https://jitpack.io
+```
+
+The plugin filter names are different from Lavalink's built-in filters. In particular, LavaDSPX uses `low-pass` and `high-pass`, while Lavalink's built-in low-pass filter is `lowPass`.
+
+```ts
+player.filters
+    .setLavaDSPXNormalization({ maxAmplitude: 0.5, adaptive: true }, false)
+    .setLavaDSPXEcho({ echoLength: 0.3, decay: 0.5 }, false)
+    .setLavaDSPXHighPass({ cutoffFrequency: 80, boostFactor: 1.0 }, false)
+    .setLavaDSPXLowPass({ cutoffFrequency: 16000, boostFactor: 1.0 });
+```
+
+The resulting Lavalink player update contains:
+
+```json
+{
+  "filters": {
+    "pluginFilters": {
+      "normalization": { "maxAmplitude": 0.5, "adaptive": true },
+      "echo": { "echoLength": 0.3, "decay": 0.5 },
+      "high-pass": { "cutoffFrequency": 80, "boostFactor": 1.0 },
+      "low-pass": { "cutoffFrequency": 16000, "boostFactor": 1.0 }
+    }
+  }
+}
+```
+
+
 ## Help
 
 If you encounter any issues or would like to contribute to the community, please join our [Discord server](https://discord.gg/7rQEx7SPGr).

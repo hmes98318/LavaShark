@@ -3,9 +3,16 @@ import Player from './Player';
 import type {
     ChannelMixOptions,
     DistortionOptions,
+    EchoOptions,
     FilterOptions,
+    HighPassOptions,
+    LavaDSPXEchoOptions,
     KaraokeOptions,
+    LavaDSPXFiltersOptions,
+    LavaDSPXLowPassOptions,
     LowPassOptions,
+    NormalizationOptions,
+    PluginFiltersOptions,
     RotationOptions,
     TimescaleOptions,
     TremoloOptions,
@@ -259,6 +266,94 @@ export default class Filters {
         return this;
     }
 
+    public setPluginFilters(options: PluginFiltersOptions | null, apply = true): this {
+        if (options === undefined) throw new TypeError('PluginFiltersOptions must not be empty!');
+        if (options !== null && (typeof options !== 'object' || Array.isArray(options))) {
+            throw new TypeError('PluginFiltersOptions must be an object.');
+        }
+
+        if (options === null) {
+            delete this.options.pluginFilters;
+        }
+        else {
+            this.options.pluginFilters = options;
+        }
+
+        if (apply) this.apply();
+
+        return this;
+    }
+
+    public setPluginFilter(pluginName: string, options: Record<string, unknown> | null, apply = true): this {
+        if (!pluginName || typeof pluginName !== 'string') throw new TypeError('Plugin name must be a non-empty string.');
+        if (['__proto__', 'constructor', 'prototype'].includes(pluginName)) {
+            throw new TypeError('Invalid plugin name: prototype pollution attempt detected.');
+        }
+        if (options === undefined) throw new TypeError('Plugin filter options must not be empty!');
+        if (options !== null && (typeof options !== 'object' || Array.isArray(options))) {
+            throw new TypeError('Plugin filter options must be an object.');
+        }
+
+        if (!this.options.pluginFilters) {
+            this.options.pluginFilters = {};
+        }
+
+        if (options === null) {
+            delete this.options.pluginFilters[pluginName];
+            if (Object.keys(this.options.pluginFilters).length === 0) {
+                delete this.options.pluginFilters;
+            }
+        }
+        else {
+            this.options.pluginFilters[pluginName] = options;
+        }
+
+        if (apply) this.apply();
+
+        return this;
+    }
+
+    public setNormalization(options: NormalizationOptions | null, apply = true): this {
+        return this.setPluginFilter('normalization', options as Record<string, unknown> | null, apply);
+    }
+
+    public setEcho(options: EchoOptions | null, apply = true): this {
+        if (options && options.delay !== undefined && options.echoLength === undefined) {
+            const { delay, ...rest } = options;
+            return this.setPluginFilter('echo', { echoLength: delay, ...rest }, apply);
+        }
+        return this.setPluginFilter('echo', options as Record<string, unknown> | null, apply);
+    }
+
+    public setHighPass(options: HighPassOptions | null, apply = true): this {
+        return this.setPluginFilter('high-pass', options as Record<string, unknown> | null, apply);
+    }
+
+    /** Sets the filters provided by LavaDSPX-Plugin. */
+    public setLavaDSPXFilters(options: LavaDSPXFiltersOptions | null, apply = true): this {
+        return this.setPluginFilters(options as PluginFiltersOptions | null, apply);
+    }
+
+    /** Sets LavaDSPX's normalization filter. */
+    public setLavaDSPXNormalization(options: NormalizationOptions | null, apply = true): this {
+        return this.setPluginFilter('normalization', options as Record<string, unknown> | null, apply);
+    }
+
+    /** Sets LavaDSPX's echo filter. */
+    public setLavaDSPXEcho(options: LavaDSPXEchoOptions | null, apply = true): this {
+        return this.setPluginFilter('echo', options as Record<string, unknown> | null, apply);
+    }
+
+    /** Sets LavaDSPX's high-pass filter. */
+    public setLavaDSPXHighPass(options: HighPassOptions | null, apply = true): this {
+        return this.setPluginFilter('high-pass', options as Record<string, unknown> | null, apply);
+    }
+
+    /** Sets LavaDSPX's low-pass filter. */
+    public setLavaDSPXLowPass(options: LavaDSPXLowPassOptions | null, apply = true): this {
+        return this.setPluginFilter('low-pass', options as Record<string, unknown> | null, apply);
+    }
+
     /**
      * Sets the volume
      * @param vol - The volume to set [0,500]
@@ -280,7 +375,7 @@ export default class Filters {
         this.options = this.options.volume ? { volume: this.options.volume } : {};
 
         for (const [filter, config] of Object.entries(filters)) {
-            if (!['channelMix', 'distortion', 'equalizer', 'karaoke', 'lowPass', 'rotation', 'timescale', 'tremolo', 'vibrato'].includes(filter)) {
+            if (!['channelMix', 'distortion', 'equalizer', 'karaoke', 'lowPass', 'pluginFilters', 'rotation', 'timescale', 'tremolo', 'vibrato'].includes(filter)) {
                 continue;
             }
             else {

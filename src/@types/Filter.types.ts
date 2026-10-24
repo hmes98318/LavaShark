@@ -47,6 +47,50 @@ export type VibratoOptions = {
     depth?: number;
 }
 
+export type NormalizationOptions = {
+    maxAmplitude?: number;
+    adaptive?: boolean;
+};
+
+export type EchoOptions = {
+    echoLength?: number;
+    delay?: number;
+    decay?: number;
+};
+
+export type HighPassOptions = {
+    cutoffFrequency?: number;
+    boostFactor?: number;
+};
+
+/** Options for the LavaDSPX plugin's low-pass filter. */
+export type LavaDSPXLowPassOptions = {
+    cutoffFrequency?: number;
+    boostFactor?: number;
+};
+
+/** Options for the LavaDSPX plugin's echo filter. */
+export type LavaDSPXEchoOptions = {
+    echoLength?: number;
+    decay?: number;
+};
+
+/** The filters currently exposed by LavaDSPX-Plugin. */
+export type LavaDSPXFiltersOptions = {
+    'low-pass'?: LavaDSPXLowPassOptions;
+    'high-pass'?: HighPassOptions;
+    normalization?: NormalizationOptions;
+    echo?: LavaDSPXEchoOptions;
+};
+
+export type PluginFiltersOptions = {
+    normalization?: NormalizationOptions;
+    echo?: EchoOptions;
+    'high-pass'?: HighPassOptions;
+    highPass?: HighPassOptions;
+    [key: string]: Record<string, unknown> | unknown;
+};
+
 export type FilterOptions = {
     channelMix?: ChannelMixOptions;
     distortion?: DistortionOptions;
@@ -59,6 +103,7 @@ export type FilterOptions = {
 
     karaoke?: KaraokeOptions;
     lowPass?: LowPassOptions;
+    pluginFilters?: PluginFiltersOptions;
     rotation?: RotationOptions;
     timescale?: TimescaleOptions;
     tremolo?: TremoloOptions;
@@ -66,4 +111,4 @@ export type FilterOptions = {
     volume?: number;
 
     [key: string]: unknown;
-}
+};

@@ -15,6 +15,7 @@
         "test:deezer": "tsx scripts/test-sources-deezer.ts",
         "test:spotify": "tsx scripts/test-sources-spotify.ts",
         "lint": "eslint . --ext .ts --color",
+        "typecheck": "tsc --noEmit",
         "docs": "typedoc --json docs/typedoc.json --options typedoc-config.json"
     },
     "repository": {
