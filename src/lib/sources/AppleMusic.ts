@@ -304,21 +304,25 @@ export default class AppleMusic extends AbstractExternalSource {
                 ));
             }
 
-            const schemaTracks = type === 'song' || type === 'music-video'
-                ? [schema]
-                : schema.tracks ?? schema.track ?? [];
-            const limitedTracks = schemaTracks.slice(0, 400);
-            const trackIds = limitedTracks
-                .map(track => AppleMusic.getTrackId(track.url))
-                .filter((trackId): trackId is string => Boolean(trackId));
-            const lookupTracks = await this.lookupItunesTracks(trackIds);
-            const defaultArtist = type === 'artist'
-                ? schema.name
-                : AppleMusic.getArtistName(schema.byArtist ?? schema.creator);
-            const unresolvedTracks = limitedTracks
-                .map(track => this.buildPublicPageTrack(
-                    track, lookupTracks, defaultArtist))
-                .filter((track): track is UnresolvedTrack => Boolean(track));
+            let unresolvedTracks: UnresolvedTrack[];
+
+            if (type === 'artist') {
+                unresolvedTracks = await this.getPublicArtistTracks(html, storefront);
+            } else {
+                const schemaTracks = type === 'song' || type === 'music-video'
+                    ? [schema]
+                    : schema.tracks ?? schema.track ?? [];
+                const limitedTracks = schemaTracks.slice(0, 400);
+                const trackIds = limitedTracks
+                    .map(track => AppleMusic.getTrackId(track.url))
+                    .filter((trackId): trackId is string => Boolean(trackId));
+                const lookupTracks = await this.lookupItunesTracks(trackIds, storefront);
+                const defaultArtist = AppleMusic.getArtistName(schema.byArtist ?? schema.creator);
+                unresolvedTracks = limitedTracks
+                    .map(track => this.buildPublicPageTrack(
+                        track, lookupTracks, defaultArtist))
+                    .filter((track): track is UnresolvedTrack => Boolean(track));
+            }
 
             if (unresolvedTracks.length === 0) {
                 return this.handleErrorResult(this.createPublicPageError(
@@ -354,8 +358,83 @@ export default class AppleMusic extends AbstractExternalSource {
         }
     }
 
+    private async getPublicArtistTracks(html: string, storefront: string): Promise<UnresolvedTrack[]> {
+        // Artist JSON-LD omits songs; the web player's Top Songs section includes full durations.
+        const match = html.match(
+            /<script\b[^>]*\bid=["']serialized-server-data["'][^>]*>(?<json>[\s\S]*?)<\/script>/
+        );
+        const json = match?.groups?.['json'];
+        if (!json) return [];
+
+        const payload: unknown = JSON.parse(json);
+        if (!AppleMusic.isObject(payload) || !Array.isArray(payload.data)) return [];
+
+        const tracks: Array<{
+            title: string;
+            duration: number;
+            url: string;
+        }> = [];
+        for (const page of payload.data) {
+            if (!AppleMusic.isObject(page) || !AppleMusic.isObject(page.data) ||
+                !Array.isArray(page.data.sections)) continue;
+
+            for (const section of page.data.sections) {
+                if (!AppleMusic.isObject(section) ||
+                    section.itemKind !== 'artistFeaturedContentAndTracks' ||
+                    !Array.isArray(section.items)) continue;
+
+                for (const item of section.items) {
+                    if (!AppleMusic.isObject(item) || !Array.isArray(item.tracks)) continue;
+
+                    for (const track of item.tracks) {
+                        if (tracks.length === 400) break;
+                        if (!AppleMusic.isObject(track)) continue;
+
+                        const descriptor = track.contentDescriptor;
+                        if (!AppleMusic.isObject(descriptor) || descriptor.kind !== 'song' ||
+                            typeof descriptor.url !== 'string' || !descriptor.url ||
+                            typeof track.title !== 'string' || !track.title ||
+                            typeof track.duration !== 'number' ||
+                            !Number.isFinite(track.duration) || track.duration <= 0) continue;
+
+                        tracks.push({
+                            title: track.title,
+                            duration: track.duration,
+                            url: descriptor.url,
+                        });
+                    }
+                }
+            }
+        }
+
+        const trackIds = tracks
+            .map(track => AppleMusic.getTrackId(track.url))
+            .filter((id): id is string => Boolean(id));
+        const lookupTracks = await this.lookupItunesTracks(trackIds, storefront);
+
+        return tracks.map(track => {
+            const id = AppleMusic.getTrackId(track.url);
+            const artistName = id ? lookupTracks.get(id)?.artistName : undefined;
+
+            // Artist pages also include guest appearances credited to other artists.
+            if (!artistName) {
+                throw new Error(`Could not determine the author of Apple Music track ${track.url}`);
+            }
+
+            return new UnresolvedTrack(
+                this.lavashark,
+                track.title,
+                artistName,
+                track.duration,
+                track.url,
+                'apple-music'
+            );
+        });
+    }
+
     private async lookupItunesTracks(
-        trackIds: string[]
+        trackIds: string[],
+        storefront: string
     ): Promise<Map<string, IItunesLookupTrack>> {
         const tracks = new Map<string, IItunesLookupTrack>();
 
@@ -363,6 +442,7 @@ export default class AppleMusic extends AbstractExternalSource {
             const ids = trackIds.slice(offset, offset + 100);
             const url = new URL('https://itunes.apple.com/lookup');
             url.searchParams.set('id', ids.join(','));
+            url.searchParams.set('country', storefront);
 
             const response = await fetch(url, {
                 headers: { 'User-Agent': AppleMusic.USER_AGENT }
@@ -429,8 +509,14 @@ export default class AppleMusic extends AbstractExternalSource {
         }
     }
 
+    private static isObject(value: unknown): value is Record<string, unknown> {
+        return typeof value === 'object' && value !== null && !Array.isArray(value);
+    }
+
     private static getTrackId(url: string | undefined): string | undefined {
-        return url?.match(/\/(\d+)(?:[?#]|$)/)?.[1];
+        // Album URLs identify the song with i; the numeric path identifies the album.
+        return url?.match(/[?&]i=(\d+)(?:[&#]|$)/)?.[1] ??
+            url?.match(/\/(\d+)(?:[?#]|$)/)?.[1];
     }
 
     private static getArtistName(

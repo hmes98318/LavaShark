@@ -19,6 +19,18 @@ const APPLE_MUSIC_TEST_CASES: MetadataTestCase[] = [
         expectedLoadType: 'playlist',
     },
     {
+        url: 'https://music.apple.com/us/artist/keith-urban/549836',
+        expectedLoadType: 'playlist',
+    },
+    {
+        url: 'https://music.apple.com/us/album/highway-dont-care-feat-taylor-swift-keith-urban/1440934150?i=1440935305',
+        expectedLoadType: 'track',
+    },
+    {
+        url: 'https://music.apple.com/us/album/one-too-many/1525794720?i=1525795239',
+        expectedLoadType: 'track',
+    },
+    {
         url: 'https://music.apple.com/us/music-video/enchanted-taylors-version-lyric-video/1696244219',
         expectedLoadType: 'track',
     },

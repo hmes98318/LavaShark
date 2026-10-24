@@ -18,10 +18,12 @@ export default class AppleMusic extends AbstractExternalSource {
     private handleErrorResult;
     private buildTrack;
     private getPublicPageResult;
+    private getPublicArtistTracks;
     private lookupItunesTracks;
     private buildPublicPageTrack;
     private createPublicPageError;
     private static parseSchema;
+    private static isObject;
     private static getTrackId;
     private static getArtistName;
     private static parseIsoDuration;
